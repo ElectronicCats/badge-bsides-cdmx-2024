@@ -2994,6 +2994,82 @@
 		(color 0 0 0 0)
 		(uuid "fbc12b17-be2c-4d07-b573-8535808b14e7")
 	)
+	(no_connect
+		(at 47.752 53.34)
+		(uuid "01d48234-4872-4b84-b1fb-e670973ef2c0")
+	)
+	(no_connect
+		(at 47.752 78.74)
+		(uuid "2e06dd95-6d8b-45cc-9a05-629fad280670")
+	)
+	(no_connect
+		(at 47.752 35.56)
+		(uuid "2fb95df6-6b32-47bd-b4b8-e1ba4c427d66")
+	)
+	(no_connect
+		(at 47.752 43.18)
+		(uuid "39575580-23da-48d9-b789-8bc42f48d9bf")
+	)
+	(no_connect
+		(at 47.752 66.04)
+		(uuid "3cbbf970-fdd3-4027-8b3d-8274a53fe066")
+	)
+	(no_connect
+		(at 47.752 48.26)
+		(uuid "42ec06be-16ec-474c-a9ff-b0ff64701059")
+	)
+	(no_connect
+		(at 47.752 73.66)
+		(uuid "4786abfc-3328-4a20-bfcc-304e5f8adf29")
+	)
+	(no_connect
+		(at 47.752 76.2)
+		(uuid "4a470d32-ecf7-4e8c-8878-5bef0a84b70e")
+	)
+	(no_connect
+		(at 47.752 68.58)
+		(uuid "5f516607-d598-49fd-8d00-58baf8b6167d")
+	)
+	(no_connect
+		(at 47.752 63.5)
+		(uuid "845ae43b-c95e-481f-b723-6de8d1f7ee0c")
+	)
+	(no_connect
+		(at 98.552 40.64)
+		(uuid "986f4adb-4054-4ab8-9310-cb49e8c1a3ea")
+	)
+	(no_connect
+		(at 98.552 43.18)
+		(uuid "9adbb046-4f4d-4683-b14d-b286aebf31f9")
+	)
+	(no_connect
+		(at 47.752 60.96)
+		(uuid "a33b61de-5cf2-4d88-bb27-a602b5e27ba8")
+	)
+	(no_connect
+		(at 47.752 50.8)
+		(uuid "adff7be6-5026-49f6-b371-4b8e34301a41")
+	)
+	(no_connect
+		(at 47.752 45.72)
+		(uuid "b255a68a-7cb3-412e-a0bb-16e8b7893875")
+	)
+	(no_connect
+		(at 127.254 101.6)
+		(uuid "b3288692-6598-4f4b-8377-fa45a3e74c53")
+	)
+	(no_connect
+		(at 47.752 71.12)
+		(uuid "bb817184-2791-4359-bf7d-d7ade2dd23be")
+	)
+	(no_connect
+		(at 47.752 58.42)
+		(uuid "ef8b14d7-e760-4a5e-84be-28051079a690")
+	)
+	(no_connect
+		(at 47.752 55.88)
+		(uuid "fb215fac-943c-4409-8989-a1953f9828a6")
+	)
 	(wire
 		(pts
 			(xy 168.402 95.504) (xy 173.482 95.504)
@@ -3063,16 +3139,6 @@
 			(type default)
 		)
 		(uuid "0c5bb4dc-bdfd-4e60-84c1-82010ffc9b52")
-	)
-	(wire
-		(pts
-			(xy 173.355 109.474) (xy 171.323 109.474)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0c93e3bc-f304-4184-8ded-122bd6d93164")
 	)
 	(wire
 		(pts
@@ -3196,6 +3262,16 @@
 	)
 	(wire
 		(pts
+			(xy 169.926 112.776) (xy 169.926 113.665)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33e402dc-8dcf-45cd-abc6-ef68114b6329")
+	)
+	(wire
+		(pts
 			(xy 100.838 76.2) (xy 98.552 76.2)
 		)
 		(stroke
@@ -3243,6 +3319,16 @@
 			(type default)
 		)
 		(uuid "3a19988d-fc9f-43a5-8e51-d33a57a5e6f5")
+	)
+	(wire
+		(pts
+			(xy 171.958 112.776) (xy 169.926 112.776)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3ac5d637-15bc-42fc-94d8-190a26810a78")
 	)
 	(wire
 		(pts
@@ -3313,6 +3399,16 @@
 			(type default)
 		)
 		(uuid "502ca4fc-7c95-454e-8f96-e1cd4d213952")
+	)
+	(wire
+		(pts
+			(xy 182.118 112.776) (xy 184.023 112.776)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "58b9441f-5929-426b-8762-8725a8286964")
 	)
 	(wire
 		(pts
@@ -3676,16 +3772,6 @@
 	)
 	(wire
 		(pts
-			(xy 171.323 109.474) (xy 171.323 110.363)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b7f73fb-150f-483b-84fd-d73a74b979e3")
-	)
-	(wire
-		(pts
 			(xy 181.864 91.948) (xy 183.388 91.948)
 		)
 		(stroke
@@ -3776,6 +3862,16 @@
 	)
 	(wire
 		(pts
+			(xy 43.942 38.1) (xy 47.752 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b2c5684c-d734-4508-a18e-fc9e0e523b90")
+	)
+	(wire
+		(pts
 			(xy 233.426 66.294) (xy 235.966 66.294)
 		)
 		(stroke
@@ -3853,16 +3949,6 @@
 			(type default)
 		)
 		(uuid "cb8c3f9c-185c-40f3-9d3c-9df84cb4f0f7")
-	)
-	(wire
-		(pts
-			(xy 183.515 109.474) (xy 185.42 109.474)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cdbb2508-3ca4-4928-b7ef-7d06cffdcc13")
 	)
 	(wire
 		(pts
@@ -4186,6 +4272,17 @@
 		)
 		(uuid "5b40c6a1-bce4-44ed-ac92-aa5dc8ca944b")
 	)
+	(label "RST"
+		(at 43.942 38.1 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "69b64b12-3b66-4234-a957-7cbb50c73fa6")
+	)
 	(label "SCL"
 		(at 236.982 35.052 0)
 		(fields_autoplaced yes)
@@ -4296,6 +4393,17 @@
 		)
 		(uuid "f2bb6b03-4a4b-4a7a-b08f-5228fa771efd")
 	)
+	(label "RST"
+		(at 184.023 112.776 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f5ece85f-530c-48d6-ae89-b3e83e395bda")
+	)
 	(symbol
 		(lib_id "Device:R_Small")
 		(at 238.506 71.374 90)
@@ -4313,7 +4421,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "330R"
 			(at 238.506 73.152 90)
 			(effects
 				(font
@@ -4321,7 +4429,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 238.506 71.374 0)
 			(effects
 				(font
@@ -4348,6 +4456,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C119075"
+			(at 238.506 71.374 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
+			(at 238.506 71.374 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3bb67aff-bd2b-428b-9d45-75d531ab653c")
 		)
@@ -4358,71 +4484,6 @@
 			(project "badge-bsides-cdmx-2024"
 				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 171.323 110.363 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "062925d3-9dae-427c-a6a9-3fe636b3ccdd")
-		(property "Reference" "#PWR016"
-			(at 171.323 116.713 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 171.45 114.7572 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 171.323 110.363 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 171.323 110.363 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 171.323 110.363 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fe00a64f-39cb-4d50-9079-b82628495e8f")
-		)
-		(instances
-			(project "badge-bsides-cdmx-2024"
-				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
-					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -4488,6 +4549,100 @@
 			(project "badge-bsides-cdmx-2024"
 				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 177.038 112.776 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "08547f8d-42d4-489a-a3b0-07d2cfaf1338")
+		(property "Reference" "SW5"
+			(at 177.038 105.537 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RESET"
+			(at 177.038 107.8484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
+			(at 177.038 107.696 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
+			(at 177.038 107.696 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 177.038 112.776 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" ""
+			(at 177.038 112.776 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C2886897"
+			(at 177.038 112.776 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
+			(at 177.038 112.776 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c55dce16-723b-4e5d-ab85-a8ca7e5f0062")
+		)
+		(pin "2"
+			(uuid "271f8cb4-e1cc-4e3f-b23a-3fc838012de7")
+		)
+		(instances
+			(project "badge-bsides-cdmx-2024"
+				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
+					(reference "SW5")
 					(unit 1)
 				)
 			)
@@ -4948,7 +5103,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "330R"
 			(at 238.506 68.072 90)
 			(effects
 				(font
@@ -4956,7 +5111,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 238.506 66.294 0)
 			(effects
 				(font
@@ -4975,6 +5130,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 238.506 66.294 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C119075"
+			(at 238.506 66.294 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 238.506 66.294 0)
 			(effects
 				(font
@@ -5122,7 +5295,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 245.364 81.534 90)
 			(effects
 				(font
@@ -5566,7 +5739,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "330R"
 			(at 238.506 62.484 90)
 			(effects
 				(font
@@ -5574,7 +5747,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 238.506 60.96 0)
 			(effects
 				(font
@@ -5601,6 +5774,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C119075"
+			(at 238.506 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
+			(at 238.506 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "cdbdc677-2443-430c-9634-5a48208a715f")
 		)
@@ -5611,6 +5802,71 @@
 			(project "badge-bsides-cdmx-2024"
 				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 169.926 113.665 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "58436ee1-0e95-4e0a-ae0a-f1c07840b948")
+		(property "Reference" "#PWR016"
+			(at 169.926 120.015 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 170.053 118.0592 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 169.926 113.665 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 169.926 113.665 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 169.926 113.665 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9b6ac98a-82d6-447b-9559-052ebb51032d")
+		)
+		(instances
+			(project "badge-bsides-cdmx-2024"
+				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -6074,7 +6330,7 @@
 				)
 			)
 		)
-		(property "Value" "LED1"
+		(property "Value" "RED"
 			(at 248.412 62.23 0)
 			(effects
 				(font
@@ -6082,7 +6338,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 245.11 60.96 90)
 			(effects
 				(font
@@ -6101,6 +6357,24 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
+			(at 245.11 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C965812"
+			(at 245.11 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 245.11 60.96 0)
 			(effects
 				(font
@@ -6141,7 +6415,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "330R"
 			(at 238.76 83.312 90)
 			(effects
 				(font
@@ -6149,7 +6423,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 238.76 81.534 0)
 			(effects
 				(font
@@ -6168,6 +6442,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 238.76 81.534 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C119075"
+			(at 238.76 81.534 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 238.76 81.534 0)
 			(effects
 				(font
@@ -6208,7 +6500,7 @@
 				)
 			)
 		)
-		(property "Value" "LED2"
+		(property "Value" "Green"
 			(at 248.412 67.564 0)
 			(effects
 				(font
@@ -6216,7 +6508,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 245.11 66.294 90)
 			(effects
 				(font
@@ -6243,6 +6535,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C965815"
+			(at 245.11 66.294 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
+			(at 245.11 66.294 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9977dddc-59bd-42d2-8f14-8d0893c70364")
 		)
@@ -6253,100 +6563,6 @@
 			(project "badge-bsides-cdmx-2024"
 				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
 					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Push")
-		(at 178.435 109.474 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "aae7259f-f0b3-43ad-a156-8cb96864d10d")
-		(property "Reference" "SW5"
-			(at 178.435 102.235 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "RESET"
-			(at 178.435 104.5464 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
-			(at 178.435 104.394 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
-			(at 178.435 104.394 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 178.435 109.474 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 178.435 109.474 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C2886897"
-			(at 178.435 109.474 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "provedor" "LCSC"
-			(at 178.435 109.474 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "4108bb2e-f82a-4b29-8140-dfc16c0613cf")
-		)
-		(pin "2"
-			(uuid "67665617-a7a7-4c24-b072-ba23f5cf6144")
-		)
-		(instances
-			(project "badge-bsides-cdmx-2024"
-				(path "/8dd16752-6707-4d5b-a596-9f20b9696938"
-					(reference "SW5")
 					(unit 1)
 				)
 			)
@@ -6369,7 +6585,7 @@
 				)
 			)
 		)
-		(property "Value" "LED3"
+		(property "Value" "Blue"
 			(at 248.666 73.152 0)
 			(effects
 				(font
@@ -6377,7 +6593,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 245.11 71.374 90)
 			(effects
 				(font
@@ -6396,6 +6612,24 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
+			(at 245.11 71.374 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C205441"
+			(at 245.11 71.374 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 245.11 71.374 0)
 			(effects
 				(font
@@ -6598,7 +6832,7 @@
 				)
 			)
 		)
-		(property "Value" "OLED"
+		(property "Value" "Purple"
 			(at 230.251 29.464 0)
 			(effects
 				(font
@@ -6606,7 +6840,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 229.616 37.592 0)
 			(effects
 				(font
@@ -6625,6 +6859,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated"
+			(at 229.616 37.592 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C7371915"
 			(at 229.616 37.592 0)
 			(effects
 				(font
@@ -6803,7 +7046,7 @@
 				)
 			)
 		)
-		(property "Value" "LED4"
+		(property "Value" "Yellow"
 			(at 247.904 78.232 0)
 			(effects
 				(font
@@ -6811,7 +7054,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
 			(at 245.364 76.454 90)
 			(effects
 				(font
@@ -6830,6 +7073,24 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
+			(at 245.364 76.454 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C84261"
+			(at 245.364 76.454 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 245.364 76.454 0)
 			(effects
 				(font
@@ -6964,7 +7225,7 @@
 				)
 			)
 		)
-		(property "Value" "220R"
+		(property "Value" "330R"
 			(at 238.506 78.232 90)
 			(effects
 				(font
@@ -6972,7 +7233,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 238.506 76.454 0)
 			(effects
 				(font
@@ -6991,6 +7252,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 238.506 76.454 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C119075"
+			(at 238.506 76.454 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "LCSC"
 			(at 238.506 76.454 0)
 			(effects
 				(font
