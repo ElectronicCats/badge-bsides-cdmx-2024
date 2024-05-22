@@ -7298,7 +7298,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "bsides:BH-AAA-A1aj001"
+		(property "Footprint" "Community:BATT_8BH-AA-A1AJ020_MYG"
 			(at 97.028 185.166 0)
 			(effects
 				(font
@@ -10458,7 +10458,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "bsides:BH-AAA-A1aj001"
+		(property "Footprint" "Community:BATT_8BH-AA-A1AJ020_MYG"
 			(at 97.028 179.959 0)
 			(effects
 				(font
