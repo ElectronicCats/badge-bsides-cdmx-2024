@@ -1145,16 +1145,6 @@
 	)
 	(wire
 		(pts
-			(xy 169.799 91.948) (xy 167.259 91.948)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04482541-bcd6-4a17-ab77-0a317530a820")
-	)
-	(wire
-		(pts
 			(xy 145.669 46.101) (xy 145.669 47.371)
 		)
 		(stroke
@@ -1315,16 +1305,6 @@
 	)
 	(wire
 		(pts
-			(xy 155.829 91.948) (xy 162.179 91.948)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "485a5017-8b6c-4076-9c24-0735ad05430e")
-	)
-	(wire
-		(pts
 			(xy 169.799 46.101) (xy 167.259 46.101)
 		)
 		(stroke
@@ -1362,16 +1342,6 @@
 			(type default)
 		)
 		(uuid "865207ad-4ba8-4436-a005-1b095e81cd09")
-	)
-	(wire
-		(pts
-			(xy 169.799 88.138) (xy 169.799 91.948)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "872f58f2-eecb-4993-8d88-a5a290dec8d8")
 	)
 	(wire
 		(pts
@@ -1455,16 +1425,6 @@
 	)
 	(wire
 		(pts
-			(xy 145.669 91.948) (xy 145.669 93.218)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a196dc8c-6241-449d-82f4-fde997fe8475")
-	)
-	(wire
-		(pts
 			(xy 43.18 36.83) (xy 36.83 36.83)
 		)
 		(stroke
@@ -1472,16 +1432,6 @@
 			(type default)
 		)
 		(uuid "a5187192-9d91-4a95-b9a3-064e91148d94")
-	)
-	(wire
-		(pts
-			(xy 150.749 91.948) (xy 145.669 91.948)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a700176f-135e-4f8e-a8c5-e118a704512c")
 	)
 	(wire
 		(pts
@@ -1637,17 +1587,6 @@
 			(justify left bottom)
 		)
 		(uuid "2d9ef9bc-330e-433a-a35b-4ca05ddeab87")
-	)
-	(label "PF0"
-		(at 169.799 88.138 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5528144e-bc12-4869-961e-538c5f40705c")
 	)
 	(label "NRST"
 		(at 36.83 44.45 0)
@@ -1851,72 +1790,6 @@
 			(project "Bsides_2024_ShittyAddon"
 				(path "/fa55fab3-fffc-42b9-adaa-f6f3ac8d204e"
 					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 145.669 93.218 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1f95be81-2510-4e66-88e6-7e99b2e753a7")
-		(property "Reference" "#PWR010"
-			(at 145.669 99.568 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 145.669 98.298 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 145.669 93.218 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 145.669 93.218 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 145.669 93.218 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "02c98841-839a-4143-a866-0206605991b9")
-		)
-		(instances
-			(project "Bsides_2024_ShittyAddon"
-				(path "/fa55fab3-fffc-42b9-adaa-f6f3ac8d204e"
-					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -2555,92 +2428,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 153.289 91.948 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7919d818-f86d-4a33-856c-106e7a25fc5e")
-		(property "Reference" "R4"
-			(at 153.289 86.868 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "330R"
-			(at 153.289 89.408 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 153.289 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 153.289 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 153.289 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C2907321"
-			(at 153.289 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 153.289 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2b21a603-0515-4cb3-807e-ecc02fed8043")
-		)
-		(pin "2"
-			(uuid "5be20953-ad30-4519-b58c-cab458a313b4")
-		)
-		(instances
-			(project "Bsides_2024_ShittyAddon"
-				(path "/fa55fab3-fffc-42b9-adaa-f6f3ac8d204e"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 145.542 33.909 0)
 		(unit 1)
@@ -3073,91 +2860,6 @@
 			(project "Bsides_2024_ShittyAddon"
 				(path "/fa55fab3-fffc-42b9-adaa-f6f3ac8d204e"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 164.719 91.948 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "db273f3e-1bf7-4e20-849e-1bfb34f9044f")
-		(property "Reference" "D4"
-			(at 164.592 85.852 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Orange"
-			(at 164.592 88.392 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 164.719 91.948 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_1912111437_Yongyu-Photoelectric-SZYY0805O_C434437.pdf"
-			(at 164.719 91.948 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 164.719 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC#" "C434437"
-			(at 164.719 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" ""
-			(at 164.719 91.948 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8068cdbc-c5b4-4498-935a-ef8dbf397185")
-		)
-		(pin "2"
-			(uuid "7e2442b2-998a-4c45-9152-4d36652dcab5")
-		)
-		(instances
-			(project "Bsides_2024_ShittyAddon"
-				(path "/fa55fab3-fffc-42b9-adaa-f6f3ac8d204e"
-					(reference "D4")
 					(unit 1)
 				)
 			)
