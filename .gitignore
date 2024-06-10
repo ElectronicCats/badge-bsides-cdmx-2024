@@ -22,8 +22,8 @@ fp-info-cache
 *.ses
 
 # Exported BOM files
-*.xml
-*.csv
+hardware/**/*.xml
+hardware/**/*.csv
 
 hardware/Template-KiCAD-Project-CI-backups/
 
@@ -32,3 +32,18 @@ hardware/badge-bsides-cdmx-2024-backups/badge-bsides-cdmx-2024-2024-04-29_145911
 hardware/badge-bsides-cdmx-2024-backups/
 
 *.zip
+
+# Visual Studio config files
+.vscode/
+
+# macOS folder attributes
+/**/.DS_Store
+
+# Firmware binaries
+/**/build/
+/**/managed_components/
+
+# IDF sdkconfig
+/**/sdkconfig
+/**/sdkconfig.old
+/**/dependencies.lock
