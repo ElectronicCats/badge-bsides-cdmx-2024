@@ -5496,16 +5496,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 118.11) (xy 82.55 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e222886-85fc-49d0-9384-9d7d8d941ec6")
-	)
-	(wire
-		(pts
 			(xy 192.024 119.761) (xy 196.215 119.761)
 		)
 		(stroke
@@ -5646,16 +5636,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 120.65) (xy 82.55 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "31a01718-f858-42b2-9d54-1752f2944461")
-	)
-	(wire
-		(pts
 			(xy 199.136 69.85) (xy 199.136 70.358)
 		)
 		(stroke
@@ -5743,6 +5723,16 @@
 			(type default)
 		)
 		(uuid "3790efa8-c19b-4263-aadf-48e5a8409d58")
+	)
+	(wire
+		(pts
+			(xy 80.01 116.84) (xy 77.47 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "37a77a44-4b9a-42ca-9886-9c12db3dae83")
 	)
 	(wire
 		(pts
@@ -6066,16 +6056,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 123.19) (xy 82.55 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6f40dcca-4861-4a68-9f98-f3820cc46c47")
-	)
-	(wire
-		(pts
 			(xy 58.674 37.846) (xy 70.612 37.846)
 		)
 		(stroke
@@ -6283,6 +6263,16 @@
 			(type default)
 		)
 		(uuid "8a0b240e-e4ea-4ca0-9a77-39936dd8d667")
+	)
+	(wire
+		(pts
+			(xy 80.01 119.38) (xy 77.47 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a7744bd-4ed6-4053-b0eb-836887503d58")
 	)
 	(wire
 		(pts
@@ -6536,16 +6526,6 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 115.57) (xy 82.55 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aab75a77-5031-4dbc-a565-95f7635cde76")
-	)
-	(wire
-		(pts
 			(xy 26.67 116.84) (xy 29.21 116.84)
 		)
 		(stroke
@@ -6726,6 +6706,16 @@
 	)
 	(wire
 		(pts
+			(xy 80.01 121.92) (xy 77.47 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c55fa082-6aa0-4fe2-9ab2-be11c4dba581")
+	)
+	(wire
+		(pts
 			(xy 251.587 89.154) (xy 251.587 85.598)
 		)
 		(stroke
@@ -6773,6 +6763,16 @@
 			(type default)
 		)
 		(uuid "cc3a8db6-1e2d-4449-9e86-cd2d677bd8c6")
+	)
+	(wire
+		(pts
+			(xy 80.01 124.46) (xy 77.47 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc67b9e8-4761-480b-97b1-319a5965a8e2")
 	)
 	(wire
 		(pts
@@ -7268,17 +7268,6 @@
 		)
 		(uuid "17d3d5bf-18e5-4f36-b08f-58936b9989cc")
 	)
-	(label "SDA"
-		(at 76.2 123.19 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "1b2d88f8-2342-4396-9178-6b5e89e1bd36")
-	)
 	(label "VOUT"
 		(at 213.36 118.11 0)
 		(fields_autoplaced yes)
@@ -7345,17 +7334,6 @@
 		)
 		(uuid "3ba86d11-fb27-4e14-ae52-b42097eaca47")
 	)
-	(label "SCL"
-		(at 76.2 120.65 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3d54f82f-ffb4-47a2-91e3-31b5e201cfe4")
-	)
 	(label "PIN"
 		(at 172.466 131.826 0)
 		(fields_autoplaced yes)
@@ -7366,17 +7344,6 @@
 			(justify left bottom)
 		)
 		(uuid "442b236c-e5f7-40d3-a6ff-02deeef9af32")
-	)
-	(label "GND"
-		(at 76.2 118.11 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4947a6c6-bf31-48e5-b413-93ba365dd2ac")
 	)
 	(label "D+"
 		(at 149.606 59.69 0)
@@ -7399,6 +7366,17 @@
 			(justify left bottom)
 		)
 		(uuid "55de58ae-6790-4d20-b6d0-92278e236747")
+	)
+	(label "SCL"
+		(at 77.47 119.38 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5be40de3-b88e-4fe3-a096-dbf799c7dd8f")
 	)
 	(label "GPIO1"
 		(at 250.063 85.598 180)
@@ -7443,6 +7421,17 @@
 			(justify right bottom)
 		)
 		(uuid "66ddf832-2844-4fa4-bb86-75309d0a20a7")
+	)
+	(label "GND"
+		(at 77.47 124.46 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6c5ba531-e7d4-4825-9488-106fcadf1075")
 	)
 	(label "BOOT"
 		(at 182.753 67.818 180)
@@ -7510,17 +7499,6 @@
 		)
 		(uuid "96c2b96c-7943-4f38-8b4a-14ee54466645")
 	)
-	(label "VOUT"
-		(at 76.2 115.57 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9cc2e06b-5c46-4073-bd24-73f4b27674ca")
-	)
 	(label "GPIO15"
 		(at 62.484 71.374 0)
 		(fields_autoplaced yes)
@@ -7564,6 +7542,17 @@
 			(justify left bottom)
 		)
 		(uuid "b16ffd93-9d3e-4592-ae2e-0d18fb935469")
+	)
+	(label "SDA"
+		(at 77.47 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bb5e8fb1-8ef5-437b-9337-fe41217e71e0")
 	)
 	(label "VOUT"
 		(at 85.09 58.42 0)
@@ -7652,6 +7641,17 @@
 			(justify left bottom)
 		)
 		(uuid "e2ce631d-4848-4033-a0d0-44cd4cf877b0")
+	)
+	(label "VOUT"
+		(at 77.47 121.92 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ede13475-6c8a-49a8-a695-47cff064eb27")
 	)
 	(label "BOOT"
 		(at 24.638 71.374 0)
@@ -9133,6 +9133,100 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Screw_Terminal_01x04")
+		(at 85.09 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2bee646a-4012-438c-b047-d741bf61dc43")
+		(property "Reference" "J4"
+			(at 87.376 119.3799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "OLED"
+			(at 87.376 121.9199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "bsides:Display OLED 128 x32"
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "manf#" "Display OLED 128×32 0.91 I2C SSD1306 Blanco / Azul"
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "provedor" "UNIT Electronics"
+			(at 85.09 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e3cac2f-d036-41a6-a706-fccb89bbca6e")
+		)
+		(pin "2"
+			(uuid "b94cfe0f-6de4-4410-a568-159722679862")
+		)
+		(pin "3"
+			(uuid "bb9aa23b-84f9-4d52-aa68-5c5fec1b063f")
+		)
+		(pin "4"
+			(uuid "57e05c2d-5b3e-4937-95bd-205b023d9218")
+		)
+		(instances
+			(project "Bsides_2024_Guest"
+				(path "/21a57a81-777f-4f81-b806-a7171bf6ef6c"
+					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 199.39 55.88 0)
 		(mirror y)
@@ -9813,100 +9907,6 @@
 			(project "Bsides_2024_Guest"
 				(path "/21a57a81-777f-4f81-b806-a7171bf6ef6c"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Screw_Terminal_01x04")
-		(at 87.63 118.11 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "469fed10-ae63-452c-af57-a6ef28152257")
-		(property "Reference" "J4"
-			(at 89.916 118.1099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "OLED"
-			(at 89.916 120.6499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "bsides:Display OLED 128 x32"
-			(at 87.63 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 87.63 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 87.63 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "manf#" "I2C SH1106 Display Oled Azul 128×64 1.3 ” "
-			(at 87.63 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "provedor" "UNIT Electronics"
-			(at 87.63 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "efaad9c3-02c2-441b-877e-076504a5854f")
-		)
-		(pin "2"
-			(uuid "af0084fc-1092-4259-bd7f-bedaf89ac506")
-		)
-		(pin "3"
-			(uuid "c63d791f-2418-4a51-8bcc-b54e6ce12fcb")
-		)
-		(pin "4"
-			(uuid "787e1ba1-ecd9-4e15-ae42-a8d8e95de284")
-		)
-		(instances
-			(project "Bsides_2024_Guest"
-				(path "/21a57a81-777f-4f81-b806-a7171bf6ef6c"
-					(reference "J4")
 					(unit 1)
 				)
 			)
