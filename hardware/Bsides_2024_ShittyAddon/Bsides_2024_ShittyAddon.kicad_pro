@@ -549,6 +549,12 @@
           "label": "Descripción",
           "name": "Description",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Proveedor",
+          "name": "Proveedor",
+          "show": false
         }
       ],
       "filter_string": "",
