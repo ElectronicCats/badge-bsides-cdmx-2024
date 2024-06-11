@@ -5,6 +5,210 @@
 	(uuid "77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:Conn_01x03_Socket"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x03_Socket"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x03, script generated"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x03_Socket_1_1"
+				(arc
+					(start 0 -2.032)
+					(mid -0.5058 -2.54)
+					(end 0 -3.048)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.54) (xy -0.508 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 0.508)
+					(mid -0.5058 0)
+					(end 0 -0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 3.048)
+					(mid -0.5058 2.54)
+					(end 0 2.032)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 2.54 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:Screw_Terminal_01x02"
 			(pin_names
 				(offset 1.016) hide)
@@ -5192,6 +5396,26 @@
 	)
 	(wire
 		(pts
+			(xy 144.018 132.08) (xy 147.066 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1aeeae65-ec63-4549-9df8-62d6e0077abc")
+	)
+	(wire
+		(pts
+			(xy 14.986 133.096) (xy 18.034 133.096)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b10f3e1-96a9-4fa2-acc1-5fda11c80c29")
+	)
+	(wire
+		(pts
 			(xy 251.714 47.498) (xy 253.492 47.498)
 		)
 		(stroke
@@ -5259,6 +5483,16 @@
 			(type default)
 		)
 		(uuid "21551034-c90c-4096-8b69-81554dc073d6")
+	)
+	(wire
+		(pts
+			(xy 144.018 132.588) (xy 144.018 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22442b82-e989-43a3-8773-f6d3ef11ea80")
 	)
 	(wire
 		(pts
@@ -5662,6 +5896,16 @@
 	)
 	(wire
 		(pts
+			(xy 15.494 128.016) (xy 18.034 128.016)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56950262-36c5-47bd-b6f5-8bf9cd3535ae")
+	)
+	(wire
+		(pts
 			(xy 134.112 38.354) (xy 134.112 37.592)
 		)
 		(stroke
@@ -6002,6 +6246,16 @@
 	)
 	(wire
 		(pts
+			(xy 144.018 129.54) (xy 147.066 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82f9f513-bab3-4af7-a8ef-e152897d2565")
+	)
+	(wire
+		(pts
 			(xy 36.83 52.832) (xy 46.482 52.832)
 		)
 		(stroke
@@ -6192,6 +6446,16 @@
 	)
 	(wire
 		(pts
+			(xy 14.986 133.604) (xy 14.986 133.096)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "916c0406-ae3b-4de7-bead-341fc9854120")
+	)
+	(wire
+		(pts
 			(xy 241.808 118.11) (xy 241.808 117.983)
 		)
 		(stroke
@@ -6369,6 +6633,16 @@
 			(type default)
 		)
 		(uuid "add31b58-0225-40a9-be64-439080ea8dc0")
+	)
+	(wire
+		(pts
+			(xy 144.526 127) (xy 147.066 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af7d996c-3d73-437e-91ca-4205ecc4e2db")
 	)
 	(wire
 		(pts
@@ -6892,6 +7166,16 @@
 	)
 	(wire
 		(pts
+			(xy 14.986 130.556) (xy 18.034 130.556)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8b2159e-575c-4ddc-892e-912d097a32fe")
+	)
+	(wire
+		(pts
 			(xy 48.26 114.046) (xy 43.434 114.046)
 		)
 		(stroke
@@ -7218,6 +7502,17 @@
 		)
 		(uuid "54789cb5-c5bf-4f56-a690-823977c78f8d")
 	)
+	(label "TX"
+		(at 144.018 129.54 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5a24e5fb-fbb0-4503-96fe-ab8224897a4a")
+	)
 	(label "RX"
 		(at 74.676 63.5 0)
 		(fields_autoplaced yes)
@@ -7317,6 +7612,17 @@
 		)
 		(uuid "7aba7d8a-fd1d-4962-aa53-28ff97bc06f6")
 	)
+	(label "RX"
+		(at 14.986 130.556 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7bc60928-7987-48f7-bb07-373aa9713052")
+	)
 	(label "SDA"
 		(at 95.504 132.08 0)
 		(fields_autoplaced yes)
@@ -7327,6 +7633,17 @@
 			(justify left bottom)
 		)
 		(uuid "80409f61-57b3-40e9-b594-341aad3ae1d3")
+	)
+	(label "TX"
+		(at 15.494 128.016 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8fd3d097-64a6-4422-9040-15b51963edc0")
 	)
 	(label "SCL"
 		(at 42.164 44.704 180)
@@ -7393,6 +7710,17 @@
 			(justify left bottom)
 		)
 		(uuid "b15d5b98-c8b4-4476-9602-90a886267c26")
+	)
+	(label "RX"
+		(at 144.526 127 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b447acb2-65fd-4961-be10-c5c505293bc1")
 	)
 	(label "D-"
 		(at 42.164 60.706 0)
@@ -7560,6 +7888,79 @@
 			(project "Bsides_2024_Speaker"
 				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
 					(reference "J4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Socket")
+		(at 152.146 129.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "023e41fd-c8ee-48cf-b741-37dc35a39b3f")
+		(property "Reference" "J6"
+			(at 153.67 128.2699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Serial_OUT"
+			(at 153.67 130.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
+			(at 152.146 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 152.146 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 152.146 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1b7ea241-ac9f-4b8d-917e-37378b751837")
+		)
+		(pin "1"
+			(uuid "e6c266ca-252c-4762-940d-febe1f26148f")
+		)
+		(pin "3"
+			(uuid "1c519dc4-2896-40d5-9ada-b32a08f8af01")
+		)
+		(instances
+			(project "Bsides_2024_Speaker"
+				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -8331,6 +8732,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 144.018 132.588 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "31fae464-1376-43dc-8b55-fafa393807eb")
+		(property "Reference" "#PWR05"
+			(at 144.018 138.938 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 144.145 136.9822 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.018 132.588 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.018 132.588 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 144.018 132.588 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e065b97-b580-4e30-a0f6-a250007b7077")
+		)
+		(instances
+			(project "Bsides_2024_Speaker"
+				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
+					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 125.73 43.434 270)
 		(unit 1)
@@ -8678,6 +9144,144 @@
 			(project "Bsides_2024_Speaker"
 				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x03_Socket")
+		(at 23.114 130.556 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "46b7439b-1302-4bc9-8d6f-ba22524c453c")
+		(property "Reference" "J5"
+			(at 23.876 129.2859 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Serial_IN"
+			(at 23.876 131.8259 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 23.114 130.556 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 23.114 130.556 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 23.114 130.556 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ca0a390c-6f89-4da0-ac81-bf589865766b")
+		)
+		(pin "1"
+			(uuid "dea65c4d-369b-4a85-81db-c96470091e4c")
+		)
+		(pin "3"
+			(uuid "bdc53acf-900e-4a40-8de0-e5af3ce10d95")
+		)
+		(instances
+			(project ""
+				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
+					(reference "J5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 14.986 133.604 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4ad309b2-d20e-44cf-915d-9a1dd98c9054")
+		(property "Reference" "#PWR01"
+			(at 14.986 139.954 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 15.113 137.9982 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 14.986 133.604 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 14.986 133.604 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 14.986 133.604 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "400d0878-c742-4323-94c8-c20cfaa60819")
+		)
+		(instances
+			(project "Bsides_2024_Speaker"
+				(path "/77c72eb1-28ff-4ebd-9d2b-5ebd121ef6db"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
