@@ -5073,7 +5073,7 @@
 		(uuid "7eb422a9-c803-4950-abd1-9fa1f7ae6780")
 	)
 	(junction
-		(at 266.573 34.544)
+		(at 266.954 32.766)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8d319a60-f96e-4b9c-abff-8bac8d12717d")
@@ -5145,7 +5145,7 @@
 		(uuid "e00e67ec-80d5-4794-a451-d3f28b9c91d5")
 	)
 	(junction
-		(at 253.111 30.988)
+		(at 253.492 29.21)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "efc8e70f-defa-48dd-ab10-9a3d93f5703c")
@@ -5383,16 +5383,6 @@
 			(type default)
 		)
 		(uuid "175e7863-8767-4b5b-9b9c-f4e80f9204b5")
-	)
-	(wire
-		(pts
-			(xy 252.222 85.09) (xy 250.698 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1927553f-08b8-4a1a-b9ce-5d6f66c639c8")
 	)
 	(wire
 		(pts
@@ -5966,7 +5956,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.573 34.544) (xy 266.573 35.306)
+			(xy 266.954 32.766) (xy 266.954 33.528)
 		)
 		(stroke
 			(width 0)
@@ -6036,7 +6026,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.573 34.544) (xy 261.493 34.544)
+			(xy 266.954 32.766) (xy 261.874 32.766)
 		)
 		(stroke
 			(width 0)
@@ -6046,7 +6036,7 @@
 	)
 	(wire
 		(pts
-			(xy 266.573 30.988) (xy 266.573 34.544)
+			(xy 266.954 29.21) (xy 266.954 32.766)
 		)
 		(stroke
 			(width 0)
@@ -6206,7 +6196,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.413 34.544) (xy 253.111 34.544)
+			(xy 256.794 32.766) (xy 253.492 32.766)
 		)
 		(stroke
 			(width 0)
@@ -6646,7 +6636,7 @@
 	)
 	(wire
 		(pts
-			(xy 253.111 34.544) (xy 253.111 30.988)
+			(xy 253.492 32.766) (xy 253.492 29.21)
 		)
 		(stroke
 			(width 0)
@@ -6826,7 +6816,7 @@
 	)
 	(wire
 		(pts
-			(xy 263.779 30.988) (xy 266.573 30.988)
+			(xy 264.16 29.21) (xy 266.954 29.21)
 		)
 		(stroke
 			(width 0)
@@ -6926,7 +6916,7 @@
 	)
 	(wire
 		(pts
-			(xy 253.111 30.988) (xy 251.079 30.988)
+			(xy 253.492 29.21) (xy 251.46 29.21)
 		)
 		(stroke
 			(width 0)
@@ -6946,7 +6936,7 @@
 	)
 	(wire
 		(pts
-			(xy 253.619 30.988) (xy 253.111 30.988)
+			(xy 254 29.21) (xy 253.492 29.21)
 		)
 		(stroke
 			(width 0)
@@ -7016,7 +7006,7 @@
 	)
 	(wire
 		(pts
-			(xy 253.492 66.04) (xy 251.968 66.04)
+			(xy 253.492 66.04) (xy 251.46 66.04)
 		)
 		(stroke
 			(width 0)
@@ -7103,6 +7093,16 @@
 			(type default)
 		)
 		(uuid "e9ea9509-b0a8-461b-96eb-46e421928b21")
+	)
+	(wire
+		(pts
+			(xy 250.19 85.09) (xy 252.222 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebbe85bd-17bc-45dc-af0b-f8bb356148ac")
 	)
 	(wire
 		(pts
@@ -7435,7 +7435,7 @@
 		(uuid "357c0b04-477c-4838-bf2b-d212f6c07a61")
 	)
 	(label "UP"
-		(at 251.968 66.04 180)
+		(at 250.19 85.09 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7512,7 +7512,7 @@
 		(uuid "5be40de3-b88e-4fe3-a096-dbf799c7dd8f")
 	)
 	(label "LEFT"
-		(at 250.698 85.09 180)
+		(at 251.46 29.21 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7622,7 +7622,7 @@
 		(uuid "84b9f269-34db-4f8c-a8bd-50e89582defb")
 	)
 	(label "DOWN"
-		(at 251.46 49.53 180)
+		(at 251.46 66.04 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7710,7 +7710,7 @@
 		(uuid "ae43b8e0-b20c-48c0-b594-0312ae92f4da")
 	)
 	(label "RIGHT"
-		(at 251.079 30.988 180)
+		(at 251.46 49.53 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7876,7 +7876,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 259.08 49.53 0)
+		(at 259.08 66.04 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7885,7 +7885,7 @@
 		(dnp no)
 		(uuid "054d8041-1565-4463-ab7f-57bee7e49bdc")
 		(property "Reference" "SW5"
-			(at 259.08 42.291 0)
+			(at 259.08 58.801 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7893,7 +7893,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 259.08 44.6024 0)
+			(at 259.08 61.1124 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7901,7 +7901,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
-			(at 259.08 44.45 0)
+			(at 259.08 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7910,7 +7910,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
-			(at 259.08 44.45 0)
+			(at 259.08 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7919,7 +7919,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 259.08 49.53 0)
+			(at 259.08 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7928,7 +7928,7 @@
 			)
 		)
 		(property "manf#" ""
-			(at 259.08 49.53 0)
+			(at 259.08 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7937,7 +7937,7 @@
 			)
 		)
 		(property "LCSC#" "C2886897"
-			(at 259.08 49.53 0)
+			(at 259.08 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7946,7 +7946,7 @@
 			)
 		)
 		(property "provedor" "LCSC"
-			(at 259.08 49.53 0)
+			(at 259.08 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8260,7 +8260,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 257.81 85.09 0)
+		(at 259.08 49.53 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8269,7 +8269,7 @@
 		(dnp no)
 		(uuid "0a692d1a-e1d4-4403-a407-1c5fa3b3da73")
 		(property "Reference" "SW7"
-			(at 257.683 80.264 0)
+			(at 258.953 44.704 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8277,7 +8277,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 257.81 80.1624 0)
+			(at 259.08 44.6024 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8286,7 +8286,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
-			(at 257.81 80.01 0)
+			(at 259.08 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8295,7 +8295,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
-			(at 257.81 80.01 0)
+			(at 259.08 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8304,7 +8304,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 257.81 85.09 0)
+			(at 259.08 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8313,7 +8313,7 @@
 			)
 		)
 		(property "manf#" ""
-			(at 257.81 85.09 0)
+			(at 259.08 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8322,7 +8322,7 @@
 			)
 		)
 		(property "LCSC#" "C2886897"
-			(at 257.81 85.09 0)
+			(at 259.08 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8331,7 +8331,7 @@
 			)
 		)
 		(property "provedor" "LCSC"
-			(at 257.81 85.09 0)
+			(at 259.08 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9051,7 +9051,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 258.699 30.988 0)
+		(at 259.08 29.21 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9060,7 +9060,7 @@
 		(dnp no)
 		(uuid "1d5bbbaf-d42e-4563-ae1c-ff5cb9627eb2")
 		(property "Reference" "SW6"
-			(at 258.699 23.749 0)
+			(at 259.08 21.971 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9068,7 +9068,7 @@
 			)
 		)
 		(property "Value" "RESET"
-			(at 258.699 26.0604 0)
+			(at 259.08 24.2824 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9077,7 +9077,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
-			(at 258.699 25.908 0)
+			(at 259.08 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9086,7 +9086,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
-			(at 258.699 25.908 0)
+			(at 259.08 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9095,7 +9095,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 258.699 30.988 0)
+			(at 259.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9104,7 +9104,7 @@
 			)
 		)
 		(property "manf#" ""
-			(at 258.699 30.988 0)
+			(at 259.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9113,7 +9113,7 @@
 			)
 		)
 		(property "LCSC#" "C2886897"
-			(at 258.699 30.988 0)
+			(at 259.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9122,7 +9122,7 @@
 			)
 		)
 		(property "provedor" "LCSC"
-			(at 258.699 30.988 0)
+			(at 259.08 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12140,7 +12140,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_Push")
-		(at 259.08 66.04 0)
+		(at 257.81 85.09 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12149,7 +12149,7 @@
 		(dnp no)
 		(uuid "a4c784b3-f167-4b0f-bbb8-497976119b72")
 		(property "Reference" "SW4"
-			(at 259.08 58.801 0)
+			(at 257.81 77.851 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12157,7 +12157,7 @@
 			)
 		)
 		(property "Value" "RESET"
-			(at 259.08 61.1124 0)
+			(at 257.81 80.1624 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12166,7 +12166,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
-			(at 259.08 60.96 0)
+			(at 257.81 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12175,7 +12175,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2205161616_E-Switch-TL3342F450QG_C2886897.pdf"
-			(at 259.08 60.96 0)
+			(at 257.81 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12184,7 +12184,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 259.08 66.04 0)
+			(at 257.81 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12193,7 +12193,7 @@
 			)
 		)
 		(property "manf#" ""
-			(at 259.08 66.04 0)
+			(at 257.81 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12202,7 +12202,7 @@
 			)
 		)
 		(property "LCSC#" "C2886897"
-			(at 259.08 66.04 0)
+			(at 257.81 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12211,7 +12211,7 @@
 			)
 		)
 		(property "provedor" "LCSC"
-			(at 259.08 66.04 0)
+			(at 257.81 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12995,7 +12995,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 258.953 34.544 270)
+		(at 259.334 32.766 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13004,7 +13004,7 @@
 		(dnp no)
 		(uuid "d2640902-2ce2-4812-9c85-e12f363c331f")
 		(property "Reference" "C10"
-			(at 256.159 35.814 90)
+			(at 256.54 34.036 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13012,7 +13012,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 258.953 37.592 90)
+			(at 259.334 35.814 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13020,7 +13020,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 258.953 34.544 0)
+			(at 259.334 32.766 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13029,7 +13029,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 258.953 34.544 0)
+			(at 259.334 32.766 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13038,7 +13038,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 258.953 34.544 0)
+			(at 259.334 32.766 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13886,7 +13886,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 266.573 35.306 0)
+		(at 266.954 33.528 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13895,7 +13895,7 @@
 		(dnp no)
 		(uuid "f81421d2-cb54-48b4-82ca-ca70491a651b")
 		(property "Reference" "#PWR033"
-			(at 266.573 41.656 0)
+			(at 266.954 39.878 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13904,7 +13904,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 266.446 39.7002 0)
+			(at 266.827 37.9222 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13912,7 +13912,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 266.573 35.306 0)
+			(at 266.954 33.528 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13921,7 +13921,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 266.573 35.306 0)
+			(at 266.954 33.528 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13930,7 +13930,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 266.573 35.306 0)
+			(at 266.954 33.528 0)
 			(effects
 				(font
 					(size 1.27 1.27)
