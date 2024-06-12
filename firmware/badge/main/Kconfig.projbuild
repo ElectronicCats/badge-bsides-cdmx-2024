@@ -26,7 +26,7 @@ menu "OLED Screen Configuration"
 
 	choice DRIVER
 		prompt "Driver"
-		default SH1106
+		default SSD1306
 		help
 			Select Driver.
 		config SSD1306
@@ -41,7 +41,7 @@ menu "OLED Screen Configuration"
 
 	choice RESOLUTION
 		prompt "Panel resolution"
-		default RESOLUTION_128X64
+		default RESOLUTION_128X32
 		help
 			Select Panel resolution.
 		config RESOLUTION_128X32
