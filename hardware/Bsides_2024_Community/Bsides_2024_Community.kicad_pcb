@@ -85,10 +85,10 @@
 	(net 3 "/VOUT")
 	(net 4 "/BOOT")
 	(net 5 "/EN")
-	(net 6 "/GPIO1")
-	(net 7 "/GPIO22")
-	(net 8 "/GPIO15")
-	(net 9 "/GPIO23")
+	(net 6 "/LEFT")
+	(net 7 "/UP")
+	(net 8 "/RIGHT")
+	(net 9 "/DOWN")
 	(net 10 "Net-(D1-K)")
 	(net 11 "VBUS")
 	(net 12 "Net-(D2-DOUT)")
@@ -97,8 +97,8 @@
 	(net 15 "Net-(D4-DOUT)")
 	(net 16 "unconnected-(D5-DOUT-Pad2)")
 	(net 17 "Net-(F1-Pad1)")
-	(net 18 "unconnected-(J1-Pin_5-Pad5)")
-	(net 19 "unconnected-(J1-Pin_6-Pad6)")
+	(net 18 "/GPIO3")
+	(net 19 "/GPIO2")
 	(net 20 "Net-(J2-Pin_1)")
 	(net 21 "+BATT")
 	(net 22 "/SDA")
@@ -110,29 +110,17 @@
 	(net 28 "/PIN")
 	(net 29 "unconnected-(U1-IO18-Pad16)")
 	(net 30 "unconnected-(U1-IO19-Pad17)")
-	(net 31 "unconnected-(U1-IO3-Pad26)")
+	(net 31 "/GPIO16")
 	(net 32 "unconnected-(U1-IO21-Pad19)")
 	(net 33 "unconnected-(U1-IO40-Pad8)")
 	(net 34 "unconnected-(U1-IO20-Pad18)")
-	(net 35 "unconnected-(U1-IO2-Pad27)")
-	(net 36 "unconnected-(U1-IO4-Pad4)")
+	(net 35 "/GPIO17")
+	(net 36 "/GPIO4")
 	(net 37 "unconnected-(U1-IO11-Pad12)")
-	(net 38 "unconnected-(U1-IO10-Pad11)")
+	(net 38 "/GPIO5")
 	(net 39 "unconnected-(U1-NC-Pad22)")
-	(net 40 "/RX")
-	(net 41 "unconnected-(U1-IO5-Pad5)")
-	(net 42 "/TX")
-	(net 43 "unconnected-(U2-NC-Pad4)")
-	(net 44 "unconnected-(J5-Pin_1-Pad1)")
-	(net 45 "unconnected-(J5-Pin_3-Pad3)")
-	(net 46 "unconnected-(J5-Pin_4-Pad4)")
-	(net 47 "unconnected-(J5-Pin_5-Pad5)")
-	(net 48 "unconnected-(J5-Pin_2-Pad2)")
-	(net 49 "unconnected-(J6-Pin_1-Pad1)")
-	(net 50 "unconnected-(J6-Pin_4-Pad4)")
-	(net 51 "unconnected-(J6-Pin_2-Pad2)")
-	(net 52 "unconnected-(J6-Pin_5-Pad5)")
-	(net 53 "unconnected-(J6-Pin_3-Pad3)")
+	(net 40 "Net-(U1-IO8)")
+	(net 41 "unconnected-(U2-NC-Pad4)")
 	(footprint "LED_SMD:LED_WS2812B-Mini_PLCC4_3.5x3.5mm"
 		(layer "F.Cu")
 		(uuid "097a4c9f-1302-4b0c-bc14-73766a14a600")
@@ -170,6 +158,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -182,6 +171,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -194,6 +184,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -466,16 +457,16 @@
 			)
 		)
 	)
-	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "29f9dc33-0aa9-4777-a088-40e989f30038")
 		(at 213.82169 147.370705 -49.509)
-		(descr "Through hole straight pin header, 1x05, 2.54mm pitch, single row")
-		(tags "Through hole pin header THT 1x05 2.54mm single row")
+		(descr "Through hole straight pin header, 1x03, 2.54mm pitch, single row")
+		(tags "Through hole pin header THT 1x03 2.54mm single row")
 		(property "Reference" "J5"
-			(at 0 -2.330001 130.491)
+			(at 0 -2.330001 -49.509)
 			(layer "F.SilkS")
-			(uuid "f3738190-5e3e-4786-a93b-0a7ef090f1fb")
+			(uuid "aac6afbd-7da9-4792-8c77-3095ab7445bd")
 			(effects
 				(font
 					(size 1 1)
@@ -483,10 +474,10 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x05"
-			(at 0 12.49 130.491)
+		(property "Value" "Serial_IN"
+			(at 0 7.41 -49.509)
 			(layer "F.Fab")
-			(uuid "e73eb87f-5e91-4f1d-8230-f599f066d780")
+			(uuid "1729a79d-beab-4791-aae9-3990fb621a8e")
 			(effects
 				(font
 					(size 1 1)
@@ -494,15 +485,16 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
 			(at 0 0 -49.509)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ad54eaf5-85d1-416a-925b-f8b09ea15fa9")
+			(uuid "d224f709-9eae-43ca-838e-e8d60dd4ebe6")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -511,49 +503,51 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cdcd814e-0795-4b5a-a23b-c1009c5ad4c9")
+			(uuid "27d9934c-7be4-401e-9ab3-a8bfdf04e2a2")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connector, single row, 01x03, script generated"
 			(at 0 0 -49.509)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "68437811-a9bf-4b5a-9668-f2a762ccf241")
+			(uuid "fd904550-d565-44cc-8f14-1b5cc83ce709")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/e114450e-d665-44f7-bfc0-3952cd5c608d")
+		(path "/8a87ef00-27df-4328-9c9f-15bb46a37dac")
 		(sheetname "Raíz")
 		(sheetfile "Bsides_2024_Community.kicad_sch")
 		(attr through_hole)
 		(fp_line
-			(start -1.33 11.49)
-			(end 1.33 11.49)
+			(start -1.33 6.41)
+			(end 1.33 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "95c2ba74-889f-4d1f-98ad-5c86d3277bb8")
+			(uuid "3871c16d-af93-4057-bee1-b1fc753afd66")
 		)
 		(fp_line
 			(start -1.33 1.27)
-			(end -1.33 11.49)
+			(end -1.33 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "7f7bdddd-8b6e-41e5-9e99-3ee457605174")
+			(uuid "2289735c-cfce-41b6-92c3-be125a3ba9fe")
 		)
 		(fp_line
 			(start -1.33 1.27)
@@ -563,7 +557,7 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "7a7afe77-4c9a-4ae1-b54a-e4ea7caa8717")
+			(uuid "79fff9a8-3600-4f32-8e37-6cb547cdaab4")
 		)
 		(fp_line
 			(start -1.33 0)
@@ -573,17 +567,17 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "29461161-b1c8-45e7-839f-ebc98f3cbe15")
+			(uuid "dfd7445f-3350-41ad-9d3b-08459c1ab3ad")
 		)
 		(fp_line
 			(start 1.33 1.27)
-			(end 1.33 11.49)
+			(end 1.33 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "655efbbe-1325-4eb6-b3d0-2e8223b3c639")
+			(uuid "2dbb89c4-7e9d-4492-8451-e3617708506a")
 		)
 		(fp_line
 			(start -1.33 -1.330001)
@@ -593,37 +587,37 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "dfdd3ce2-ae8b-4d7f-8ca6-38d80f57e1ff")
+			(uuid "e21ec88c-ee0a-4daa-9394-5e9b98c58538")
 		)
 		(fp_line
-			(start -1.8 11.95)
-			(end 1.8 11.95)
+			(start -1.8 6.85)
+			(end 1.8 6.85)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "f816def9-9dd2-45f5-bd7b-aacb4882404c")
+			(uuid "7e9cdab6-b7b7-4c8b-b3b6-9ab4baac8b72")
 		)
 		(fp_line
-			(start 1.8 11.95)
+			(start 1.8 6.85)
 			(end 1.8 -1.8)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "8f51325e-febc-4b71-b7db-e2c486dc41f4")
+			(uuid "3f13b716-fbdd-4399-a686-8bfbce0860a3")
 		)
 		(fp_line
 			(start -1.8 -1.8)
-			(end -1.8 11.95)
+			(end -1.8 6.85)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "0eec0132-5428-4922-97f1-35e10cd9ebf2")
+			(uuid "6a4a9241-826f-43a3-a397-76878cad8be3")
 		)
 		(fp_line
 			(start 1.8 -1.8)
@@ -633,27 +627,27 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "76769f09-36b0-4c03-b525-d15ab9ffd7c6")
+			(uuid "98415be4-1dde-43f9-bca1-4ccd197867c2")
 		)
 		(fp_line
-			(start -1.27 11.43)
+			(start -1.27 6.35)
 			(end -1.27 -0.635)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "6ae0b7b4-3d71-4ff5-97fa-6b275aa6a1e2")
+			(uuid "90736a37-bbb3-4fb6-a14a-648ecaa5ba03")
 		)
 		(fp_line
-			(start 1.27 11.43)
-			(end -1.27 11.43)
+			(start 1.27 6.35)
+			(end -1.27 6.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "29d222e9-08dc-4577-8713-24f0e2042745")
+			(uuid "778a3a2a-a380-43bc-a5b9-db865dce6ebb")
 		)
 		(fp_line
 			(start -1.27 -0.635)
@@ -663,7 +657,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "b376586d-f8a6-40be-af5c-94134035f0ad")
+			(uuid "0e79ccca-f1a6-4b6f-8559-b479f44dc98c")
 		)
 		(fp_line
 			(start -0.635 -1.27)
@@ -673,22 +667,22 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "3c21c989-97de-4680-8765-91db01625fdb")
+			(uuid "c2a158e5-95d7-4b84-b734-7a6618cc9d85")
 		)
 		(fp_line
 			(start 1.27 -1.27)
-			(end 1.27 11.43)
+			(end 1.27 6.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "51861568-4db1-4326-b79c-7173e0b0dbcf")
+			(uuid "15d5060e-86e5-47b9-9f05-7f7f8fa70cf4")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 5.079999 -139.509)
+			(at 0 2.54 40.491)
 			(layer "F.Fab")
-			(uuid "3ccd1204-349f-487d-a620-b12fdd943b33")
+			(uuid "c9b3a4cf-bcd4-48f8-93e2-a1c5a2dbfa39")
 			(effects
 				(font
 					(size 1 1)
@@ -702,10 +696,10 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 44 "unconnected-(J5-Pin_1-Pad1)")
+			(net 31 "/GPIO16")
 			(pinfunction "Pin_1")
 			(pintype "passive")
-			(uuid "5bc5a7e5-5179-4db5-82e4-ec1e6592ed34")
+			(uuid "2d76b1e5-f455-43b8-bc71-d9b1069ab78c")
 		)
 		(pad "2" thru_hole oval
 			(at 0 2.54 310.491)
@@ -713,10 +707,10 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 48 "unconnected-(J5-Pin_2-Pad2)")
+			(net 35 "/GPIO17")
 			(pinfunction "Pin_2")
 			(pintype "passive")
-			(uuid "ed7ea4b8-03cd-4d6c-9103-3b43c82da779")
+			(uuid "75ad1caf-acc5-4f43-94aa-dde3fe988226")
 		)
 		(pad "3" thru_hole oval
 			(at 0 5.079999 310.491)
@@ -724,34 +718,12 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 45 "unconnected-(J5-Pin_3-Pad3)")
+			(net 1 "GND")
 			(pinfunction "Pin_3")
 			(pintype "passive")
-			(uuid "9287f939-a309-476e-ad22-48d0c62a99dc")
+			(uuid "92168200-db6d-41fc-8b30-741c85acf5b7")
 		)
-		(pad "4" thru_hole oval
-			(at 0 7.62 310.491)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 46 "unconnected-(J5-Pin_4-Pad4)")
-			(pinfunction "Pin_4")
-			(pintype "passive")
-			(uuid "bfe33a96-f4d9-4722-8a98-593a34283c18")
-		)
-		(pad "5" thru_hole oval
-			(at 0 10.16 310.491)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 47 "unconnected-(J5-Pin_5-Pad5)")
-			(pinfunction "Pin_5")
-			(pintype "passive")
-			(uuid "d32681ba-da1c-4315-90ce-97e8c32e4fb4")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x03_P2.54mm_Vertical.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -800,6 +772,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -812,6 +785,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -824,6 +798,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1133,6 +1108,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1145,6 +1121,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1157,6 +1134,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1466,6 +1444,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1478,6 +1457,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1490,6 +1470,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1799,6 +1780,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1811,6 +1793,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -1823,10 +1806,11 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
-		(property "manf#" "I2C SH1106 Display Oled Azul 128×64 1.3 ” "
+		(property "manf#" "Display OLED 128×32 0.91 I2C SSD1306 Blanco / Azul"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1853,7 +1837,7 @@
 			)
 		)
 		(property ki_fp_filters "TerminalBlock*:*")
-		(path "/0b7e8b27-102f-467c-8f3e-08ece493eefc")
+		(path "/34d62246-a715-4939-91cd-6b84a1413353")
 		(sheetname "Raíz")
 		(sheetfile "Bsides_2024_Community.kicad_sch")
 		(attr through_hole)
@@ -2064,7 +2048,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 3 "/VOUT")
+			(net 22 "/SDA")
 			(pinfunction "Pin_1")
 			(pintype "passive")
 			(uuid "076b14c1-a4ee-4796-9f09-1790de86c5b4")
@@ -2075,7 +2059,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 1 "GND")
+			(net 23 "/SCL")
 			(pinfunction "Pin_2")
 			(pintype "passive")
 			(uuid "05456d62-091e-405f-8a95-f5186c42558a")
@@ -2086,7 +2070,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 23 "/SCL")
+			(net 3 "/VOUT")
 			(pinfunction "Pin_3")
 			(pintype "passive")
 			(uuid "fda0b966-4ac6-49d0-b479-6efc121bda56")
@@ -2097,7 +2081,7 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 22 "/SDA")
+			(net 1 "GND")
 			(pinfunction "Pin_4")
 			(pintype "passive")
 			(uuid "3ad0bacd-131c-4a00-a8c6-ad7b578b7a01")
@@ -2114,16 +2098,16 @@
 			)
 		)
 	)
-	(footprint "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+	(footprint "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
 		(layer "F.Cu")
 		(uuid "acaf1856-3c21-4833-906e-d17a01b189f6")
 		(at 66.954891 165.142758 37.296)
-		(descr "Through hole straight pin header, 1x05, 2.54mm pitch, single row")
-		(tags "Through hole pin header THT 1x05 2.54mm single row")
+		(descr "Through hole straight socket strip, 1x03, 2.54mm pitch, single row (from Kicad 4.0.7), script generated")
+		(tags "Through hole socket strip THT 1x03 2.54mm single row")
 		(property "Reference" "J6"
-			(at 0 -2.33 37.296)
+			(at 0 -2.77 37.296)
 			(layer "F.SilkS")
-			(uuid "0b98fd6a-5070-4633-a217-177b34c4e9be")
+			(uuid "115347df-848a-4c0e-8a31-9c9d25248c94")
 			(effects
 				(font
 					(size 1 1)
@@ -2131,10 +2115,10 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x05"
-			(at 0 12.49 37.296)
+		(property "Value" "Serial_OUT"
+			(at 0 7.85 37.296)
 			(layer "F.Fab")
-			(uuid "2ee57a23-7d69-4db3-a94b-0d9727566747")
+			(uuid "d99326c9-620e-47c9-a6be-f984f611b965")
 			(effects
 				(font
 					(size 1 1)
@@ -2142,15 +2126,16 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x03_P2.54mm_Vertical"
 			(at 0 0 37.296)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6e5ada6e-9fb8-4ac1-8d21-015cf292f07e")
+			(uuid "73a33e82-f04c-4650-afa5-4fa25d109c02")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2159,49 +2144,41 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b8580335-4e53-4c0a-8f44-9c1255e8abf7")
+			(uuid "b48bbc9a-b592-4a8f-8a67-9e541c3fb6cf")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connector, single row, 01x03, script generated"
 			(at 0 0 37.296)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e3c8289b-10bf-443b-94d7-73ff3e7dc69a")
+			(uuid "7c3e1a0b-c866-41f4-a0fa-b2609aa25adc")
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/35e46bda-4701-43f8-8346-1291b6b8d3ca")
+		(path "/4fb72abf-ad19-41ca-8a3c-327f267ce0b8")
 		(sheetname "Raíz")
 		(sheetfile "Bsides_2024_Community.kicad_sch")
 		(attr through_hole)
 		(fp_line
-			(start -1.33 -1.33)
-			(end 0 -1.33)
+			(start 0 -1.33)
+			(end 1.33 -1.33)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "6fad6f79-4648-4df7-8b05-73b7745d1bb0")
-		)
-		(fp_line
-			(start -1.33 0)
-			(end -1.33 -1.33)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "7799ef35-a933-461c-a29e-50b2a5512d25")
+			(uuid "d0bb31a4-1b79-4d0b-87f1-c6b8e2af166d")
 		)
 		(fp_line
 			(start -1.33 1.27)
@@ -2211,132 +2188,142 @@
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "0ff94c04-136d-43a4-a3ab-d56036b1f886")
+			(uuid "f7c1b8aa-8c3f-4563-8ea8-b6fc62512d43")
 		)
 		(fp_line
 			(start -1.33 1.27)
-			(end -1.33 11.49)
+			(end -1.33 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "d5cbdb7e-4151-414b-817f-5a21e97c1de6")
+			(uuid "c570e479-e9b8-4e6e-8981-7a4550d0aefc")
+		)
+		(fp_line
+			(start 1.33 -1.33)
+			(end 1.33 0)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "a40f5c60-bf4c-4e33-acf7-f3146ec26c3b")
 		)
 		(fp_line
 			(start 1.33 1.27)
-			(end 1.33 11.490001)
+			(end 1.330001 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "41b69e01-21e5-4394-939b-590248b7c108")
+			(uuid "aefa4fe5-6461-4731-8dc9-9ab8f44be96f")
 		)
 		(fp_line
-			(start -1.33 11.49)
-			(end 1.33 11.490001)
+			(start -1.33 6.41)
+			(end 1.330001 6.41)
 			(stroke
 				(width 0.12)
 				(type solid)
 			)
 			(layer "F.SilkS")
-			(uuid "cf4b7b37-cdd8-4ac2-900c-abe8dc8646a8")
+			(uuid "f4e319fc-636c-4100-a885-2e6b673429f7")
 		)
 		(fp_line
 			(start -1.8 -1.8)
-			(end -1.8 11.95)
+			(end 1.75 -1.8)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "9db12abc-cddc-40af-b80e-48c1da75977f")
+			(uuid "5fdb6027-6de8-48cd-8aca-82013fbc50bf")
 		)
 		(fp_line
-			(start 1.8 -1.8)
+			(start 1.75 -1.8)
+			(end 1.75 6.85)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "0240ec55-8012-4aa5-9428-5eea11e9b5ef")
+		)
+		(fp_line
+			(start -1.8 6.85)
 			(end -1.8 -1.8)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "e8040d64-14ba-4581-a1c9-224b07da8a6d")
+			(uuid "e4d21a02-f911-48ea-aa6a-b51cffaea9d7")
 		)
 		(fp_line
-			(start -1.8 11.95)
-			(end 1.8 11.95)
+			(start 1.75 6.85)
+			(end -1.8 6.85)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "bec1db32-57cf-45e4-afc1-306f9aac18f4")
+			(uuid "83a40485-2850-4ba7-83d8-ec24a04ba5fa")
 		)
 		(fp_line
-			(start 1.8 11.95)
-			(end 1.8 -1.8)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "a725ee56-b153-4eaf-b374-7f856433c4a5")
-		)
-		(fp_line
-			(start -1.27 -0.634999)
-			(end -0.635 -1.27)
+			(start -1.27 -1.27)
+			(end 0.635 -1.27)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "0e231437-9516-40ef-bba3-e96e4cf2d955")
+			(uuid "f08259e6-d3ea-4944-baae-54d4b7c528f5")
 		)
 		(fp_line
-			(start -0.635 -1.27)
-			(end 1.27 -1.27)
+			(start 0.635 -1.27)
+			(end 1.27 -0.635)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "5ec4deb1-c0ef-4054-bf97-30d8e3755807")
+			(uuid "30589715-3802-499f-a85c-633e30096013")
 		)
 		(fp_line
-			(start 1.27 -1.27)
-			(end 1.27 11.43)
+			(start 1.27 -0.635)
+			(end 1.270001 6.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "beb1d9da-4f1e-470d-bff4-3eb4f80bf081")
+			(uuid "95161937-e57b-41db-ae38-2185ebf7749a")
 		)
 		(fp_line
-			(start -1.27 11.43)
-			(end -1.27 -0.634999)
+			(start -1.27 6.35)
+			(end -1.27 -1.27)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "d592bba9-c196-4b1e-9c5a-87b35497d538")
+			(uuid "8231bc33-b309-4994-ab42-eeb3b10976b1")
 		)
 		(fp_line
-			(start 1.27 11.43)
-			(end -1.27 11.43)
+			(start 1.270001 6.35)
+			(end -1.27 6.35)
 			(stroke
 				(width 0.1)
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "f93efd79-6540-452e-9538-862234f2299d")
+			(uuid "0eb9726d-b01f-401e-a8aa-f29010d211e0")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 5.08 127.296)
+			(at 0 2.54 127.296)
 			(layer "F.Fab")
-			(uuid "f757756b-c252-4d48-b270-9f377eef823c")
+			(uuid "201b3994-41c0-41e6-b4b7-647fe2358f00")
 			(effects
 				(font
 					(size 1 1)
@@ -2350,10 +2337,10 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 49 "unconnected-(J6-Pin_1-Pad1)")
+			(net 36 "/GPIO4")
 			(pinfunction "Pin_1")
 			(pintype "passive")
-			(uuid "2d18c061-392e-4541-a94b-1dd4786d2833")
+			(uuid "2cec09c6-f1e5-4c2f-8469-7ac34b8d954b")
 		)
 		(pad "2" thru_hole oval
 			(at 0 2.54 37.296)
@@ -2361,10 +2348,10 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 51 "unconnected-(J6-Pin_2-Pad2)")
+			(net 38 "/GPIO5")
 			(pinfunction "Pin_2")
 			(pintype "passive")
-			(uuid "9c52f3bf-5da4-4742-b485-855408ca4872")
+			(uuid "742229f2-464a-4a54-a55c-ddc344d8b7d9")
 		)
 		(pad "3" thru_hole oval
 			(at 0 5.08 37.296)
@@ -2372,34 +2359,12 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 53 "unconnected-(J6-Pin_3-Pad3)")
+			(net 1 "GND")
 			(pinfunction "Pin_3")
 			(pintype "passive")
-			(uuid "fe28d518-98a9-42fd-a0ca-ac4ae59dc342")
+			(uuid "5abd1e49-f921-483b-ac4b-b26b376013d3")
 		)
-		(pad "4" thru_hole oval
-			(at 0 7.619999 37.296)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 50 "unconnected-(J6-Pin_4-Pad4)")
-			(pinfunction "Pin_4")
-			(pintype "passive")
-			(uuid "7e072e25-1798-423e-b82f-36ac1dad2daa")
-		)
-		(pad "5" thru_hole oval
-			(at 0 10.16 37.296)
-			(size 1.7 1.7)
-			(drill 1)
-			(layers "*.Cu" "*.Mask")
-			(remove_unused_layers no)
-			(net 52 "unconnected-(J6-Pin_5-Pad5)")
-			(pinfunction "Pin_5")
-			(pintype "passive")
-			(uuid "a1ce31b2-760b-4f2e-8fb3-6ba849866285")
-		)
-		(model "${KICAD8_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x05_P2.54mm_Vertical.wrl"
+		(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x03_P2.54mm_Vertical.wrl"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -2448,6 +2413,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2460,6 +2426,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -2472,6 +2439,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6334,6 +6302,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6346,6 +6315,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6358,6 +6328,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6597,9 +6568,9 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 18 "unconnected-(J1-Pin_5-Pad5)")
+			(net 18 "/GPIO3")
 			(pinfunction "Pin_5")
-			(pintype "passive+no_connect")
+			(pintype "passive")
 			(uuid "3f1213a3-d358-4633-a7bc-d1da95d30fe3")
 		)
 		(pad "6" thru_hole oval
@@ -6608,9 +6579,9 @@
 			(drill 1)
 			(layers "*.Cu" "*.Mask")
 			(remove_unused_layers no)
-			(net 19 "unconnected-(J1-Pin_6-Pad6)")
+			(net 19 "/GPIO2")
 			(pinfunction "Pin_6")
-			(pintype "passive+no_connect")
+			(pintype "passive")
 			(uuid "8e2fe7f6-1c80-4181-a9e0-ee6d97f77985")
 		)
 		(model "${KICAD8_3DMODEL_DIR}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_2x03_P2.54mm_Vertical.wrl"
@@ -6664,6 +6635,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -6677,6 +6649,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -6690,6 +6663,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -6825,7 +6799,7 @@
 			(size 0.9 0.95)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 8 "/GPIO15")
+			(net 8 "/RIGHT")
 			(pintype "passive")
 			(uuid "d7a6864c-a530-46a3-864f-c47b77186fba")
 		)
@@ -6881,6 +6855,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -6894,6 +6869,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -6907,6 +6883,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7187,6 +7164,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7200,6 +7178,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7213,6 +7192,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7492,6 +7472,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7505,6 +7486,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -7518,6 +7500,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8118,6 +8101,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8131,6 +8115,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8144,6 +8129,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8358,6 +8344,7 @@
 		(property "Value" "RESET"
 			(at 0 -3.75 180)
 			(layer "B.Fab")
+			(hide yes)
 			(uuid "104460c9-0563-4f31-b3d4-0a48de0752d9")
 			(effects
 				(font
@@ -8376,6 +8363,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8389,6 +8377,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8402,6 +8391,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -8937,7 +8927,7 @@
 			(at -3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 8 "/GPIO15")
+			(net 8 "/RIGHT")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "6456ef41-0e1a-4978-915a-76288c39257a")
@@ -8946,7 +8936,7 @@
 			(at 3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 8 "/GPIO15")
+			(net 8 "/RIGHT")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "aa16bd74-7ad6-4de1-b5ae-46c0d3cec0f6")
@@ -9002,6 +8992,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9015,6 +9006,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9028,6 +9020,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9260,6 +9253,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9273,6 +9267,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9286,6 +9281,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9454,7 +9450,7 @@
 			(size 0.8 0.95)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 28 "/PIN")
+			(net 40 "Net-(U1-IO8)")
 			(pintype "passive")
 			(uuid "4aaa07f2-c6b2-42d3-b442-8b82799340ba")
 		)
@@ -9518,6 +9514,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9531,6 +9528,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9544,6 +9542,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9679,7 +9678,7 @@
 			(size 0.9 0.95)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 9 "/GPIO23")
+			(net 9 "/DOWN")
 			(pintype "passive")
 			(uuid "0eeb1296-d13e-4ac7-a944-6a0a0e5b57ff")
 		)
@@ -9734,6 +9733,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9747,6 +9747,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9760,6 +9761,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -9993,6 +9995,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10006,6 +10009,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10019,6 +10023,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10479,6 +10484,7 @@
 		(property "Value" "~"
 			(at 0 -3.75 180)
 			(layer "B.Fab")
+			(hide yes)
 			(uuid "f3b005cd-1eee-49ee-9c8b-11f3401a1c5d")
 			(effects
 				(font
@@ -10497,6 +10503,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10510,6 +10517,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -10523,6 +10531,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11058,7 +11067,7 @@
 			(at -3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 7 "/GPIO22")
+			(net 9 "/DOWN")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "31acdf8d-3c3d-4c44-b6c0-e5082a5be4df")
@@ -11067,7 +11076,7 @@
 			(at 3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 7 "/GPIO22")
+			(net 9 "/DOWN")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "34e4103e-98ec-4c66-9ffb-ceb5ea6e9398")
@@ -11123,6 +11132,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11136,6 +11146,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11149,6 +11160,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11379,6 +11391,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11392,6 +11405,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11405,6 +11419,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -11637,9 +11652,9 @@
 			(at -8.75 1.45 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 36 "unconnected-(U1-IO4-Pad4)")
+			(net 36 "/GPIO4")
 			(pinfunction "IO4")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
 			(uuid "957cc2b6-566b-4c0b-a353-ee6687fca0d7")
 		)
@@ -11647,9 +11662,9 @@
 			(at -8.75 0.18 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 41 "unconnected-(U1-IO5-Pad5)")
+			(net 38 "/GPIO5")
 			(pinfunction "IO5")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
 			(uuid "d34353d2-4415-4c7a-ba0c-f33f165de1c4")
 		)
@@ -11687,7 +11702,7 @@
 			(at -8.75 -4.9 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 6 "/GPIO1")
+			(net 6 "/LEFT")
 			(pinfunction "IO1")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11697,7 +11712,7 @@
 			(at -8.75 -6.17 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 28 "/PIN")
+			(net 40 "Net-(U1-IO8)")
 			(pinfunction "IO8")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11707,9 +11722,9 @@
 			(at -8.75 -7.44 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 38 "unconnected-(U1-IO10-Pad11)")
+			(net 28 "/PIN")
 			(pinfunction "IO10")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
 			(uuid "baaa8317-4981-4ba0-92ec-abef719024c9")
 		)
@@ -11797,7 +11812,7 @@
 			(at 8.75 -4.9 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 7 "/GPIO22")
+			(net 7 "/UP")
 			(pinfunction "IO22")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11807,7 +11822,7 @@
 			(at 8.75 -3.63 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 9 "/GPIO23")
+			(net 9 "/DOWN")
 			(pinfunction "IO23")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11827,7 +11842,7 @@
 			(at 8.75 -1.09 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 8 "/GPIO15")
+			(net 8 "/RIGHT")
 			(pinfunction "IO15")
 			(pintype "power_in")
 			(solder_mask_margin 0.102)
@@ -11837,7 +11852,7 @@
 			(at 8.75 0.18 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 40 "/RX")
+			(net 35 "/GPIO17")
 			(pinfunction "RXD0")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11847,7 +11862,7 @@
 			(at 8.75 1.45 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 42 "/TX")
+			(net 31 "/GPIO16")
 			(pinfunction "TXD0")
 			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
@@ -11857,9 +11872,9 @@
 			(at 8.75 2.72 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 31 "unconnected-(U1-IO3-Pad26)")
+			(net 18 "/GPIO3")
 			(pinfunction "IO3")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
 			(uuid "2e189848-6588-418c-9cce-c9ced30f6e4f")
 		)
@@ -11867,9 +11882,9 @@
 			(at 8.75 3.99 270)
 			(size 1.5 0.9)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 35 "unconnected-(U1-IO2-Pad27)")
+			(net 19 "/GPIO2")
 			(pinfunction "IO2")
-			(pintype "bidirectional+no_connect")
+			(pintype "bidirectional")
 			(solder_mask_margin 0.102)
 			(uuid "8f50f8e3-d8b6-40d9-aa66-bdcc0097a132")
 		)
@@ -12149,6 +12164,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12162,6 +12178,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12175,6 +12192,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12421,6 +12439,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12434,6 +12453,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12447,6 +12467,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12665,6 +12686,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12678,6 +12700,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12691,6 +12714,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -12931,7 +12955,7 @@
 			(size 1.325 0.6)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 43 "unconnected-(U2-NC-Pad4)")
+			(net 41 "unconnected-(U2-NC-Pad4)")
 			(pinfunction "NC")
 			(pintype "no_connect")
 			(uuid "8141660b-8bf7-4501-8f13-60ec17ccb242")
@@ -12997,6 +13021,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13010,6 +13035,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13023,6 +13049,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13223,6 +13250,7 @@
 		(property "Value" "RESET"
 			(at 0 -3.75 180)
 			(layer "B.Fab")
+			(hide yes)
 			(uuid "04e74f2a-d006-4e62-a6b3-00bb1f098bf8")
 			(effects
 				(font
@@ -13241,6 +13269,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13254,6 +13283,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13267,6 +13297,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13802,7 +13833,7 @@
 			(at -3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 6 "/GPIO1")
+			(net 6 "/LEFT")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "10ce3c67-bffe-49f0-ad6f-4de98c6b5ebd")
@@ -13811,7 +13842,7 @@
 			(at 3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 6 "/GPIO1")
+			(net 6 "/LEFT")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "e27188e8-35a1-4173-a95e-54263e7b1472")
@@ -13867,6 +13898,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13880,6 +13912,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -13893,6 +13926,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14178,6 +14212,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14191,6 +14226,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14204,6 +14240,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14436,6 +14473,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14449,6 +14487,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14462,6 +14501,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14680,6 +14720,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14693,6 +14734,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14706,6 +14748,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14938,6 +14981,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14951,6 +14995,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -14964,6 +15009,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15197,6 +15243,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15210,6 +15257,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15223,6 +15271,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15810,6 +15859,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15823,6 +15873,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -15836,6 +15887,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16127,6 +16179,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16140,6 +16193,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16153,6 +16207,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16385,6 +16440,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16398,6 +16454,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16411,6 +16468,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16643,6 +16701,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16656,6 +16715,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16669,6 +16729,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16965,6 +17026,7 @@
 		(property "Value" "~"
 			(at 0 -3.75 180)
 			(layer "B.Fab")
+			(hide yes)
 			(uuid "95abe2b9-200d-47c9-8a6d-90a11a3ee22d")
 			(effects
 				(font
@@ -16983,6 +17045,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -16996,6 +17059,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17009,6 +17073,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17544,7 +17609,7 @@
 			(at -3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 9 "/GPIO23")
+			(net 7 "/UP")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "ae54a484-3b14-40ba-92cd-2dcecd0308d5")
@@ -17553,7 +17618,7 @@
 			(at 3.15 -1.9 180)
 			(size 1.7 1)
 			(layers "B.Cu" "B.Paste" "B.Mask")
-			(net 9 "/GPIO23")
+			(net 7 "/UP")
 			(pinfunction "2")
 			(pintype "passive")
 			(uuid "be50267a-fcf7-4dbc-a7f4-58e5ff218aa3")
@@ -17609,6 +17674,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17622,6 +17688,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17635,6 +17702,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17770,7 +17838,7 @@
 			(size 0.9 0.95)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 7 "/GPIO22")
+			(net 7 "/UP")
 			(pintype "passive")
 			(uuid "f29c885c-e480-4d4f-9800-c577545a2e43")
 		)
@@ -17825,6 +17893,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17838,6 +17907,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17851,6 +17921,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -17986,7 +18057,7 @@
 			(size 0.9 0.95)
 			(layers "B.Cu" "B.Paste" "B.Mask")
 			(roundrect_rratio 0.25)
-			(net 6 "/GPIO1")
+			(net 6 "/LEFT")
 			(pintype "passive")
 			(uuid "a95bbc52-d3cc-46d7-8332-82b89850bb4f")
 		)
@@ -18041,6 +18112,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18054,6 +18126,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18067,6 +18140,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18299,6 +18373,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18312,6 +18387,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18325,6 +18401,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18557,6 +18634,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18570,6 +18648,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18583,6 +18662,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18815,6 +18895,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18828,6 +18909,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
@@ -18841,6 +18923,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 				(justify mirror)
 			)
