@@ -8432,7 +8432,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 160.528 158.75 0)
 			(effects
 				(font
@@ -8459,7 +8459,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 160.528 158.75 0)
 			(effects
 				(font
@@ -9645,7 +9645,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C3021085"
+		(property "LCSC#" "C51118"
 			(at 68.834 175.26 0)
 			(effects
 				(font
@@ -9654,7 +9654,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 68.834 175.26 0)
 			(effects
 				(font
@@ -12898,7 +12898,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 160.528 163.957 0)
 			(effects
 				(font
@@ -12925,7 +12925,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "JLCPCB"
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 160.528 163.957 0)
 			(effects
 				(font
@@ -13887,7 +13887,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 179.324 130.048 0)
 			(effects
 				(font
