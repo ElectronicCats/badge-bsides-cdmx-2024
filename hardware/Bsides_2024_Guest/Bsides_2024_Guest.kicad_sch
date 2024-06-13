@@ -8388,7 +8388,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 249.428 119.761 0)
 			(effects
 				(font
@@ -8406,7 +8406,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 249.428 119.761 0)
 			(effects
 				(font
@@ -8424,7 +8424,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 249.428 119.761 0)
 			(effects
 				(font
@@ -8636,7 +8636,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~https://datasheet.lcsc.com/lcsc/1811021421_Samsung-Electro-Mechanics-CL10A106MP8NNNC_C85713.pdf"
+		(property "Datasheet" ""
 			(at 41.148 178.562 0)
 			(effects
 				(font
@@ -9674,7 +9674,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 258.064 88.646 0)
 			(effects
 				(font
@@ -9684,6 +9684,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 258.064 88.646 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
 			(at 258.064 88.646 0)
 			(effects
 				(font
@@ -10272,7 +10281,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~https://datasheet.lcsc.com/lcsc/1811021421_Samsung-Electro-Mechanics-CL10A106MP8NNNC_C85713.pdf"
+		(property "Datasheet" ""
 			(at 65.532 176.53 0)
 			(effects
 				(font
@@ -11244,7 +11253,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 200.025 119.761 0)
 			(effects
 				(font
@@ -11262,7 +11271,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 200.025 119.761 0)
 			(effects
 				(font
@@ -11280,7 +11289,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 200.025 119.761 0)
 			(effects
 				(font
@@ -11652,7 +11661,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 259.334 69.596 0)
 			(effects
 				(font
@@ -11662,6 +11671,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 259.334 69.596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
 			(at 259.334 69.596 0)
 			(effects
 				(font
@@ -12078,7 +12096,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 193.04 54.61 0)
 			(effects
 				(font
@@ -12335,7 +12353,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 224.917 119.761 0)
 			(effects
 				(font
@@ -12353,7 +12371,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 224.917 119.761 0)
 			(effects
 				(font
@@ -12371,7 +12389,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 224.917 119.761 0)
 			(effects
 				(font
@@ -13028,7 +13046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 259.334 32.766 0)
 			(effects
 				(font
@@ -13038,6 +13056,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 259.334 32.766 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
 			(at 259.334 32.766 0)
 			(effects
 				(font
@@ -13098,7 +13125,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 191.77 69.85 0)
 			(effects
 				(font
@@ -13193,7 +13220,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 259.334 53.086 0)
 			(effects
 				(font
@@ -13203,6 +13230,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 259.334 53.086 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
 			(at 259.334 53.086 0)
 			(effects
 				(font
@@ -13595,7 +13631,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 274.32 119.761 0)
 			(effects
 				(font
@@ -13613,7 +13649,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 274.32 119.761 0)
 			(effects
 				(font
@@ -13631,7 +13667,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 274.32 119.761 0)
 			(effects
 				(font
