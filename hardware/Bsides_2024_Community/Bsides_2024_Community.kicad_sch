@@ -7928,7 +7928,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 143.51 177.8 0)
 			(effects
 				(font
@@ -7947,6 +7947,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 143.51 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 143.51 177.8 0)
 			(effects
 				(font
@@ -8034,6 +8043,15 @@
 			)
 		)
 		(property "LCSC#" "C85713"
+			(at 100.33 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 100.33 52.07 0)
 			(effects
 				(font
@@ -8174,7 +8192,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ERJ3RBD5101V"
+		(property "manf#" "AC0603DR-075K1L"
 			(at 150.622 46.99 0)
 			(effects
 				(font
@@ -8183,7 +8201,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 150.622 46.99 0)
 			(effects
 				(font
@@ -8193,6 +8211,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 150.622 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 150.622 46.99 0)
 			(effects
 				(font
@@ -8277,7 +8304,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2987386"
+		(property "LCSC#" "C393939"
 			(at 131.064 54.61 0)
 			(effects
 				(font
@@ -8287,6 +8314,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 131.064 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 131.064 54.61 0)
 			(effects
 				(font
@@ -8462,6 +8498,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C478888"
+			(at 259.207 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
+			(at 259.207 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b0bf8001-7b8e-465e-a790-b6c1bd412514")
 		)
@@ -8606,7 +8660,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 217.678 131.572 0)
 			(effects
 				(font
@@ -8697,7 +8751,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "-"
+		(property "LCSC#" "C431540"
 			(at 97.79 170.18 0)
 			(effects
 				(font
@@ -8706,7 +8760,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "JS102011SAQN"
+		(property "manf#" ""
 			(at 97.79 170.18 0)
 			(effects
 				(font
@@ -8716,6 +8770,15 @@
 			)
 		)
 		(property "provedor" "MOUSER"
+			(at 97.79 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 97.79 170.18 0)
 			(effects
 				(font
@@ -8879,6 +8942,15 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "UNIT ELECTRONICS"
+			(at 110.49 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "23d10488-dc7f-4f33-9780-99cfb09b4717")
 		)
@@ -8917,7 +8989,7 @@
 				)
 			)
 		)
-		(property "Value" "0.5A"
+		(property "Value" "0.75A"
 			(at 151.892 36.9824 0)
 			(effects
 				(font
@@ -8970,7 +9042,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "-"
+		(property "LCSC#" "C1972808"
+			(at 151.892 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 151.892 39.37 0)
 			(effects
 				(font
@@ -9204,6 +9285,15 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "JLCPCB"
+			(at 84.582 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "704f5c60-230f-4fc6-a716-b4c17cadcaf8")
 		)
@@ -9264,6 +9354,24 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 66.04 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5116527"
+			(at 66.04 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 66.04 119.38 0)
 			(effects
 				(font
@@ -9344,6 +9452,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 260.604 53.086 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
+			(at 260.604 53.086 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 260.604 53.086 0)
 			(effects
 				(font
@@ -9485,7 +9611,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 206.883 63.754 0)
 			(effects
 				(font
@@ -9504,6 +9630,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 206.883 63.754 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 206.883 63.754 0)
 			(effects
 				(font
@@ -9574,6 +9709,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 146.558 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5116529"
+			(at 146.558 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 146.558 119.38 0)
 			(effects
 				(font
@@ -9728,7 +9881,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "DMG3415U-7"
+		(property "manf#" "DMG3415UQ-7 "
 			(at 88.265 163.83 0)
 			(effects
 				(font
@@ -9738,6 +9891,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 88.265 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 88.265 163.83 0)
 			(effects
 				(font
@@ -9800,7 +9962,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~https://datasheet.lcsc.com/lcsc/1811021421_Samsung-Electro-Mechanics-CL10A106MP8NNNC_C85713.pdf"
+		(property "Datasheet" ""
 			(at 43.942 174.752 0)
 			(effects
 				(font
@@ -9837,6 +9999,15 @@
 			)
 		)
 		(property "LCSC#" "C85713"
+			(at 43.942 174.752 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 43.942 174.752 0)
 			(effects
 				(font
@@ -10109,7 +10280,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 200.279 119.507 0)
 			(effects
 				(font
@@ -10118,7 +10289,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 200.279 119.507 0)
 			(effects
 				(font
@@ -10127,7 +10298,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 200.279 119.507 0)
 			(effects
 				(font
@@ -10204,7 +10375,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 260.35 49.53 0)
 			(effects
 				(font
@@ -10213,7 +10384,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 260.35 49.53 0)
 			(effects
 				(font
@@ -10223,6 +10394,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 260.35 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 260.35 49.53 0)
 			(effects
 				(font
@@ -10282,7 +10462,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~https://datasheet.lcsc.com/lcsc/1811021421_Samsung-Electro-Mechanics-CL10A106MP8NNNC_C85713.pdf"
+		(property "Datasheet" ""
 			(at 68.326 172.72 0)
 			(effects
 				(font
@@ -10319,6 +10499,15 @@
 			)
 		)
 		(property "LCSC#" "C85713"
+			(at 68.326 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 68.326 172.72 0)
 			(effects
 				(font
@@ -10535,7 +10724,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 266.954 131.572 0)
 			(effects
 				(font
@@ -10627,7 +10816,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 205.105 49.276 0)
 			(effects
 				(font
@@ -10646,6 +10835,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 205.105 49.276 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 205.105 49.276 0)
 			(effects
 				(font
@@ -10732,7 +10930,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 242.062 131.572 0)
 			(effects
 				(font
@@ -10808,7 +11006,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 206.756 65.786 0)
 			(effects
 				(font
@@ -10845,6 +11043,15 @@
 			)
 		)
 		(property "LCSC#" "C478888"
+			(at 206.756 65.786 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 206.756 65.786 0)
 			(effects
 				(font
@@ -11052,7 +11259,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 143.51 172.593 0)
 			(effects
 				(font
@@ -11071,6 +11278,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 143.51 172.593 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 143.51 172.593 0)
 			(effects
 				(font
@@ -11112,7 +11328,7 @@
 				)
 			)
 		)
-		(property "Value" "RESET"
+		(property "Value" "~"
 			(at 258.953 25.8064 0)
 			(effects
 				(font
@@ -11148,7 +11364,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 258.953 30.734 0)
 			(effects
 				(font
@@ -11157,7 +11373,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 258.953 30.734 0)
 			(effects
 				(font
@@ -11167,6 +11383,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 258.953 30.734 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 258.953 30.734 0)
 			(effects
 				(font
@@ -11237,6 +11462,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 30.734 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5333416"
+			(at 30.734 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 30.734 119.38 0)
 			(effects
 				(font
@@ -11439,6 +11682,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 257.683 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
+			(at 257.683 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 257.683 88.9 0)
 			(effects
 				(font
@@ -11779,7 +12040,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "CR-03JL7---10K"
+		(property "manf#" "RMC1/16K1002DTP"
 			(at 198.12 45.72 0)
 			(effects
 				(font
@@ -11798,6 +12059,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 198.12 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 198.12 45.72 0)
 			(effects
 				(font
@@ -12022,6 +12292,15 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "MOUSER"
+			(at 44.958 54.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "5"
 			(uuid "371e3e1d-c1bb-44f3-940a-4db4c563689c")
 		)
@@ -12196,7 +12475,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "RC0603DR-07100KL"
 			(at 77.597 176.53 0)
 			(effects
 				(font
@@ -12223,7 +12502,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 77.597 176.53 0)
 			(effects
 				(font
@@ -12418,7 +12697,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/1912111437_CCTC-TCC0603COG100J500CT_C376764.pdf"
+		(property "Datasheet" ""
 			(at 205.232 51.308 0)
 			(effects
 				(font
@@ -12455,6 +12734,15 @@
 			)
 		)
 		(property "LCSC#" "C478888"
+			(at 205.232 51.308 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 205.232 51.308 0)
 			(effects
 				(font
@@ -12530,7 +12818,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ERJ3RBD5101V"
+		(property "manf#" "AC0603DR-075K1L"
 			(at 150.622 44.45 0)
 			(effects
 				(font
@@ -12539,7 +12827,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 150.622 44.45 0)
 			(effects
 				(font
@@ -12549,6 +12837,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 150.622 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 150.622 44.45 0)
 			(effects
 				(font
@@ -12633,7 +12930,16 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RTT03471JTP"
+		(property "manf#" "ERJ-3RBD4700V "
+			(at 179.578 131.572 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 179.578 131.572 0)
 			(effects
 				(font
@@ -12807,7 +13113,7 @@
 				)
 			)
 		)
-		(property "Value" "RESET"
+		(property "Value" "~"
 			(at 257.429 80.4164 0)
 			(effects
 				(font
@@ -12843,7 +13149,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 257.429 85.344 0)
 			(effects
 				(font
@@ -12852,7 +13158,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 257.429 85.344 0)
 			(effects
 				(font
@@ -12862,6 +13168,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 257.429 85.344 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 257.429 85.344 0)
 			(effects
 				(font
@@ -12937,7 +13252,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "AP7365-33WG-7"
+		(property "manf#" "AP2112K3.3TRG"
 			(at 58.674 172.72 0)
 			(effects
 				(font
@@ -12955,7 +13270,16 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C150742"
+		(property "LCSC#" "C51118"
+			(at 58.674 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 58.674 172.72 0)
 			(effects
 				(font
@@ -13033,6 +13357,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 258.064 69.596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C478888"
+			(at 258.064 69.596 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 258.064 69.596 0)
 			(effects
 				(font
@@ -13175,7 +13517,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 249.682 119.507 0)
 			(effects
 				(font
@@ -13184,7 +13526,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 249.682 119.507 0)
 			(effects
 				(font
@@ -13193,7 +13535,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 249.682 119.507 0)
 			(effects
 				(font
@@ -13280,7 +13622,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 192.278 131.572 0)
 			(effects
 				(font
@@ -13448,6 +13790,15 @@
 			)
 		)
 		(property "LCSC#" "C85713"
+			(at 91.44 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 91.44 52.07 0)
 			(effects
 				(font
@@ -13656,7 +14007,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "TL3342F160QG"
 			(at 257.81 66.04 0)
 			(effects
 				(font
@@ -13665,7 +14016,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 257.81 66.04 0)
 			(effects
 				(font
@@ -13675,6 +14026,15 @@
 			)
 		)
 		(property "provedor" "LCSC"
+			(at 257.81 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 257.81 66.04 0)
 			(effects
 				(font
@@ -13750,7 +14110,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" ""
+		(property "manf#" "ERJ-3GEYJ332V "
 			(at 20.32 57.404 0)
 			(effects
 				(font
@@ -13759,7 +14119,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" ""
+		(property "LCSC#" "C403480"
 			(at 20.32 57.404 0)
 			(effects
 				(font
@@ -13769,6 +14129,15 @@
 			)
 		)
 		(property "provedor" ""
+			(at 20.32 57.404 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 20.32 57.404 0)
 			(effects
 				(font
@@ -13909,7 +14278,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 274.574 119.507 0)
 			(effects
 				(font
@@ -13918,7 +14287,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 274.574 119.507 0)
 			(effects
 				(font
@@ -13927,7 +14296,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 274.574 119.507 0)
 			(effects
 				(font
@@ -14068,7 +14437,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C42998"
+		(property "LCSC#" "C478888"
 			(at 225.171 119.507 0)
 			(effects
 				(font
@@ -14077,7 +14446,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 225.171 119.507 0)
 			(effects
 				(font
@@ -14086,7 +14455,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "0603F104M500NT"
+		(property "manf#" ""
 			(at 225.171 119.507 0)
 			(effects
 				(font
@@ -14174,6 +14543,15 @@
 			)
 		)
 		(property "LCSC#" "C15849"
+			(at 83.82 51.689 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 83.82 51.689 0)
 			(effects
 				(font

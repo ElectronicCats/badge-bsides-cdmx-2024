@@ -7965,7 +7965,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 160.528 159.766 0)
 			(effects
 				(font
@@ -7974,7 +7974,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "-"
+		(property "manf#" ""
 			(at 160.528 159.766 0)
 			(effects
 				(font
@@ -7984,6 +7984,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 160.528 159.766 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 160.528 159.766 0)
 			(effects
 				(font
@@ -8126,7 +8135,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 31.496 84.836 0)
 			(effects
 				(font
@@ -8153,7 +8162,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 31.496 84.836 0)
 			(effects
 				(font
@@ -8238,7 +8247,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 249.428 118.999 0)
 			(effects
 				(font
@@ -8247,7 +8256,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 249.428 118.999 0)
 			(effects
 				(font
@@ -8332,7 +8341,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 200.025 118.999 0)
 			(effects
 				(font
@@ -8341,7 +8350,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 200.025 118.999 0)
 			(effects
 				(font
@@ -8417,7 +8426,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "USB4105-GF-A "
+		(property "manf#" ""
 			(at 106.172 54.61 0)
 			(effects
 				(font
@@ -8426,7 +8435,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2987386"
+		(property "LCSC#" "C393939"
 			(at 106.172 54.61 0)
 			(effects
 				(font
@@ -8444,7 +8453,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 106.172 54.61 0)
 			(effects
 				(font
@@ -8548,6 +8557,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 29.21 120.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5333416"
+			(at 29.21 120.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 29.21 120.396 0)
 			(effects
 				(font
@@ -8692,7 +8719,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 257.429 65.278 0)
 			(effects
 				(font
@@ -8701,7 +8728,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 257.429 65.278 0)
 			(effects
 				(font
@@ -8719,7 +8746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.429 65.278 0)
 			(effects
 				(font
@@ -9133,7 +9160,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.429 88.392 0)
 			(effects
 				(font
@@ -9142,7 +9169,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 257.429 88.392 0)
 			(effects
 				(font
@@ -9286,7 +9313,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 258.699 30.226 0)
 			(effects
 				(font
@@ -9313,7 +9340,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 258.699 30.226 0)
 			(effects
 				(font
@@ -9389,7 +9416,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "AC0603DR-075K1L"
+		(property "manf#" ""
 			(at 125.73 46.99 0)
 			(effects
 				(font
@@ -9398,7 +9425,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 125.73 46.99 0)
 			(effects
 				(font
@@ -9416,7 +9443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 125.73 46.99 0)
 			(effects
 				(font
@@ -9503,7 +9530,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 217.424 131.064 0)
 			(effects
 				(font
@@ -9604,7 +9631,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 259.715 52.07 0)
 			(effects
 				(font
@@ -9613,7 +9640,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 259.715 52.07 0)
 			(effects
 				(font
@@ -9757,7 +9784,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 169.291 36.068 0)
 			(effects
 				(font
@@ -9784,7 +9811,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.291 36.068 0)
 			(effects
 				(font
@@ -10003,7 +10030,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 241.808 131.064 0)
 			(effects
 				(font
@@ -10160,7 +10187,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "AP7365-33WG-7"
+		(property "manf#" ""
 			(at 68.834 176.276 0)
 			(effects
 				(font
@@ -10178,7 +10205,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C150742"
+		(property "LCSC#" "C51118"
 			(at 68.834 176.276 0)
 			(effects
 				(font
@@ -10187,7 +10214,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 68.834 176.276 0)
 			(effects
 				(font
@@ -10539,7 +10566,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 54.102 178.308 0)
 			(effects
 				(font
@@ -10566,7 +10593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 54.102 178.308 0)
 			(effects
 				(font
@@ -10660,7 +10687,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "MBR120LSFT1G"
+		(property "manf#" ""
 			(at 89.789 180.086 0)
 			(effects
 				(font
@@ -10669,7 +10696,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 89.789 180.086 0)
 			(effects
 				(font
@@ -10879,7 +10906,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 259.461 48.514 0)
 			(effects
 				(font
@@ -10888,7 +10915,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 259.461 48.514 0)
 			(effects
 				(font
@@ -10906,7 +10933,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 259.461 48.514 0)
 			(effects
 				(font
@@ -11049,7 +11076,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "-"
+		(property "LCSC#" "C431540"
 			(at 102.616 180.086 0)
 			(effects
 				(font
@@ -11058,7 +11085,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "JS102011SAQN"
+		(property "manf#" ""
 			(at 102.616 180.086 0)
 			(effects
 				(font
@@ -11076,7 +11103,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 102.616 180.086 0)
 			(effects
 				(font
@@ -11360,7 +11387,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.683 68.834 0)
 			(effects
 				(font
@@ -11369,7 +11396,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 257.683 68.834 0)
 			(effects
 				(font
@@ -11578,7 +11605,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 169.037 49.784 0)
 			(effects
 				(font
@@ -11605,7 +11632,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.037 49.784 0)
 			(effects
 				(font
@@ -11646,7 +11673,7 @@
 				)
 			)
 		)
-		(property "Value" "0.5A"
+		(property "Value" "0.75A"
 			(at 127 36.9824 0)
 			(effects
 				(font
@@ -11681,7 +11708,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "MFU0805FF00750P100 "
+		(property "manf#" ""
 			(at 127 39.37 0)
 			(effects
 				(font
@@ -11699,7 +11726,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" ""
+		(property "LCSC#" "C1972808"
 			(at 127 39.37 0)
 			(effects
 				(font
@@ -11708,7 +11735,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 127 39.37 0)
 			(effects
 				(font
@@ -11785,7 +11812,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 169.164 34.036 0)
 			(effects
 				(font
@@ -11812,7 +11839,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.164 34.036 0)
 			(effects
 				(font
@@ -11883,6 +11910,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 142.24 119.126 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5116529"
+			(at 142.24 119.126 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 142.24 119.126 0)
 			(effects
 				(font
@@ -11972,7 +12017,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 266.7 131.064 0)
 			(effects
 				(font
@@ -12065,7 +12110,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 78.486 176.276 0)
 			(effects
 				(font
@@ -12092,7 +12137,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 78.486 176.276 0)
 			(effects
 				(font
@@ -12309,7 +12354,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "DMG3415UQ-7 "
+		(property "manf#" ""
 			(at 93.472 173.736 0)
 			(effects
 				(font
@@ -12327,7 +12372,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 93.472 173.736 0)
 			(effects
 				(font
@@ -12681,7 +12726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 192.024 131.064 0)
 			(effects
 				(font
@@ -12772,7 +12817,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "AC0603DR-075K1L"
+		(property "manf#" ""
 			(at 125.73 44.45 0)
 			(effects
 				(font
@@ -12781,7 +12826,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 125.73 44.45 0)
 			(effects
 				(font
@@ -12799,7 +12844,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 125.73 44.45 0)
 			(effects
 				(font
@@ -12942,7 +12987,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C5290193"
+		(property "LCSC#" "C5290181"
 			(at 160.528 164.973 0)
 			(effects
 				(font
@@ -12951,7 +12996,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "-"
+		(property "manf#" ""
 			(at 160.528 164.973 0)
 			(effects
 				(font
@@ -12961,6 +13006,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 160.528 164.973 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB y LCSC"
 			(at 160.528 164.973 0)
 			(effects
 				(font
@@ -13037,7 +13091,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 169.164 47.752 0)
 			(effects
 				(font
@@ -13064,7 +13118,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.164 47.752 0)
 			(effects
 				(font
@@ -13149,7 +13203,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 274.32 118.999 0)
 			(effects
 				(font
@@ -13158,7 +13212,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 274.32 118.999 0)
 			(effects
 				(font
@@ -13227,6 +13281,24 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 59.69 120.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5116527"
+			(at 59.69 120.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 59.69 120.396 0)
 			(effects
 				(font
@@ -13314,7 +13386,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ERJ-3GEYJ332V "
+		(property "manf#" ""
 			(at 29.464 55.118 0)
 			(effects
 				(font
@@ -13323,7 +13395,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" ""
+		(property "LCSC#" "C403480"
 			(at 29.464 55.118 0)
 			(effects
 				(font
@@ -13341,7 +13413,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 29.464 55.118 0)
 			(effects
 				(font
@@ -13492,7 +13564,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "ERJ-3RBD4700V "
+		(property "manf#" ""
 			(at 179.324 131.064 0)
 			(effects
 				(font
@@ -13501,7 +13573,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 179.324 131.064 0)
 			(effects
 				(font
@@ -13580,7 +13652,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RMC1/16K1002DTP"
+		(property "manf#" ""
 			(at 162.306 30.48 0)
 			(effects
 				(font
@@ -13607,7 +13679,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 162.306 30.48 0)
 			(effects
 				(font
@@ -13685,7 +13757,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TL3342F160QG"
+		(property "manf#" ""
 			(at 257.175 84.836 0)
 			(effects
 				(font
@@ -13712,7 +13784,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.175 84.836 0)
 			(effects
 				(font
@@ -13790,7 +13862,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "RC0603DR-07100KL"
+		(property "manf#" ""
 			(at 82.804 186.817 0)
 			(effects
 				(font
@@ -13817,7 +13889,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 82.804 186.817 0)
 			(effects
 				(font
@@ -13906,6 +13978,15 @@
 			)
 		)
 		(property "provedor" "UNIT Electronics"
+			(at 107.95 120.396 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "UNIT ELECTRONICS"
 			(at 107.95 120.396 0)
 			(effects
 				(font
@@ -14193,7 +14274,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 224.917 118.999 0)
 			(effects
 				(font
@@ -14202,7 +14283,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 224.917 118.999 0)
 			(effects
 				(font
@@ -14288,7 +14369,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 258.953 33.782 0)
 			(effects
 				(font
@@ -14297,7 +14378,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "KAM15AR71C104KM"
+		(property "manf#" ""
 			(at 258.953 33.782 0)
 			(effects
 				(font
@@ -14375,7 +14456,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "GRM188R61E106KA73J"
+		(property "manf#" ""
 			(at 22.86 85.09 0)
 			(effects
 				(font
@@ -14402,7 +14483,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 22.86 85.09 0)
 			(effects
 				(font
@@ -14480,7 +14561,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "TMK107BJ105KA8T"
+		(property "manf#" ""
 			(at 15.24 85.217 0)
 			(effects
 				(font
@@ -14507,7 +14588,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 15.24 85.217 0)
 			(effects
 				(font
