@@ -2101,7 +2101,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C706893"
+		(property "LCSC#" "C124390"
 			(at 55.88 109.22 0)
 			(effects
 				(font
@@ -3144,7 +3144,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a7c2b38a-7981-4ef9-becb-7ce21af7fa30")
 		(property "Reference" "J1"
