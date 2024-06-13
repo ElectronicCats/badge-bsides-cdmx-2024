@@ -7372,7 +7372,7 @@
 		)
 		(uuid "0f11ad0d-9265-4498-9f00-7b84cb5b4ade")
 	)
-	(label "GPIO1"
+	(label "LEFT"
 		(at 37.338 51.562 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7405,7 +7405,7 @@
 		)
 		(uuid "16cb71c0-7f55-468f-bc42-78325690a94b")
 	)
-	(label "GPIO23"
+	(label "DOWN"
 		(at 251.714 47.498 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7427,7 +7427,7 @@
 		)
 		(uuid "216a9b76-3306-4194-ae82-a1c8b15b049c")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 131.572 118.11 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7526,7 +7526,7 @@
 		)
 		(uuid "3c99a8bc-3cf6-4d24-8453-617bf02cca9b")
 	)
-	(label "GPIO23"
+	(label "DOWN"
 		(at 69.85 73.152 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7570,7 +7570,7 @@
 		)
 		(uuid "54789cb5-c5bf-4f56-a690-823977c78f8d")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 17.526 119.38 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7647,7 +7647,7 @@
 		)
 		(uuid "79ad3a54-249b-4c48-8885-1179ea208c4a")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 36.576 40.132 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7669,7 +7669,7 @@
 		)
 		(uuid "80409f61-57b3-40e9-b594-341aad3ae1d3")
 	)
-	(label "GPIO22"
+	(label "UP"
 		(at 250.952 29.21 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7713,7 +7713,7 @@
 		)
 		(uuid "9ef220ef-b33b-4222-a5bf-ddf1a504c394")
 	)
-	(label "GPIO15"
+	(label "RIGHT"
 		(at 250.444 64.262 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7724,7 +7724,7 @@
 		)
 		(uuid "aa6eed70-c0fd-422d-a140-5e66fd6cdaf2")
 	)
-	(label "GPIO22"
+	(label "UP"
 		(at 69.85 75.946 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7757,7 +7757,7 @@
 		)
 		(uuid "b15d5b98-c8b4-4476-9602-90a886267c26")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 17.526 116.84 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7768,7 +7768,7 @@
 		)
 		(uuid "b447acb2-65fd-4961-be10-c5c505293bc1")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 69.85 64.77 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7779,7 +7779,7 @@
 		)
 		(uuid "bb82028e-acf7-4cc5-bb9d-bdf49cb39fda")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 36.576 37.084 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7801,7 +7801,7 @@
 		)
 		(uuid "cc439b6f-27ba-4c55-8ca8-79c866457b01")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 69.85 61.976 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7823,7 +7823,7 @@
 		)
 		(uuid "d286f7f5-a50b-400c-a760-ba113f2dd70f")
 	)
-	(label "GPIO1"
+	(label "LEFT"
 		(at 249.936 83.82 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7834,7 +7834,7 @@
 		)
 		(uuid "dac014c9-fcea-427e-9cce-259c1e6cb31e")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 131.572 115.57 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7856,7 +7856,7 @@
 		)
 		(uuid "e41a63e1-4800-43a8-ab21-00a18bbcf8ac")
 	)
-	(label "GPIO15"
+	(label "RIGHT"
 		(at 69.85 67.564 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7984,6 +7984,15 @@
 				(hide yes)
 			)
 		)
+		(property "Proveedor" "UNIT ELECTRONICS"
+			(at 107.95 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "dc0ad021-6d42-471e-89cb-5f2a6e98216d")
 		)
@@ -8052,6 +8061,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 142.24 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5116529"
+			(at 142.24 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 142.24 118.11 0)
 			(effects
 				(font
@@ -8225,7 +8252,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 162.306 29.464 0)
 			(effects
 				(font
@@ -8312,7 +8339,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 217.424 130.048 0)
 			(effects
 				(font
@@ -8414,7 +8441,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "-"
+		(property "manf#" ""
 			(at 160.528 158.75 0)
 			(effects
 				(font
@@ -8424,6 +8451,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 160.528 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 160.528 158.75 0)
 			(effects
 				(font
@@ -8574,7 +8610,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 249.428 117.983 0)
 			(effects
 				(font
@@ -8688,7 +8724,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 78.486 175.26 0)
 			(effects
 				(font
@@ -8969,7 +9005,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 125.73 43.434 0)
 			(effects
 				(font
@@ -8987,7 +9023,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 125.73 43.434 0)
 			(effects
 				(font
@@ -9029,7 +9065,7 @@
 				)
 			)
 		)
-		(property "Value" "RESET"
+		(property "Value" "SW"
 			(at 257.175 78.8924 0)
 			(effects
 				(font
@@ -9092,7 +9128,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.175 83.82 0)
 			(effects
 				(font
@@ -9234,6 +9270,24 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC#" "C5116527"
+			(at 59.69 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
+			(at 59.69 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "270a3784-4483-4692-8d70-b095e23be5dd")
 		)
@@ -9308,6 +9362,24 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated"
+			(at 29.21 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC#" "C5333416"
+			(at 29.21 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 29.21 119.38 0)
 			(effects
 				(font
@@ -9417,7 +9489,7 @@
 				)
 			)
 		)
-		(property "Value" "RESET"
+		(property "Value" "SW"
 			(at 169.164 28.0924 0)
 			(effects
 				(font
@@ -9479,7 +9551,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.164 33.02 0)
 			(effects
 				(font
@@ -9555,7 +9627,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "AP7365-33WG-7"
+		(property "manf#" "AP2112K3.3TRG"
 			(at 68.834 175.26 0)
 			(effects
 				(font
@@ -9573,7 +9645,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C150742"
+		(property "LCSC#" "C3021085"
 			(at 68.834 175.26 0)
 			(effects
 				(font
@@ -9764,7 +9836,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.291 35.052 0)
 			(effects
 				(font
@@ -9849,7 +9921,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" ""
+		(property "LCSC#" "C403480"
 			(at 29.464 54.102 0)
 			(effects
 				(font
@@ -9867,7 +9939,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 29.464 54.102 0)
 			(effects
 				(font
@@ -9909,7 +9981,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "SW"
 			(at 259.461 42.5704 0)
 			(effects
 				(font
@@ -9954,7 +10026,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 259.461 47.498 0)
 			(effects
 				(font
@@ -9972,7 +10044,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 259.461 47.498 0)
 			(effects
 				(font
@@ -10189,7 +10261,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 224.917 117.983 0)
 			(effects
 				(font
@@ -10283,7 +10355,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C191782"
+		(property "LCSC#" "C113390"
 			(at 125.73 45.974 0)
 			(effects
 				(font
@@ -10301,7 +10373,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 125.73 45.974 0)
 			(effects
 				(font
@@ -10407,7 +10479,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.037 48.768 0)
 			(effects
 				(font
@@ -10493,7 +10565,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.683 67.818 0)
 			(effects
 				(font
@@ -10653,7 +10725,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 259.715 51.054 0)
 			(effects
 				(font
@@ -10767,7 +10839,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 82.804 185.801 0)
 			(effects
 				(font
@@ -10854,7 +10926,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 241.808 130.048 0)
 			(effects
 				(font
@@ -10911,7 +10983,7 @@
 				)
 			)
 		)
-		(property "Value" "RESET"
+		(property "Value" "SW"
 			(at 258.699 24.2824 0)
 			(effects
 				(font
@@ -10974,7 +11046,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 258.699 29.21 0)
 			(effects
 				(font
@@ -11142,7 +11214,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 89.789 179.07 0)
 			(effects
 				(font
@@ -11311,7 +11383,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 169.164 46.736 0)
 			(effects
 				(font
@@ -11397,7 +11469,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.429 87.376 0)
 			(effects
 				(font
@@ -11511,7 +11583,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 15.24 84.201 0)
 			(effects
 				(font
@@ -11598,7 +11670,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 266.7 130.048 0)
 			(effects
 				(font
@@ -11655,7 +11727,7 @@
 				)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "SW"
 			(at 257.429 59.3344 0)
 			(effects
 				(font
@@ -11699,7 +11771,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2886897"
+		(property "LCSC#" "C318889"
 			(at 257.429 64.262 0)
 			(effects
 				(font
@@ -11717,7 +11789,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 257.429 64.262 0)
 			(effects
 				(font
@@ -11934,7 +12006,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "C2987386"
+		(property "LCSC#" "C393939"
 			(at 106.172 53.594 0)
 			(effects
 				(font
@@ -11952,7 +12024,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 106.172 53.594 0)
 			(effects
 				(font
@@ -12457,7 +12529,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" "-"
+		(property "LCSC#" "C431540"
 			(at 102.616 179.07 0)
 			(effects
 				(font
@@ -12466,7 +12538,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "JS102011SAQN"
+		(property "manf#" ""
 			(at 102.616 179.07 0)
 			(effects
 				(font
@@ -12484,7 +12556,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 102.616 179.07 0)
 			(effects
 				(font
@@ -12636,7 +12708,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 258.953 32.766 0)
 			(effects
 				(font
@@ -12686,7 +12758,7 @@
 				)
 			)
 		)
-		(property "Value" "0.5A"
+		(property "Value" "0.75A"
 			(at 127 35.9664 0)
 			(effects
 				(font
@@ -12739,7 +12811,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC#" ""
+		(property "LCSC#" "C1972808"
 			(at 127 38.354 0)
 			(effects
 				(font
@@ -12748,7 +12820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 127 38.354 0)
 			(effects
 				(font
@@ -12835,7 +12907,7 @@
 				(hide yes)
 			)
 		)
-		(property "manf#" "-"
+		(property "manf#" ""
 			(at 160.528 163.957 0)
 			(effects
 				(font
@@ -12845,6 +12917,15 @@
 			)
 		)
 		(property "provedor" "-"
+			(at 160.528 163.957 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Proveedor" "JLCPCB"
 			(at 160.528 163.957 0)
 			(effects
 				(font
@@ -12949,7 +13030,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 31.496 83.82 0)
 			(effects
 				(font
@@ -13036,7 +13117,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "LCSC"
+		(property "Proveedor" "JLCPCB"
 			(at 192.024 130.048 0)
 			(effects
 				(font
@@ -13288,7 +13369,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 22.86 84.074 0)
 			(effects
 				(font
@@ -13393,7 +13474,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 54.102 177.292 0)
 			(effects
 				(font
@@ -13478,7 +13559,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 274.32 117.983 0)
 			(effects
 				(font
@@ -13572,7 +13653,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 200.025 117.983 0)
 			(effects
 				(font
@@ -14503,7 +14584,7 @@
 				(hide yes)
 			)
 		)
-		(property "Proveedor" "Mouser"
+		(property "Proveedor" "JLCPCB"
 			(at 93.472 172.72 0)
 			(effects
 				(font
