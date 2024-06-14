@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "bsides")(type "KiCad")(uri "C:/Users/elect/Documents/GitKraken/badge-bsides-cdmx-2024/hardware/bsides.pretty")(options "")(descr ""))
+)
