@@ -2,6 +2,7 @@
 #include "bitmaps.h"
 #include "ble_module.h"
 #include "esp_log.h"
+#include "games_module.h"
 #include "gps.h"
 #include "leds.h"
 #include "oled_screen.h"
@@ -630,8 +631,7 @@ void menu_screens_enter_submenu() {
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
     case MENU_GAMES:
-      oled_screen_clear();
-      menu_screens_display_text_banner("GAMES in development");
+      games_module_begin(MENU_GAMES);
       break;
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
