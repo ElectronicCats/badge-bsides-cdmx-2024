@@ -7416,7 +7416,7 @@
 		)
 		(uuid "2d28bddd-44e5-46f8-a1da-5e857a284205")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 131.572 116.586 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7438,7 +7438,7 @@
 		)
 		(uuid "314876e2-c373-4e1a-a91a-4cd265ab1dff")
 	)
-	(label "GPIO15"
+	(label "RIGHT"
 		(at 250.444 65.278 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7493,7 +7493,7 @@
 		)
 		(uuid "3a669006-54df-4fb9-b3ad-1dfd9a6cd9c0")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 17.526 120.396 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7504,7 +7504,7 @@
 		)
 		(uuid "4cd5ebf5-54d7-43f0-9275-c8b69875f9da")
 	)
-	(label "GPIO1"
+	(label "LEFT"
 		(at 37.338 52.578 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7603,7 +7603,7 @@
 		)
 		(uuid "7e432314-3b53-42da-b4c4-1790d3fecb79")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 36.576 41.148 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7614,7 +7614,7 @@
 		)
 		(uuid "864e352e-d54d-4e2b-9424-7a46327330af")
 	)
-	(label "GPIO23"
+	(label "DOWN"
 		(at 251.714 48.514 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7625,7 +7625,7 @@
 		)
 		(uuid "89dcd2b8-2922-4e55-9daa-56291e9ae8bc")
 	)
-	(label "GPIO23"
+	(label "DOWN"
 		(at 69.85 74.168 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7647,7 +7647,7 @@
 		)
 		(uuid "8a2f4705-7bc3-4d19-84fb-7f09c8ef2995")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 69.85 62.992 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7658,7 +7658,7 @@
 		)
 		(uuid "90fa24ea-bbe1-4ad7-b446-fceeb181ecc5")
 	)
-	(label "GPIO22"
+	(label "UP"
 		(at 250.952 30.226 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7713,7 +7713,7 @@
 		)
 		(uuid "a42fd8af-6ab2-4eca-8327-e25a0a0e6237")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 131.572 119.126 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7746,7 +7746,7 @@
 		)
 		(uuid "b5bec846-d7df-456d-be41-4fe2ca2a88e4")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 36.576 38.1 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7757,7 +7757,7 @@
 		)
 		(uuid "ba958328-2e27-465f-b7f8-4e1db332a860")
 	)
-	(label "GPIO15"
+	(label "RIGHT"
 		(at 69.85 68.58 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7768,7 +7768,7 @@
 		)
 		(uuid "c12c8647-51af-44b0-972e-3810635775f6")
 	)
-	(label "GPIO22"
+	(label "UP"
 		(at 69.85 76.962 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7801,7 +7801,7 @@
 		)
 		(uuid "cc81cdb2-e415-42f2-961b-6c53e72f6f6a")
 	)
-	(label "GPIO1"
+	(label "LEFT"
 		(at 249.936 84.836 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7823,7 +7823,7 @@
 		)
 		(uuid "ce2f1f8a-9c3f-4096-8624-0a67a7e41236")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 69.85 65.786 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7878,7 +7878,7 @@
 		)
 		(uuid "f2764fb3-9b94-46db-89e6-4ddbe5ea15fc")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 17.526 117.856 0)
 		(fields_autoplaced yes)
 		(effects
