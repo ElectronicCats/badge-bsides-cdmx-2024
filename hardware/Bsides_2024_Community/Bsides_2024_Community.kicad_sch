@@ -7324,7 +7324,7 @@
 		)
 		(uuid "fa10a51b-1be8-42a9-93e0-585758d40b52")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 19.05 119.38 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7357,7 +7357,7 @@
 		)
 		(uuid "21b6f06f-128f-4fa0-9a04-0a7583684d36")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 26.416 43.434 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7423,7 +7423,7 @@
 		)
 		(uuid "385c548b-89d6-46ea-a94c-b781d00f3d85")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 135.89 116.84 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7489,7 +7489,7 @@
 		)
 		(uuid "5bacf3fb-8f15-4a7e-b428-7de62e9bb81a")
 	)
-	(label "GPIO4"
+	(label "RX1"
 		(at 26.416 40.386 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7709,7 +7709,7 @@
 		)
 		(uuid "bc0030dc-2b99-430f-8348-d8800dd80c7c")
 	)
-	(label "GPIO5"
+	(label "TX1"
 		(at 135.89 119.38 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7797,7 +7797,7 @@
 		)
 		(uuid "de0e0141-990f-4de2-ba43-3ca8419adb03")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 19.05 116.84 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7808,7 +7808,7 @@
 		)
 		(uuid "e1162674-16d0-4cc8-9e0f-80ee848c3b7e")
 	)
-	(label "GPIO17"
+	(label "RX"
 		(at 60.96 68.072 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7863,7 +7863,7 @@
 		)
 		(uuid "f49cfc33-c6ba-4601-8b75-3618c2b119d7")
 	)
-	(label "GPIO16"
+	(label "TX"
 		(at 60.96 65.278 0)
 		(fields_autoplaced yes)
 		(effects
