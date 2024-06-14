@@ -629,6 +629,10 @@ void menu_screens_enter_submenu() {
     case MENU_THREAD_APPS:
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
+    case MENU_GAMES:
+      oled_screen_clear();
+      menu_screens_display_text_banner("GAMES in development");
+      break;
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
