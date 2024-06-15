@@ -8,10 +8,25 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
+#include "driver/gpio.h"
+
 #define MAC_SIZE        6
 #define MAX_PLAYERS_NUM 4
 #define PING_TIMEOUT_MS 4000
 #define RSSI_FILTER     (-100)
+
+// GPS MININO
+// RX0 GPIO4
+// TX0 GPIO5
+
+// RX1 GPIO17
+// TX1 GPIO16
+
+#define BADGE_IN_1 GPIO_NUM_4
+#define BADGE_IN_2 GPIO_NUM_17
+
+#define BADGE_OUT_1 GPIO_NUM_5
+#define BADGE_OUT_2 GPIO_NUM_16
 
 typedef enum {
   PING_CMD,
@@ -57,7 +72,7 @@ typedef struct {
 uint8_t my_mac[MAC_SIZE];
 uint8_t host_mac[MAC_SIZE];
 
-bool client_mode = 0;
+bool client_mode = false;
 int8_t my_player_id = 0;
 uint8_t players_count;  // still unused
 uint8_t my_host_level;
@@ -188,6 +203,11 @@ void clear_players_table() {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_advertise() {
+  if (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2)) {
+    printf("Badge not connected\n");
+    clear_players_table();
+    return;
+  }
   printf("send_advertise\t MAC:");
   print_mac_address(my_mac);
   printf("\n");
@@ -288,11 +308,41 @@ void advertiser_task() {
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
+void configure_pins() {
+  gpio_config_t io_conf;
+
+  // Configure input pins
+  io_conf.intr_type = GPIO_INTR_DISABLE;
+  io_conf.mode = GPIO_MODE_INPUT;
+  io_conf.pin_bit_mask = (1ULL << BADGE_IN_1) | (1ULL << BADGE_IN_2);
+  io_conf.pull_down_en = 0;
+  io_conf.pull_up_en = 1;
+  gpio_config(&io_conf);
+
+  // Configure output pins
+  io_conf.mode = GPIO_MODE_OUTPUT;
+  io_conf.pin_bit_mask = (1ULL << BADGE_OUT_1) | (1ULL << BADGE_OUT_2);
+  io_conf.pull_down_en = 0;
+  io_conf.pull_up_en = 0;
+  gpio_config(&io_conf);
+
+  gpio_set_level(BADGE_OUT_1, 0);
+  gpio_set_level(BADGE_OUT_2, 0);
+}
+
+void deconfigure_pins() {
+  gpio_reset_pin(BADGE_IN_1);
+  gpio_reset_pin(BADGE_IN_2);
+  gpio_reset_pin(BADGE_OUT_1);
+  gpio_reset_pin(BADGE_OUT_2);
+}
+
 void receive_data_cb(badge_connect_recv_msg_t* msg) {
   uint8_t cmd = *((uint8_t*) msg->data);
   // printf("CMD: %d\n", cmd);
   // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
-  if (msg->rx_ctrl->rssi < RSSI_FILTER /* || !rx1 || !rx2 */) {
+  if (msg->rx_ctrl->rssi < RSSI_FILTER ||
+      (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2))) {
     printf("So Far or not connected to another badge\n");
     return;
   }
@@ -318,6 +368,7 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
 }
 
 void lobby_manager_init() {
+  configure_pins();
   clear_players_table();
   badge_connect_init();
   badge_connect_register_recv_cb(receive_data_cb);
@@ -336,6 +387,7 @@ void lobby_manager_init() {
               &games_unlocker_task_handler);
 }
 void lobby_manager_deinit() {
+  deconfigure_pins();
   if (advertiser_task_handler != NULL) {
     vTaskDelete(advertiser_task_handler);
     advertiser_task_handler = NULL;
