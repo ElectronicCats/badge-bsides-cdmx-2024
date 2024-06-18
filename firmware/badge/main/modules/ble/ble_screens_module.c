@@ -8,11 +8,10 @@ void ble_screens_display_scanning_animation() {
   oled_screen_display_text_center("BLE SPAM", 0, OLED_DISPLAY_NORMAL);
   while (true) {
     for (int i = 0; i < ble_bitmap_scan_attack_allArray_LEN; i++) {
-      oled_screen_display_bitmap(ble_bitmap_scan_attack_allArray[i], 0, 16, 128,
+      oled_screen_display_bitmap(ble_bitmap_scan_attack_allArray[i], 0, 16, 32,
                                  32, OLED_DISPLAY_NORMAL);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
+      vTaskDelay(100 / portTICK_PERIOD_MS);
     }
-    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
 
