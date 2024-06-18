@@ -35,9 +35,8 @@ void wifi_screens_module_scanning(void) {
     for (int i = 0; i < wifi_bitmap_allArray_LEN; i++) {
       oled_screen_display_bitmap(wifi_bitmap_allArray[i], 48, 16, 32, 32,
                                  OLED_DISPLAY_NORMAL);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
+      vTaskDelay(100 / portTICK_PERIOD_MS);
     }
-    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
 
@@ -54,9 +53,8 @@ void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
     for (int i = 0; i < wifi_bitmap_allArray_LEN; i++) {
       oled_screen_display_bitmap(wifi_bitmap_allArray[i], 48, 16, 32, 32,
                                  OLED_DISPLAY_NORMAL);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
+      vTaskDelay(100 / portTICK_PERIOD_MS);
     }
-    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
   free(ssid);
 }
@@ -224,16 +222,16 @@ void wifi_screens_module_display_sniffer_cb(sniffer_runtime_t* sniffer) {
 
 void wifi_screens_display_sniffer_animation_task(void* pvParameter) {
   while (true) {
-    oled_screen_display_bitmap(epd_bitmap_wifi_loading_1, 0, 0, 64, 64,
+    oled_screen_display_bitmap(epd_bitmap_wifi_loading_1, 0, 0, 32, 32,
                                OLED_DISPLAY_NORMAL);
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    oled_screen_display_bitmap(epd_bitmap_wifi_loading_2, 0, 0, 64, 64,
+    oled_screen_display_bitmap(epd_bitmap_wifi_loading_2, 0, 0, 32, 32,
                                OLED_DISPLAY_NORMAL);
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    oled_screen_display_bitmap(epd_bitmap_wifi_loading_3, 0, 0, 64, 64,
+    oled_screen_display_bitmap(epd_bitmap_wifi_loading_3, 0, 0, 32, 32,
                                OLED_DISPLAY_NORMAL);
     vTaskDelay(100 / portTICK_PERIOD_MS);
-    oled_screen_display_bitmap(epd_bitmap_wifi_loading_4, 0, 0, 64, 64,
+    oled_screen_display_bitmap(epd_bitmap_wifi_loading_4, 0, 0, 32, 32,
                                OLED_DISPLAY_NORMAL);
     vTaskDelay(100 / portTICK_PERIOD_MS);
   }

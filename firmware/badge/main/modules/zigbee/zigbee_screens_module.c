@@ -96,9 +96,9 @@ void zigbee_screens_display_scanning_animation() {
   oled_screen_display_text_center("Channel: ", 6, OLED_DISPLAY_INVERT);
   while (true) {
     for (int i = 0; i < zigbee_bitmap_allArray_LEN; i++) {
-      oled_screen_display_bitmap(zigbee_bitmap_allArray[i], 0, 16, 128, 32,
+      oled_screen_display_bitmap(zigbee_bitmap_allArray[i], 0, 16, 32, 32,
                                  OLED_DISPLAY_NORMAL);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
+      vTaskDelay(100 / portTICK_PERIOD_MS);
     }
   }
 }
