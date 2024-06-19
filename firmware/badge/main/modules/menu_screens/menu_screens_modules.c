@@ -2,7 +2,6 @@
 #include "bitmaps.h"
 #include "ble_module.h"
 #include "esp_log.h"
-#include "games_module.h"
 #include "gps.h"
 #include "leds.h"
 #include "oled_screen.h"
@@ -630,9 +629,6 @@ void menu_screens_enter_submenu() {
     case MENU_THREAD_APPS:
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
-    case MENU_GAMES:
-      games_module_begin(MENU_GAMES);
-      break;
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
@@ -659,13 +655,14 @@ void menu_screens_enter_submenu() {
 
 void menu_screens_ingrement_selected_item() {
   selected_item = (selected_item == num_items - MAX_MENU_ITEMS_PER_SCREEN)
-                      ? selected_item
+                      ? 0
                       : selected_item + 1;
   menu_screens_display_menu();
 }
 
 void menu_screens_decrement_selected_item() {
-  selected_item = (selected_item == 0) ? 0 : selected_item - 1;
+  selected_item = (selected_item == 0) ? (num_items - MAX_MENU_ITEMS_PER_SCREEN)
+                                       : selected_item - 1;
   menu_screens_display_menu();
 }
 
