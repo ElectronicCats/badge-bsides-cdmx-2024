@@ -60,7 +60,7 @@ void zigbee_module_app_selector() {
       xTaskCreate(ieee_sniffer_begin, "ieee_sniffer_task", 4096, NULL, 5,
                   &zigbee_task_sniffer);
 
-      if (!is_ajolote_unlocked) {
+      if (ajo_module_get_state()) {
         xTaskCreate(ajo_module_display_animation, "zigbee_animation", 4096,
                     NULL, 5, &zigbee_task_display_animation);
       } else {

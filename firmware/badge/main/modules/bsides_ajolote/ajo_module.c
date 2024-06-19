@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "oled_screen.h"
+#include "preferences.h"
 
 static int ajolote_state_count = 0;
 static void ajo_module_gpio_init(uint32_t gpio_num, uint8_t mask);
@@ -64,15 +65,21 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
 
   switch (button_event) {
     case BUTTON_PRESS_DOWN:
-      ajolote_state_count++;
-      if (ajolote_state_count == 10) {
-        printf("Ajolote unlocked\n");
-        ajo_module_display_animation();
+      if (!preferences_get_bool("is_ajolote_unlocked", false)) {
+        ajolote_state_count++;
+        if (ajolote_state_count == 10) {
+          preferences_put_bool("is_ajolote_unlocked", true);
+          ajo_module_display_animation();
+        }
       }
       break;
     default:
       break;
   }
+}
+
+bool ajo_module_get_state() {
+  return preferences_get_bool("is_ajolote_unlocked", false);
 }
 
 void ajo_module_init(void) {

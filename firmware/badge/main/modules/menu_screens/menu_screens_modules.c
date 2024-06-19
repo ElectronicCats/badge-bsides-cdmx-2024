@@ -105,10 +105,10 @@ void show_logo() {
     preferences_put_bool("thread_deinit", false);
   } else {
     buzzer_play();
-    oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 64,
+    oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
                                OLED_DISPLAY_NORMAL);
     buzzer_stop();
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
 
