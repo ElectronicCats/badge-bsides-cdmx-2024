@@ -1,4 +1,5 @@
 #include "zigbee_module.h"
+#include "ajo_module.h"
 #include "esp_log.h"
 #include "ieee_sniffer.h"
 #include "led_events.h"
@@ -17,7 +18,10 @@ app_screen_state_information_t app_screen_state_information = {
 int current_channel = IEEE_SNIFFER_CHANNEL_DEFAULT;
 int packet_count = 0;
 TaskHandle_t zigbee_task_display_records = NULL;
+TaskHandle_t zigbee_task_display_animation = NULL;
 TaskHandle_t zigbee_task_sniffer = NULL;
+
+static bool is_ajolote_unlocked = false;
 
 void zigbee_module_app_selector();
 void zigbee_module_state_machine(button_event_t button_pressed);
@@ -52,10 +56,16 @@ void zigbee_module_app_selector() {
       zigbee_screens_display_device_ad();
       vTaskDelay(2000 / portTICK_PERIOD_MS);
       ieee_sniffer_register_cb(zigbee_module_display_records_cb);
+
       xTaskCreate(ieee_sniffer_begin, "ieee_sniffer_task", 4096, NULL, 5,
                   &zigbee_task_sniffer);
 
-      zigbee_screens_display_scanning_text(0);
+      if (!is_ajolote_unlocked) {
+        xTaskCreate(ajo_module_display_animation, "zigbee_animation", 4096,
+                    NULL, 5, &zigbee_task_display_animation);
+      } else {
+        zigbee_screens_display_scanning_text(0);
+      }
       led_control_run_effect(led_control_zigbee_scanning);
       break;
     default:

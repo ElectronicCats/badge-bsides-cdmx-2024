@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "ajo_module.h"
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "keyboard_module.h"
@@ -35,4 +36,5 @@ void app_main(void) {
   end_time = esp_timer_get_time();
   float time = (float) (end_time - start_time) / 1000000;
   printf("Total time taken: %2.2f seconds\n", time);
+  ajo_module_init();
 }
