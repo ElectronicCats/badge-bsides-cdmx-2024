@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "ajo_module.h"
+#include "catdos_module.h"
+#include "esp_event.h"
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "keyboard_module.h"
@@ -22,11 +24,13 @@ void app_main(void) {
   uint64_t start_time, end_time;
   start_time = esp_timer_get_time();
 
+  ESP_ERROR_CHECK(esp_event_loop_create_default());
+
   leds_init();
   leds_on();
   preferences_begin();
-  sd_card_init();
-  // bluetooth_scanner_init();
+  // sd_card_init();
+  //  bluetooth_scanner_init();
   menu_screens_begin();
   keyboard_module_begin();
   menu_screens_display_menu();
@@ -37,4 +41,5 @@ void app_main(void) {
   float time = (float) (end_time - start_time) / 1000000;
   printf("Total time taken: %2.2f seconds\n", time);
   ajo_module_init();
+  catdos_module_begin();
 }

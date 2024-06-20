@@ -7,6 +7,7 @@
 #include "preferences.h"
 
 static int ajolote_state_count = 0;
+static void ajo_module_display_animation_unlocked();
 static void ajo_module_gpio_init(uint32_t gpio_num, uint8_t mask);
 static void ajo_module_gpio_event_cb(void* arg, void* data);
 
@@ -69,7 +70,7 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
         ajolote_state_count++;
         if (ajolote_state_count == 10) {
           preferences_put_bool("is_ajolote_unlocked", true);
-          ajo_module_display_animation();
+          ajo_module_display_animation_unlocked();
         }
       }
       break;
@@ -84,6 +85,11 @@ bool ajo_module_get_state() {
 
 void ajo_module_init(void) {
   ajo_module_gpio_init(GPIO_IN_SHITTY, GPIO_IN_SHITTY_MASK);
+}
+
+static void ajo_module_display_animation_unlocked() {
+  oled_screen_clear(OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("Ajolote unlocked", 3, OLED_DISPLAY_NORMAL);
 }
 
 void ajo_module_display_animation() {

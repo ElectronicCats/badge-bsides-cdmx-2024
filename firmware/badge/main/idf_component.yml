@@ -13,6 +13,8 @@ dependencies:
     path: ../components/openthread
   espressif/iperf:
     version: "~0.1.1"
+  protocol_examples_common:
+    path: ${IDF_PATH}/examples/common_components/protocol_examples_common
 
   # # Put list of dependencies here
   # # For components maintained by Espressif:
