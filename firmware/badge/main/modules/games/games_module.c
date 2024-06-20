@@ -1,5 +1,6 @@
 #include "games_module.h"
 #include "esp_log.h"
+#include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
 #include "oled_screen.h"
@@ -16,6 +17,7 @@ void games_module_begin(int app_selected) {
   app_screen_state_information.app_selected = app_selected;
   menu_screens_set_app_state(true, games_module_state_machine);
   oled_screen_clear(OLED_DISPLAY_NORMAL);
+  lobby_manager_set_display_status_cb(games_screens_module_show_state);
   lobby_manager_init();
 }
 void games_module_state_machine(button_event_t button_pressed) {

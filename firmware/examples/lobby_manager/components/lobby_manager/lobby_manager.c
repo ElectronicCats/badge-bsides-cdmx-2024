@@ -73,7 +73,7 @@ TaskHandle_t games_unlocker_task_handler;
 void send_join_request_response(uint8_t* mac, uint8_t idx);
 void send_join_request();
 void send_ping_response(uint8_t* mac);
-bool is_player_my_child(uint8_t* mac);
+bool is_client_my_client(uint8_t* mac);
 
 uint8_t get_random_uint8() {
   uint32_t entropy = esp_random();
@@ -123,7 +123,7 @@ void send_ping_response(uint8_t* mac) {
   ping_response_message_t ping_response_msg = {
       .cmd = PING_RESPONSE_CMD,
       .client_mode = client_mode,
-      .my_child = is_player_my_child(mac)};
+      .my_child = is_client_my_client(mac)};
 
   badge_connect_send(mac, &ping_response_msg, sizeof(ping_response_msg));
   esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
@@ -141,7 +141,7 @@ void handle_ping_response(badge_connect_recv_msg_t* msg) {
   esp_timer_stop(ping_timer);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
-bool is_player_my_child(uint8_t* mac) {
+bool is_client_my_client(uint8_t* mac) {
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
       return true;
