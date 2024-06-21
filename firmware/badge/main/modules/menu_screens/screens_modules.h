@@ -46,6 +46,7 @@ typedef enum {
   /* WiFi applications */
   MENU_WIFI_ANALIZER,
   MENU_WIFI_DEAUTH,
+  MENU_WIFI_DOS,
   /* WiFi analizer items */
   MENU_WIFI_ANALIZER_RUN,
   MENU_WIFI_ANALIZER_SETTINGS,
@@ -104,6 +105,7 @@ const char* menu_list[] = {
     "MENU_GAMES",
     "MENU_WIFI_ANALIZER",
     "MENU_WIFI_DEAUTH",
+    "MENU_WIFI_DOS",
     "MENU_WIFI_ANALIZER_RUN",
     "MENU_WIFI_ANALIZER_SETTINGS",
     "MENU_WIFI_ANALIZER_ASK_SUMMARY",
@@ -136,7 +138,7 @@ const char* menu_list[] = {
  *
  * Usage: next_menu_table[screen_module_menu_t][selected_item]
  */
-const int next_menu_table[][7] = {
+const int next_menu_table[][8] = {
     // MENU_MAIN
     {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
     // MENU_APPLICATIONS
@@ -148,7 +150,7 @@ const int next_menu_table[][7] = {
     {MENU_ABOUT_VERSION, MENU_ABOUT_LICENSE, MENU_ABOUT_CREDITS,
      MENU_ABOUT_LEGAL},
     // MENU_WIFI_APPS
-    {MENU_WIFI_ANALIZER, MENU_WIFI_DEAUTH},
+    {MENU_WIFI_ANALIZER, MENU_WIFI_DEAUTH, MENU_WIFI_DOS},
     // MENU_BLUETOOTH_APPS
     {MENU_BLUETOOTH_TRAKERS_SCAN, MENU_BLUETOOTH_SPAM},
     // MENU_ZIGBEE_APPS
@@ -346,6 +348,7 @@ char* legal_text[] = {
 char* wifi_items[] = {
     "Analizer",
     "Deauth",
+    "DoS",
     NULL,
 };
 
@@ -448,6 +451,7 @@ char** menu_items[] = {
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
     empty_items,                      // WiFi Deauth
+    empty_items,                      // WiFi DoS
     empty_items,                      // WiFi Analizer Start
     wifi_analizer_settings_items,     // WiFi Analizer Settings
     wifi_analizer_summary_question,   // MENU_WIFI_ANALIZER_ASK_SUMMARY

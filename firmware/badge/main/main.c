@@ -41,5 +41,5 @@ void app_main(void) {
   float time = (float) (end_time - start_time) / 1000000;
   printf("Total time taken: %2.2f seconds\n", time);
   ajo_module_init();
-  catdos_module_begin();
+  // catdos_module_begin();
 }

@@ -1,6 +1,7 @@
 #include "menu_screens_modules.h"
 #include "bitmaps.h"
 #include "ble_module.h"
+#include "catdos_module.h"
 #include "esp_log.h"
 #include "gps.h"
 #include "leds.h"
@@ -120,7 +121,7 @@ void menu_screens_begin() {
   bluetooth_devices_count = 0;
   nmea_hdl = NULL;
 
-  menu_screens_run_tests();
+  // menu_screens_run_tests();
   oled_screen_begin();
 
   // Show logo
@@ -589,6 +590,9 @@ void menu_screens_enter_submenu() {
       break;
     case MENU_WIFI_DEAUTH:
       wifi_module_deauth_begin();
+      break;
+    case MENU_WIFI_DOS:
+      catdos_module_begin();
       break;
     case MENU_WIFI_ANALIZER_RUN:
       oled_screen_clear();
