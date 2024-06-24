@@ -1,6 +1,7 @@
 #include "lobby_manager.h"
 #include <stdio.h>
 #include "badge_connect.h"
+#include "driver/gpio.h"
 #include "esp_log.h"
 #include "esp_random.h"
 #include "esp_timer.h"
@@ -8,8 +9,7 @@
 #include "espnow.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-
-#include "driver/gpio.h"
+#include "nvs_flash.h"
 
 typedef enum {
   PING_CMD,
@@ -428,8 +428,32 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
   }
 }
 
+void nvs_init() {
+  esp_err_t ret = nvs_flash_init();
+  if (ret == ESP_ERR_NVS_NO_FREE_PAGES ||
+      ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    ESP_ERROR_CHECK(nvs_flash_erase());
+    ret = nvs_flash_init();
+  }
+  ESP_ERROR_CHECK(ret);
+}
+
+void wifi_init() {
+  esp_event_loop_create_default();
+
+  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+  nvs_init();
+
+  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+  ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+  ESP_ERROR_CHECK(esp_wifi_start());
+}
+
 void lobby_manager_init() {
   configure_pins();
+  wifi_init();
   badge_connect_init();
   badge_connect_register_recv_cb(receive_data_cb);
   badge_connect_set_bsides_badge();
