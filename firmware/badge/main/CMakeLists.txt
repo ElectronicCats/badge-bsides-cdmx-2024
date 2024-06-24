@@ -11,7 +11,8 @@ set(modules "modules/led_events/led_events.c"
             "modules/open_thread/open_thread_module.c"
             "modules/open_thread/open_thread_screens_module.c"
             "modules/games/games_module.c"
-            "modules/games/games_screens_module.c")
+            "modules/games/games_screens_module.c"
+            "modules/games/rope_game.c")
 
 set(drivers "drivers/oled_driver/oled_driver.c"
             "drivers/oled_driver/oled_driver_i2c.c"

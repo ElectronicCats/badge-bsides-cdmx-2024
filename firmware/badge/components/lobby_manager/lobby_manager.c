@@ -1,6 +1,5 @@
 #include "lobby_manager.h"
 #include <stdio.h>
-#include "badge_connect.h"
 #include "esp_log.h"
 #include "esp_random.h"
 #include "esp_timer.h"
@@ -54,7 +53,6 @@ typedef struct {
 
 uint8_t my_mac[MAC_SIZE];
 
-bool client_mode = false;
 uint8_t players_count;  // still unused
 uint8_t my_host_level;
 uint8_t host_level = 0;
@@ -66,6 +64,7 @@ uint8_t ping_id = 1;
 TaskHandle_t advertiser_task_handler;
 
 display_status_cb_t display_event_cb = NULL;
+badge_connect_recv_cb_t custom_cmd_recv_cb = NULL;
 
 void send_join_request_response(uint8_t* mac, uint8_t idx);
 void send_join_request();
@@ -424,6 +423,10 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
       handle_ping_response(msg);
       break;
     default:
+      if (custom_cmd_recv_cb) {
+        printf("UNRECOGNIZED CMD\n");
+        custom_cmd_recv_cb(msg);
+      }
       break;
   }
 }
@@ -466,4 +469,8 @@ void display_state(uint8_t event) {
 }
 void lobby_manager_set_display_status_cb(display_status_cb_t cb) {
   display_event_cb = cb;
+}
+
+void lobby_manager_register_custom_cmd_recv_cb(badge_connect_recv_cb_t cb) {
+  custom_cmd_recv_cb = cb;
 }

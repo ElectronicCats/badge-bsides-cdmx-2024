@@ -1,8 +1,9 @@
 #pragma once
 
+#include <stdbool.h>
 #include <stdio.h>
 
-#include <stdbool.h>
+#include "badge_connect.h"
 
 #define MAC_SIZE        6
 #define MAX_PLAYERS_NUM 5
@@ -33,6 +34,7 @@ typedef struct {
 player_inf_t players[MAX_PLAYERS_NUM];
 int8_t my_player_id = 0;
 uint8_t host_mac[MAC_SIZE];
+bool client_mode = false;
 
 typedef enum {
   HOST_STATE = 0,
@@ -43,6 +45,7 @@ typedef enum {
 
 typedef void (*display_status_cb_t)(uint8_t);
 void lobby_manager_set_display_status_cb(display_status_cb_t cb);
+void lobby_manager_register_custom_cmd_recv_cb(badge_connect_recv_cb_t cb);
 
 void lobby_manager_init();
 void lobby_manager_deinit();

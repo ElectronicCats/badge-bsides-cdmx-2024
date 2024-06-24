@@ -1,6 +1,7 @@
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "oled_screen.h"
+#include "rope_game.h"
 
 void show_host_state() {}
 
@@ -14,6 +15,7 @@ void show_client_state() {
   char* player_idx = (char*) malloc(20);
   sprintf(player_idx, " Client Mode: P%d", my_player_id);
   oled_screen_display_text(player_idx, 0, 1, OLED_DISPLAY_NORMAL);
+  free(player_idx);
 }
 
 void show_clients() {
@@ -35,7 +37,7 @@ void show_badge_unconnected() {
   oled_screen_display_text("Connect your badges", 0, 1, OLED_DISPLAY_NORMAL);
 }
 
-void games_screens_module_show_state(uint8_t state) {
+void games_screens_module_show_lobby_state(uint8_t state) {
   switch (state) {
     case HOST_STATE:
       show_host_state();
@@ -50,6 +52,28 @@ void games_screens_module_show_state(uint8_t state) {
       break;
     case SHOW_UNCONNECTED:
       show_badge_unconnected();
+      break;
+    default:
+      break;
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////
+void rope_game_show_game_data() {
+  oled_screen_clear();
+  char* str = (char*) malloc(16);
+  for (int8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
+    sprintf(str, "P%d: %d", i + 1, game_instance.players_data[i].strenght);
+    oled_screen_display_text(
+        str, 0, i,
+        i == my_player_id ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+  }
+  free(str);
+}
+
+void games_screens_module_show_rope_game_event(rope_game_events_t event) {
+  switch (event) {
+    case UPDATE_GAME_EVENT:
+      rope_game_show_game_data();
       break;
     default:
       break;
