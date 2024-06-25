@@ -17,16 +17,23 @@ typedef enum {
 } player_state_t;
 
 typedef struct {
-  uint8_t cmd;
-  uint8_t ID;
   uint8_t strenght;
 } player_data_t;
 
 typedef struct {
-  uint8_t cmd;
   player_data_t players_data[MAX_ROPE_GAME_PLAYERS];
   int16_t rope_bar;
 } game_data_t;
+
+typedef struct {
+  uint8_t cmd;
+  player_data_t player_data;
+} player_data_msg_t;
+
+typedef struct {
+  uint8_t cmd;
+  game_data_t game_data;
+} game_data_msg_t;
 
 player_data_t* me;
 game_data_t game_instance;

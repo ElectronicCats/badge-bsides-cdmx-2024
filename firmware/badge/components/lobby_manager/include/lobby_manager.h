@@ -7,7 +7,7 @@
 
 #define MAC_SIZE        6
 #define MAX_PLAYERS_NUM 5
-#define PING_TIMEOUT_MS 2000
+#define PING_TIMEOUT_MS 400
 #define RSSI_FILTER     (-100)
 
 // GPS MININO
@@ -32,7 +32,7 @@ typedef struct {
 } player_inf_t;
 
 player_inf_t players[MAX_PLAYERS_NUM];
-int8_t my_player_id = 0;
+int8_t my_client_id = 0;
 uint8_t host_mac[MAC_SIZE];
 bool client_mode = false;
 

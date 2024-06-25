@@ -13,7 +13,7 @@ void show_available_games() {
 void show_client_state() {
   oled_screen_clear();
   char* player_idx = (char*) malloc(20);
-  sprintf(player_idx, " Client Mode: P%d", my_player_id);
+  sprintf(player_idx, " Client Mode: P%d", my_client_id);
   oled_screen_display_text(player_idx, 0, 1, OLED_DISPLAY_NORMAL);
   free(player_idx);
 }
@@ -65,7 +65,7 @@ void rope_game_show_game_data() {
     sprintf(str, "P%d: %d", i + 1, game_instance.players_data[i].strenght);
     oled_screen_display_text(
         str, 0, i,
-        i == my_player_id ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+        i == my_client_id ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
   }
   free(str);
 }

@@ -11,6 +11,12 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+#define DESACTIVAR_PRINT
+
+#ifdef DESACTIVAR_PRINT
+  #define printf(fmt, ...) ((void) 0)
+#endif
+
 typedef enum {
   PING_CMD,
   PING_RESPONSE_CMD,
@@ -22,8 +28,8 @@ typedef enum {
 typedef enum {
   PING_NONE,
   PING_WAITING,
+  PING_SUCCESS,
   PING_TIMEOUT,
-  PING_SUCCESS
 } ping_status_t;
 
 typedef struct {
@@ -60,6 +66,7 @@ uint8_t host_level = 0;
 
 esp_timer_handle_t ping_timer;
 uint8_t ping_status = 0;
+uint8_t ping_attempt = 0;
 uint8_t ping_id = 1;
 
 TaskHandle_t advertiser_task_handler;
@@ -73,6 +80,7 @@ void send_ping_response(uint8_t* mac);
 bool is_host_my_host(uint8_t* mac);
 bool is_client_my_client(uint8_t* mac);
 void client_mode_exit();
+void on_ping_timeout();
 int8_t get_client_id(mac);
 
 void display_state(uint8_t event);
@@ -107,7 +115,14 @@ void print_players_table() {
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 void ping_timeout_handler() {
-  ping_status = PING_TIMEOUT;
+  if (ping_attempt < 3) {
+    ping_status = PING_NONE;
+    ping_attempt++;
+  } else {
+    ping_status = PING_TIMEOUT;
+    on_ping_timeout();
+    ping_attempt = 0;
+  }
 }
 void send_ping_request(uint8_t* mac) {
   printf("send_ping_request\n");
@@ -150,11 +165,13 @@ void handle_ping_response(badge_connect_recv_msg_t* msg) {
     esp_timer_stop(ping_timer);
     printf("PING SUCCESS\n");
     print_players_table();
+    ping_attempt = 0;
     ping_status = PING_SUCCESS;
   } else {
     if (is_client_my_client(msg->src_addr)) {
       esp_timer_stop(ping_timer);
       printf("PING SUCCESS\n");
+      ping_attempt = 0;
       ping_status = PING_SUCCESS;
     }
   }
@@ -218,7 +235,7 @@ void clear_players_table() {
   players[0].online = 1;
   players[0].player_id = 0;
 }
-void clear_player(uint8_t player_id) {
+void clear_client(uint8_t player_id) {
   memset(&players[player_id], 0, sizeof(player_inf_t));
 }
 
@@ -286,8 +303,8 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   }
   memcpy(host_mac, msg->src_addr, MAC_SIZE);
   host_level = join_response_msg->host_level;
-  my_player_id = join_response_msg->idx;
-  printf("Joined to lobby-> Player%d\n", my_player_id);
+  my_client_id = join_response_msg->idx;
+  printf("Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
 
@@ -298,7 +315,7 @@ void client_mode_exit() {
   clear_players_table();
   host_level = 0;
   client_mode = false;
-  my_player_id = 0;
+  my_client_id = 0;
   ping_id = 1;
 }
 void on_ping_timeout() {
@@ -307,8 +324,9 @@ void on_ping_timeout() {
     ESP_LOGE("PING", "TIMEOUT!!!");
     client_mode_exit();
   } else {
+    ESP_LOGE("PING", "player%d is offline\n", ping_id);
     printf("player%d is offline\n", ping_id);
-    clear_player(ping_id);
+    clear_client(ping_id);
   }
 }
 
@@ -326,18 +344,20 @@ void ping(uint8_t* mac) {
   if (ping_status == PING_NONE) {
     ping_status = PING_WAITING;
     send_ping_request(mac);
-    esp_timer_start_once(ping_timer,
-                         PING_TIMEOUT_MS * (client_mode ? 2000 : 1000));
+    esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
+    ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
   }
   if (ping_status == PING_WAITING)
     return;
   if (ping_status == PING_TIMEOUT) {
-    on_ping_timeout();
   } else if (ping_status == PING_SUCCESS) {
   }
   ping_status = PING_NONE;
   if (!client_mode) {
     seek_next_online_client();
+    vTaskDelay(pdMS_TO_TICKS(500));
+  } else {
+    vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
 
@@ -355,15 +375,14 @@ void advertiser_task() {
       } else {
         seek_next_online_client();
       }
-      vTaskDelay(pdMS_TO_TICKS(1000));
     } else {
       display_state(CLIENT_STATE);
-      printf("+ client_mode-> Player%d\t Host: ", my_player_id);
+      printf("+ client_mode-> Player%d\t Host: ", my_client_id);
       print_mac_address(host_mac);
       printf("\n");
       ping(host_mac);
-      vTaskDelay(pdMS_TO_TICKS(2000));
     }
+    vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 
@@ -463,6 +482,7 @@ void lobby_manager_init() {
   badge_connect_set_bsides_badge();
 
   my_host_level = get_random_uint8();
+  my_host_level = 255;
   esp_wifi_get_mac(WIFI_IF_STA, my_mac);
   clear_players_table();
 
@@ -499,3 +519,5 @@ void lobby_manager_set_display_status_cb(display_status_cb_t cb) {
 void lobby_manager_register_custom_cmd_recv_cb(badge_connect_recv_cb_t cb) {
   custom_cmd_recv_cb = cb;
 }
+
+#undef DESACTIVAR_PRINT

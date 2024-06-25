@@ -58,7 +58,7 @@ uint8_t my_mac[MAC_SIZE];
 uint8_t host_mac[MAC_SIZE];
 
 bool client_mode = 0;
-int8_t my_player_id = 0;
+int8_t my_client_id = 0;
 uint8_t players_count;  // still unused
 uint8_t my_host_level;
 uint8_t host_level = 0;
@@ -244,8 +244,8 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   }
   memcpy(host_mac, msg->src_addr, MAC_SIZE);
   host_level = join_response_msg->host_level;
-  my_player_id = join_response_msg->idx;
-  printf("Joined to lobby-> Player%d\n", my_player_id);
+  my_client_id = join_response_msg->idx;
+  printf("Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -269,7 +269,7 @@ void advertiser_task() {
       vTaskDelay(pdMS_TO_TICKS(2000));
     } else  // Quiza se pueda cambiar por un task
     {
-      printf("+ client_mode-> Player%d\t Host: ", my_player_id);
+      printf("+ client_mode-> Player%d\t Host: ", my_client_id);
       print_mac_address(host_mac);
       printf("\n");
       if (ping_timeout)  // TODO: ping retries
