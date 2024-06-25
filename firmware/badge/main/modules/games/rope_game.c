@@ -30,6 +30,7 @@ bool host_mode;
 uint8_t my_id;
 
 bool swap;
+bool is_game_running = false;
 esp_timer_handle_t timer_handle;
 TaskHandle_t rope_game_task_handler = NULL;
 
@@ -176,15 +177,18 @@ void decrement_strenght() {
 // ///////////////////////////////////////////////////////////////////////////////
 
 void rope_game_task() {
-  while (1) {
+  while (is_game_running) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
     send_update_data();
     print_game_data();
     vTaskDelay(pdMS_TO_TICKS(100));
   }
+  printf("rope_game_task DELETED\n");
+  vTaskDelete(NULL);
 }
 void rope_game_init() {
+  is_game_running = true;
   game_data_init();
   lobby_manager_set_display_status_cb(NULL);
   lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
@@ -201,14 +205,15 @@ void rope_game_init() {
               &rope_game_task_handler);
 }
 void rope_game_exit() {
+  is_game_running = false;
   send_stop_game_cmd();
-  vTaskDelete(rope_game_task_handler);
   lobby_manager_register_custom_cmd_recv_cb(NULL);
-  esp_err_t ret = esp_timer_delete(timer_handle);
-  if (ret != ESP_OK) {
-    ESP_LOGE("Timer", "Failed to delete timer: %s", esp_err_to_name(ret));
+  if (timer_handle != NULL) {
+    esp_timer_stop(timer_handle);
+    esp_timer_delete(timer_handle);
   }
   vTaskDelay(pdMS_TO_TICKS(100));
+  send_stop_game_cmd();
   games_module_setup();
 }
 

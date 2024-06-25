@@ -30,11 +30,13 @@ void send_start_game_cmd(uint8_t game_id) {
     return;
   if (get_clients_count() < MAX_ROPE_GAME_PLAYERS) {
     games_screens_module_show_games_module_event(NOT_ENOUGHT_BADGES_EVENT);
-    return;
+    // return;
   }
   start_game_cmd_t cmd = {.cmd = START_GAME, .game_id = game_id};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
   rope_game_init();
+  vTaskDelay(pdMS_TO_TICKS(100));
+  badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
 }
 
 void handle_start_game_cmd(badge_connect_recv_msg_t* msg) {
