@@ -5,6 +5,7 @@
 #include "espnow.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "games_module.h"
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
@@ -33,6 +34,7 @@ esp_timer_handle_t timer_handle;
 TaskHandle_t rope_game_task_handler = NULL;
 
 void rope_game_input(button_event_t button_pressed);
+void rope_game_exit();
 
 void game_data_init() {
   for (uint8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
@@ -74,14 +76,13 @@ int8_t get_player_id(uint8_t* mac) {
 // ///////////////////////////////////////////////////////////////////////////////
 
 void send_player_data() {
-  print_mac(HOST_MAC);
-  player_data_msg_t player_data_msg = {.cmd = UPDATE_PLAYER_DATA,
+  player_data_cmd_t player_data_msg = {.cmd = UPDATE_PLAYER_DATA_CMD,
                                        .player_data = *me};
-  badge_connect_send(HOST_MAC, &player_data_msg, sizeof(player_data_msg_t));
+  badge_connect_send(HOST_MAC, &player_data_msg, sizeof(player_data_cmd_t));
 }
 
 void send_game_data() {
-  game_data_msg_t game_data_msg = {.cmd = UPDATE_GAME_DATA,
+  game_data_cmd_t game_data_msg = {.cmd = UPDATE_GAME_DATA_CMD,
                                    .game_data = game_instance};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &game_data_msg,
                      sizeof(game_data_t));
@@ -101,7 +102,7 @@ void handle_player_update(badge_connect_recv_msg_t* msg) {
   if (!host_mode || id < 1) {
     return;
   }
-  player_data_msg_t* data = (player_data_msg_t*) msg->data;
+  player_data_cmd_t* data = (player_data_cmd_t*) msg->data;
   memcpy(&game_instance.players_data[id], &data->player_data,
          sizeof(player_data_t));
 }
@@ -109,7 +110,7 @@ void handle_player_update(badge_connect_recv_msg_t* msg) {
 void handle_game_update(badge_connect_recv_msg_t* msg) {
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0)
     return;
-  game_data_msg_t* game_data_msg = (game_data_msg_t*) msg->data;
+  game_data_cmd_t* game_data_msg = (game_data_cmd_t*) msg->data;
   for (uint8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
     if (i == my_id)
       continue;
@@ -120,15 +121,31 @@ void handle_game_update(badge_connect_recv_msg_t* msg) {
 
 // ///////////////////////////////////////////////////////////////////////////////
 
+void send_stop_game_cmd() {
+  stop_game_cmd_t cmd = {.cmd = STOP_ROPE_GAME_CMD};
+  badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(stop_game_cmd_t));
+}
+
+void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
+  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0)
+    return;
+  rope_game_exit();
+}
+
+// ///////////////////////////////////////////////////////////////////////////////
+
 void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
   uint8_t cmd = *((uint8_t*) msg->data);
   // printf("ROPE GAME -> CMD: %d\n", cmd);
   switch (cmd) {
-    case UPDATE_PLAYER_DATA:
+    case UPDATE_PLAYER_DATA_CMD:
       handle_player_update(msg);
       break;
-    case UPDATE_GAME_DATA:
+    case UPDATE_GAME_DATA_CMD:
       handle_game_update(msg);
+      break;
+    case STOP_ROPE_GAME_CMD:
+      handle_stop_game_cmd(msg);
       break;
     default:
       break;
@@ -184,14 +201,15 @@ void rope_game_init() {
               &rope_game_task_handler);
 }
 void rope_game_exit() {
+  send_stop_game_cmd();
   vTaskDelete(rope_game_task_handler);
   lobby_manager_register_custom_cmd_recv_cb(NULL);
   esp_err_t ret = esp_timer_delete(timer_handle);
   if (ret != ESP_OK) {
     ESP_LOGE("Timer", "Failed to delete timer: %s", esp_err_to_name(ret));
   }
-  menu_screens_set_app_state(false, NULL);
-  menu_screens_exit_submenu();
+  vTaskDelay(pdMS_TO_TICKS(100));
+  games_module_setup();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////

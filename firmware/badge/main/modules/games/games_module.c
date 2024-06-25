@@ -11,23 +11,19 @@
 
 void handle_games_module_cmds(badge_connect_recv_msg_t* msg);
 
-app_screen_state_information_t app_screen_state_information = {
-    .in_app = false,
-    .app_selected = 0,
-};
-
 void games_module_app_selector();
 void games_module_state_machine(button_event_t button_pressed);
 
-void games_module_begin(int app_selected) {
-  app_screen_state_information.app_selected = app_selected;
+void games_module_begin() {
+  games_module_setup();
+  lobby_manager_init();
+}
+void games_module_setup() {
   menu_screens_set_app_state(true, games_module_state_machine);
   oled_screen_clear(OLED_DISPLAY_NORMAL);
   lobby_manager_set_display_status_cb(games_screens_module_show_lobby_state);
   lobby_manager_register_custom_cmd_recv_cb(handle_games_module_cmds);
-  lobby_manager_init();
 }
-
 //////////////////////////////////////////////////////////////////////////////////////////////
 void send_start_game_cmd(uint8_t game_id) {
   if (client_mode)
@@ -76,28 +72,23 @@ void games_module_state_machine(button_event_t button_pressed) {
 
   ESP_LOGI(TAG_GAMES_MODULE, "Games engine state machine from team: %d %d",
            button_name, button_event);
-  switch (app_screen_state_information.app_selected) {
-    case MENU_GAMES:
-      switch (button_name) {
-        case BUTTON_RIGHT:
-          switch (button_event) {
-            case BUTTON_PRESS_DOWN:
-              send_start_game_cmd(ROPE_GAME);
-              break;
-            case BUTTON_PRESS_UP:
-              break;
-          }
+  switch (button_name) {
+    case BUTTON_RIGHT:
+      switch (button_event) {
+        case BUTTON_PRESS_DOWN:
+          send_start_game_cmd(ROPE_GAME);
           break;
-        case BUTTON_LEFT:
-          switch (button_event) {
-            case BUTTON_PRESS_DOWN:
-              lobby_manager_deinit();
-              menu_screens_set_app_state(false, NULL);
-              menu_screens_exit_submenu();
-              break;
-          }
+        case BUTTON_PRESS_UP:
           break;
-        default:
+      }
+      break;
+    case BUTTON_LEFT:
+      switch (button_event) {
+        case BUTTON_PRESS_DOWN:
+          printf("GAMES DEINIT\n");
+          lobby_manager_deinit();
+          menu_screens_set_app_state(false, NULL);
+          menu_screens_exit_submenu();
           break;
       }
       break;

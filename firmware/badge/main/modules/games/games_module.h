@@ -14,4 +14,5 @@ typedef struct {
   uint8_t game_id;
 } start_game_cmd_t;
 
-void games_module_begin(int app_selected);
+void games_module_begin();
+void games_module_setup();
