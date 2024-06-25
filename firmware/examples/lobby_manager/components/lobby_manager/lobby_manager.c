@@ -171,7 +171,7 @@ bool add_new_player(uint8_t* mac) {
   printf("Lobby is full\n");
   return false;
 }
-uint8_t get_players_count() {
+uint8_t get_clients_count() {
   uint8_t cnt = 0;
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online)  // Ajustar en la marcha
@@ -253,7 +253,7 @@ void unlock_games(uint8_t players_cnt) {}
 
 void games_unlocker_task() {
   while (1) {
-    unlock_games(get_players_count());
+    unlock_games(get_clients_count());
     vTaskDelay(500);
   }
 }
@@ -261,7 +261,7 @@ void games_unlocker_task() {
 void advertiser_task() {
   while (1) {
     if (!client_mode) {
-      if (get_players_count() < MAX_PLAYERS_NUM) {
+      if (get_clients_count() < MAX_PLAYERS_NUM) {
         send_advertise();
       } else {
         printf("Lobby is full");

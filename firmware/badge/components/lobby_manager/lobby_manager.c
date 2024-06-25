@@ -218,7 +218,7 @@ int8_t get_client_id(uint8_t* mac) {
   }
   return -1;
 }
-uint8_t get_players_count() {
+uint8_t get_clients_count() {
   uint8_t cnt = 0;
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online)  // Ajustar en la marcha
@@ -365,7 +365,7 @@ void advertiser_task() {
   while (1) {
     if (!client_mode) {
       display_state(SHOW_CLIENTS);
-      if (get_players_count() < MAX_PLAYERS_NUM) {
+      if (get_clients_count() < MAX_PLAYERS_NUM) {
         send_advertise();
       } else {
         printf("Lobby is full");

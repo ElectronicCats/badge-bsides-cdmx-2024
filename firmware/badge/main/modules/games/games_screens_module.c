@@ -79,3 +79,26 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
       break;
   }
 }
+
+//////////////////////////////////////////////////////////////////////////////////
+void show_not_enought_players() {
+  oled_screen_clear();
+  oled_screen_display_text("NOT ENOUGHT", 0, 0, OLED_DISPLAY_NORMAL);
+  char* str = (char*) malloc(16);
+  sprintf(str, "BADGES %d/4", get_clients_count());
+  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
+  free(str);
+  vTaskDelay(pdMS_TO_TICKS(1000));
+}
+
+void games_screens_module_show_games_module_event(games_module_events_t event) {
+  lobby_manager_set_display_status_cb(NULL);
+  switch (event) {
+    case NOT_ENOUGHT_BADGES_EVENT:
+      show_not_enought_players();
+      break;
+    default:
+      break;
+  }
+  lobby_manager_set_display_status_cb(games_screens_module_show_lobby_state);
+}

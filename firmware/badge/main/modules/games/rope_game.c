@@ -30,6 +30,7 @@ uint8_t my_id;
 
 bool swap;
 esp_timer_handle_t timer_handle;
+TaskHandle_t rope_game_task_handler = NULL;
 
 void rope_game_input(button_event_t button_pressed);
 
@@ -157,7 +158,7 @@ void decrement_strenght() {
 
 // ///////////////////////////////////////////////////////////////////////////////
 
-void IA() {
+void rope_game_task() {
   while (1) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
@@ -179,7 +180,18 @@ void rope_game_init() {
     return;
   }
   menu_screens_set_app_state(true, rope_game_input);
-  xTaskCreate(IA, "IA", 2048, NULL, 10, NULL);
+  xTaskCreate(rope_game_task, "rope_game_task", 2048, NULL, 10,
+              &rope_game_task_handler);
+}
+void rope_game_exit() {
+  vTaskDelete(rope_game_task_handler);
+  lobby_manager_register_custom_cmd_recv_cb(NULL);
+  esp_err_t ret = esp_timer_delete(timer_handle);
+  if (ret != ESP_OK) {
+    ESP_LOGE("Timer", "Failed to delete timer: %s", esp_err_to_name(ret));
+  }
+  menu_screens_set_app_state(false, NULL);
+  menu_screens_exit_submenu();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
@@ -193,8 +205,7 @@ void rope_game_input(button_event_t button_pressed) {
     case BUTTON_LEFT:
       switch (button_event) {
         case BUTTON_PRESS_DOWN:
-          menu_screens_set_app_state(false, NULL);
-          menu_screens_exit_submenu();
+          rope_game_exit();
           break;
       }
     case BUTTON_RIGHT:

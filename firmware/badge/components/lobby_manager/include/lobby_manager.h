@@ -49,3 +49,4 @@ void lobby_manager_register_custom_cmd_recv_cb(badge_connect_recv_cb_t cb);
 
 void lobby_manager_init();
 void lobby_manager_deinit();
+uint8_t get_clients_count();
