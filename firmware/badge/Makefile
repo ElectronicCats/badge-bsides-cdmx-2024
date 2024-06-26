@@ -21,6 +21,6 @@ clean:
 	rm sdkconfig
 	make setup
 
-all: clean flash monitor
+all: flash monitor
 
 .PHONY: test_port setup compile flash monitor clean all
