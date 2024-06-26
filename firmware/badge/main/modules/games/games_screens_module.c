@@ -1,7 +1,13 @@
 #include "games_screens_module.h"
+#include <string.h>
 #include "lobby_manager.h"
 #include "oled_screen.h"
 #include "rope_game.h"
+
+#define BAR_HEIGHT 8
+#define BAR_WIDTH  112
+
+uint8_t bar_bitmap[BAR_HEIGHT][BAR_WIDTH / 8];
 
 void show_host_state() {}
 
@@ -58,14 +64,28 @@ void games_screens_module_show_lobby_state(uint8_t state) {
   }
 }
 //////////////////////////////////////////////////////////////////////////////////
+void update_bar(uint8_t value) {
+  uint8_t active_cols = (uint32_t) value * BAR_WIDTH / 255;
+  memset(bar_bitmap, 0, sizeof(bar_bitmap));
+  for (int y = 0; y < BAR_HEIGHT; y++) {
+    if (y == 1 || y == 6)
+      continue;
+    for (int x = 0; x < active_cols; x++) {
+      bar_bitmap[y][x / 8] |= (1 << (7 - (x % 8)));
+    }
+  }
+}
 void rope_game_show_game_data() {
   oled_screen_clear();
   char* str = (char*) malloc(16);
   for (int8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
-    sprintf(str, "P%d: %d", i + 1, game_instance.players_data[i].strenght);
+    sprintf(str, "P%d", i + 1);
     oled_screen_display_text(
         str, 0, i,
         i == my_client_id ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+    update_bar(game_instance.players_data[i].strenght);
+    oled_screen_display_bitmap(bar_bitmap, 16, i * 8, BAR_WIDTH, BAR_HEIGHT,
+                               OLED_DISPLAY_NORMAL);
   }
   free(str);
 }
@@ -102,3 +122,4 @@ void games_screens_module_show_games_module_event(games_module_events_t event) {
   }
   lobby_manager_set_display_status_cb(games_screens_module_show_lobby_state);
 }
+//////////////////////////////////////////////////////////////////////////////////
