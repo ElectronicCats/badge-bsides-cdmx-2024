@@ -335,20 +335,34 @@ esp_err_t preferences_get_string(const char* key,
   _check_started();
   size_t length = 0;
 
-  _return_err = nvs_get_str(_nvs_handler, key, NULL, &length);
+  // Verificar si el valor existe y obtener su longitud
+  esp_err_t err = nvs_get_str(_nvs_handler, key, NULL, &length);
 
-  if (_return_err == ESP_ERR_NVS_NOT_FOUND) {
+  if (err == ESP_ERR_NVS_NOT_FOUND) {
     ESP_LOGI(TAG, "The value is not initialized yet!");
     return ESP_ERR_NVS_NOT_FOUND;
   }
 
+  if (err != ESP_OK) {
+    ESP_LOGE(TAG, "Error (%s) reading the length of the string!",
+             esp_err_to_name(err));
+    return err;
+  }
+
+  // Verificar si la longitud excede la longitud máxima permitida
   if (length > max_length) {
     ESP_LOGE(TAG, "The value is too long for the buffer!");
     return ESP_ERR_NVS_INVALID_LENGTH;
   }
 
-  _return_err = nvs_get_str(_nvs_handler, key, value, &length);
-  return _return_err;
+  // Obtener el valor real de la cadena
+  err = nvs_get_str(_nvs_handler, key, value, &length);
+
+  if (err != ESP_OK) {
+    ESP_LOGE(TAG, "Error (%s) reading the string!", esp_err_to_name(err));
+  }
+
+  return err;
 }
 
 size_t preferences_get_bytes_length(const char* key) {

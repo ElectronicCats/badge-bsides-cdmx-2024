@@ -1,32 +1,21 @@
+#include "lobby_manager.h"
 #include <stdio.h>
-#include <string.h>
 #include "badge_connect.h"
+#include "driver/gpio.h"
+#include "esp_log.h"
 #include "esp_random.h"
 #include "esp_timer.h"
 #include "esp_wifi.h"
 #include "espnow.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "nvs_flash.h"
 
-#include "driver/gpio.h"
+#define DESACTIVAR_PRINT
 
-#define MAC_SIZE        6
-#define MAX_PLAYERS_NUM 4
-#define PING_TIMEOUT_MS 4000
-#define RSSI_FILTER     (-100)
-
-// GPS MININO
-// RX0 GPIO4
-// TX0 GPIO5
-
-// RX1 GPIO17
-// TX1 GPIO16
-
-#define BADGE_IN_1 GPIO_NUM_4
-#define BADGE_IN_2 GPIO_NUM_17
-
-#define BADGE_OUT_1 GPIO_NUM_5
-#define BADGE_OUT_2 GPIO_NUM_16
+#ifdef DESACTIVAR_PRINT
+  #define printf(fmt, ...) ((void) 0)
+#endif
 
 typedef enum {
   PING_CMD,
@@ -35,6 +24,13 @@ typedef enum {
   JOIN_REQUEST_CMD,
   JOIN_RESPONSE_CMD
 } commands_t;
+
+typedef enum {
+  PING_NONE,
+  PING_WAITING,
+  PING_SUCCESS,
+  PING_TIMEOUT,
+} ping_status_t;
 
 typedef struct {
   uint8_t cmd;
@@ -59,36 +55,35 @@ typedef struct {
   uint8_t cmd;
   bool client_mode;
   bool my_child;
+  player_inf_t players[MAX_PLAYERS_NUM];
 } ping_response_message_t;
 
-typedef struct {
-  uint8_t mac[MAC_SIZE];
-  bool online;
-  uint8_t player_id;
-  // badge type?
-  // others
-} player_inf_t;
-
 uint8_t my_mac[MAC_SIZE];
-uint8_t host_mac[MAC_SIZE];
 
-bool client_mode = false;
-int8_t my_player_id = 0;
 uint8_t players_count;  // still unused
 uint8_t my_host_level;
 uint8_t host_level = 0;
-player_inf_t players[MAX_PLAYERS_NUM];
 
 esp_timer_handle_t ping_timer;
-bool ping_timeout = false;
+uint8_t ping_status = 0;
+uint8_t ping_attempt = 0;
+uint8_t ping_id = 1;
 
 TaskHandle_t advertiser_task_handler;
-TaskHandle_t games_unlocker_task_handler;
+
+display_status_cb_t display_event_cb = NULL;
+badge_connect_recv_cb_t custom_cmd_recv_cb = NULL;
 
 void send_join_request_response(uint8_t* mac, uint8_t idx);
 void send_join_request();
 void send_ping_response(uint8_t* mac);
-bool is_player_my_child(uint8_t* mac);
+bool is_host_my_host(uint8_t* mac);
+bool is_client_my_client(uint8_t* mac);
+void client_mode_exit();
+void on_ping_timeout();
+int8_t get_client_id(mac);
+
+void display_state(uint8_t event);
 
 uint8_t get_random_uint8() {
   uint32_t entropy = esp_random();
@@ -120,17 +115,31 @@ void print_players_table() {
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 void ping_timeout_handler() {
-  ping_timeout = true;
+  if (ping_attempt < 3) {
+    ping_status = PING_NONE;
+    ping_attempt++;
+  } else {
+    ping_status = PING_TIMEOUT;
+    on_ping_timeout();
+    ping_attempt = 0;
+  }
 }
 void send_ping_request(uint8_t* mac) {
   printf("send_ping_request\n");
   ping_message_t ping_msg = {.cmd = PING_CMD};
   badge_connect_send(mac, &ping_msg, sizeof(ping_msg));
-  esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
 }
 void handle_ping_request(uint8_t* mac) {
   printf("handle_ping_request\n");
-  send_ping_response(mac);
+  if (client_mode) {
+    if (is_host_my_host(mac)) {
+      send_ping_response(mac);
+    }
+  } else {
+    if (is_client_my_client(mac)) {
+      send_ping_response(mac);
+    }
+  }
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_ping_response(uint8_t* mac) {
@@ -138,41 +147,56 @@ void send_ping_response(uint8_t* mac) {
   ping_response_message_t ping_response_msg = {
       .cmd = PING_RESPONSE_CMD,
       .client_mode = client_mode,
-      .my_child = is_player_my_child(mac)};
-
+      .my_child = is_client_my_client(mac)};
+  memcpy(ping_response_msg.players, players, sizeof(players));
   badge_connect_send(mac, &ping_response_msg, sizeof(ping_response_msg));
-  esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
 }
 void handle_ping_response(badge_connect_recv_msg_t* msg) {
   printf("handle_ping_response\n");
   ping_response_message_t* ping_response_msg =
       (ping_response_message_t*) msg->data;
-  if (ping_response_msg->client_mode || !ping_response_msg->my_child) {
-    printf("host isnt host or not my host, listening...\n");
-    memset(host_mac, 0, MAC_SIZE);
-    client_mode = false;
-    host_level = 0;
+  if (client_mode) {
+    if (ping_response_msg->client_mode || !ping_response_msg->my_child) {
+      printf("host isnt host or not my host, listening...\n");
+      client_mode_exit();
+      return;
+    }
+    memcpy(players, ping_response_msg->players, sizeof(players));
+    esp_timer_stop(ping_timer);
+    printf("PING SUCCESS\n");
+    print_players_table();
+    ping_attempt = 0;
+    ping_status = PING_SUCCESS;
+  } else {
+    if (is_client_my_client(msg->src_addr)) {
+      esp_timer_stop(ping_timer);
+      printf("PING SUCCESS\n");
+      ping_attempt = 0;
+      ping_status = PING_SUCCESS;
+    }
   }
-  esp_timer_stop(ping_timer);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
-bool is_player_my_child(uint8_t* mac) {
-  for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
+bool is_host_my_host(uint8_t* mac) {
+  return memcmp(host_mac, mac, MAC_SIZE) == 0 ? true : false;
+}
+bool is_client_my_client(uint8_t* mac) {
+  for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
       return true;
     }
   }
   return false;
 }
+
 bool add_new_player(uint8_t* mac) {
-  for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
-    if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
-      printf("PLayer already in this lobby\n");
-      send_join_request_response(mac, i);
-      return true;
-    }
+  int8_t client_id = get_client_id(mac);
+  if (client_id != -1) {
+    printf("PLayer already in this lobby\n");
+    send_join_request_response(mac, client_id);
+    return true;
   }
-  for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
+  for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (!players[i].online)  // Ajustar en la marcha
     {
       memcpy(players[i].mac, mac, MAC_SIZE);
@@ -186,7 +210,15 @@ bool add_new_player(uint8_t* mac) {
   printf("Lobby is full\n");
   return false;
 }
-uint8_t get_players_count() {
+int8_t get_client_id(uint8_t* mac) {
+  for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
+    if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
+      return i;
+    }
+  }
+  return -1;
+}
+uint8_t get_clients_count() {
   uint8_t cnt = 0;
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online)  // Ajustar en la marcha
@@ -199,15 +231,22 @@ uint8_t get_players_count() {
 
 void clear_players_table() {
   memset(&players, 0, sizeof(player_inf_t) * MAX_PLAYERS_NUM);
+  memcpy(players[0].mac, my_mac, MAC_SIZE);
+  players[0].online = 1;
+  players[0].player_id = 0;
+}
+void clear_client(uint8_t player_id) {
+  memset(&players[player_id], 0, sizeof(player_inf_t));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_advertise() {
-  if (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2)) {
-    printf("Badge not connected\n");
-    clear_players_table();
-    return;
-  }
+  // if (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2)) {
+  //   printf("Badge not connected\n");
+  // display_state(SHOW_UNCONNECTED);
+  //   clear_players_table();
+  //   return;
+  // }
   printf("send_advertise\t MAC:");
   print_mac_address(my_mac);
   printf("\n");
@@ -230,7 +269,7 @@ void handle_advertise(badge_connect_recv_msg_t* msg) {
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_join_request(uint8_t* mac) {
-  if (memcmp(mac, host_mac, MAC_SIZE) == 0) {
+  if (is_host_my_host(mac)) {
     printf("already joined to this lobby\n");
     client_mode = true;
   } else {
@@ -264,46 +303,86 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   }
   memcpy(host_mac, msg->src_addr, MAC_SIZE);
   host_level = join_response_msg->host_level;
-  my_player_id = join_response_msg->idx;
-  printf("Joined to lobby-> Player%d\n", my_player_id);
+  my_client_id = join_response_msg->idx;
+  printf("Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
-////////////////////////////////////////////////////////////////////////////////////////
-void unlock_games(uint8_t players_cnt) {}
 
-void games_unlocker_task() {
-  while (1) {
-    unlock_games(get_players_count());
-    vTaskDelay(500);
+////////////////////////////////////////////////////////////////////////////////////////
+void client_mode_exit() {
+  printf("Client Mode Exit\n");
+  memset(host_mac, 0, MAC_SIZE);
+  clear_players_table();
+  host_level = 0;
+  client_mode = false;
+  my_client_id = 0;
+  ping_id = 1;
+}
+void on_ping_timeout() {
+  if (client_mode) {
+    printf("Host timeout, listening for new host\n");
+    ESP_LOGE("PING", "TIMEOUT!!!");
+    client_mode_exit();
+  } else {
+    ESP_LOGE("PING", "player%d is offline\n", ping_id);
+    printf("player%d is offline\n", ping_id);
+    clear_client(ping_id);
   }
 }
-////////////////////////////////////////////////////////////////////////////////////////
+
+void seek_next_online_client() {
+  printf("seek_next_online_client %d\n", ping_id);
+  for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
+    ping_id = ++ping_id > MAX_PLAYERS_NUM ? 1 : ping_id;
+    if (players[ping_id].online) {
+      printf("Found at %d\n", ping_id);
+      break;
+    }
+  }
+}
+void ping(uint8_t* mac) {
+  if (ping_status == PING_NONE) {
+    ping_status = PING_WAITING;
+    send_ping_request(mac);
+    esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
+    ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
+  }
+  if (ping_status == PING_WAITING)
+    return;
+  if (ping_status == PING_TIMEOUT) {
+  } else if (ping_status == PING_SUCCESS) {
+  }
+  ping_status = PING_NONE;
+  if (!client_mode) {
+    seek_next_online_client();
+    vTaskDelay(pdMS_TO_TICKS(500));
+  } else {
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
+}
+
 void advertiser_task() {
   while (1) {
     if (!client_mode) {
-      if (get_players_count() < MAX_PLAYERS_NUM) {
+      display_state(SHOW_CLIENTS);
+      if (get_clients_count() < MAX_PLAYERS_NUM) {
         send_advertise();
       } else {
         printf("Lobby is full");
       }
-      vTaskDelay(pdMS_TO_TICKS(2000));
-    } else  // Quiza se pueda cambiar por un task
-    {
-      printf("+ client_mode-> Player%d\t Host: ", my_player_id);
+      if (players[ping_id].online) {
+        ping(players[ping_id].mac);
+      } else {
+        seek_next_online_client();
+      }
+    } else {
+      display_state(CLIENT_STATE);
+      printf("+ client_mode-> Player%d\t Host: ", my_client_id);
       print_mac_address(host_mac);
       printf("\n");
-      if (ping_timeout)  // TODO: ping retries
-      {
-        printf("Host timeout, listening for new host\n");
-        memset(host_mac, 0, MAC_SIZE);
-        host_level = 0;
-        ping_timeout = false;
-        client_mode = false;
-        continue;
-      }
-      send_ping_request(host_mac);
-      vTaskDelay(pdMS_TO_TICKS(PING_TIMEOUT_MS + 1000));
+      ping(host_mac);
     }
+    vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 
@@ -341,11 +420,12 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
   uint8_t cmd = *((uint8_t*) msg->data);
   // printf("CMD: %d\n", cmd);
   // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
-  if (msg->rx_ctrl->rssi < RSSI_FILTER ||
-      (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2))) {
-    printf("So Far or not connected to another badge\n");
-    return;
-  }
+  // if (msg->rx_ctrl->rssi < RSSI_FILTER ||
+  //     (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2))) {
+  //   printf("So Far or not connected to another badge\n");
+  // display_state(SHOW_UNCONNECTED);
+  //   return;
+  // }
   switch (cmd) {
     case ADVERTISE_CMD:
       handle_advertise(msg);
@@ -363,19 +443,48 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
       handle_ping_response(msg);
       break;
     default:
+      if (custom_cmd_recv_cb) {
+        printf("UNRECOGNIZED CMD\n");
+        custom_cmd_recv_cb(msg);
+      }
       break;
   }
 }
 
+void nvs_init() {
+  esp_err_t ret = nvs_flash_init();
+  if (ret == ESP_ERR_NVS_NO_FREE_PAGES ||
+      ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    ESP_ERROR_CHECK(nvs_flash_erase());
+    ret = nvs_flash_init();
+  }
+  ESP_ERROR_CHECK(ret);
+}
+
+void wifi_init() {
+  esp_event_loop_create_default();
+
+  wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+  nvs_init();
+
+  ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+  ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+  ESP_ERROR_CHECK(esp_wifi_set_storage(WIFI_STORAGE_RAM));
+  ESP_ERROR_CHECK(esp_wifi_set_ps(WIFI_PS_NONE));
+  ESP_ERROR_CHECK(esp_wifi_start());
+}
+
 void lobby_manager_init() {
   configure_pins();
-  clear_players_table();
+  wifi_init();
   badge_connect_init();
   badge_connect_register_recv_cb(receive_data_cb);
   badge_connect_set_bsides_badge();
 
   my_host_level = get_random_uint8();
+  // my_host_level = 255;
   esp_wifi_get_mac(WIFI_IF_STA, my_mac);
+  clear_players_table();
 
   const esp_timer_create_args_t ping_timer_args = {
       .callback = &ping_timeout_handler, .name = "ping_timeout"};
@@ -383,19 +492,12 @@ void lobby_manager_init() {
 
   xTaskCreate(advertiser_task, "Advertiser Task", 2048, NULL, 10,
               &advertiser_task_handler);
-  xTaskCreate(games_unlocker_task, "Games Unlocker Task", 2048, NULL, 10,
-              &games_unlocker_task_handler);
 }
 void lobby_manager_deinit() {
   deconfigure_pins();
   if (advertiser_task_handler != NULL) {
     vTaskDelete(advertiser_task_handler);
     advertiser_task_handler = NULL;
-  }
-
-  if (games_unlocker_task_handler != NULL) {
-    vTaskDelete(games_unlocker_task_handler);
-    games_unlocker_task_handler = NULL;
   }
 
   if (ping_timer != NULL) {
@@ -405,3 +507,17 @@ void lobby_manager_deinit() {
   clear_players_table();
   badge_connect_deinit();
 }
+void display_state(uint8_t event) {
+  if (display_event_cb) {
+    display_event_cb(event);
+  }
+}
+void lobby_manager_set_display_status_cb(display_status_cb_t cb) {
+  display_event_cb = cb;
+}
+
+void lobby_manager_register_custom_cmd_recv_cb(badge_connect_recv_cb_t cb) {
+  custom_cmd_recv_cb = cb;
+}
+
+#undef DESACTIVAR_PRINT
