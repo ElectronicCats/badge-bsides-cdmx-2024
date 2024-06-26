@@ -12,7 +12,7 @@
    CONDITIONS OF ANY KIND, either express or implied.
 */
 #pragma once
-
+#include <stdbool.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

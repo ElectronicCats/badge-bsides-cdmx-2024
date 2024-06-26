@@ -13,6 +13,7 @@
 */
 
 #include "cmd_wifi.h"
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
 #include "argtable3/argtable3.h"
