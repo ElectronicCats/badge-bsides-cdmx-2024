@@ -12,7 +12,7 @@
 
 static esp_err_t err;
 static QueueHandle_t packet_rx_queue = NULL;
-static ieee_sniffer_cb_t display_records_cb = NULL;
+static ieee_sniffer_cb_t packet_callback = NULL;
 static int current_channel = IEEE_SNIFFER_CHANNEL_DEFAULT;
 static int packets_count = 0;
 
@@ -32,7 +32,7 @@ void sniffer_esp_ieee802154_receive_done(
 }
 
 void ieee_sniffer_register_cb(ieee_sniffer_cb_t callback) {
-  display_records_cb = callback;
+  packet_callback = callback;
 }
 
 void ieee_sniffer_set_channel(int channel) {
@@ -108,14 +108,10 @@ void ieee_sniffer_stop(void) {
 static void debug_handler_task(void* pvParameters) {
   uint8_t packet[257];
   while (xQueueReceive(packet_rx_queue, &packet, portMAX_DELAY) != pdFALSE) {
-    if (display_records_cb) {
-      packets_count++;
-      display_records_cb(packets_count, current_channel);
-      if (packets_count > LIMIT_PACKETS) {
-        packets_count = 0;
-      }
+    if (packet_callback) {
+      packet_callback(&packet[1], packet[0]);
     }
-    debug_print_packet(&packet[1], packet[0]);
+    // debug_print_packet(&packet[1], packet[0]);
   }
   ESP_LOGE("debug_handler_task", "Terminated");
   vTaskDelete(NULL);

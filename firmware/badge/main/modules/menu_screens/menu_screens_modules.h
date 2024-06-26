@@ -133,3 +133,7 @@ void menu_screens_update_options(char* options[], uint8_t selected_option);
 void display_thread_broadcast();
 void display_gps_init();
 void display_gps_deinit();
+
+void screen_module_set_main_menu();
+void screen_module_set_screen(int screen_layer);
+void show_logo();

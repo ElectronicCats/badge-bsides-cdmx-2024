@@ -1,6 +1,7 @@
 #include "menu_screens_modules.h"
 #include "bitmaps.h"
 #include "ble_module.h"
+#include "catdos_module.h"
 #include "esp_log.h"
 #include "games_module.h"
 #include "gps.h"
@@ -94,23 +95,38 @@ void menu_screens_run_tests() {
   ESP_ERROR_CHECK(menu_screens_test_menu_items());
 }
 
+void screen_module_set_main_menu() {
+  current_menu = MENU_MAIN;
+  selected_item = 0;
+  preferences_put_int("MENUNUMBER", 99);
+}
+
+void screen_module_set_screen(int screen_layer) {
+  current_menu = screen_layer;
+  selected_item = 0;
+  preferences_put_int("MENUNUMBER", screen_layer);
+  menu_screens_display_menu();
+}
+
 void show_logo() {
-  if (preferences_get_bool("zigbee_deinit", false)) {
-    current_menu = MENU_ZIGBEE_SPOOFING;
-    preferences_put_bool("zigbee_deinit", false);
-  } else if (preferences_get_bool("wifi_exit", false)) {
-    current_menu = MENU_WIFI_APPS;
-    preferences_put_bool("wifi_exit", false);
-  } else if (preferences_get_bool("thread_deinit", false)) {
-    current_menu = MENU_APPLICATIONS;
-    preferences_put_bool("thread_deinit", false);
-  } else {
-    buzzer_play();
-    oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 64,
-                               OLED_DISPLAY_NORMAL);
-    buzzer_stop();
-    vTaskDelay(500 / portTICK_PERIOD_MS);
-  }
+  // if (preferences_get_bool("zigbee_deinit", false)) {
+  //   current_menu = MENU_ZIGBEE_SPOOFING;
+  //   preferences_put_bool("zigbee_deinit", false);
+  // } else if (preferences_get_bool("wifi_exit", false)) {
+  //   current_menu = MENU_WIFI_APPS;
+  //   preferences_put_bool("wifi_exit", false);
+  // } else if (preferences_get_bool("thread_deinit", false)) {
+  //   current_menu = MENU_APPLICATIONS;
+  //   preferences_put_bool("thread_deinit", false);
+  // } else {
+  //   buzzer_play();
+  //   oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
+  //                              OLED_DISPLAY_NORMAL);
+  //   buzzer_stop();
+  //   vTaskDelay(2000 / portTICK_PERIOD_MS);
+  // }
+  oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
+                             OLED_DISPLAY_NORMAL);
 }
 
 void menu_screens_begin() {
@@ -121,13 +137,13 @@ void menu_screens_begin() {
   bluetooth_devices_count = 0;
   nmea_hdl = NULL;
 
-  menu_screens_run_tests();
+  // menu_screens_run_tests();
   oled_screen_begin();
 
   // Show logo
   oled_screen_clear();
-  show_logo();
-  // display_gps_init();
+  // show_logo();
+  //  display_gps_init();
 }
 
 /**
@@ -592,6 +608,9 @@ void menu_screens_enter_submenu() {
     case MENU_WIFI_DEAUTH:
       wifi_module_deauth_begin();
       break;
+    case MENU_WIFI_DOS:
+      catdos_module_begin();
+      break;
     case MENU_WIFI_ANALIZER_RUN:
       oled_screen_clear();
       wifi_sniffer_start();
@@ -632,8 +651,7 @@ void menu_screens_enter_submenu() {
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
     case MENU_GAMES:
-      games_module_begin(MENU_GAMES);
-      break;
+      games_module_begin();
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
@@ -660,13 +678,14 @@ void menu_screens_enter_submenu() {
 
 void menu_screens_ingrement_selected_item() {
   selected_item = (selected_item == num_items - MAX_MENU_ITEMS_PER_SCREEN)
-                      ? selected_item
+                      ? 0
                       : selected_item + 1;
   menu_screens_display_menu();
 }
 
 void menu_screens_decrement_selected_item() {
-  selected_item = (selected_item == 0) ? 0 : selected_item - 1;
+  selected_item = (selected_item == 0) ? (num_items - MAX_MENU_ITEMS_PER_SCREEN)
+                                       : selected_item - 1;
   menu_screens_display_menu();
 }
 
