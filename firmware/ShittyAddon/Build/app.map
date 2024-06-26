@@ -1,0 +1,1680 @@
+Archive member included to satisfy reference by file (symbol)
+
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o (exit)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o) (__stdio_exit_handler)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o) (_fwalk_sglue)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o) (__sread)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o (memset)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o) (_close_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o) (errno)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o) (_impure_ptr)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o) (_lseek_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o) (_read_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o) (_write_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o (__libc_init_array)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o) (_free_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o) (_malloc_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o) (__malloc_lock)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o) (_fflush_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o) (_sbrk_r)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                              ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o (__aeabi_uidiv)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+                              ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o (__aeabi_idiv)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o) (__aeabi_idiv0)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+                              ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o (__errno)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o) (_sbrk)
+c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+                              c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o) (_exit)
+
+Discarded input sections
+
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .data.__dso_handle
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text          0x00000000       0x80 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .ARM.extab     0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .ARM.exidx     0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .debug_line_str
+                0x00000000       0xd2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .ARM.attributes
+                0x00000000       0x1b c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .text.exit     0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .debug_frame   0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.std      0x00000000       0x6c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.stdio_exit_handler
+                0x00000000       0x1c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.cleanup_stdio
+                0x00000000       0x3c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock
+                0x00000000       0x18 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock
+                0x00000000       0x18 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.global_stdio_init.part.0
+                0x00000000       0x3c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_acquire
+                0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp_lock_release
+                0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__sfp    0x00000000       0xa8 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__sinit  0x00000000       0x30 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_lock_all
+                0x00000000       0x1c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text.__fp_unlock_all
+                0x00000000       0x1c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .data.__sglue  0x00000000        0xc c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .bss.__sf      0x00000000      0x138 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .bss.__stdio_exit_handler
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x00000000      0x138 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-findfp.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .text._fwalk_sglue
+                0x00000000       0x38 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x00000000       0x34 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fwalk.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text.__sread  0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text.__seofread
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text.__swrite
+                0x00000000       0x38 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text.__sseek  0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text.__sclose
+                0x00000000        0xc c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x00000000       0x90 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-stdio.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .text.memset   0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-memset.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .text._close_r
+                0x00000000       0x24 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-closer.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .text._reclaim_reent
+                0x00000000       0xc0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .bss.errno     0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-reent.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .data._impure_ptr
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .data._impure_data
+                0x00000000       0x4c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-impure.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .text._lseek_r
+                0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lseekr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .text._read_r  0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-readr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .text._write_r
+                0x00000000       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-writer.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_init_recursive
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_close_recursive
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_acquire_recursive
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_try_acquire_recursive
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text.__retarget_lock_release_recursive
+                0x00000000        0x2 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___arc4random_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___dd_hash_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___tz_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___env_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___malloc_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___at_quick_exit_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___atexit_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .bss.__lock___sfp_recursive_mutex
+                0x00000000        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x00000000       0xb0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-lock.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .text._free_r  0x00000000       0x94 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-freer.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .text.sbrk_aligned
+                0x00000000       0x44 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .text._malloc_r
+                0x00000000      0x100 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_sbrk_start
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .bss.__malloc_free_list
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x00000000       0x50 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mallocr.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_lock
+                0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .text.__malloc_unlock
+                0x00000000       0x10 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x00000000       0x40 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-mlock.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .text.__sflush_r
+                0x00000000      0x11c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .text._fflush_r
+                0x00000000       0x56 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .text.fflush   0x00000000       0x30 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x00000000       0x68 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-fflush.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .text._sbrk_r  0x00000000       0x24 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-sbrkr.o)
+ .text          0x00000000        0x0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .data          0x00000000        0x0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .bss           0x00000000        0x0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .text.SystemCoreClockUpdate
+                0x00000000       0x5c ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .rodata.HSIFreqTable
+                0x00000000       0x20 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .rodata.AHBPrescTable
+                0x00000000       0x40 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .text          0x00000000        0x0 ./Build/User/main.o
+ .data          0x00000000        0x0 ./Build/User/main.o
+ .bss           0x00000000        0x0 ./Build/User/main.o
+ .text.sequences
+                0x00000000       0x44 ./Build/User/main.o
+ .rodata.sequences
+                0x00000000       0x1c ./Build/User/main.o
+ .text.APP_ErrorHandler
+                0x00000000        0x4 ./Build/User/main.o
+ .text          0x00000000        0x0 ./Build/User/py32f0xx_it.o
+ .data          0x00000000        0x0 ./Build/User/py32f0xx_it.o
+ .bss           0x00000000        0x0 ./Build/User/py32f0xx_it.o
+ .text          0x00000000        0x0 ./Build/User/py32f0xx_hal_msp.o
+ .data          0x00000000        0x0 ./Build/User/py32f0xx_hal_msp.o
+ .bss           0x00000000        0x0 ./Build/User/py32f0xx_hal_msp.o
+ .text          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .data          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .bss           0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .text.BSP_HSI_24MHzClockConfig
+                0x00000000       0x64 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .text.BSP_HSE_ClockConfig
+                0x00000000       0x50 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_info    0x00000000      0x312 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_abbrev  0x00000000      0x112 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_aranges
+                0x00000000       0x28 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_ranges  0x00000000       0x18 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_line    0x00000000      0x26e ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_str     0x00000000      0x311 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .comment       0x00000000       0x46 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .debug_frame   0x00000000       0x40 ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+ .text          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .data          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .bss           0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text.BSP_LED_Init
+                0x00000000       0x48 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text.BSP_LED_DeInit
+                0x00000000       0x20 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text.BSP_LED_On
+                0x00000000       0x18 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text.BSP_LED_Off
+                0x00000000       0x18 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text.BSP_LED_Toggle
+                0x00000000       0x14 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .rodata.LED_PIN
+                0x00000000        0x2 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .data.LED_PORT
+                0x00000000        0x4 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_info    0x00000000      0x5d5 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_abbrev  0x00000000      0x1bc ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_loc     0x00000000       0xd4 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_aranges
+                0x00000000       0x40 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_ranges  0x00000000       0x58 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_line    0x00000000      0x2a3 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_str     0x00000000      0x3a3 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .comment       0x00000000       0x46 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .debug_frame   0x00000000       0x90 ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+ .text          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .data          0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .bss           0x00000000        0x0 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text.__io_putchar
+                0x00000000       0x20 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text.__io_getchar
+                0x00000000       0x1c ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._write   0x00000000       0x34 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._read    0x00000000       0x34 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._isatty  0x00000000       0x18 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._close   0x00000000       0x18 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._lseek   0x00000000       0x10 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._fstat   0x00000000       0x1c ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._getpid  0x00000000       0x10 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text._kill    0x00000000       0x10 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_DeInit
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetTickPrio
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_SetTickFreq
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetTickFreq
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_SuspendTick
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_ResumeTick
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetHalVersion
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetREVID
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetDEVID
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetUIDw0
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetUIDw1
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_GetUIDw2
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_DBGMCU_EnableDBGMCUStopMode
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text.HAL_DBGMCU_DisableDBGMCUStopMode
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .debug_line    0x00000000       0x56 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .debug_str     0x00000000      0x19e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .debug_line    0x00000000       0x57 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .debug_str     0x00000000      0x19f ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .debug_line    0x00000000       0x56 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .debug_str     0x00000000      0x19e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .debug_line    0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .debug_str     0x00000000      0x1a0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .debug_line    0x00000000       0x56 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .debug_str     0x00000000      0x19e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .debug_line    0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .debug_str     0x00000000      0x1a0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Unlock
+                0x00000000       0x24 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Lock
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OB_Unlock
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OB_Lock
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OB_Launch
+                0x00000000       0x14 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_GetError
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.FLASH_WaitForLastOperation
+                0x00000000       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Erase
+                0x00000000      0x32c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Erase_IT
+                0x00000000      0x1f8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Program
+                0x00000000      0x204 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_PageProgram
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_Program_IT
+                0x00000000      0x1dc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_PageProgram_IT
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OB_RDP_LevelConfig
+                0x00000000       0xa4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OBProgram
+                0x00000000      0x23c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OBGetConfig
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_EndOfOperationCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_OperationErrorCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text.HAL_FLASH_IRQHandler
+                0x00000000       0xd0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .rodata._FlashTimmingParam
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .bss.pFlash    0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_info    0x00000000     0x148e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_abbrev  0x00000000      0x40c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_loc     0x00000000     0x1147 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_aranges
+                0x00000000       0xb0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_ranges  0x00000000      0x4a8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_line    0x00000000     0x15cb ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_str     0x00000000      0x79b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .debug_frame   0x00000000      0x200 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .debug_line    0x00000000       0x57 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .debug_str     0x00000000      0x19f ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .debug_line    0x00000000       0x56 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .debug_str     0x00000000      0x19e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_DeInit
+                0x00000000       0xf4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_ReadPin
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_WritePin
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_TogglePin
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_LockPin
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_EXTI_Callback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text.HAL_GPIO_EXTI_IRQHandler
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_DeInit
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_EnableBkUpAccess
+                0x00000000       0x14 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_DisableBkUpAccess
+                0x00000000       0x14 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_ConfigStopMode
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_ConfigBIAS
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_EnterSLEEPMode
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_EnterSTOPMode
+                0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_EnableSleepOnExit
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_DisableSleepOnExit
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_EnableSEVOnPend
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text.HAL_PWR_DisableSEVOnPend
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_info    0x00000000      0x54f ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_abbrev  0x00000000      0x173 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_loc     0x00000000       0xdb ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_aranges
+                0x00000000       0x70 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_ranges  0x00000000       0x60 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_line    0x00000000      0x3c2 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_str     0x00000000      0x4ae ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .debug_frame   0x00000000       0xc8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_Init
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_Start
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_Stop
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_Start_IT
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_Stop_IT
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_Init
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_Start
+                0x00000000       0x4c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_Stop
+                0x00000000       0x6c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_Start_IT
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_Stop_IT
+                0x00000000       0x98 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_Init
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_Start
+                0x00000000       0x4c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_Stop
+                0x00000000       0x70 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_Start_IT
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_Stop_IT
+                0x00000000       0x98 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_Init
+                0x00000000       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_Start
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_Stop
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_Start_IT
+                0x00000000       0x5c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_Stop_IT
+                0x00000000       0x68 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Init
+                0x00000000       0x8c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Start
+                0x00000000       0x44 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Stop
+                0x00000000       0x70 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Start_IT
+                0x00000000       0x54 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_Stop_IT
+                0x00000000       0x80 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Init
+                0x00000000       0xe4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Start
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Stop
+                0x00000000       0x64 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Start_IT
+                0x00000000       0x70 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_Stop_IT
+                0x00000000       0x84 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_ConfigChannel
+                0x00000000      0x1b0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_ConfigChannel
+                0x00000000      0x174 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_ConfigChannel
+                0x00000000      0x21c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_ConfigChannel
+                0x00000000      0x228 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_GenerateEvent
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_ConfigOCrefClear
+                0x00000000      0x10c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_ConfigClockSource
+                0x00000000      0x148 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_ConfigTI1Input
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_SlaveConfigSynchro
+                0x00000000       0xe0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_SlaveConfigSynchro_IT
+                0x00000000       0xe0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_ReadCapturedValue
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PeriodElapsedCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PeriodElapsedHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_DelayElapsedCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_CaptureCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_CaptureHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_PulseFinishedCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_PulseFinishedHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_TriggerCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IRQHandler
+                0x00000000      0x158 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_TriggerHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_ErrorCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Base_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OC_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_PWM_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_IC_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_OnePulse_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.HAL_TIM_Encoder_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.TIM_Base_SetConfig
+                0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.TIM_OC2_SetConfig
+                0x00000000       0x6c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.TIM_TI1_SetConfig
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.TIM_ETR_SetConfig
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text.TIM_CCxChannelCmd
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_info    0x00000000     0x3802 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_abbrev  0x00000000      0x31e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_loc     0x00000000     0x4b82 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_aranges
+                0x00000000      0x2a0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_ranges  0x00000000      0x7a0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_line    0x00000000     0x3c3f ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_str     0x00000000      0xff3 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .debug_frame   0x00000000      0x688 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_DisableIRQ
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_SystemReset
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_GetPriority
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_SetPendingIRQ
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_GetPendingIRQ
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_NVIC_ClearPendingIRQ
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_SYSTICK_CLKSourceConfig
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_SYSTICK_Callback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text.HAL_SYSTICK_IRQHandler
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_DeInit
+                0x00000000       0x98 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_OscConfig
+                0x00000000      0x2c4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_ClockConfig
+                0x00000000      0x1c4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_MCOConfig
+                0x00000000      0x100 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .rodata.HAL_RCC_MCOConfig
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_GetSysClockFreq
+                0x00000000       0x68 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_GetHCLKFreq
+                0x00000000        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_GetOscConfig
+                0x00000000       0x54 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_GetClockConfig
+                0x00000000       0x38 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_EnableCSS
+                0x00000000       0x14 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_CSSCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text.HAL_RCC_NMI_IRQHandler
+                0x00000000       0x1c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .rodata        0x00000000       0x14 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_MspInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Init
+                0x00000000       0xa4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_DeInit
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Start
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Stop
+                0x00000000       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Start_IT
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_Stop_IT
+                0x00000000       0x3c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Start
+                0x00000000       0x38 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Stop
+                0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Start_IT
+                0x00000000       0x5c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OCN_Stop_IT
+                0x00000000       0x84 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Start
+                0x00000000       0x38 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Stop
+                0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Start_IT
+                0x00000000       0x5c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_PWMN_Stop_IT
+                0x00000000       0x84 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Start
+                0x00000000       0x24 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Stop
+                0x00000000       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Start_IT
+                0x00000000       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_OnePulseN_Stop_IT
+                0x00000000       0x68 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigCommutEvent
+                0x00000000       0x50 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigCommutEvent_IT
+                0x00000000       0x50 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_MasterConfigSynchronization
+                0x00000000       0x44 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_ConfigBreakDeadTime
+                0x00000000       0x60 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_CommutCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_CommutHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_BreakCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text.HAL_TIMEx_HallSensor_GetState
+                0x00000000        0x8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_info    0x00000000     0x1023 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_abbrev  0x00000000      0x2de ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_loc     0x00000000      0xbc3 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_aranges
+                0x00000000       0xf8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_ranges  0x00000000      0x168 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_line    0x00000000      0xc5d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_str     0x00000000      0x95a ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .debug_frame   0x00000000      0x234 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .debug_line    0x00000000       0x55 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .debug_str     0x00000000      0x19d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .debug_info    0x00000000       0x6b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .debug_abbrev  0x00000000       0x26 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .debug_aranges
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .debug_line    0x00000000       0x56 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .debug_str     0x00000000      0x19e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_PeriphCLKConfig
+                0x00000000       0x50 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_GetPeriphCLKConfig
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_GetPeriphCLKFreq
+                0x00000000       0x68 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_EnableLSCO
+                0x00000000       0x88 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text.HAL_RCCEx_DisableLSCO
+                0x00000000       0x84 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_info    0x00000000      0x505 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_abbrev  0x00000000      0x1f0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_loc     0x00000000      0x2d2 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_aranges
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_ranges  0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_line    0x00000000      0x451 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_str     0x00000000      0x42e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .comment       0x00000000       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .debug_frame   0x00000000       0x90 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .ARM.attributes
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+ .text          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .data          0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .bss           0x00000000        0x0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_HalfDuplex_Init
+                0x00000000      0x12c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_MultiProcessor_Init
+                0x00000000      0x15c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_MspDeInit
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_DeInit
+                0x00000000       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Transmit
+                0x00000000      0x150 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Receive
+                0x00000000      0x138 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Transmit_IT
+                0x00000000       0x40 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Receive_IT
+                0x00000000       0x54 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Abort
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortTransmit
+                0x00000000       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortReceive
+                0x00000000       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_TxCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_TxHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_RxCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_RxHalfCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_ErrorCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_IRQHandler
+                0x00000000      0x250 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_Abort_IT
+                0x00000000       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortTransmitCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortTransmit_IT
+                0x00000000       0x20 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortReceiveCpltCallback
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_AbortReceive_IT
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_SendBreak
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_MultiProcessor_EnterMuteMode
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_MultiProcessor_ExitMuteMode
+                0x00000000       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_HalfDuplex_EnableTransmitter
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_HalfDuplex_EnableReceiver
+                0x00000000       0x30 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_GetState
+                0x00000000       0x10 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text.HAL_UART_GetError
+                0x00000000        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .text          0x00000000       0x14 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+ .data          0x00000000        0x0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+ .bss           0x00000000        0x0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .text          0x00000000      0x1d4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .debug_line_str
+                0x00000000       0xc9 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .text.__errno  0x00000000        0xc c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-errno.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .text._sbrk    0x00000000       0x1c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .bss.heap_end.0
+                0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(sbrk.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .text._exit    0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .debug_frame   0x00000000       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .ARM.attributes
+                0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .rodata.all_implied_fbits
+                0x00000000       0x24 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .eh_frame      0x00000000        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .text          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ .data          0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ .bss           0x00000000        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+RAM              0x20000000         0x00000c00         xrw
+FLASH            0x08000000         0x00005000         xr
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crt0.o
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libm.a
+LOAD ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+LOAD ./Build/User/main.o
+LOAD ./Build/User/py32f0xx_it.o
+LOAD ./Build/User/py32f0xx_hal_msp.o
+LOAD ./Build/Libraries/BSP/Src/py32f0xx_bsp_clock.o
+LOAD ./Build/Libraries/BSP/Src/py32f0xx_bsp_led.o
+LOAD ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_dma.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_iwdg.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_usart.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_exti.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_led.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rtc_ex.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_wwdg.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_adc_ex.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_flash.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_lptim.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_spi.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_comp.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_pwr.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_i2c.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_tim_ex.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_crc.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_irda.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc_ex.o
+LOAD ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+LOAD ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+START GROUP
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a
+END GROUP
+START GROUP
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libnosys.a
+END GROUP
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+                0x20000c00                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
+                0x00000100                        _Min_Heap_Size = 0x100
+                0x00000200                        _Min_Stack_Size = 0x200
+
+.isr_vector     0x08000000       0xc0
+                0x08000000                        . = ALIGN (0x4)
+ *(.isr_vector)
+ .isr_vector    0x08000000       0xc0 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+                0x08000000                g_pfnVectors
+                0x080000c0                        . = ALIGN (0x4)
+
+.text           0x080000c0     0x1374
+                0x080000c0                        . = ALIGN (0x4)
+ *(.text)
+ .text          0x080000c0      0x114 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+                0x080000c0                __aeabi_uidiv
+                0x080000c0                __udivsi3
+                0x080001cc                __aeabi_uidivmod
+ .text          0x080001d4        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x080001d4                __aeabi_idiv0
+                0x080001d4                __aeabi_ldiv0
+ *(.text*)
+ .text.deregister_tm_clones
+                0x080001d8       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.register_tm_clones
+                0x080001f8       0x28 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.__do_global_dtors_aux
+                0x08000220       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.frame_dummy
+                0x0800024c       0x24 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .text.__libc_init_array
+                0x08000270       0x48 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+                0x08000270                __libc_init_array
+ .text.SystemInit
+                0x080002b8       0x2c ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+                0x080002b8                SystemInit
+ .text.unlockSequence
+                0x080002e4      0x1b4 ./Build/User/main.o
+                0x080002e4                unlockSequence
+ .text.allonSequence
+                0x08000498       0x2c ./Build/User/main.o
+                0x08000498                allonSequence
+ .text.alloffSequence
+                0x080004c4       0x2c ./Build/User/main.o
+                0x080004c4                alloffSequence
+ .text.earsSequence
+                0x080004f0       0xc0 ./Build/User/main.o
+                0x080004f0                earsSequence
+ .text.rouletteSequence
+                0x080005b0       0x84 ./Build/User/main.o
+                0x080005b0                rouletteSequence
+ .text.allSequence
+                0x08000634      0x14c ./Build/User/main.o
+                0x08000634                allSequence
+ .text.slowrouletteSequence
+                0x08000780       0xf4 ./Build/User/main.o
+                0x08000780                slowrouletteSequence
+ .text.allblinkSequence
+                0x08000874      0x130 ./Build/User/main.o
+                0x08000874                allblinkSequence
+ .text.fastrouletteSequence
+                0x080009a4      0x394 ./Build/User/main.o
+                0x080009a4                fastrouletteSequence
+ .text.startup.main
+                0x08000d38       0xf8 ./Build/User/main.o
+                0x08000d38                main
+ .text.NMI_Handler
+                0x08000e30        0x4 ./Build/User/py32f0xx_it.o
+                0x08000e30                NMI_Handler
+ .text.HardFault_Handler
+                0x08000e34        0x4 ./Build/User/py32f0xx_it.o
+                0x08000e34                HardFault_Handler
+ .text.SVC_Handler
+                0x08000e38        0x4 ./Build/User/py32f0xx_it.o
+                0x08000e38                SVC_Handler
+ .text.PendSV_Handler
+                0x08000e3c        0x4 ./Build/User/py32f0xx_it.o
+                0x08000e3c                PendSV_Handler
+ .text.SysTick_Handler
+                0x08000e40        0x8 ./Build/User/py32f0xx_it.o
+                0x08000e40                SysTick_Handler
+ .text.HAL_MspInit
+                0x08000e48        0x4 ./Build/User/py32f0xx_hal_msp.o
+                0x08000e48                HAL_MspInit
+ .text.BSP_USART_Config
+                0x08000e4c       0xa4 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+                0x08000e4c                BSP_USART_Config
+ .text.HAL_InitTick
+                0x08000ef0       0x4c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x08000ef0                HAL_InitTick
+ .text.HAL_Init
+                0x08000f3c       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x08000f3c                HAL_Init
+ .text.HAL_IncTick
+                0x08000f54       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x08000f54                HAL_IncTick
+ .text.HAL_GetTick
+                0x08000f6c        0xc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x08000f6c                HAL_GetTick
+ .text.HAL_Delay
+                0x08000f78       0x24 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x08000f78                HAL_Delay
+ .text.HAL_GPIO_Init
+                0x08000f9c      0x1f8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+                0x08000f9c                HAL_GPIO_Init
+ .text.HAL_GPIO_OnPin
+                0x08001194        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+                0x08001194                HAL_GPIO_OnPin
+ .text.HAL_GPIO_OffPin
+                0x08001198        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+                0x08001198                HAL_GPIO_OffPin
+ .text.HAL_NVIC_SetPriority
+                0x0800119c       0x54 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+                0x0800119c                HAL_NVIC_SetPriority
+ .text.HAL_NVIC_EnableIRQ
+                0x080011f0       0x18 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+                0x080011f0                HAL_NVIC_EnableIRQ
+ .text.HAL_SYSTICK_Config
+                0x08001208       0x34 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+                0x08001208                HAL_SYSTICK_Config
+ .text.HAL_RCC_GetPCLK1Freq
+                0x0800123c       0x28 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+                0x0800123c                HAL_RCC_GetPCLK1Freq
+ .text.HAL_UART_MspInit
+                0x08001264        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+                0x08001264                HAL_UART_MspInit
+ .text.HAL_UART_Init
+                0x08001268      0x160 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+                0x08001268                HAL_UART_Init
+ .text.Reset_Handler
+                0x080013c8       0x50 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+                0x080013c8                Reset_Handler
+ .text.Default_Handler
+                0x08001418        0x2 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+                0x08001418                TIM1_CC_IRQHandler
+                0x08001418                I2C1_IRQHandler
+                0x08001418                SPI1_IRQHandler
+                0x08001418                EXTI2_3_IRQHandler
+                0x08001418                TIM16_IRQHandler
+                0x08001418                EXTI4_15_IRQHandler
+                0x08001418                RCC_IRQHandler
+                0x08001418                Default_Handler
+                0x08001418                ADC_IRQHandler
+                0x08001418                EXTI0_1_IRQHandler
+                0x08001418                FLASH_IRQHandler
+                0x08001418                USART1_IRQHandler
+                0x08001418                TIM1_BRK_UP_TRG_COM_IRQHandler
+                0x08001418                LPTIM1_IRQHandler
+ *(.glue_7)
+ .glue_7        0x0800141a        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0800141a        0x0 linker stubs
+ *(.eh_frame)
+ *fill*         0x0800141a        0x2 
+ .eh_frame      0x0800141c        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ *(.init)
+ .init          0x0800141c        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+                0x0800141c                _init
+ .init          0x08001420        0x8 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+ *(.fini)
+ .fini          0x08001428        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+                0x08001428                _fini
+ .fini          0x0800142c        0x8 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+                0x08001434                        . = ALIGN (0x4)
+                0x08001434                        _etext = .
+
+.vfp11_veneer   0x08001434        0x0
+ .vfp11_veneer  0x08001434        0x0 linker stubs
+
+.v4_bx          0x08001434        0x0
+ .v4_bx         0x08001434        0x0 linker stubs
+
+.iplt           0x08001434        0x0
+ .iplt          0x08001434        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+
+.rodata         0x08001434       0x20
+                0x08001434                        . = ALIGN (0x4)
+ *(.rodata)
+ *(.rodata*)
+ .rodata.APBPrescTable
+                0x08001434       0x20 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+                0x08001434                APBPrescTable
+                0x08001454                        . = ALIGN (0x4)
+
+.rel.dyn        0x08001454        0x0
+ .rel.iplt      0x08001454        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+
+.ARM            0x08001454        0x0
+                0x08001454                        __exidx_start = .
+ *(.ARM.exidx*)
+                0x08001454                        __exidx_end = .
+
+.preinit_array  0x08001454        0x0
+                0x08001454                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                0x08001454                        PROVIDE (__preinit_array_end = .)
+
+.init_array     0x08001454        0x4
+                0x08001454                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+ .init_array    0x08001454        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x08001458                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x08001458        0x4
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+ .fini_array    0x08001458        0x4 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x0800145c                        _sidata = LOADADDR (.data)
+
+.data           0x20000000       0x14 load address 0x0800145c
+                0x20000000                        . = ALIGN (0x4)
+                0x20000000                        _sdata = .
+ *(.data)
+ *(.data*)
+ .data.SystemCoreClock
+                0x20000000        0x4 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+                0x20000000                SystemCoreClock
+ .data.delay5   0x20000004        0x1 ./Build/User/main.o
+                0x20000004                delay5
+ .data.delay4   0x20000005        0x1 ./Build/User/main.o
+                0x20000005                delay4
+ .data.delay2   0x20000006        0x1 ./Build/User/main.o
+                0x20000006                delay2
+ .data.delay    0x20000007        0x1 ./Build/User/main.o
+                0x20000007                delay
+ .data.delay3   0x20000008        0x2 ./Build/User/main.o
+                0x20000008                delay3
+ .data.delay1   0x2000000a        0x2 ./Build/User/main.o
+                0x2000000a                delay1
+ .data.uwTickFreq
+                0x2000000c        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x2000000c                uwTickFreq
+ .data.uwTickPrio
+                0x20000010        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x20000010                uwTickPrio
+                0x20000014                        . = ALIGN (0x4)
+                0x20000014                        _edata = .
+
+.tm_clone_table
+                0x20000014        0x0 load address 0x08001470
+ .tm_clone_table
+                0x20000014        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .tm_clone_table
+                0x20000014        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+
+.igot.plt       0x20000014        0x0 load address 0x08001470
+ .igot.plt      0x20000014        0x0 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x20000014                        . = ALIGN (0x4)
+
+.bss            0x20000014       0x64 load address 0x08001470
+                0x20000014                        _sbss = .
+                0x20000014                        __bss_start__ = _sbss
+ *(.bss)
+ *(.bss*)
+ .bss.completed.1
+                0x20000014        0x1 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x20000015        0x3 
+ .bss.object.0  0x20000018       0x18 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .bss.DebugUartHandle
+                0x20000030       0x44 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+                0x20000030                DebugUartHandle
+ .bss.uwTick    0x20000074        0x4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                0x20000074                uwTick
+ *(COMMON)
+                0x20000078                        . = ALIGN (0x4)
+                0x20000078                        _ebss = .
+                0x20000078                        __bss_end__ = _ebss
+
+._user_heap_stack
+                0x20000078      0x300 load address 0x08001470
+                0x20000078                        . = ALIGN (0x8)
+                0x20000078                        PROVIDE (end = .)
+                [!provide]                        PROVIDE (_end = .)
+                0x20000178                        . = (. + _Min_Heap_Size)
+ *fill*         0x20000078      0x100 
+                0x20000378                        . = (. + _Min_Stack_Size)
+ *fill*         0x20000178      0x200 
+                0x20000378                        . = ALIGN (0x8)
+
+/DISCARD/
+ libc.a(*)
+ libm.a(*)
+ libgcc.a(*)
+
+.ARM.attributes
+                0x00000000       0x28
+ *(.ARM.attributes)
+ .ARM.attributes
+                0x00000000       0x1e c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crti.o
+ .ARM.attributes
+                0x0000001e       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtbegin.o
+ .ARM.attributes
+                0x0000004a       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+ .ARM.attributes
+                0x00000076       0x2c ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .ARM.attributes
+                0x000000a2       0x2c ./Build/User/main.o
+ .ARM.attributes
+                0x000000ce       0x2c ./Build/User/py32f0xx_it.o
+ .ARM.attributes
+                0x000000fa       0x2c ./Build/User/py32f0xx_hal_msp.o
+ .ARM.attributes
+                0x00000126       0x2c ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .ARM.attributes
+                0x00000152       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .ARM.attributes
+                0x0000017e       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .ARM.attributes
+                0x000001aa       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .ARM.attributes
+                0x000001d6       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .ARM.attributes
+                0x00000202       0x2c ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .ARM.attributes
+                0x0000022e       0x22 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+ .ARM.attributes
+                0x00000250       0x1e c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .ARM.attributes
+                0x0000026e       0x1e c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x0000028c       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtend.o
+ .ARM.attributes
+                0x000002b8       0x1e c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp/crtn.o
+OUTPUT(Build/app.elf elf32-littlearm)
+LOAD linker stubs
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libm.a
+LOAD c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a
+
+.debug_frame    0x00000000      0xb20
+ .debug_frame   0x00000000       0x2c c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x0000002c       0x30 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_frame   0x0000005c      0x14c ./Build/User/main.o
+ .debug_frame   0x000001a8       0x68 ./Build/User/py32f0xx_it.o
+ .debug_frame   0x00000210       0x20 ./Build/User/py32f0xx_hal_msp.o
+ .debug_frame   0x00000230      0x12c ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_frame   0x0000035c      0x194 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_frame   0x000004f0       0xf4 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_frame   0x000005e4       0xe0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_frame   0x000006c4      0x138 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_frame   0x000007fc      0x304 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_frame   0x00000b00       0x20 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+
+.debug_info     0x00000000     0x6b01
+ .debug_info    0x00000000      0x3a3 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_info    0x000003a3     0x22c0 ./Build/User/main.o
+ .debug_info    0x00002663       0xe9 ./Build/User/py32f0xx_it.o
+ .debug_info    0x0000274c       0x8c ./Build/User/py32f0xx_hal_msp.o
+ .debug_info    0x000027d8      0xe12 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_info    0x000035ea      0x77e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_info    0x00003d68      0x5f0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_info    0x00004358      0x86e ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_info    0x00004bc6      0xc70 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_info    0x00005836     0x1299 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_info    0x00006acf       0x32 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+
+.debug_abbrev   0x00000000     0x157c
+ .debug_abbrev  0x00000000      0x119 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_abbrev  0x00000119      0x325 ./Build/User/main.o
+ .debug_abbrev  0x0000043e       0xb4 ./Build/User/py32f0xx_it.o
+ .debug_abbrev  0x000004f2       0x46 ./Build/User/py32f0xx_hal_msp.o
+ .debug_abbrev  0x00000538      0x2d8 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_abbrev  0x00000810      0x30b ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_abbrev  0x00000b1b      0x1a2 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_abbrev  0x00000cbd      0x274 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_abbrev  0x00000f31      0x350 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_abbrev  0x00001281      0x2d7 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_abbrev  0x00001558       0x24 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+
+.debug_loc      0x00000000     0x2635
+ .debug_loc     0x00000000       0x67 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_loc     0x00000067      0x103 ./Build/User/main.o
+ .debug_loc     0x0000016a      0x3aa ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_loc     0x00000514      0x1cc ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_loc     0x000006e0      0x50d ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_loc     0x00000bed      0x308 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_loc     0x00000ef5      0x552 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_loc     0x00001447     0x11ee ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+
+.debug_aranges  0x00000000      0x4c8
+ .debug_aranges
+                0x00000000       0x28 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_aranges
+                0x00000028       0x78 ./Build/User/main.o
+ .debug_aranges
+                0x000000a0       0x40 ./Build/User/py32f0xx_it.o
+ .debug_aranges
+                0x000000e0       0x20 ./Build/User/py32f0xx_hal_msp.o
+ .debug_aranges
+                0x00000100       0x70 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_aranges
+                0x00000170       0xc0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_aranges
+                0x00000230       0x68 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_aranges
+                0x00000298       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_aranges
+                0x00000310       0x78 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_aranges
+                0x00000388      0x118 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_aranges
+                0x000004a0       0x28 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+
+.debug_ranges   0x00000000      0x868
+ .debug_ranges  0x00000000       0x18 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_ranges  0x00000018      0x188 ./Build/User/main.o
+ .debug_ranges  0x000001a0       0x30 ./Build/User/py32f0xx_it.o
+ .debug_ranges  0x000001d0       0x10 ./Build/User/py32f0xx_hal_msp.o
+ .debug_ranges  0x000001e0       0xe8 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_ranges  0x000002c8       0xb0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_ranges  0x00000378       0x58 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_ranges  0x000003d0       0xc0 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_ranges  0x00000490      0x100 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_ranges  0x00000590      0x2b8 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_ranges  0x00000848       0x20 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+
+.debug_line     0x00000000     0x4435
+ .debug_line    0x00000000      0x274 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+ .debug_line    0x00000274      0x6ca ./Build/User/main.o
+ .debug_line    0x0000093e       0xe1 ./Build/User/py32f0xx_it.o
+ .debug_line    0x00000a1f       0x4a ./Build/User/py32f0xx_hal_msp.o
+ .debug_line    0x00000a69      0x553 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .debug_line    0x00000fbc      0x57a ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .debug_line    0x00001536      0x762 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .debug_line    0x00001c98      0x576 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .debug_line    0x0000220e      0xc64 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .debug_line    0x00002e72     0x1524 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+ .debug_line    0x00004396       0x9f ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+
+.debug_str      0x00000000     0x16da
+ .debug_str     0x00000000      0x29e ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+                                0x2db (size before relaxing)
+ .debug_str     0x0000029e      0x200 ./Build/User/main.o
+                                0x442 (size before relaxing)
+ .debug_str     0x0000049e       0x68 ./Build/User/py32f0xx_it.o
+                                0x1d0 (size before relaxing)
+ .debug_str     0x00000506       0x24 ./Build/User/py32f0xx_hal_msp.o
+                                0x18c (size before relaxing)
+ .debug_str     0x0000052a      0x515 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+                                0x88b (size before relaxing)
+ .debug_str     0x00000a3f      0x231 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+                                0x5dc (size before relaxing)
+ .debug_str     0x00000c70      0x146 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+                                0x3c9 (size before relaxing)
+ .debug_str     0x00000db6      0x21a ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+                                0x552 (size before relaxing)
+ .debug_str     0x00000fd0      0x2ad ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+                                0x621 (size before relaxing)
+ .debug_str     0x0000127d      0x403 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+                                0x8d0 (size before relaxing)
+ .debug_str     0x00001680       0x5a ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/gcc/startup_py32f002.o
+                                 0xa9 (size before relaxing)
+
+.comment        0x00000000       0x45
+ .comment       0x00000000       0x45 ./Build/Libraries/CMSIS/Device/PY32F0xx/Source/system_py32f0xx.o
+                                 0x46 (size before relaxing)
+ .comment       0x00000045       0x46 ./Build/User/main.o
+ .comment       0x00000045       0x46 ./Build/User/py32f0xx_it.o
+ .comment       0x00000045       0x46 ./Build/User/py32f0xx_hal_msp.o
+ .comment       0x00000045       0x46 ./Build/Libraries/BSP/Src/py32f0xx_bsp_printf.o
+ .comment       0x00000045       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal.o
+ .comment       0x00000045       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_gpio.o
+ .comment       0x00000045       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_cortex.o
+ .comment       0x00000045       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_rcc.o
+ .comment       0x00000045       0x46 ./Build/Libraries/PY32F0xx_HAL_Driver/Src/py32f0xx_hal_uart.o
+
+.debug_line_str
+                0x00000000       0xc9
+ .debug_line_str
+                0x00000000       0xc9 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_line_str
+                0x000000c9       0xc9 c:/program files (x86)/arm gnu toolchain arm-none-eabi/12.3 rel1/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
