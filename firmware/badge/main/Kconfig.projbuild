@@ -306,5 +306,4 @@ menu "Frequency Configuration"
         default 26 if EXAMPLE_MIN_CPU_FREQ_26M
         default 13 if EXAMPLE_MIN_CPU_FREQ_13M
         default 32 if EXAMPLE_MIN_CPU_FREQ_32M
-
 endmenu

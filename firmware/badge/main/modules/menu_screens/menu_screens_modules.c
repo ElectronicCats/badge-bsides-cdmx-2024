@@ -94,23 +94,38 @@ void menu_screens_run_tests() {
   ESP_ERROR_CHECK(menu_screens_test_menu_items());
 }
 
+void screen_module_set_main_menu() {
+  current_menu = MENU_MAIN;
+  selected_item = 0;
+  preferences_put_int("MENUNUMBER", 99);
+}
+
+void screen_module_set_screen(int screen_layer) {
+  current_menu = screen_layer;
+  selected_item = 0;
+  preferences_put_int("MENUNUMBER", screen_layer);
+  menu_screens_display_menu();
+}
+
 void show_logo() {
-  if (preferences_get_bool("zigbee_deinit", false)) {
-    current_menu = MENU_ZIGBEE_SPOOFING;
-    preferences_put_bool("zigbee_deinit", false);
-  } else if (preferences_get_bool("wifi_exit", false)) {
-    current_menu = MENU_WIFI_APPS;
-    preferences_put_bool("wifi_exit", false);
-  } else if (preferences_get_bool("thread_deinit", false)) {
-    current_menu = MENU_APPLICATIONS;
-    preferences_put_bool("thread_deinit", false);
-  } else {
-    buzzer_play();
-    oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
-                               OLED_DISPLAY_NORMAL);
-    buzzer_stop();
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
-  }
+  // if (preferences_get_bool("zigbee_deinit", false)) {
+  //   current_menu = MENU_ZIGBEE_SPOOFING;
+  //   preferences_put_bool("zigbee_deinit", false);
+  // } else if (preferences_get_bool("wifi_exit", false)) {
+  //   current_menu = MENU_WIFI_APPS;
+  //   preferences_put_bool("wifi_exit", false);
+  // } else if (preferences_get_bool("thread_deinit", false)) {
+  //   current_menu = MENU_APPLICATIONS;
+  //   preferences_put_bool("thread_deinit", false);
+  // } else {
+  //   buzzer_play();
+  //   oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
+  //                              OLED_DISPLAY_NORMAL);
+  //   buzzer_stop();
+  //   vTaskDelay(2000 / portTICK_PERIOD_MS);
+  // }
+  oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
+                             OLED_DISPLAY_NORMAL);
 }
 
 void menu_screens_begin() {
@@ -126,8 +141,8 @@ void menu_screens_begin() {
 
   // Show logo
   oled_screen_clear();
-  show_logo();
-  // display_gps_init();
+  // show_logo();
+  //  display_gps_init();
 }
 
 /**

@@ -60,10 +60,8 @@ void zigbee_module_app_selector() {
       xTaskCreate(ieee_sniffer_begin, "ieee_sniffer_task", 4096, NULL, 5,
                   &zigbee_task_sniffer);
 
-      if (ajo_module_get_state()) {
-        xTaskCreate(ajo_module_display_animation, "zigbee_animation", 4096,
-                    NULL, 5, &zigbee_task_display_animation);
-      } else {
+      bool ajo_unlock = ajo_module_display_animation();
+      if (!ajo_unlock) {
         zigbee_screens_display_scanning_text(0);
       }
       led_control_run_effect(led_control_zigbee_scanning);

@@ -297,7 +297,7 @@ char* version_text[] = {
     "",
     "",
     "",
-    " Minino v1.3.0",
+    " BSIDES v1.0.0",
     "     BETA",
     NULL,
 };

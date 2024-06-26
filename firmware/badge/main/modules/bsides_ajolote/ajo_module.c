@@ -10,6 +10,8 @@ static int ajolote_state_count = 0;
 static void ajo_module_display_animation_unlocked();
 static void ajo_module_gpio_init(uint32_t gpio_num, uint8_t mask);
 static void ajo_module_gpio_event_cb(void* arg, void* data);
+static TaskHandle_t ajo_task = NULL;
+static bool running = false;
 
 static void ajo_module_gpio_init(uint32_t gpio_num, uint8_t mask) {
   button_config_t btn_cfg = {
@@ -66,10 +68,11 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
 
   switch (button_event) {
     case BUTTON_PRESS_DOWN:
-      if (!preferences_get_bool("is_ajolote_unlocked", false)) {
+      printf("[AJO] Button press down\n");
+      if (!preferences_get_bool("ajounlock", false)) {
         ajolote_state_count++;
         if (ajolote_state_count == 10) {
-          preferences_put_bool("is_ajolote_unlocked", true);
+          preferences_put_bool("ajounlock", true);
           ajo_module_display_animation_unlocked();
         }
       }
@@ -80,7 +83,7 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
 }
 
 bool ajo_module_get_state() {
-  return preferences_get_bool("is_ajolote_unlocked", false);
+  return preferences_get_bool("ajounlock", false);
 }
 
 void ajo_module_init(void) {
@@ -89,11 +92,17 @@ void ajo_module_init(void) {
 
 static void ajo_module_display_animation_unlocked() {
   oled_screen_clear(OLED_DISPLAY_NORMAL);
-  oled_screen_display_text_center("Ajolote unlocked", 3, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("Ajolote", 1, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("UNLOCKED!", 2, OLED_DISPLAY_NORMAL);
+  vTaskDelay(2000 / portTICK_PERIOD_MS);
+  ajo_module_display_animation();
+  vTaskDelay(2000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
-void ajo_module_display_animation() {
-  while (true) {
+static void ajo_module_animation_task() {
+  running = true;
+  while (running) {
     for (int i = 0; i < ajolote_allArray_LEN; i++) {
       oled_screen_clear(OLED_DISPLAY_NORMAL);
       oled_screen_display_bitmap(ajolote_allArray[i], 0, 0, 128, 32,
@@ -102,4 +111,21 @@ void ajo_module_display_animation() {
     }
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
+}
+
+bool ajo_module_display_animation() {
+  bool ajolote_unlocked = preferences_get_bool("ajounlock", false);
+  if (!ajolote_unlocked) {
+    return false;
+  }
+  if (running) {
+    return true;
+  }
+  xTaskCreate(ajo_module_animation_task, "ajo_task", 4096, NULL, 5, &ajo_task);
+  return true;
+}
+
+void ajo_module_delete_task() {
+  running = false;
+  vTaskDelete(ajo_task);
 }

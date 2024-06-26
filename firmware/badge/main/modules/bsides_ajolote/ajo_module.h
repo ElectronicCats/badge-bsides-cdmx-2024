@@ -150,7 +150,7 @@ static const int ajolote_allArray_LEN = 4;
 static const unsigned char* ajolote_allArray[4] = {
     ajolote_AjoIDLE, ajolote_AjoLeft, ajolote_AjoIDLE, ajolote_AjoRight};
 
-void ajo_module_display_animation();
+bool ajo_module_display_animation();
 void ajo_module_init(void);
 bool ajo_module_get_state();
 

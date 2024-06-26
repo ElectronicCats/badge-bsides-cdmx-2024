@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "ajo_module.h"
+#include "cat_console.h"
 #include "catdos_module.h"
 #include "esp_event.h"
 #include "esp_log.h"
@@ -9,7 +10,6 @@
 #include "menu_screens_modules.h"
 #include "open_thread.h"
 #include "preferences.h"
-#include "sd_card.h"
 
 static const char* TAG = "main";
 
@@ -21,25 +21,29 @@ void reboot_counter() {
 }
 
 void app_main(void) {
-  uint64_t start_time, end_time;
-  start_time = esp_timer_get_time();
-
-  ESP_ERROR_CHECK(esp_event_loop_create_default());
+  // ESP_ERROR_CHECK(esp_event_loop_create_default());
 
   leds_init();
   leds_on();
   preferences_begin();
-  // sd_card_init();
-  //  bluetooth_scanner_init();
   menu_screens_begin();
   keyboard_module_begin();
-  menu_screens_display_menu();
+  // menu_screens_display_menu();
   reboot_counter();
   leds_off();
 
-  end_time = esp_timer_get_time();
-  float time = (float) (end_time - start_time) / 1000000;
-  printf("Total time taken: %2.2f seconds\n", time);
   ajo_module_init();
-  // catdos_module_begin();
+  // cat_console_begin();
+
+  bool is_ajo = ajo_module_get_state();
+  ESP_LOGI(TAG, "AJO Module State: %d", is_ajo);
+  int last_layer = preferences_get_int("MENUNUMBER", 99);
+  if (last_layer == 99) {
+    menu_screens_display_menu();
+    show_logo();
+  } else {
+    screen_module_set_screen(last_layer);
+    menu_screens_display_menu();
+    preferences_put_int("MENUNUMBER", 99);
+  }
 }

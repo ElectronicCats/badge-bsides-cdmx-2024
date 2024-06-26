@@ -26,28 +26,36 @@
 #include "freertos/task.h"
 #include "sdkconfig.h"
 
+// #include "protocol_examples_common.h"
+// #include "example_common_private.h"
+
 #ifdef CONFIG_FREERTOS_USE_STATS_FORMATTING_FUNCTIONS
   #define WITH_TASKS_INFO 1
 #endif
 
 static const char* TAG = "cmd_catdos";
 
-static void cmd_catdos_register_wifi_connect(void);
+// static void cmd_catdos_register_wifi_connect(void);
 static void cmd_catdos_register_catdos_web(void);
+static void cmd_catdos_register_catdos_attack(void);
 
 void register_catdos_commands(void) {
-  cmd_catdos_register_wifi_connect();
+  // cmd_catdos_register_wifi_connect();
   cmd_catdos_register_catdos_web();
+  cmd_catdos_register_catdos_attack();
 }
 
-/** cmd_catdos_wifi_set_config command changes log level via esp_log_level_set
- */
+// /** cmd_catdos_wifi_set_config command changes log level via
+// esp_log_level_set
+//  */
 
-static struct {
-  struct arg_str* ssid;
-  struct arg_str* passwd;
-  struct arg_end* end;
-} cmd_catdos_wifi_connect_args;
+// typedef struct {
+//   struct arg_str* ssid;
+//   struct arg_str* password;
+//   struct arg_end* end;
+// } cmd_catdos_wifi_connect_args;
+
+// static cmd_catdos_wifi_connect_args connect_args;
 
 static struct {
   struct arg_str* host;
@@ -56,20 +64,33 @@ static struct {
   struct arg_end* end;
 } cmd_catdos_web_args;
 
-static int cmd_catdos_wifi_set_config(int argc, char** argv) {
-  int nerrors = arg_parse(argc, argv, (void**) &cmd_catdos_wifi_connect_args);
-  if (nerrors != 0) {
-    arg_print_errors(stderr, cmd_catdos_wifi_connect_args.end, argv[0]);
-    return 1;
-  }
-  assert(cmd_catdos_wifi_connect_args.ssid->count == 1);
-  assert(cmd_catdos_wifi_connect_args.passwd->count == 1);
-  const char* ssid = cmd_catdos_wifi_connect_args.ssid->sval[0];
-  const char* passwd = cmd_catdos_wifi_connect_args.passwd->sval[0];
+// static int cmd_catdos_wifi_set_config(int argc, char** argv) {
+//   int nerrors = arg_parse(argc, argv, (void **) &connect_args);
 
-  catdos_module_set_config(ssid, passwd);
-  return 0;
-}
+//   if (nerrors != 0) {
+//       arg_print_errors(stderr, connect_args.end, argv[0]);
+//       return 1;
+//   }
+
+//   wifi_config_t wifi_config = {
+//       .sta = {
+//           .scan_method = WIFI_ALL_CHANNEL_SCAN,
+//           .sort_method = WIFI_CONNECT_AP_BY_SECURITY,
+//           .threshold.authmode = WIFI_AUTH_WPA_WPA2_PSK
+//       },
+//   };
+//   const char *ssid = connect_args.ssid->sval[0];
+//   const char *pass = connect_args.password->sval[0];
+//   strlcpy((char *) wifi_config.sta.ssid, ssid, sizeof(wifi_config.sta.ssid));
+//   if (pass) {
+//       strlcpy((char *) wifi_config.sta.password, pass,
+//       sizeof(wifi_config.sta.password));
+//   }
+
+//   catdos_module_set_config(ssid, pass);
+//   example_wifi_sta_do_connect(wifi_config, false);
+//   return 0;
+// }
 
 static int cmd_catdos_web_set_config(int argc, char** argv) {
   int nerrors = arg_parse(argc, argv, (void**) &cmd_catdos_web_args);
@@ -84,23 +105,24 @@ static int cmd_catdos_web_set_config(int argc, char** argv) {
   const char* port = cmd_catdos_web_args.port->sval[0];
   const char* endpoint = cmd_catdos_web_args.endpoint->sval[0];
 
+  catdos_module_set_target(host, port, endpoint);
   return 0;
 }
 
-static void cmd_catdos_register_wifi_connect(void) {
-  cmd_catdos_wifi_connect_args.ssid =
-      arg_str1(NULL, NULL, "<ssid>", "SSID of AP to connect.");
-  cmd_catdos_wifi_connect_args.passwd =
-      arg_str1(NULL, NULL, "<pass>", "Password of AP to connect.");
-  cmd_catdos_wifi_connect_args.end = arg_end(2);
+// static void cmd_catdos_register_wifi_connect(void) {
+//   connect_args.ssid =
+//       arg_str1(NULL, NULL, "<ssid>", "SSID of AP to connect.");
+//   connect_args.password =
+//       arg_str1(NULL, NULL, "<pass>", "Password of AP to connect.");
+//   connect_args.end = arg_end(2);
 
-  const esp_console_cmd_t cmd = {.command = "wifi_connect",
-                                 .help = "Connect to an AP",
-                                 .hint = NULL,
-                                 .func = &cmd_catdos_wifi_set_config,
-                                 .argtable = &cmd_catdos_wifi_connect_args};
-  ESP_ERROR_CHECK(esp_console_cmd_register(&cmd));
-}
+//   const esp_console_cmd_t cmd = {.command = "wifi_connect",
+//                                  .help = "Connect to an AP",
+//                                  .hint = NULL,
+//                                  .func = &cmd_catdos_wifi_set_config,
+//                                  .argtable = &connect_args};
+//   ESP_ERROR_CHECK(esp_console_cmd_register(&cmd));
+// }
 
 static void cmd_catdos_register_catdos_web(void) {
   cmd_catdos_web_args.host =
@@ -116,5 +138,14 @@ static void cmd_catdos_register_catdos_web(void) {
                                  .hint = NULL,
                                  .func = &cmd_catdos_web_set_config,
                                  .argtable = &cmd_catdos_web_args};
+  ESP_ERROR_CHECK(esp_console_cmd_register(&cmd));
+}
+
+static void cmd_catdos_register_catdos_attack(void) {
+  const esp_console_cmd_t cmd = {.command = "catdos",
+                                 .help = "Send DOS to the web target",
+                                 .hint = NULL,
+                                 .func = &catdos_module_send_attack,
+                                 .argtable = NULL};
   ESP_ERROR_CHECK(esp_console_cmd_register(&cmd));
 }

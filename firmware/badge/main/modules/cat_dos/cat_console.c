@@ -12,6 +12,7 @@
 #include <unistd.h>
 #include "argtable3/argtable3.h"
 #include "cmd_catdos.h"
+#include "cmd_wifi.h"
 #include "driver/uart.h"
 #include "driver/uart_vfs.h"
 #include "esp_console.h"
@@ -21,10 +22,20 @@
 #include "linenoise/linenoise.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "preferences.h"
 #include "soc/soc_caps.h"
-
 static const char* TAG = "cat_console";
-#define PROMPT_STR CONFIG_IDF_TARGET
+#define PROMPT_STR "bsides"
+
+static void initialize_nvs(void) {
+  esp_err_t err = nvs_flash_init();
+  if (err == ESP_ERR_NVS_NO_FREE_PAGES ||
+      err == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+    ESP_ERROR_CHECK(nvs_flash_erase());
+    err = nvs_flash_init();
+  }
+  ESP_ERROR_CHECK(err);
+}
 
 static void initialize_console(void) {
   /* Drain stdout before reconfiguring it */
@@ -93,10 +104,13 @@ static void initialize_console(void) {
 }
 
 void cat_console_begin() {
+  initialize_nvs();
+
   initialize_console();
 
   /* Register commands */
   esp_console_register_help_command();
+  register_wifi();
   register_catdos_commands();
 
   /* Prompt to be printed before each line.
@@ -104,14 +118,28 @@ void cat_console_begin() {
    */
   const char* prompt = LOG_COLOR_I PROMPT_STR "> " LOG_RESET_COLOR;
 
+  char ssid[32];
+  esp_err_t err = preferences_get_string("ssid", ssid, 32);
+  if (err != ESP_OK) {
+    ESP_LOGE(TAG, "Failed to get ssid from preferences");
+    return;
+  }
+  char password[32];
+  err = preferences_get_string("passwd", password, 32);
+  if (err != ESP_OK) {
+    ESP_LOGE(TAG, "Failed to get password from preferences");
+    return;
+  }
+
   printf(
       "\n"
-      "This is an example of ESP-IDF console component.\n"
+      "Welcome to the BSides Console\n"
       "Type 'help' to get the list of commands.\n"
       "Use UP/DOWN arrows to navigate through command history.\n"
       "Press TAB when typing command name to auto-complete.\n"
       "Press Enter or Ctrl+C will terminate the console environment.\n");
 
+  printf("SSID: %s\n", ssid);
   /* Figure out if the terminal supports escape sequences */
   int probe_status = linenoiseProbe();
   if (probe_status) { /* zero indicates success */
@@ -165,5 +193,5 @@ void cat_console_begin() {
   }
 
   ESP_LOGE(TAG, "Error or end-of-input, terminating console");
-  // esp_console_deinit();
+  esp_console_deinit();
 }
