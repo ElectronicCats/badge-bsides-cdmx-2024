@@ -68,7 +68,7 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
 
   switch (button_event) {
     case BUTTON_PRESS_DOWN:
-      printf("[AJO] Button press down\n");
+      printf("[AJO] Pulse press down\n");
       if (!preferences_get_bool("ajounlock", false)) {
         ajolote_state_count++;
         if (ajolote_state_count == 10) {
