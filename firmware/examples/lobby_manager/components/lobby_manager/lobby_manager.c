@@ -58,7 +58,7 @@ uint8_t my_mac[MAC_SIZE];
 uint8_t host_mac[MAC_SIZE];
 
 bool client_mode = 0;
-int8_t my_player_id = 0;
+int8_t my_client_id = 0;
 uint8_t players_count;  // still unused
 uint8_t my_host_level;
 uint8_t host_level = 0;
@@ -73,7 +73,7 @@ TaskHandle_t games_unlocker_task_handler;
 void send_join_request_response(uint8_t* mac, uint8_t idx);
 void send_join_request();
 void send_ping_response(uint8_t* mac);
-bool is_player_my_child(uint8_t* mac);
+bool is_client_my_client(uint8_t* mac);
 
 uint8_t get_random_uint8() {
   uint32_t entropy = esp_random();
@@ -123,7 +123,7 @@ void send_ping_response(uint8_t* mac) {
   ping_response_message_t ping_response_msg = {
       .cmd = PING_RESPONSE_CMD,
       .client_mode = client_mode,
-      .my_child = is_player_my_child(mac)};
+      .my_child = is_client_my_client(mac)};
 
   badge_connect_send(mac, &ping_response_msg, sizeof(ping_response_msg));
   esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
@@ -141,7 +141,7 @@ void handle_ping_response(badge_connect_recv_msg_t* msg) {
   esp_timer_stop(ping_timer);
 }
 ////////////////////////////////////////////////////////////////////////////////////////
-bool is_player_my_child(uint8_t* mac) {
+bool is_client_my_client(uint8_t* mac) {
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
       return true;
@@ -171,7 +171,7 @@ bool add_new_player(uint8_t* mac) {
   printf("Lobby is full\n");
   return false;
 }
-uint8_t get_players_count() {
+uint8_t get_clients_count() {
   uint8_t cnt = 0;
   for (uint8_t i = 0; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online)  // Ajustar en la marcha
@@ -244,8 +244,8 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   }
   memcpy(host_mac, msg->src_addr, MAC_SIZE);
   host_level = join_response_msg->host_level;
-  my_player_id = join_response_msg->idx;
-  printf("Joined to lobby-> Player%d\n", my_player_id);
+  my_client_id = join_response_msg->idx;
+  printf("Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -253,7 +253,7 @@ void unlock_games(uint8_t players_cnt) {}
 
 void games_unlocker_task() {
   while (1) {
-    unlock_games(get_players_count());
+    unlock_games(get_clients_count());
     vTaskDelay(500);
   }
 }
@@ -261,7 +261,7 @@ void games_unlocker_task() {
 void advertiser_task() {
   while (1) {
     if (!client_mode) {
-      if (get_players_count() < MAX_PLAYERS_NUM) {
+      if (get_clients_count() < MAX_PLAYERS_NUM) {
         send_advertise();
       } else {
         printf("Lobby is full");
@@ -269,7 +269,7 @@ void advertiser_task() {
       vTaskDelay(pdMS_TO_TICKS(2000));
     } else  // Quiza se pueda cambiar por un task
     {
-      printf("+ client_mode-> Player%d\t Host: ", my_player_id);
+      printf("+ client_mode-> Player%d\t Host: ", my_client_id);
       print_mac_address(host_mac);
       printf("\n");
       if (ping_timeout)  // TODO: ping retries

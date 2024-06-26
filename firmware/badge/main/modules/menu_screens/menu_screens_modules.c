@@ -422,6 +422,7 @@ void menu_screens_update_options(char* options[], uint8_t selected_option) {
       snprintf(new_item, strlen(prev_item) + 5, "[ ] %s", start_of_number);
       options[i] = new_item;
     }
+    free(new_item);
     // ESP_LOGI(TAG, "New item: %s", options[i]);
   }
   options[i] = NULL;
