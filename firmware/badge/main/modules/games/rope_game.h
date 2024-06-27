@@ -9,6 +9,7 @@
 typedef enum {
   UPDATE_PLAYER_DATA_CMD = 10,
   UPDATE_GAME_DATA_CMD,
+  GAME_OVER_CMD,
   STOP_ROPE_GAME_CMD
 } rope_game_commands_t;
 typedef enum { UPDATE_GAME_EVENT } rope_game_events_t;
@@ -42,6 +43,10 @@ typedef struct {
 typedef struct {
   uint8_t cmd;
 } stop_game_cmd_t;
+
+typedef struct {
+  uint8_t cmd;
+} game_over_cmd_t;
 
 player_data_t* me;
 game_data_t game_instance;

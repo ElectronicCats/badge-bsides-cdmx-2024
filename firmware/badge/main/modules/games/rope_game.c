@@ -36,6 +36,7 @@ TaskHandle_t rope_game_task_handler = NULL;
 
 void rope_game_input(button_event_t button_pressed);
 void rope_game_exit();
+void game_over();
 
 void game_data_init() {
   for (uint8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
@@ -53,16 +54,7 @@ void print_game_data() {
     printf("P%d: %d%s\n", i + 1, game_instance.players_data[i].strenght,
            i == my_id ? "<-------" : "");
   }
-}
-
-void print_mac(uint8_t mac[MAC_SIZE]) {
-  for (int i = 0; i < MAC_SIZE; i++) {
-    printf("%02X", mac[i]);
-    if (i < MAC_SIZE - 1) {
-      printf(":");
-    }
-  }
-  printf("\n");
+  printf("ROPE BAR: %d\n", game_instance.rope_bar);
 }
 
 int8_t get_player_id(uint8_t* mac) {
@@ -86,7 +78,7 @@ void send_game_data() {
   game_data_cmd_t game_data_msg = {.cmd = UPDATE_GAME_DATA_CMD,
                                    .game_data = game_instance};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &game_data_msg,
-                     sizeof(game_data_t));
+                     sizeof(game_data_cmd_t));
 }
 
 void send_update_data() {
@@ -118,6 +110,7 @@ void handle_game_update(badge_connect_recv_msg_t* msg) {
     memcpy(&game_instance.players_data[i],
            &game_data_msg->game_data.players_data[i], sizeof(player_data_t));
   }
+  game_instance.rope_bar = game_data_msg->game_data.rope_bar;
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
@@ -135,9 +128,40 @@ void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
 
 // ///////////////////////////////////////////////////////////////////////////////
 
+void send_game_over_cmd() {
+  game_over_cmd_t cmd = {.cmd = GAME_OVER_CMD};
+  badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(game_over_cmd_t));
+  vTaskDelay(pdMS_TO_TICKS(100));
+  badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(game_over_cmd_t));
+}
+
+void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
+  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0)
+    return;
+  game_over();
+}
+
+// ///////////////////////////////////////////////////////////////////////////////
+void game_over() {
+  send_game_over_cmd();
+  is_game_running = false;
+  games_screens_module_show_game_over(game_instance.rope_bar < 0);
+}
+
+void update_rope_bar_value() {
+  if (!host_mode)
+    return;
+  game_instance.rope_bar += game_instance.players_data[0].strenght +
+                            game_instance.players_data[1].strenght -
+                            game_instance.players_data[2].strenght -
+                            game_instance.players_data[3].strenght;
+  if (abs(game_instance.rope_bar) > 10000) {
+    game_over();
+  }
+}
+
 void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
   uint8_t cmd = *((uint8_t*) msg->data);
-  // printf("ROPE GAME -> CMD: %d\n", cmd);
   switch (cmd) {
     case UPDATE_PLAYER_DATA_CMD:
       handle_player_update(msg);
@@ -147,6 +171,8 @@ void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
       break;
     case STOP_ROPE_GAME_CMD:
       handle_stop_game_cmd(msg);
+    case GAME_OVER_CMD:
+      handle_game_over_cmd(msg);
       break;
     default:
       break;
@@ -181,6 +207,7 @@ void rope_game_task() {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
     send_update_data();
+    update_rope_bar_value();
     print_game_data();
     vTaskDelay(pdMS_TO_TICKS(100));
   }
@@ -224,40 +251,29 @@ void rope_game_input(button_event_t button_pressed) {
   uint8_t button_event = ((button_event_t) button_pressed) & 0x0F;
   const char* button_name_str = button_names[button_name];
   const char* button_event_str = button_events_name[button_event];
+  if (button_event != BUTTON_PRESS_DOWN)
+    return;
   switch (button_name) {
     case BUTTON_LEFT:
-      switch (button_event) {
-        case BUTTON_PRESS_DOWN:
-          rope_game_exit();
-          break;
-      }
+      rope_game_exit();
+      break;
     case BUTTON_RIGHT:
-      if (button_event == BUTTON_PRESS_DOWN) {
-        if (me->strenght == 0 || swap) {
-          increment_strenght();
-          swap = false;
-        } else {
-          decrement_strenght();
-        }
+      if (me->strenght == 0 || swap) {
+        increment_strenght();
+        swap = false;
+      } else {
+        decrement_strenght();
       }
       break;
     case BUTTON_UP:
-      if (button_event == BUTTON_PRESS_DOWN) {
-        if (me->strenght == 0 || !swap) {
-          increment_strenght();
-          swap = true;
-        } else {
-          decrement_strenght();
-        }
-      }
-      break;
-    case BUTTON_DOWN:
-      if (button_event == BUTTON_PRESS_DOWN) {
-        printf("DOWN button pressed down\n");
+      if (me->strenght == 0 || !swap) {
+        increment_strenght();
+        swap = true;
+      } else {
+        decrement_strenght();
       }
       break;
     default:
-      printf("Unknown button pressed\n");
       break;
   }
 }

@@ -90,6 +90,14 @@ void rope_game_show_game_data() {
   free(str);
 }
 
+void games_screens_module_show_game_over(bool winner) {
+  oled_screen_clear();
+  char* str = (char*) malloc(16);
+  sprintf(str, "Team %d won\n", winner + 1);
+  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
+  printf("Team %d won\n", winner + 1);
+  free(str);
+}
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   switch (event) {
     case UPDATE_GAME_EVENT:
