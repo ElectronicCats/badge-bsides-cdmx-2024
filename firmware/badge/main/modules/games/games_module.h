@@ -2,7 +2,7 @@
 #include <stdio.h>
 #define TAG_GAMES_MODULE "games_module:Main"
 
-typedef enum { GAME_1, ROPE_GAME, GAME_3 } games_id_t;
+typedef enum { RAUL_GAME, ROPE_GAME, KEVIN_GAME } games_id_t;
 typedef enum { NOT_ENOUGHT_BADGES_EVENT } games_module_events_t;
 
 typedef enum {

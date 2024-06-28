@@ -25,18 +25,46 @@ void games_module_setup() {
   lobby_manager_register_custom_cmd_recv_cb(handle_games_module_cmds);
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
-void send_start_game_cmd(uint8_t game_id) {
+void open_game(uint8_t game_id) {
+  switch (game_id) {
+    case RAUL_GAME:
+      break;
+    case ROPE_GAME:
+      rope_game_init();
+      break;
+    case KEVIN_GAME:
+      break;
+    default:
+      break;
+  }
+}
+void send_start_game_cmd() {
   if (client_mode)
     return;
-  if (get_clients_count() < MAX_ROPE_GAME_PLAYERS) {
-    games_screens_module_show_games_module_event(NOT_ENOUGHT_BADGES_EVENT);
-    // return;
+  uint8_t players_count = get_clients_count();
+  uint8_t game_id = 0;
+  switch (players_count) {
+    case 2:
+      oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      game_id = RAUL_GAME;
+      break;
+    case 4:
+      oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      game_id = ROPE_GAME;
+      break;
+    case 5:
+      oled_screen_display_text("KEVIN GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      game_id = KEVIN_GAME;
+      break;
+    default:
+      return;
+      break;
   }
   start_game_cmd_t cmd = {.cmd = START_GAME, .game_id = game_id};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
-  rope_game_init();
   vTaskDelay(pdMS_TO_TICKS(100));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
+  open_game(game_id);
 }
 
 void handle_start_game_cmd(badge_connect_recv_msg_t* msg) {
@@ -44,12 +72,12 @@ void handle_start_game_cmd(badge_connect_recv_msg_t* msg) {
     return;
   start_game_cmd_t* cmd = (start_game_cmd_t*) msg->data;
   switch (cmd->game_id) {
-    case GAME_1:
+    case RAUL_GAME:
       break;
     case ROPE_GAME:
       rope_game_init();
       break;
-    case GAME_3:
+    case KEVIN_GAME:
       break;
     default:
       break;
@@ -78,7 +106,7 @@ void games_module_state_machine(button_event_t button_pressed) {
     case BUTTON_RIGHT:
       switch (button_event) {
         case BUTTON_PRESS_DOWN:
-          send_start_game_cmd(ROPE_GAME);
+          send_start_game_cmd();
           break;
         case BUTTON_PRESS_UP:
           break;
