@@ -59,7 +59,7 @@ void print_game_data() {
 
 int8_t get_player_id(uint8_t* mac) {
   for (uint8_t i = 1; i < MAX_ROPE_GAME_PLAYERS; i++) {
-    if (memcmp(players[i].mac, mac, MAC_SIZE) == 0) {
+    if (memcmp(game_players_mac[i], mac, MAC_SIZE) == 0) {
       return i;
     }
   }

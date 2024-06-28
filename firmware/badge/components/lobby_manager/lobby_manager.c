@@ -11,6 +11,9 @@
 #include "freertos/task.h"
 #include "nvs_flash.h"
 
+#define BADGE_UNCONNECTED \
+  (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2))
+
 #define DESACTIVAR_PRINT
 
 #ifdef DESACTIVAR_PRINT
@@ -241,12 +244,10 @@ void clear_client(uint8_t player_id) {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_advertise() {
-  // if (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2)) {
-  //   printf("Badge not connected\n");
-  // display_state(SHOW_UNCONNECTED);
-  //   clear_players_table();
-  //   return;
-  // }
+  if (BADGE_UNCONNECTED) {
+    clear_players_table();
+    return;
+  }
   printf("send_advertise\t MAC:");
   print_mac_address(my_mac);
   printf("\n");
@@ -420,12 +421,14 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
   uint8_t cmd = *((uint8_t*) msg->data);
   // printf("CMD: %d\n", cmd);
   // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
-  // if (msg->rx_ctrl->rssi < RSSI_FILTER ||
-  //     (gpio_get_level(BADGE_IN_1) && gpio_get_level(BADGE_IN_2))) {
-  //   printf("So Far or not connected to another badge\n");
-  // display_state(SHOW_UNCONNECTED);
-  //   return;
-  // }
+  if (cmd < 10) {
+    if (msg->rx_ctrl->rssi < RSSI_FILTER || BADGE_UNCONNECTED) {
+      // display_state(SHOW_UNCONNECTED);
+      ESP_LOGE("UNCONNECTED", "CMD: %d SKIPPED\n", cmd);
+      return;
+    }
+  }
+  ESP_LOGI("CONNECTED", "CMD: %d\n", cmd);
   switch (cmd) {
     case ADVERTISE_CMD:
       handle_advertise(msg);
