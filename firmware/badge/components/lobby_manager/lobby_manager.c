@@ -118,7 +118,7 @@ void print_players_table() {
 }
 ////////////////////////////////////////////////////////////////////////////////////////
 void ping_timeout_handler() {
-  if (ping_attempt < 3) {
+  if (ping_attempt < PING_ATTEMPTS) {
     ping_status = PING_NONE;
     ping_attempt++;
   } else {
@@ -356,9 +356,8 @@ void ping(uint8_t* mac) {
   ping_status = PING_NONE;
   if (!client_mode) {
     seek_next_online_client();
-    vTaskDelay(pdMS_TO_TICKS(500));
   } else {
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 
@@ -383,7 +382,7 @@ void advertiser_task() {
       printf("\n");
       ping(host_mac);
     }
-    vTaskDelay(pdMS_TO_TICKS(500));
+    vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
 
