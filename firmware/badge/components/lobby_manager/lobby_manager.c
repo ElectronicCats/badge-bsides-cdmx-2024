@@ -490,7 +490,7 @@ void lobby_manager_init() {
       .callback = &ping_timeout_handler, .name = "ping_timeout"};
   ESP_ERROR_CHECK(esp_timer_create(&ping_timer_args, &ping_timer));
 
-  xTaskCreate(advertiser_task, "Advertiser Task", 2048, NULL, 10,
+  xTaskCreate(advertiser_task, "Advertiser Task", 4096, NULL, 10,
               &advertiser_task_handler);
 }
 void lobby_manager_deinit() {

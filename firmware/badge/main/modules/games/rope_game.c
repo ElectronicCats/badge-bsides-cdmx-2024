@@ -145,16 +145,16 @@ void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
 void game_over() {
   send_game_over_cmd();
   is_game_running = false;
-  games_screens_module_show_game_over(game_instance.rope_bar < 0);
+  games_screens_module_show_game_over(game_instance.rope_bar > 0);
 }
 
 void update_rope_bar_value() {
   if (!host_mode)
     return;
-  game_instance.rope_bar += game_instance.players_data[0].strenght +
-                            game_instance.players_data[1].strenght -
+  game_instance.rope_bar += game_instance.players_data[3].strenght +
                             game_instance.players_data[2].strenght -
-                            game_instance.players_data[3].strenght;
+                            game_instance.players_data[1].strenght -
+                            game_instance.players_data[0].strenght;
   if (abs(game_instance.rope_bar) > 10000) {
     game_over();
   }

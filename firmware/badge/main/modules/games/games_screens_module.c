@@ -1,11 +1,12 @@
 #include "games_screens_module.h"
 #include <string.h>
+#include "games_bitmaps.h"
 #include "lobby_manager.h"
 #include "oled_screen.h"
 #include "rope_game.h"
 
 #define BAR_HEIGHT 8
-#define BAR_WIDTH  112
+#define BAR_WIDTH  64
 
 uint8_t bar_bitmap[BAR_HEIGHT][BAR_WIDTH / 8];
 
@@ -19,7 +20,7 @@ void show_available_games() {
 void show_client_state() {
   oled_screen_clear();
   char* player_idx = (char*) malloc(20);
-  sprintf(player_idx, " Client Mode: P%d", my_client_id);
+  sprintf(player_idx, " Client Mode: P%d", my_client_id + 1);
   oled_screen_display_text(player_idx, 0, 1, OLED_DISPLAY_NORMAL);
   free(player_idx);
 }
@@ -27,15 +28,16 @@ void show_client_state() {
 void show_clients() {
   //   oled_screen_display_text(" P0  P1   P2  P3", 0, 0, OLED_DISPLAY_NORMAL);
   oled_screen_display_text(" SELECT A GAME ", 0, 0, OLED_DISPLAY_INVERT);
-  char* online_players = (char*) malloc(20);
-  bool online[MAX_PLAYERS_NUM - 1] = {0, 0, 0, 0};
+  char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
-    online[i - 1] = players[i].online;
+    if (players[i].online) {
+      sprintf(str, "%d", i + 1);
+      oled_screen_display_text(str, (i - 1) * 32 + 8, 1, OLED_DISPLAY_NORMAL);
+      oled_screen_display_bitmap(figther_face, (i - 1) * 32 + 16, 8, 16, 8,
+                                 OLED_DISPLAY_NORMAL);
+    }
   }
-  sprintf(online_players, " %d   %d    %d   %d", online[0], online[1],
-          online[2], online[3]);
-  oled_screen_display_text(online_players, 4, 1, OLED_DISPLAY_NORMAL);
-  free(online_players);
+  free(str);
 }
 
 void show_badge_unconnected() {
@@ -63,30 +65,54 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       break;
   }
 }
-//////////////////////////////////////////////////////////////////////////////////
-void update_bar(uint8_t value) {
-  uint8_t active_cols = (uint32_t) value * BAR_WIDTH / 255;
+
+void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
+  uint8_t active_cols = (uint32_t) value * BAR_WIDTH / 10000;
   memset(bar_bitmap, 0, sizeof(bar_bitmap));
-  for (int y = 0; y < BAR_HEIGHT; y++) {
-    if (y == 1 || y == 6)
-      continue;
+  for (int y = 0; y < bar_height; y++) {
     for (int x = 0; x < active_cols; x++) {
-      bar_bitmap[y][x / 8] |= (1 << (7 - (x % 8)));
+      if (x_mirror) {
+        bar_bitmap[y][(BAR_WIDTH - 1 - x) / 8] |= (1 << (x % 8));
+      } else {
+        bar_bitmap[y][x / 8] |= (1 << (7 - (x % 8)));
+      }
     }
   }
 }
+
+void rope_game_show_rope() {
+  bool x_mirror = game_instance.rope_bar < 0;
+  update_bar(abs(game_instance.rope_bar), 3, x_mirror);
+  oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 18, BAR_WIDTH,
+                             BAR_HEIGHT, OLED_DISPLAY_NORMAL);
+}
+
 void rope_game_show_game_data() {
   oled_screen_clear();
-  char* str = (char*) malloc(16);
-  for (int8_t i = 0; i < MAX_ROPE_GAME_PLAYERS; i++) {
-    sprintf(str, "P%d", i + 1);
-    oled_screen_display_text(
-        str, 0, i,
-        i == my_client_id ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
-    update_bar(game_instance.players_data[i].strenght);
-    oled_screen_display_bitmap(bar_bitmap, 16, i * 8, BAR_WIDTH, BAR_HEIGHT,
-                               OLED_DISPLAY_NORMAL);
-  }
+  oled_screen_display_text("Team1", 0, 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("Team2", 88, 0, OLED_DISPLAY_NORMAL);
+  rope_game_show_rope();
+
+  char* str = (char*) malloc(5);
+  oled_screen_display_bitmap(figther_face, 8, 8, 16, 8, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d", game_instance.players_data[0].strenght);
+  oled_screen_display_text(str, 25, 1, OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face, 8, 24, 16, 8, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d", game_instance.players_data[1].strenght);
+  oled_screen_display_text(str, 25, 3, OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face, 105, 8, 16, 8, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d", game_instance.players_data[2].strenght);
+  oled_screen_display_text(str, 80, 1, OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face, 105, 24, 16, 8, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d", game_instance.players_data[3].strenght);
+  oled_screen_display_text(str, 80, 3, OLED_DISPLAY_NORMAL);
   free(str);
 }
 

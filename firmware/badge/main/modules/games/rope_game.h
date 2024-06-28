@@ -51,6 +51,8 @@ typedef struct {
 player_data_t* me;
 game_data_t game_instance;
 
+extern uint8_t my_id;
+
 void rope_game_init();
 void rope_game_input(button_event_t button_pressed);
 
