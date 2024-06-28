@@ -30,8 +30,8 @@ void show_client_state() {
 
 void show_available_game() {
   uint8_t players_count = get_clients_count();
-  static bool frame = 0;
-  frame = !frame;
+  static uint8_t frame = 0;
+  frame = ++frame > 7 ? 0 : frame;
   switch (players_count) {
     case 2:
       oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
@@ -47,8 +47,8 @@ void show_available_game() {
       oled_screen_display_text("KEVIN GAME", 4, 3, OLED_DISPLAY_NORMAL);
       break;
     default:
-      oled_screen_display_bitmap(badge_connection_bmp_arr[frame], 32, 8, 64, 16,
-                                 OLED_DISPLAY_NORMAL);
+      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 4], 32, 8, 64,
+                                 16, OLED_DISPLAY_NORMAL);
       oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return;
