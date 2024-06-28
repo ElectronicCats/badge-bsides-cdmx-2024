@@ -113,10 +113,12 @@ void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
 }
 
 void rope_game_show_rope() {
-  bool x_mirror = game_instance.rope_bar < 0;
-  update_bar(abs(game_instance.rope_bar), 3, x_mirror);
-  oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 18, BAR_WIDTH,
-                             BAR_HEIGHT, OLED_DISPLAY_NORMAL);
+  uint8_t rope_idx = (abs(game_instance.rope_bar) / 100) % 4;
+  oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 18, 128, 5,
+                             OLED_DISPLAY_NORMAL);
+  uint8_t badge_x_pos = ((game_instance.rope_bar + 10000) * 120) / (20000);
+  oled_screen_display_bitmap(badge_bmp, badge_x_pos, 17, 8, 8,
+                             OLED_DISPLAY_NORMAL);
 }
 
 void rope_game_show_game_data() {
