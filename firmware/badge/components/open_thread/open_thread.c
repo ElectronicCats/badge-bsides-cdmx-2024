@@ -87,6 +87,8 @@ static size_t hex_string_to_binary(const char* hex_string,
 esp_err_t openthread_set_dataset(uint8_t channel, uint16_t panid) {
   esp_openthread_lock_acquire(portMAX_DELAY);
   otInstance* instance = esp_openthread_get_instance();
+  otIp6SetEnabled(instance, false);
+  otThreadSetEnabled(instance, false);
   size_t len = 0;
 #if CONFIG_OPENTHREAD_FTD
   otDatasetCreateNewNetwork(instance, &dataset);
