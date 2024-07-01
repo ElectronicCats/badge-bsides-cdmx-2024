@@ -11,18 +11,14 @@
 #define PING_ATTEMPTS   5
 #define RSSI_FILTER     (-100)
 
-// GPS MININO
-// RX0 GPIO4
-// TX0 GPIO5
-
-// RX1 GPIO17
-// TX1 GPIO16
-
-#define BADGE_IN_1 GPIO_NUM_4
-#define BADGE_IN_2 GPIO_NUM_17
-
-#define BADGE_OUT_1 GPIO_NUM_5
-#define BADGE_OUT_2 GPIO_NUM_16
+/**
+ * @brief GPIOs for badge connection
+ * Connect RX0 to TX1 and RX1 to TX0
+ */
+#define BADGE_IN_1  GPIO_NUM_4   // RX1
+#define BADGE_IN_2  GPIO_NUM_17  // RX0
+#define BADGE_OUT_1 GPIO_NUM_5   // TX1
+#define BADGE_OUT_2 GPIO_NUM_16  // TX0
 
 typedef struct {
   uint8_t mac[MAC_SIZE];
