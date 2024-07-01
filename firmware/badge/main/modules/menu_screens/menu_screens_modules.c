@@ -125,6 +125,7 @@ void show_logo() {
   //   buzzer_stop();
   //   vTaskDelay(2000 / portTICK_PERIOD_MS);
   // }
+  leds_on();
   oled_screen_display_bitmap(epd_bitmap_logo_1, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }

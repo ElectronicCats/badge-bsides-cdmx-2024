@@ -24,7 +24,6 @@ void app_main(void) {
   // ESP_ERROR_CHECK(esp_event_loop_create_default());
 
   leds_init();
-  leds_on();
   preferences_begin();
   menu_screens_begin();
   keyboard_module_begin();
