@@ -64,6 +64,8 @@ void send_start_game_cmd() {
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
   vTaskDelay(pdMS_TO_TICKS(100));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
+  vTaskDelay(pdMS_TO_TICKS(100));
+  badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
   open_game(game_id);
 }
 

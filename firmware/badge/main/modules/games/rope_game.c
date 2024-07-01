@@ -241,6 +241,8 @@ void rope_game_exit() {
   }
   vTaskDelay(pdMS_TO_TICKS(100));
   send_stop_game_cmd();
+  vTaskDelay(pdMS_TO_TICKS(100));
+  send_stop_game_cmd();
   games_module_setup();
 }
 

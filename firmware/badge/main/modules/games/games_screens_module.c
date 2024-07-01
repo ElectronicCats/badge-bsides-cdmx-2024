@@ -22,14 +22,13 @@ void show_scanning_dots(uint8_t x, uint8_t page, uint8_t dots_num) {
 
 void show_client_state() {
   oled_screen_clear();
-  char* player_idx = (char*) malloc(20);
-  sprintf(player_idx, " Client Mode: P%d", my_client_id + 1);
-  oled_screen_display_text(player_idx, 0, 1, OLED_DISPLAY_NORMAL);
-  free(player_idx);
+  char* str = (char*) malloc(20);
+  sprintf(str, " Client Mode: P%d", my_client_id + 1);
+  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
+  free(str);
 }
-
-void show_available_game() {
-  uint8_t players_count = get_clients_count();
+bool show_game_text(uint8_t players_count) {
+  bool waiting = false;
   static uint8_t frame = 0;
   frame = ++frame > 7 ? 0 : frame;
   switch (players_count) {
@@ -39,7 +38,7 @@ void show_available_game() {
     case 3:
       oled_screen_display_text("Waiting 3/4", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
-      return;
+      return true;
     case 4:
       oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
       break;
@@ -51,15 +50,20 @@ void show_available_game() {
                                  16, OLED_DISPLAY_NORMAL);
       oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
-      return;
+      return true;
       break;
   }
-  oled_screen_display_bitmap(enter_button_bmp, 112, 24, 16, 8,
-                             OLED_DISPLAY_NORMAL);
+  return false;
+}
+
+void show_available_game() {
+  uint8_t players_count = get_clients_count();
+  if (!show_game_text(players_count))
+    oled_screen_display_bitmap(enter_button_bmp, 112, 24, 16, 8,
+                               OLED_DISPLAY_NORMAL);
 }
 
 void show_clients() {
-  oled_screen_display_text_center("Connect Badges", 0, OLED_DISPLAY_NORMAL);
   char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online) {
@@ -87,6 +91,7 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       break;
     case SHOW_CLIENTS:
       oled_screen_clear();
+      oled_screen_display_text_center("Connect Badges", 0, OLED_DISPLAY_NORMAL);
       show_available_game();
       show_clients();
       break;
