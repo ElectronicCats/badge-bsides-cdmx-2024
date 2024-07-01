@@ -29,7 +29,6 @@ void app_main(void) {
   keyboard_module_begin();
   // menu_screens_display_menu();
   reboot_counter();
-  leds_off();
 
   ajo_module_init();
   // cat_console_begin();
@@ -45,4 +44,5 @@ void app_main(void) {
     menu_screens_display_menu();
     preferences_put_int("MENUNUMBER", 99);
   }
+  leds_off();
 }

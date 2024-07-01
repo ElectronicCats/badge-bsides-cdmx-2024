@@ -301,6 +301,7 @@ void display_menu_items(char** items) {
 
     oled_screen_display_text(text, 0, page, OLED_DISPLAY_NORMAL);
     page += page_increment;
+    free(text);
   }
 
 #ifdef CONFIG_RESOLUTION_128X64
@@ -492,6 +493,8 @@ static void gps_event_handler(void* event_handler_arg,
         // TODO: refresh only the date and time
         oled_screen_display_text(date_str, 0, 2, OLED_DISPLAY_NORMAL);
         oled_screen_display_text(time_str, 0, 3, OLED_DISPLAY_NORMAL);
+        free(date_str);
+        free(time_str);
       } else if (current_menu == MENU_GPS_LOCATION) {
         char* latitude_str = (char*) malloc(22);
         char* longitude_str = (char*) malloc(22);
@@ -509,6 +512,11 @@ static void gps_event_handler(void* event_handler_arg,
         oled_screen_display_text(longitude_str, 0, 3, OLED_DISPLAY_NORMAL);
         oled_screen_display_text(altitude_str, 0, 4, OLED_DISPLAY_NORMAL);
         oled_screen_display_text(speed_str, 0, 5, OLED_DISPLAY_NORMAL);
+
+        free(latitude_str);
+        free(longitude_str);
+        free(altitude_str);
+        free(speed_str);
       }
       break;
     case GPS_UNKNOWN:
