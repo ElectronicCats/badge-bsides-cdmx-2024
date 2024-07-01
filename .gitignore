@@ -31,6 +31,8 @@ hardware/badge-bsides-cdmx-2024-backups/badge-bsides-cdmx-2024-2024-04-29_145911
 
 hardware/badge-bsides-cdmx-2024-backups/
 
+hardware/**/~*.lck
+
 *.zip
 
 # Visual Studio config files
