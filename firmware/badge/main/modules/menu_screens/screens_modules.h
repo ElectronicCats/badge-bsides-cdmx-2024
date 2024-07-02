@@ -41,6 +41,7 @@ typedef enum {
   MENU_ZIGBEE_APPS,
   MENU_THREAD_APPS,
   MENU_GAMES,
+  MENU_BADGE_FINDER,
   MENU_MATTER_APPS,
   MENU_GPS,
   /* WiFi applications */
@@ -66,6 +67,9 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
+  /* Badge finder */
+  MENU_BADGE_FINDER_SCAN,
+  MENU_BADGE_FINDER_HELP,
   /* GPS applications */
   MENU_GPS_DATE_TIME,
   MENU_GPS_LOCATION,
@@ -101,6 +105,7 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_APPS",
     "MENU_THREAD_APPS",
     "MENU_GAMES",
+    "MENU_BADGE_FINDER",
     "MENU_MATTER_APPS",
     "MENU_GPS",
     "MENU_WIFI_ANALIZER",
@@ -119,6 +124,8 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_LIGHT",
     "MENU_ZIGBEE_SNIFFER",
     "MENU_THREAD_BROADCAST",
+    "MENU_BADGE_FINDER_SCAN",
+    "MENU_BADGE_FINDER_HELP",
     "MENU_GPS_DATE_TIME",
     "MENU_GPS_LOCATION",
     "MENU_ABOUT_VERSION",
@@ -143,7 +150,7 @@ const int next_menu_table[][8] = {
     {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
-     MENU_GAMES, MENU_MATTER_APPS, MENU_GPS},
+     MENU_GAMES, MENU_BADGE_FINDER},
     // MENU_SETTINGS
     {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
@@ -159,6 +166,8 @@ const int next_menu_table[][8] = {
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
     {MENU_GAMES},
+    // MENU_BADGE_FINDER
+    {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
     // MENU_MATTER_APPS
     {MENU_MATTER_APPS},
     // MENU_GPS
@@ -193,6 +202,10 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
+    // MENU_BADGE_FINDER_SCAN
+    {MENU_BADGE_FINDER_SCAN},
+    // MENU_BADGE_FINDER_HELP
+    {MENU_BADGE_FINDER_HELP},
     // MENU_GPS_DATE_TIME
     {MENU_GPS_DATE_TIME},
     // MENU_GPS_LOCATION
@@ -232,6 +245,7 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_ZIGBEE_APPS
     MENU_APPLICATIONS,               // MENU_THREAD_APPS
     MENU_APPLICATIONS,               // MENU_GAMES
+    MENU_APPLICATIONS,               // MENU_BADGE_FINDER
     MENU_APPLICATIONS,               // MENU_MATTER_APPS
     MENU_APPLICATIONS,               // MENU_GPS
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
@@ -249,6 +263,8 @@ const int prev_menu_table[] = {
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
+    MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
+    MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
     MENU_GPS,                        // MENU_GPS_DATE_TIME
     MENU_GPS,                        // MENU_GPS_LOCATION
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
@@ -277,7 +293,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "GAMES", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Games", "Badge finder", NULL,
 };
 
 char* settings_items[] = {
@@ -429,6 +445,28 @@ char* gps_items[] = {
     NULL,
 };
 
+char* badge_link_item[] = {
+    "Scan",
+    "Help",
+    NULL,
+};
+
+char* badge_link_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "Have you gone",
+    "to BSides?",
+    "DragonJar?",
+    "Ekoparty?",
+    "BugCon?",
+    "...",
+    "",
+    "Your badges",
+    "have secrets",
+    "to unluck...",
+    NULL,
+};
+
 char* empty_items[] = {
     NULL,
 };
@@ -445,9 +483,10 @@ char** menu_items[] = {
     main_items, applications_items, settings_items, about_items,
     /* Applications */
     wifi_items, bluetooth_items, zigbee_items, thread_items,
-    empty_items,  // Matter
+    empty_items,      // GAMES
+    badge_link_item,  // Badge Finder
+    empty_items,      // Matter
     gps_items,
-    empty_items,  // GAMES
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
     empty_items,                      // WiFi Deauth
@@ -468,6 +507,9 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
+    /* Badge finder */
+    empty_items,      // MENU_BADGE_FINDER_SCAN
+    badge_link_help,  // MENU_BADGE_FINDER_HELP
     /* GPS applications */
     empty_items,  // Date & Time
     empty_items,  // Location

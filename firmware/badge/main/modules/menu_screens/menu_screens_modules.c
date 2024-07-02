@@ -1,4 +1,5 @@
 #include "menu_screens_modules.h"
+#include "badge_link_module.h"
 #include "bitmaps.h"
 #include "ble_module.h"
 #include "catdos_module.h"
@@ -644,6 +645,10 @@ void menu_screens_enter_submenu() {
       break;
     case MENU_GAMES:
       games_module_begin();
+      break;
+    case MENU_BADGE_FINDER:
+      // badge_link_begin();
+      break;
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
