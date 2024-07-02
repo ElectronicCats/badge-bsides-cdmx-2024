@@ -347,7 +347,7 @@ void ping(uint8_t* mac) {
     ping_status = PING_WAITING;
     send_ping_request(mac);
     esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
-    ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
+    // ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
   }
   if (ping_status == PING_WAITING)
     return;
@@ -432,7 +432,7 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
       return;
     }
   }
-  ESP_LOGI("CONNECTED", "CMD: %d\n", cmd);
+  // ESP_LOGI("CONNECTED", "CMD: %d\n", cmd);
   switch (cmd) {
     case ADVERTISE_CMD:
       handle_advertise(msg);

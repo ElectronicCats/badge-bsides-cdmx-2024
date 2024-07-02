@@ -203,7 +203,6 @@ void decrement_strenght() {
 // ///////////////////////////////////////////////////////////////////////////////
 
 void rope_game_task() {
-  vTaskDelay(pdMS_TO_TICKS(100));
   while (is_game_running) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
@@ -212,15 +211,24 @@ void rope_game_task() {
     print_game_data();
     vTaskDelay(pdMS_TO_TICKS(100));
   }
+  send_stop_game_cmd();
+  lobby_manager_register_custom_cmd_recv_cb(NULL);
+  if (timer_handle != NULL) {
+    esp_timer_stop(timer_handle);
+    esp_timer_delete(timer_handle);
+    timer_handle = NULL;
+  }
+  send_stop_game_cmd();
+  vTaskDelay(pdMS_TO_TICKS(50));
+  send_stop_game_cmd();
+  games_module_setup();
+
   rope_game_task_handler = NULL;
   printf("rope_game_task DELETED\n");
   vTaskDelete(NULL);
 }
 void rope_game_init() {
-  is_game_running = true;
   game_data_init();
-  lobby_manager_set_display_status_cb(NULL);
-  lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
   const esp_timer_create_args_t timer_args = {.callback = &decrement_strenght,
                                               .name = "example_timer"};
 
@@ -229,23 +237,14 @@ void rope_game_init() {
     ESP_LOGE("Timer", "Failed to create timer: %s", esp_err_to_name(ret));
     return;
   }
+  lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
+  is_game_running = true;
   menu_screens_set_app_state(true, rope_game_input);
   xTaskCreate(rope_game_task, "rope_game_task", 2048, NULL, 10,
               &rope_game_task_handler);
 }
 void rope_game_exit() {
   is_game_running = false;
-  send_stop_game_cmd();
-  lobby_manager_register_custom_cmd_recv_cb(NULL);
-  if (timer_handle != NULL) {
-    esp_timer_stop(timer_handle);
-    esp_timer_delete(timer_handle);
-  }
-  vTaskDelay(pdMS_TO_TICKS(100));
-  send_stop_game_cmd();
-  vTaskDelay(pdMS_TO_TICKS(100));
-  send_stop_game_cmd();
-  games_module_setup();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////

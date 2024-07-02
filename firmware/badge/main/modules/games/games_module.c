@@ -26,6 +26,8 @@ void games_module_setup() {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////
 void open_game(uint8_t game_id) {
+  lobby_manager_set_display_status_cb(NULL);
+  lobby_manager_register_custom_cmd_recv_cb(NULL);
   switch (game_id) {
     case RAUL_GAME:
       break;
@@ -45,15 +47,12 @@ void send_start_game_cmd() {
   uint8_t game_id = 0;
   switch (players_count) {
     case 2:
-      oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
       game_id = RAUL_GAME;
       break;
     case 4:
-      oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
       game_id = ROPE_GAME;
       break;
     case 5:
-      oled_screen_display_text("KEVIN GAME", 4, 3, OLED_DISPLAY_NORMAL);
       game_id = KEVIN_GAME;
       break;
     default:
@@ -62,9 +61,9 @@ void send_start_game_cmd() {
   }
   start_game_cmd_t cmd = {.cmd = START_GAME, .game_id = game_id};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
-  vTaskDelay(pdMS_TO_TICKS(100));
+  vTaskDelay(pdMS_TO_TICKS(50));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
-  vTaskDelay(pdMS_TO_TICKS(100));
+  vTaskDelay(pdMS_TO_TICKS(50));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(start_game_cmd_t));
   open_game(game_id);
 }
