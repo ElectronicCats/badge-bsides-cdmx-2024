@@ -40,9 +40,9 @@ typedef enum {
   MENU_BLUETOOTH_APPS,
   MENU_ZIGBEE_APPS,
   MENU_THREAD_APPS,
+  MENU_GAMES,
   MENU_MATTER_APPS,
   MENU_GPS,
-  MENU_GAMES,
   /* WiFi applications */
   MENU_WIFI_ANALIZER,
   MENU_WIFI_DEAUTH,
@@ -100,9 +100,9 @@ const char* menu_list[] = {
     "MENU_BLUETOOTH_APPS",
     "MENU_ZIGBEE_APPS",
     "MENU_THREAD_APPS",
+    "MENU_GAMES",
     "MENU_MATTER_APPS",
     "MENU_GPS",
-    "MENU_GAMES",
     "MENU_WIFI_ANALIZER",
     "MENU_WIFI_DEAUTH",
     "MENU_WIFI_DOS",
@@ -143,7 +143,7 @@ const int next_menu_table[][8] = {
     {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
-     MENU_MATTER_APPS, MENU_GPS, MENU_GAMES},
+     MENU_GAMES, MENU_MATTER_APPS, MENU_GPS},
     // MENU_SETTINGS
     {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
@@ -157,12 +157,12 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SPOOFING, MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_APPS
     {MENU_THREAD_BROADCAST},
+    // MENU_GAMES
+    {MENU_GAMES},
     // MENU_MATTER_APPS
     {MENU_MATTER_APPS},
     // MENU_GPS
     {MENU_GPS_DATE_TIME, MENU_GPS_LOCATION},
-    // MENU_GAMES
-    {MENU_GAMES},
     // MENU_WIFI_ANALIZER
     {MENU_WIFI_ANALIZER_RUN, MENU_WIFI_ANALIZER_SETTINGS},
     // MENU_WIFI_DEAUTH
@@ -231,9 +231,9 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_BLUETOOTH_APPS
     MENU_APPLICATIONS,               // MENU_ZIGBEE_APPS
     MENU_APPLICATIONS,               // MENU_THREAD_APPS
+    MENU_APPLICATIONS,               // MENU_GAMES
     MENU_APPLICATIONS,               // MENU_MATTER_APPS
     MENU_APPLICATIONS,               // MENU_GPS
-    MENU_APPLICATIONS,               // MENU_GAMES
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
     MENU_WIFI_APPS,                  // MENU_WIFI_DEAUTH
     MENU_WIFI_ANALIZER_ASK_SUMMARY,  // MENU_WIFI_ANALIZER_RUN
@@ -277,7 +277,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "Matter", "GPS", "GAMES", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "GAMES", NULL,
 };
 
 char* settings_items[] = {
