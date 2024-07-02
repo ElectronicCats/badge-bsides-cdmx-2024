@@ -203,6 +203,7 @@ void decrement_strenght() {
 // ///////////////////////////////////////////////////////////////////////////////
 
 void rope_game_task() {
+  vTaskDelay(pdMS_TO_TICKS(100));
   while (is_game_running) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
@@ -211,6 +212,7 @@ void rope_game_task() {
     print_game_data();
     vTaskDelay(pdMS_TO_TICKS(100));
   }
+  rope_game_task_handler = NULL;
   printf("rope_game_task DELETED\n");
   vTaskDelete(NULL);
 }

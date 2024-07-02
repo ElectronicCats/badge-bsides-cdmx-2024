@@ -73,6 +73,7 @@ uint8_t ping_attempt = 0;
 uint8_t ping_id = 1;
 
 TaskHandle_t advertiser_task_handler;
+bool advertiser_state = false;
 
 display_status_cb_t display_event_cb = NULL;
 badge_connect_recv_cb_t custom_cmd_recv_cb = NULL;
@@ -362,7 +363,8 @@ void ping(uint8_t* mac) {
 }
 
 void advertiser_task() {
-  while (1) {
+  advertiser_state = true;
+  while (advertiser_state) {
     if (!client_mode) {
       display_state(SHOW_CLIENTS);
       if (get_clients_count() < MAX_PLAYERS_NUM) {
@@ -384,6 +386,9 @@ void advertiser_task() {
     }
     vTaskDelay(pdMS_TO_TICKS(100));
   }
+  ESP_LOGI("ADVERTISER TASK", "Task deleted");
+  advertiser_task_handler = NULL;
+  vTaskDelete(NULL);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -496,11 +501,9 @@ void lobby_manager_init() {
               &advertiser_task_handler);
 }
 void lobby_manager_deinit() {
+  advertiser_state = false;
+  vTaskDelay(pdMS_TO_TICKS(200));
   deconfigure_pins();
-  if (advertiser_task_handler != NULL) {
-    vTaskDelete(advertiser_task_handler);
-    advertiser_task_handler = NULL;
-  }
 
   if (ping_timer != NULL) {
     esp_timer_stop(ping_timer);
