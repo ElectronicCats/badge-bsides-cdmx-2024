@@ -42,8 +42,6 @@ typedef enum {
   MENU_THREAD_APPS,
   MENU_GAMES,
   MENU_BADGE_FINDER,
-  MENU_MATTER_APPS,
-  MENU_GPS,
   /* WiFi applications */
   MENU_WIFI_ANALIZER,
   MENU_WIFI_DEAUTH,
@@ -70,9 +68,6 @@ typedef enum {
   /* Badge finder */
   MENU_BADGE_FINDER_SCAN,
   MENU_BADGE_FINDER_HELP,
-  /* GPS applications */
-  MENU_GPS_DATE_TIME,
-  MENU_GPS_LOCATION,
   /* About items */
   MENU_ABOUT_VERSION,
   MENU_ABOUT_LICENSE,
@@ -100,38 +95,45 @@ const char* menu_list[] = {
     "MENU_APPLICATIONS",
     "MENU_SETTINGS",
     "MENU_ABOUT",
+    /* Applications */
     "MENU_WIFI_APPS",
     "MENU_BLUETOOTH_APPS",
     "MENU_ZIGBEE_APPS",
     "MENU_THREAD_APPS",
     "MENU_GAMES",
     "MENU_BADGE_FINDER",
-    "MENU_MATTER_APPS",
-    "MENU_GPS",
+    /* WiFi applications */
     "MENU_WIFI_ANALIZER",
     "MENU_WIFI_DEAUTH",
     "MENU_WIFI_DOS",
+    /* WiFi analizer items */
     "MENU_WIFI_ANALIZER_RUN",
     "MENU_WIFI_ANALIZER_SETTINGS",
+    /* WiFi analizer start items */
     "MENU_WIFI_ANALIZER_ASK_SUMMARY",
     "MENU_WIFI_ANALIZER_SUMMARY",
+    /* WiFi analizer settings */
     "MENU_WIFI_ANALIZER_CHANNEL",
     "MENU_WIFI_ANALIZER_DESTINATION",
+    /* Bluetooth applications */
     "MENU_BLUETOOTH_TRAKERS_SCAN",
     "MENU_BLUETOOTH_SPAM",
+    /* Zigbee applications */
     "MENU_ZIGBEE_SPOOFING",
     "MENU_ZIGBEE_SWITCH",
     "MENU_ZIGBEE_LIGHT",
     "MENU_ZIGBEE_SNIFFER",
+    /* Thread applications */
     "MENU_THREAD_BROADCAST",
+    /* Badge finder */
     "MENU_BADGE_FINDER_SCAN",
     "MENU_BADGE_FINDER_HELP",
-    "MENU_GPS_DATE_TIME",
-    "MENU_GPS_LOCATION",
+    /* About items */
     "MENU_ABOUT_VERSION",
     "MENU_ABOUT_LICENSE",
     "MENU_ABOUT_CREDITS",
     "MENU_ABOUT_LEGAL",
+    /* Settings items */
     "MENU_SETTINGS_DISPLAY",
     "MENU_SETTINGS_SOUND",
     "MENU_SETTINGS_SYSTEM",
@@ -168,14 +170,12 @@ const int next_menu_table[][8] = {
     {MENU_GAMES},
     // MENU_BADGE_FINDER
     {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
-    // MENU_MATTER_APPS
-    {MENU_MATTER_APPS},
-    // MENU_GPS
-    {MENU_GPS_DATE_TIME, MENU_GPS_LOCATION},
     // MENU_WIFI_ANALIZER
     {MENU_WIFI_ANALIZER_RUN, MENU_WIFI_ANALIZER_SETTINGS},
     // MENU_WIFI_DEAUTH
     {MENU_WIFI_DEAUTH},
+    // MENU_WIFI_DOS
+    {MENU_WIFI_DOS},
     // MENU_WIFI_ANALIZER_RUN
     {MENU_WIFI_ANALIZER_RUN},
     // MENU_WIFI_ANALIZER_SETTINGS
@@ -206,10 +206,6 @@ const int next_menu_table[][8] = {
     {MENU_BADGE_FINDER_SCAN},
     // MENU_BADGE_FINDER_HELP
     {MENU_BADGE_FINDER_HELP},
-    // MENU_GPS_DATE_TIME
-    {MENU_GPS_DATE_TIME},
-    // MENU_GPS_LOCATION
-    {MENU_GPS_LOCATION},
     // MENU_ABOUT_VERSION
     {MENU_ABOUT_VERSION},
     // MENU_ABOUT_LICENSE
@@ -246,10 +242,9 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_THREAD_APPS
     MENU_APPLICATIONS,               // MENU_GAMES
     MENU_APPLICATIONS,               // MENU_BADGE_FINDER
-    MENU_APPLICATIONS,               // MENU_MATTER_APPS
-    MENU_APPLICATIONS,               // MENU_GPS
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
     MENU_WIFI_APPS,                  // MENU_WIFI_DEAUTH
+    MENU_WIFI_APPS,                  // MENU_WIFI_DOS
     MENU_WIFI_ANALIZER_ASK_SUMMARY,  // MENU_WIFI_ANALIZER_RUN
     MENU_WIFI_ANALIZER,              // MENU_WIFI_ANALIZER_SETTINGS
     MENU_WIFI_ANALIZER_RUN,          // MENU_WIFI_ANALIZER_ASK_SUMMARY
@@ -265,8 +260,6 @@ const int prev_menu_table[] = {
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
-    MENU_GPS,                        // MENU_GPS_DATE_TIME
-    MENU_GPS,                        // MENU_GPS_LOCATION
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
     MENU_ABOUT,                      // MENU_ABOUT_LICENSE
     MENU_ABOUT,                      // MENU_ABOUT_CREDITS
@@ -467,12 +460,6 @@ char* thread_items[] = {
     NULL,
 };
 
-char* gps_items[] = {
-    "Date & Time",
-    "Location",
-    NULL,
-};
-
 char* badge_link_item[] = {
     "Scan",
     "Help",
@@ -513,8 +500,6 @@ char** menu_items[] = {
     wifi_items, bluetooth_items, zigbee_items, thread_items,
     empty_items,      // GAMES
     badge_link_item,  // Badge Finder
-    empty_items,      // Matter
-    gps_items,
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
     empty_items,                      // WiFi Deauth
@@ -538,9 +523,6 @@ char** menu_items[] = {
     /* Badge finder */
     empty_items,      // MENU_BADGE_FINDER_SCAN
     badge_link_help,  // MENU_BADGE_FINDER_HELP
-    /* GPS applications */
-    empty_items,  // Date & Time
-    empty_items,  // Location
     /* About */
     version_text, license_text, credits_text, legal_text,
     /* Settings items */
