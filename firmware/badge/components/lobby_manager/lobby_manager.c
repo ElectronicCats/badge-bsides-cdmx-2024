@@ -72,7 +72,6 @@ uint8_t ping_status = 0;
 uint8_t ping_attempt = 0;
 uint8_t ping_id = 1;
 
-TaskHandle_t advertiser_task_handler;
 bool advertiser_state = false;
 
 display_status_cb_t display_event_cb = NULL;

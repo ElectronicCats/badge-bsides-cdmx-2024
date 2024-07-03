@@ -30,7 +30,7 @@ void show_client_state() {
 bool show_game_text(uint8_t players_count) {
   bool waiting = false;
   static uint8_t frame = 0;
-  frame = ++frame > 7 ? 0 : frame;
+  frame = ++frame > 3 ? 0 : frame;
   switch (players_count) {
     case 2:
       oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
@@ -46,7 +46,7 @@ bool show_game_text(uint8_t players_count) {
       oled_screen_display_text("KEVIN GAME", 4, 3, OLED_DISPLAY_NORMAL);
       break;
     default:
-      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 4], 32, 8, 64,
+      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
                                  16, OLED_DISPLAY_NORMAL);
       oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
@@ -82,6 +82,10 @@ void show_badge_unconnected() {
 }
 
 void games_screens_module_show_lobby_state(uint8_t state) {
+  static uint8_t print = 1;
+  print = ++print > 4 ? 1 : print;
+  if (print % 4)
+    return;
   switch (state) {
     case HOST_STATE:
       show_host_state();
@@ -127,11 +131,6 @@ void rope_game_show_rope() {
 }
 
 void rope_game_show_game_data() {
-  oled_screen_clear();
-  oled_screen_display_text("Team1", 0, 0, OLED_DISPLAY_NORMAL);
-  oled_screen_display_text("Team2", 88, 0, OLED_DISPLAY_NORMAL);
-  rope_game_show_rope();
-
   char* str = (char*) malloc(5);
   oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
@@ -174,6 +173,9 @@ void games_screens_module_show_game_over(bool winner) {
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   switch (event) {
     case UPDATE_GAME_EVENT:
+      oled_screen_clear();
+      oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
+      rope_game_show_rope();
       rope_game_show_game_data();
       break;
     default:

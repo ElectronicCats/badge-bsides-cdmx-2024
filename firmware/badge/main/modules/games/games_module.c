@@ -19,6 +19,7 @@ void games_module_begin() {
   lobby_manager_init();
 }
 void games_module_setup() {
+  vTaskDelay(pdMS_TO_TICKS(100));
   menu_screens_set_app_state(true, games_module_state_machine);
   oled_screen_clear(OLED_DISPLAY_NORMAL);
   lobby_manager_set_display_status_cb(games_screens_module_show_lobby_state);
