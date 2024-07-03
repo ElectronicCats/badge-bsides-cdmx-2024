@@ -109,7 +109,14 @@ void screen_module_set_screen(int screen_layer) {
   menu_screens_display_menu();
 }
 
+void show_hsbc_logo() {
+  oled_screen_display_bitmap(epd_bitmap_hsbc_logo, 0, 0, 128, 32,
+                             OLED_DISPLAY_NORMAL);
+}
+
 void show_logo() {
+  show_hsbc_logo();
+  vTaskDelay(pdMS_TO_TICKS(500));
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }
