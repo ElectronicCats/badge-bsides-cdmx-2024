@@ -2,6 +2,7 @@
 #include "ajo_module.h"
 #include "cat_console.h"
 #include "catdos_module.h"
+#include "ctf_ble.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_timer.h"
@@ -46,4 +47,7 @@ void app_main(void) {
     menu_screens_display_menu();
     preferences_put_int("MENUNUMBER", 99);
   }
+  leds_off();
+
+  // ctf_ble_module_begin();
 }
