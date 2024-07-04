@@ -31,7 +31,6 @@ void app_main(void) {
   keyboard_module_begin();
   // menu_screens_display_menu();
   reboot_counter();
-  leds_off();
 
   ajo_module_init();
   // cat_console_begin();
