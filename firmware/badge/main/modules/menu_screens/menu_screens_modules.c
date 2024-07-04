@@ -644,6 +644,7 @@ void menu_screens_enter_submenu() {
       break;
     case MENU_GAMES:
       games_module_begin();
+      break;
     case MENU_MATTER_APPS:
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:

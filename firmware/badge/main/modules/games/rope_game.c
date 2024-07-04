@@ -245,7 +245,6 @@ void rope_game_exit() {
   vTaskDelay(pdMS_TO_TICKS(50));
   send_stop_game_cmd();
   games_module_setup();
-  vTaskResume(advertiser_task_handler);
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
