@@ -122,6 +122,7 @@ void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
 }
 
 void rope_game_show_rope() {
+  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   uint8_t rope_idx = (abs(game_instance.rope_bar) / 100) % 4;
   oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 18, 128, 5,
                              OLED_DISPLAY_NORMAL);
@@ -132,6 +133,7 @@ void rope_game_show_rope() {
 
 void rope_game_show_game_data() {
   char* str = (char*) malloc(5);
+  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
@@ -145,7 +147,7 @@ void rope_game_show_game_data() {
   sprintf(str, "%d", game_instance.players_data[2].strenght);
   oled_screen_display_text(
       str, 80, 1, my_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
-
+  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 8, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
@@ -173,7 +175,6 @@ void games_screens_module_show_game_over(bool winner) {
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   switch (event) {
     case UPDATE_GAME_EVENT:
-      oled_screen_clear();
       oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
       rope_game_show_rope();
       rope_game_show_game_data();

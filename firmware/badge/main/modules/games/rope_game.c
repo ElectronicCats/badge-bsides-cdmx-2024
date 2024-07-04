@@ -9,6 +9,7 @@
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
+#include "oled_screen.h"
 #include "stdbool.h"
 
 static const char* TAG = "Rope_Game_Client";
@@ -203,7 +204,7 @@ void decrement_strenght() {
 // ///////////////////////////////////////////////////////////////////////////////
 
 void rope_game_task() {
-  vTaskDelay(pdMS_TO_TICKS(100));
+  oled_screen_clear();
   while (is_game_running) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
@@ -229,7 +230,7 @@ void rope_game_init() {
   lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
   is_game_running = true;
   menu_screens_set_app_state(true, rope_game_input);
-  xTaskCreate(rope_game_task, "rope_game_task", 4096, NULL, 5,
+  xTaskCreate(rope_game_task, "rope_game_task", 4096, NULL, 15,
               &rope_game_task_handler);
 }
 void rope_game_exit() {

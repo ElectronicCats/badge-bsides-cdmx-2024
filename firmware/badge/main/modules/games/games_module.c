@@ -73,17 +73,7 @@ void handle_start_game_cmd(badge_connect_recv_msg_t* msg) {
   if (memcmp(host_mac, msg->src_addr, MAC_SIZE) != 0)
     return;
   start_game_cmd_t* cmd = (start_game_cmd_t*) msg->data;
-  switch (cmd->game_id) {
-    case RAUL_GAME:
-      break;
-    case ROPE_GAME:
-      rope_game_init();
-      break;
-    case KEVIN_GAME:
-      break;
-    default:
-      break;
-  }
+  open_game(cmd->game_id);
 }
 
 void handle_games_module_cmds(badge_connect_recv_msg_t* msg) {
