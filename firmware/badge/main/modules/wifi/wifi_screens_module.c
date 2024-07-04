@@ -6,6 +6,7 @@
 #include "oled_screen.h"
 
 int max_records_to_display = 7;
+static int current_attack_page = 0;
 TaskHandle_t wifi_sniffer_animation_task_handle = NULL;
 
 static const char* wifi_auth_modes[] = {"OPEN",
@@ -30,10 +31,10 @@ static const char* wifi_cipher_types[] = {
 
 void wifi_screens_module_scanning(void) {
   oled_screen_clear();
-  oled_screen_display_text_center("SCANNING", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("    SCANNING", 0, OLED_DISPLAY_NORMAL);
   while (true) {
-    for (int i = 0; i < wifi_bitmap_allArray_LEN; i++) {
-      oled_screen_display_bitmap(wifi_bitmap_allArray[i], 48, 16, 32, 32,
+    for (int i = 0; i < wifi_module_allArray_LEN; i++) {
+      oled_screen_display_bitmap(wifi_module_allArray[i], 0, 0, 32, 32,
                                  OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
@@ -47,12 +48,12 @@ void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
   sprintf(ssid, "%s", (char*) ap_record->ssid);
 
   oled_screen_display_text_center("TARGETING", 0, OLED_DISPLAY_INVERT);
-  oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_INVERT);
 
   while (true) {
-    for (int i = 0; i < wifi_bitmap_allArray_LEN; i++) {
-      oled_screen_display_bitmap(wifi_bitmap_allArray[i], 48, 16, 32, 32,
+    for (int i = 0; i < 2; i++) {
+      oled_screen_display_bitmap(wifi_attack_module_allArray[i], 0, 0, 32, 32,
                                  OLED_DISPLAY_NORMAL);
+      oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
   }
@@ -63,7 +64,7 @@ void wifi_screens_module_display_scanned_networks(wifi_ap_record_t* ap_records,
                                                   int scanned_records,
                                                   int current_option) {
   oled_screen_clear();
-  oled_screen_display_text_center("Select a network", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("Select network", 0, OLED_DISPLAY_NORMAL);
 
   for (int i = current_option; i < (max_records_to_display + current_option);
        i++) {
@@ -88,43 +89,50 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
                                                  int page) {
   oled_screen_clear();
   char* ssid = (char*) malloc(33);
+  char* current_page = (char*) malloc(33);
   memset(ssid, 0, 33);
   sprintf(ssid, "%s", (char*) ap_record->ssid);
-  oled_screen_display_text_center(0, ssid, OLED_DISPLAY_INVERT);
+  int curr_page = (page == 5) ? 1 : page + 1;
+  sprintf(current_page, "Page: %d of %d", curr_page, 5);
+  oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
+  oled_screen_display_text_center(current_page, 3, OLED_DISPLAY_NORMAL);
 
   if (page == 0) {
-    char* bssid = (char*) malloc(20);
     char* rssi_channel = (char*) malloc(MAX_LINE_CHAR);
-    char* auth_mode = (char*) malloc(20);
 
-    sprintf(auth_mode, "%s", wifi_auth_modes[ap_record->authmode]);
-    sprintf(rssi_channel, "%d dBm   %d", ap_record->rssi, ap_record->primary);
+    sprintf(rssi_channel, "%d dBm  %d", ap_record->rssi, ap_record->primary);
+    oled_screen_display_text_center("RSSI PRIM-CH", 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(rssi_channel, 2, OLED_DISPLAY_NORMAL);
+    free(rssi_channel);
+  } else if (page == 1) {
+    char* bssid = (char*) malloc(20);
     sprintf(bssid, "%02X:%02X:%02X:%02X:%02X%02X", ap_record->bssid[0],
             ap_record->bssid[1], ap_record->bssid[2], ap_record->bssid[3],
             ap_record->bssid[4], ap_record->bssid[5]);
-    oled_screen_display_text_center("RSSI   PRIM CH", 2, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center(rssi_channel, 3, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center("BSSID", 4, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center(bssid, 5, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center("AUTH MODE", 6, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center(auth_mode, 7, OLED_DISPLAY_NORMAL);
+
+    oled_screen_display_text_center("BSSID", 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(bssid, 2, OLED_DISPLAY_NORMAL);
     free(bssid);
-    free(rssi_channel);
+  } else if (page == 3) {
+    char* auth_mode = (char*) malloc(20);
+    sprintf(auth_mode, "%s", wifi_auth_modes[ap_record->authmode]);
+    oled_screen_display_text_center("AUTH MODE", 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(auth_mode, 2, OLED_DISPLAY_NORMAL);
     free(auth_mode);
-  } else {
+  } else if (page == 4) {
     char* pairwise_cipher = (char*) malloc(20);
-    char* group_cipher = (char*) malloc(20);
 
     sprintf(pairwise_cipher, "%s",
             wifi_cipher_types[ap_record->pairwise_cipher]);
-    sprintf(group_cipher, "%s", wifi_cipher_types[ap_record->group_cipher]);
 
-    oled_screen_display_text_center("PAIRWISE CIPHER", 2, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center(pairwise_cipher, 3, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center("GROUP CIPHER", 5, OLED_DISPLAY_NORMAL);
-    oled_screen_display_text_center(group_cipher, 6, OLED_DISPLAY_NORMAL);
-
+    oled_screen_display_text_center("PAIRWISE CIPHER", 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(pairwise_cipher, 2, OLED_DISPLAY_NORMAL);
     free(pairwise_cipher);
+  } else {
+    char* group_cipher = (char*) malloc(20);
+    sprintf(group_cipher, "%s", wifi_cipher_types[ap_record->group_cipher]);
+    oled_screen_display_text_center("GROUP CIPHER", 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(group_cipher, 2, OLED_DISPLAY_NORMAL);
     free(group_cipher);
   }
   free(ssid);
@@ -135,8 +143,11 @@ void wifi_screens_module_display_attack_selector(char* attack_options[],
                                                  int current_option) {
   oled_screen_clear();
   oled_screen_display_text_center("Select Attack", 0, OLED_DISPLAY_NORMAL);
-  for (int i = 0; i < list_count; i++) {
+  for (int i = current_option; i < (5 + current_option); i++) {
     if (attack_options[i] == NULL) {
+      break;
+    }
+    if (i >= list_count) {
       break;
     }
 
@@ -145,9 +156,10 @@ void wifi_screens_module_display_attack_selector(char* attack_options[],
       char item_text[strlen(prefix) + strlen(attack_options[i]) + 1];
       strcpy(item_text, prefix);
       strcat(item_text, attack_options[i]);
-      oled_screen_display_text(item_text, 0, i + 1, OLED_DISPLAY_INVERT);
+      oled_screen_display_text(item_text, 0, (i + 1) - current_option,
+                               OLED_DISPLAY_INVERT);
     } else {
-      oled_screen_display_text(attack_options[i], 0, i + 1,
+      oled_screen_display_text(attack_options[i], 0, (i + 1) - current_option,
                                OLED_DISPLAY_NORMAL);
     }
   }

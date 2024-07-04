@@ -540,6 +540,8 @@ static void catdos_module_state_machine(button_event_t button_pressed) {
       switch (button_event) {
         case BUTTON_LONG_PRESS_HOLD:
           ESP_LOGI(CATDOS_TAG, "Button left pressed");
+          menu_screens_set_app_state(false, NULL);
+          menu_screens_exit_submenu();
           break;
       }
       break;
