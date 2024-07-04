@@ -552,8 +552,8 @@ void menu_screens_enter_submenu() {
     case MENU_GAMES:
       games_module_begin();
       break;
-    case MENU_BADGE_FINDER:
-      // badge_link_begin();
+    case MENU_BADGE_FINDER_SCAN:
+      badge_link_module_begin();
       break;
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
