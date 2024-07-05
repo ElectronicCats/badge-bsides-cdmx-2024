@@ -41,8 +41,6 @@ typedef enum {
   MENU_ZIGBEE_APPS,
   MENU_THREAD_APPS,
   MENU_GAMES,
-  MENU_MATTER_APPS,
-  MENU_GPS,
   /* WiFi applications */
   MENU_WIFI_ANALIZER,
   MENU_WIFI_DEAUTH,
@@ -66,9 +64,6 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
-  /* GPS applications */
-  MENU_GPS_DATE_TIME,
-  MENU_GPS_LOCATION,
   /* About items */
   MENU_ABOUT_VERSION,
   MENU_ABOUT_LICENSE,
@@ -101,8 +96,6 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_APPS",
     "MENU_THREAD_APPS",
     "MENU_GAMES",
-    "MENU_MATTER_APPS",
-    "MENU_GPS",
     "MENU_WIFI_ANALIZER",
     "MENU_WIFI_DEAUTH",
     "MENU_WIFI_DOS",
@@ -119,8 +112,6 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_LIGHT",
     "MENU_ZIGBEE_SNIFFER",
     "MENU_THREAD_BROADCAST",
-    "MENU_GPS_DATE_TIME",
-    "MENU_GPS_LOCATION",
     "MENU_ABOUT_VERSION",
     "MENU_ABOUT_LICENSE",
     "MENU_ABOUT_CREDITS",
@@ -143,7 +134,7 @@ const int next_menu_table[][8] = {
     {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
-     MENU_GAMES, MENU_MATTER_APPS, MENU_GPS},
+     MENU_GAMES},
     // MENU_SETTINGS
     {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
@@ -159,10 +150,6 @@ const int next_menu_table[][8] = {
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
     {MENU_GAMES},
-    // MENU_MATTER_APPS
-    {MENU_MATTER_APPS},
-    // MENU_GPS
-    {MENU_GPS_DATE_TIME, MENU_GPS_LOCATION},
     // MENU_WIFI_ANALIZER
     {MENU_WIFI_ANALIZER_RUN, MENU_WIFI_ANALIZER_SETTINGS},
     // MENU_WIFI_DEAUTH
@@ -193,10 +180,6 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
-    // MENU_GPS_DATE_TIME
-    {MENU_GPS_DATE_TIME},
-    // MENU_GPS_LOCATION
-    {MENU_GPS_LOCATION},
     // MENU_ABOUT_VERSION
     {MENU_ABOUT_VERSION},
     // MENU_ABOUT_LICENSE
@@ -236,6 +219,7 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_GPS
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
     MENU_WIFI_APPS,                  // MENU_WIFI_DEAUTH
+    MENU_WIFI_APPS,                  // MENU_WIFI_DOS
     MENU_WIFI_ANALIZER_ASK_SUMMARY,  // MENU_WIFI_ANALIZER_RUN
     MENU_WIFI_ANALIZER,              // MENU_WIFI_ANALIZER_SETTINGS
     MENU_WIFI_ANALIZER_RUN,          // MENU_WIFI_ANALIZER_ASK_SUMMARY
@@ -249,8 +233,6 @@ const int prev_menu_table[] = {
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
-    MENU_GPS,                        // MENU_GPS_DATE_TIME
-    MENU_GPS,                        // MENU_GPS_LOCATION
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
     MENU_ABOUT,                      // MENU_ABOUT_LICENSE
     MENU_ABOUT,                      // MENU_ABOUT_CREDITS
@@ -446,7 +428,6 @@ char** menu_items[] = {
     /* Applications */
     wifi_items, bluetooth_items, zigbee_items, thread_items,
     empty_items,  // Matter
-    gps_items,
     empty_items,  // GAMES
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
@@ -468,9 +449,6 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
-    /* GPS applications */
-    empty_items,  // Date & Time
-    empty_items,  // Location
     /* About */
     version_text, license_text, credits_text, legal_text,
     /* Settings items */
