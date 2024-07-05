@@ -52,10 +52,10 @@ void send_start_game_cmd() {
     case 2:
       game_id = RAUL_GAME;
       break;
-    case 3:
+    case 4:
       game_id = ROPE_GAME;
       break;
-    case 5:
+    case 3:
       game_id = KEVIN_GAME;
       break;
     default:

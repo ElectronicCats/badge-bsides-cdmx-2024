@@ -16,6 +16,7 @@
 #define ANGRY_TIMEOUT   160000
 #define FURIOUS_TIMEOUT 120000
 #define HOST_MAC        game_players_mac[0]
+#define MAX_SCORE       500
 
 #ifdef DESACTIVAR_PRINT
   #define printf(fmt, ...) ((void) 0)
@@ -159,12 +160,17 @@ static void speed_bag_game_over() {
 void update_speed_bag_value() {
   if (!host_mode)
     return;
-  speed_bag_game_instance.bag_bar +=
-      speed_bag_game_instance.players_data[3].strenght +
-      speed_bag_game_instance.players_data[2].strenght -
-      speed_bag_game_instance.players_data[1].strenght -
-      speed_bag_game_instance.players_data[0].strenght;
-  if (abs(speed_bag_game_instance.bag_bar) > 10000) {
+  // speed_bag_game_instance.bag_bar +=
+  //     speed_bag_game_instance.players_data[3].strenght +
+  //     speed_bag_game_instance.players_data[2].strenght -
+  //     speed_bag_game_instance.players_data[1].strenght -
+  //     speed_bag_game_instance.players_data[0].strenght;
+
+  if (speed_bag_game_instance.players_data[0].strenght >= MAX_SCORE ||
+      speed_bag_game_instance.players_data[1].strenght >= MAX_SCORE ||
+      speed_bag_game_instance.players_data[2].strenght >= MAX_SCORE ||
+      speed_bag_game_instance.players_data[3].strenght >= MAX_SCORE ||
+      speed_bag_game_instance.players_data[4].strenght >= MAX_SCORE) {
     speed_bag_game_over();
   }
 }
@@ -277,20 +283,16 @@ void speed_bag_game_input(button_event_t button_pressed) {
       speed_bag_game_exit();
       break;
     case BUTTON_RIGHT:
-      if (speed_bag_main_player->strenght == 0 || swap) {
-        increment_strenght();
-        swap = false;
-      } else {
-        decrement_strenght();
-      }
+      increment_strenght();
+      // else {
+      //   decrement_strenght();
+      // }
       break;
     case BUTTON_UP:
-      if (speed_bag_main_player->strenght == 0 || !swap) {
-        increment_strenght();
-        swap = true;
-      } else {
-        decrement_strenght();
-      }
+      increment_strenght();
+      //  else {
+      //   decrement_strenght();
+      // }
       break;
     default:
       break;

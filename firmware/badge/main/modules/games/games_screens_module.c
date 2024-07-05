@@ -135,18 +135,53 @@ void rope_game_show_rope() {
 
 void speed_game_show_bag() {
   // oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
-  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
+  // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   // update_bar(speed_bag_game_instance.bag_bar, BAR_HEIGHT, false);
-  oled_screen_display_bitmap(speed_bag_static, 0, 8, 16, 16,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(speed_bag_static, 32, 8, 16, 16,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(speed_bag_static, 64, 8, 16, 16,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(speed_bag_static, 80, 8, 16, 16,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(speed_bag_static, 102, 8, 16, 16,
-                             OLED_DISPLAY_NORMAL);
+  if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[1].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 24, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 24, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[2].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 48, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 48, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[3].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 72, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 72, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[4].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 96, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 96, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  // oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 24, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 48, 16,  8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 72, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 96, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
 }
 
 void rope_game_show_game_data() {
@@ -188,7 +223,7 @@ void rope_game_show_game_data() {
 void speed_bag_game_show_game_data() {
   char* str = (char*) malloc(5);
 
-  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   // TODO: FIx the current instanace, create the correct bitmap
   // Player 1
   oled_screen_display_bitmap(figther_face_bmp, 0, 8, 16, 8,
@@ -197,39 +232,39 @@ void speed_bag_game_show_game_data() {
   sprintf(str, "%d", speed_bag_game_instance.players_data[0].strenght);
   oled_screen_display_text(
       str, 0, 3,
-      rope_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      speed_bag_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   // Player 2
-  oled_screen_display_bitmap(figther_face_bmp, 16, 8, 16, 8,
+  oled_screen_display_bitmap(figther_face_bmp, 24, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   sprintf(str, "%d", speed_bag_game_instance.players_data[1].strenght);
   oled_screen_display_text(
-      str, 16, 3,
-      rope_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 24, 3,
+      speed_bag_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   // Player 3
-  oled_screen_display_bitmap(figther_face_bmp, 32, 8, 16, 8,
+  oled_screen_display_bitmap(figther_face_bmp, 48, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   sprintf(str, "%d", speed_bag_game_instance.players_data[2].strenght);
   oled_screen_display_text(
-      str, 32, 3,
-      rope_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 48, 3,
+      speed_bag_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   // Player 4
-  oled_screen_display_bitmap(figther_face_bmp, 48, 8, 16, 8,
+  oled_screen_display_bitmap(figther_face_bmp, 72, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   sprintf(str, "%d", speed_bag_game_instance.players_data[3].strenght);
   oled_screen_display_text(
-      str, 48, 3,
-      rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 72, 3,
+      speed_bag_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   // Player 5
-  oled_screen_display_bitmap(figther_face_bmp, 62, 8, 16, 8,
+  oled_screen_display_bitmap(figther_face_bmp, 96, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   sprintf(str, "%d", speed_bag_game_instance.players_data[4].strenght);
   oled_screen_display_text(
-      str, 62, 3,
-      rope_player_id == 4 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 96, 3,
+      speed_bag_player_id == 4 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
   free(str);
 }
 
