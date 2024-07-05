@@ -132,35 +132,43 @@ void rope_game_show_rope() {
 }
 
 void rope_game_show_game_data() {
-  char* str = (char*) malloc(5);
+  char* str = (char*) malloc(10);
   oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[0].strenght);
-  oled_screen_display_text(
-      str, 25, 1, my_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[2].strenght);
+  sprintf(str, "%s%d", my_id == 2 ? "-->" : "   ",
+          game_instance.players_data[2].strenght);
   oled_screen_display_text(
-      str, 80, 1, my_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 56, 1, my_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d%s", game_instance.players_data[0].strenght,
+          my_id == 0 ? "<--" : "");
+  oled_screen_display_text(
+      str, 25, 1, my_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
+
   oled_screen_display_bitmap(figther_face_bmp, 8, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
-  oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[1].strenght);
-  oled_screen_display_text(
-      str, 25, 3, my_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
-
   oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[3].strenght);
+  sprintf(str, "%s%d", my_id == 1 ? "-->" : "   ",
+          game_instance.players_data[3].strenght);
   oled_screen_display_text(
       str, 80, 3, my_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%d%s", game_instance.players_data[1].strenght,
+          my_id == 1 ? "<--" : "");
+  oled_screen_display_text(
+      str, 25, 3, my_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
   free(str);
 }
 
