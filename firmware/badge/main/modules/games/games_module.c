@@ -8,6 +8,7 @@
 #include "menu_screens_modules.h"
 #include "oled_screen.h"
 #include "rope_game.h"
+#include "speed_bag_game.h"
 
 void handle_games_module_cmds(badge_connect_recv_msg_t* msg);
 
@@ -36,6 +37,7 @@ void open_game(uint8_t game_id) {
       rope_game_init();
       break;
     case KEVIN_GAME:
+      speed_bag_game_init();
       break;
     default:
       break;
@@ -50,7 +52,7 @@ void send_start_game_cmd() {
     case 2:
       game_id = RAUL_GAME;
       break;
-    case 4:
+    case 3:
       game_id = ROPE_GAME;
       break;
     case 5:
