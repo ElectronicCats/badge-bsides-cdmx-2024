@@ -79,3 +79,13 @@ const unsigned char* rope_bmp_arr[4] = {rope_bmp_1, rope_bmp_2, rope_bmp_3,
 // badge_bmp 8x8px
 const unsigned char badge_bmp[] = {0xff, 0xc3, 0xdb, 0xdb,
                                    0xdb, 0xc3, 0xff, 0x00};
+
+// 'boxing-pear-icon-outline-style-vector', 8x8px
+const unsigned char speed_bag_frame_0[] = {0xfc, 0x88, 0x94, 0xa2,
+                                           0xa2, 0x94, 0x88, 0x80};
+// 'pixil-frame-1', 8x8px
+const unsigned char speed_bag_frame_1[] = {0xfc, 0x88, 0x94, 0xa8,
+                                           0xa8, 0x94, 0x88, 0x80};
+// 'pixil-frame-2', 8x8px
+const unsigned char speed_bag_frame_2[] = {0xfc, 0x88, 0x94, 0x8a,
+                                           0x8a, 0x94, 0x88, 0x80};

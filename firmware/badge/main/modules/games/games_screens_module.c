@@ -4,6 +4,7 @@
 #include "lobby_manager.h"
 #include "oled_screen.h"
 #include "rope_game.h"
+#include "speed_bag_game.h"
 
 #define BAR_HEIGHT 8
 #define BAR_WIDTH  64
@@ -43,8 +44,9 @@ bool show_game_text(uint8_t players_count) {
       oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
       break;
     case 5:
-      oled_screen_display_text("KEVIN GAME", 4, 3, OLED_DISPLAY_NORMAL);
-      break;
+      oled_screen_display_text("Waiting 5/5", 4, 3, OLED_DISPLAY_NORMAL);
+      show_scanning_dots(95, 3, 3);
+      return true;
     default:
       oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
                                  16, OLED_DISPLAY_NORMAL);
@@ -131,6 +133,57 @@ void rope_game_show_rope() {
                              OLED_DISPLAY_NORMAL);
 }
 
+void speed_game_show_bag() {
+  // oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
+  // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
+  // update_bar(speed_bag_game_instance.bag_bar, BAR_HEIGHT, false);
+  if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[1].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 24, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 24, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[2].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 48, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 48, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[3].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 72, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 72, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  if (speed_bag_game_instance.players_data[4].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_0, 96, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_bitmap(speed_bag_frame_1, 96, 16, 8, 8,
+                               OLED_DISPLAY_NORMAL);
+  }
+  // oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 24, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 48, 16,  8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 72, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+  // oled_screen_display_bitmap(speed_bag_frame_0, 96, 16, 8, 8,
+  //                            OLED_DISPLAY_NORMAL);
+}
+
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
   oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
@@ -186,6 +239,19 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
       oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
       rope_game_show_rope();
       rope_game_show_game_data();
+      break;
+    default:
+      break;
+  }
+}
+
+void games_screens_module_show_speed_bag_game_event(
+    speed_bag_speed_bag_game_events_t event) {
+  switch (event) {
+    case UPDATE_GAME_EVENT:
+      oled_screen_display_text_center("1  2  3  4  5", 0, OLED_DISPLAY_NORMAL);
+      speed_game_show_bag();
+      speed_bag_game_show_game_data();
       break;
     default:
       break;

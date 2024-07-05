@@ -12,6 +12,7 @@ set(modules "modules/led_events/led_events.c"
             "modules/open_thread/open_thread_screens_module.c"
             "modules/games/games_screens_module.c"
             "modules/games/rope_game.c"
+            "modules/games/speed_bag/speed_bag_game.c"
             "modules/games/games_module.c"
             "modules/bsides_ajolote/ajo_module.c"
             "modules/cat_dos/catdos_module.c"
@@ -40,7 +41,8 @@ idf_component_register(
                     "modules/open_thread/"
                     "modules/games/"
                     "modules/bsides_ajolote/"
-                    "modules/cat_dos/")
+                    "modules/cat_dos/"
+                    "modules/games/speed_bag/")
 
 # # Append all directories to INCLUDE_DIRS
 
