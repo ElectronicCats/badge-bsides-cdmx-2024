@@ -8,11 +8,13 @@
 #include "menu_screens_modules.h"
 
 #define SEND_DATA_DELAY_MS 100
-#define SEND_DATA_TIMEOUT  (SEND_DATA_DELAY_MS * 15 / 10)  // Seconds
+#define SEND_DATA_TIMEOUT  SEND_DATA_DELAY_MS * 15 / 10  // 15 Seconds
 
 static const char* TAG = "badge_link_module";
 TaskHandle_t badge_link_state_machine_task_handle;
+TaskHandle_t badge_link_stop_badge_connect_task_handle;
 uint8_t send_data_timeout = SEND_DATA_TIMEOUT;
+bool badge_link_send_data = false;
 
 badge_link_screens_status_t badge_link_status = BADGE_LINK_SCANNING;
 badge_link_screens_status_t badge_link_status_previous =
@@ -41,6 +43,26 @@ void wifi_init() {
   ESP_ERROR_CHECK(esp_wifi_start());
 }
 
+void badge_link_stop_badge_connect_task(void* pvParameters) {
+  badge_link_send_data = true;
+  vTaskDelay(200 / portTICK_PERIOD_MS);
+  badge_link_send_data = false;
+  vTaskDelay(200 / portTICK_PERIOD_MS);
+  badge_connect_deinit();
+
+  while (true) {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+
+  vTaskDelete(NULL);
+}
+
+void stop_badge_connect_after_delay() {
+  xTaskCreate(badge_link_stop_badge_connect_task,
+              "badge_link_stop_badge_connect_task", 2048, NULL, 5,
+              &badge_link_stop_badge_connect_task_handle);
+}
+
 // Check badge_connect_recv_msg_t struct in badge_connect.h to see what you can
 // get from the received message
 void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
@@ -50,39 +72,42 @@ void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
 
   bool is_hello_world = strcmp(data, "Hello world") == 0;
 
-  if (is_hello_world && !msg->badge_type.is_bsides) {
+  if (is_hello_world && !msg->badge_type.is_bsides &&
+      badge_link_status != BADGE_LINK_FOUND) {
     badge_link_status = BADGE_LINK_FOUND;
     vTaskSuspend(badge_link_screens_module_scan_task_handle);
-    badge_connect_deinit();
+    stop_badge_connect_after_delay();
   }
 
-  printf("RSSI: %d\n", msg->rx_ctrl->rssi);
-  printf("Badge BSides: %s\n", msg->badge_type.is_bsides ? "true" : "false");
-  printf("Badge DragonJAR: %s\n",
-         msg->badge_type.is_dragonjar ? "true" : "false");
-  printf("Badge Ekoparty: %s\n",
-         msg->badge_type.is_ekoparty ? "true" : "false");
-  printf("Badge BugCON: %s\n", msg->badge_type.is_bugcon ? "true" : "false");
+  // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
+  // printf("Badge BSides: %s\n", msg->badge_type.is_bsides ? "true" : "false");
+  // printf("Badge DragonJAR: %s\n",
+  //        msg->badge_type.is_dragonjar ? "true" : "false");
+  // printf("Badge Ekoparty: %s\n",
+  //        msg->badge_type.is_ekoparty ? "true" : "false");
+  // printf("Badge BugCON: %s\n", msg->badge_type.is_bugcon ? "true" : "false");
 }
 
 void badge_link_module_send_data() {
-  // Decreased every 100ms
+  // Decreased every SEND_DATA_DELAY_MS
   send_data_timeout = send_data_timeout > 0 ? send_data_timeout - 1 : 0;
 
   if (send_data_timeout / 10 == 0 && badge_link_status == BADGE_LINK_SCANNING) {
     badge_link_status = BADGE_LINK_NOT_FOUND;
     vTaskSuspend(badge_link_screens_module_scan_task_handle);
+    badge_connect_deinit();
     return;
   }
 
-  if (send_data_timeout > 0 && (send_data_timeout % 10) == 0 &&
-      badge_link_status == BADGE_LINK_SCANNING) {
-    ESP_LOGI(TAG, "Timeout: %ds", send_data_timeout / 10);
-  }
+  // if (send_data_timeout > 0 && (send_data_timeout % 10) == 0 &&
+  //     badge_link_status == BADGE_LINK_SCANNING) {
+  //   ESP_LOGI(TAG, "Timeout: %ds", send_data_timeout / 10);
+  // }
 
-  if (badge_link_status == BADGE_LINK_SCANNING) {
+  if (badge_link_status == BADGE_LINK_SCANNING || badge_link_send_data) {
     char* data = "Hello world";
     uint8_t* addr = ESPNOW_ADDR_BROADCAST;  // Send to all badges
+    // ESP_LOGI(TAG, "Sending data: %s", data);
     badge_connect_send(addr, data, strlen(data));
   }
 
@@ -97,21 +122,20 @@ void badge_link_keyboard_cb(button_event_t button_pressed) {
 
   switch (button_name) {
     case BUTTON_LEFT:
-      if (button_event == BUTTON_PRESS_DOWN) {
+      if (button_event == BUTTON_SINGLE_CLICK) {
         if (badge_link_status != BADGE_LINK_FOUND) {
           badge_link_module_exit();
         }
       }
       break;
     case BUTTON_RIGHT:
-      if (button_event == BUTTON_PRESS_DOWN) {
+      if (button_event == BUTTON_SINGLE_CLICK) {
         switch (badge_link_status) {
           case BADGE_LINK_FOUND:
             badge_link_status = BADGE_LINK_UNLOCK_FEATURE;
             break;
           case BADGE_LINK_NOT_FOUND:
           case BADGE_LINK_UNLOCK_FEATURE:
-            badge_link_status = BADGE_LINK_EXIT;
             badge_link_module_exit();
             break;
           default:
@@ -128,20 +152,20 @@ void badge_link_reset_status() {
   badge_link_status = BADGE_LINK_SCANNING;
   badge_link_status_previous = BADGE_LINK_UNLOCK_FEATURE;
   send_data_timeout = SEND_DATA_TIMEOUT;
+  badge_link_send_data = false;
 }
 
 void badge_link_state_machine_task(void* pvParameters) {
   badge_link_reset_status();
 
   while (true) {
-    badge_link_module_send_data();
-
     if (badge_link_status != badge_link_status_previous) {
       ESP_LOGI(TAG, "Badge link status: %s",
                badge_link_status_strings[badge_link_status]);
       badge_link_screens_module_display_status(badge_link_status);
       badge_link_status_previous = badge_link_status;
     }
+    badge_link_module_send_data();
   }
 }
 
@@ -153,8 +177,8 @@ void badge_link_module_begin() {
   badge_connect_register_recv_cb(badge_link_receive_data_cb);
   // Set the badge type to BSides, DragonJAR, Ekoparty, or BugCon
   // See README.md or badge_connect.h for more information
-  // badge_connect_set_bsides_badge();
-  badge_connect_set_dragonjar_badge();
+  badge_connect_set_bsides_badge();
+  // badge_connect_set_dragonjar_badge();
   // badge_connect_set_bugcon_badge();
   xTaskCreate(badge_link_state_machine_task, "badge_link_state_machine_task",
               4096, NULL, 4, &badge_link_state_machine_task_handle);

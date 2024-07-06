@@ -10,7 +10,7 @@ void badge_link_screens_module_scan_task(void* pvParameters) {
     // Loading bar using spaces
     for (int i = 0; i < 128; i++) {
       oled_screen_display_text(" ", i, 3, OLED_DISPLAY_INVERT);
-      vTaskDelay(100 / portTICK_PERIOD_MS);
+      vTaskDelay(117 / portTICK_PERIOD_MS);
     }
   }
 }
