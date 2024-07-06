@@ -191,18 +191,20 @@ void rope_game_show_game_data() {
   oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%s%d", my_id == 2 ? "-->" : "   ",
+  sprintf(str, "%s%d", rope_player_id == 2 ? "-->" : "   ",
           game_instance.players_data[2].strenght);
   oled_screen_display_text(
-      str, 56, 1, my_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 56, 1,
+      rope_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
   sprintf(str, "%d%s", game_instance.players_data[0].strenght,
-          my_id == 0 ? "<--" : "");
+          rope_player_id == 0 ? "<--" : "");
   oled_screen_display_text(
-      str, 25, 1, my_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 25, 1,
+      rope_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
 
@@ -211,16 +213,18 @@ void rope_game_show_game_data() {
   oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%s%d", my_id == 1 ? "-->" : "   ",
+  sprintf(str, "%s%d", rope_player_id == 1 ? "-->" : "   ",
           game_instance.players_data[3].strenght);
   oled_screen_display_text(
-      str, 80, 3, my_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 80, 3,
+      rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
   sprintf(str, "%d%s", game_instance.players_data[1].strenght,
-          my_id == 1 ? "<--" : "");
+          rope_player_id == 1 ? "<--" : "");
   oled_screen_display_text(
-      str, 25, 3, my_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+      str, 25, 3,
+      rope_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   free(str);
 }
@@ -251,7 +255,7 @@ void games_screens_module_show_speed_bag_game_event(
     case UPDATE_GAME_EVENT:
       oled_screen_display_text_center("1  2  3  4  5", 0, OLED_DISPLAY_NORMAL);
       speed_game_show_bag();
-      speed_bag_game_show_game_data();
+      // speed_bag_game_show_game_data();
       break;
     default:
       break;
