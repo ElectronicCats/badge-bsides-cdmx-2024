@@ -1,7 +1,5 @@
 #include "esp_log.h"
 #include "esp_wifi.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "nvs_flash.h"
 
 #include "badge_connect.h"
@@ -9,9 +7,12 @@
 #include "badge_link_screens_module.h"
 #include "menu_screens_modules.h"
 
+#define SEND_DATA_DELAY_MS 100
+#define SEND_DATA_TIMEOUT  (SEND_DATA_DELAY_MS * 15 / 10)  // Seconds
+
 static const char* TAG = "badge_link_module";
 TaskHandle_t badge_link_state_machine_task_handle;
-TaskHandle_t badge_link_module_send_data_task_handle;
+uint8_t send_data_timeout = SEND_DATA_TIMEOUT;
 
 badge_link_screens_status_t badge_link_status = BADGE_LINK_SCANNING;
 badge_link_screens_status_t badge_link_status_previous =
@@ -51,6 +52,7 @@ void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
 
   if (is_hello_world && !msg->badge_type.is_bsides) {
     badge_link_status = BADGE_LINK_FOUND;
+    vTaskSuspend(badge_link_screens_module_scan_task_handle);
     badge_connect_deinit();
   }
 
@@ -64,12 +66,18 @@ void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
 }
 
 void badge_link_module_send_data() {
-  static uint8_t timeout = 0;
-  timeout++;  // Increased every 100ms
+  // Decreased every 100ms
+  send_data_timeout = send_data_timeout > 0 ? send_data_timeout - 1 : 0;
 
-  if (timeout / 10 > 15) {
+  if (send_data_timeout / 10 == 0 && badge_link_status == BADGE_LINK_SCANNING) {
     badge_link_status = BADGE_LINK_NOT_FOUND;
+    vTaskSuspend(badge_link_screens_module_scan_task_handle);
     return;
+  }
+
+  if (send_data_timeout > 0 && (send_data_timeout % 10) == 0 &&
+      badge_link_status == BADGE_LINK_SCANNING) {
+    ESP_LOGI(TAG, "Timeout: %ds", send_data_timeout / 10);
   }
 
   if (badge_link_status == BADGE_LINK_SCANNING) {
@@ -77,6 +85,8 @@ void badge_link_module_send_data() {
     uint8_t* addr = ESPNOW_ADDR_BROADCAST;  // Send to all badges
     badge_connect_send(addr, data, strlen(data));
   }
+
+  vTaskDelay(SEND_DATA_DELAY_MS / portTICK_PERIOD_MS);
 }
 
 void badge_link_keyboard_cb(button_event_t button_pressed) {
@@ -88,12 +98,25 @@ void badge_link_keyboard_cb(button_event_t button_pressed) {
   switch (button_name) {
     case BUTTON_LEFT:
       if (button_event == BUTTON_PRESS_DOWN) {
-        badge_link_module_exit();
+        if (badge_link_status != BADGE_LINK_FOUND) {
+          badge_link_module_exit();
+        }
       }
       break;
     case BUTTON_RIGHT:
       if (button_event == BUTTON_PRESS_DOWN) {
-        // badge_link_status = BADGE_LINK_EXIT;
+        switch (badge_link_status) {
+          case BADGE_LINK_FOUND:
+            badge_link_status = BADGE_LINK_UNLOCK_FEATURE;
+            break;
+          case BADGE_LINK_NOT_FOUND:
+          case BADGE_LINK_UNLOCK_FEATURE:
+            badge_link_status = BADGE_LINK_EXIT;
+            badge_link_module_exit();
+            break;
+          default:
+            break;
+        }
       }
       break;
     default:
@@ -103,7 +126,8 @@ void badge_link_keyboard_cb(button_event_t button_pressed) {
 
 void badge_link_reset_status() {
   badge_link_status = BADGE_LINK_SCANNING;
-  badge_link_status_previous = BADGE_LINK_EXIT;
+  badge_link_status_previous = BADGE_LINK_UNLOCK_FEATURE;
+  send_data_timeout = SEND_DATA_TIMEOUT;
 }
 
 void badge_link_state_machine_task(void* pvParameters) {
@@ -118,7 +142,6 @@ void badge_link_state_machine_task(void* pvParameters) {
       badge_link_screens_module_display_status(badge_link_status);
       badge_link_status_previous = badge_link_status;
     }
-    vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
 
@@ -130,15 +153,17 @@ void badge_link_module_begin() {
   badge_connect_register_recv_cb(badge_link_receive_data_cb);
   // Set the badge type to BSides, DragonJAR, Ekoparty, or BugCon
   // See README.md or badge_connect.h for more information
-  badge_connect_set_bsides_badge();
+  // badge_connect_set_bsides_badge();
+  badge_connect_set_dragonjar_badge();
   // badge_connect_set_bugcon_badge();
   xTaskCreate(badge_link_state_machine_task, "badge_link_state_machine_task",
               4096, NULL, 4, &badge_link_state_machine_task_handle);
 }
 
 void badge_link_module_exit() {
+  ESP_LOGI(TAG, "Badge link module exit");
   vTaskDelete(badge_link_state_machine_task_handle);
-  vTaskDelete(badge_link_module_send_data_task_handle);
+  vTaskDelete(badge_link_screens_module_scan_task_handle);
   badge_connect_deinit();
   menu_screens_set_app_state(false, NULL);
   menu_screens_exit_submenu();
