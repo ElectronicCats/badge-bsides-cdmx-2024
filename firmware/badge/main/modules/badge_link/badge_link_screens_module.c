@@ -23,6 +23,12 @@ void badge_link_screens_module_display_status(
                   "badge_link_screens_module_scan_task", 2048, NULL, 5,
                   &badge_link_screens_module_scan_task_handle);
       break;
+    case BADGE_LINK_BRING_IT_CLOSER:
+      oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
+      oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Bring the badge", 0, 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text_center("closer", 1, OLED_DISPLAY_NORMAL);
+      break;
     case BADGE_LINK_FOUND:
       oled_screen_clear();
       oled_screen_display_text_center("Badge found", 1, OLED_DISPLAY_NORMAL);

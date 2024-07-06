@@ -5,13 +5,14 @@
 
 typedef enum {
   BADGE_LINK_SCANNING = 0,
+  BADGE_LINK_BRING_IT_CLOSER,
   BADGE_LINK_FOUND,
   BADGE_LINK_NOT_FOUND,
   BADGE_LINK_UNLOCK_FEATURE,
 } badge_link_screens_status_t;
 
-const char* badge_link_status_strings[] = {"Scanning", "Found", "Not found",
-                                           "Feature unlocked"};
+const char* badge_link_status_strings[] = {
+    "Scanning", "Bring it closer", "Found", "Not found", "Feature unlocked"};
 
 TaskHandle_t badge_link_screens_module_scan_task_handle = NULL;
 

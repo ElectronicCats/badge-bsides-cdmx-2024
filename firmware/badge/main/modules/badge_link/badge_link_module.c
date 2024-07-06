@@ -68,46 +68,39 @@ void stop_badge_connect_after_delay() {
 void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
   char* data = (char*) msg->data;
   data[msg->data_size] = '\0';
-  ESP_LOGI(TAG, "Received data: %s", data);
+  ESP_LOGI(TAG, "Received data: %s, RSSI: %d", data, msg->rx_ctrl->rssi);
 
   bool is_hello_world = strcmp(data, "Hello world") == 0;
 
   if (is_hello_world && !msg->badge_type.is_bsides &&
       badge_link_status != BADGE_LINK_FOUND) {
-    badge_link_status = BADGE_LINK_FOUND;
-    vTaskSuspend(badge_link_screens_module_scan_task_handle);
-    stop_badge_connect_after_delay();
+    if (msg->rx_ctrl->rssi > -100 && msg->rx_ctrl->rssi <= -60) {
+      badge_link_status = BADGE_LINK_BRING_IT_CLOSER;
+    } else if (msg->rx_ctrl->rssi > -60) {
+      badge_link_status = BADGE_LINK_FOUND;
+      vTaskSuspend(badge_link_screens_module_scan_task_handle);
+      stop_badge_connect_after_delay();
+    }
   }
-
-  // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
-  // printf("Badge BSides: %s\n", msg->badge_type.is_bsides ? "true" : "false");
-  // printf("Badge DragonJAR: %s\n",
-  //        msg->badge_type.is_dragonjar ? "true" : "false");
-  // printf("Badge Ekoparty: %s\n",
-  //        msg->badge_type.is_ekoparty ? "true" : "false");
-  // printf("Badge BugCON: %s\n", msg->badge_type.is_bugcon ? "true" : "false");
 }
 
 void badge_link_module_send_data() {
   // Decreased every SEND_DATA_DELAY_MS
   send_data_timeout = send_data_timeout > 0 ? send_data_timeout - 1 : 0;
 
-  if (send_data_timeout / 10 == 0 && badge_link_status == BADGE_LINK_SCANNING) {
+  if (send_data_timeout / 10 == 0 &&
+      (badge_link_status == BADGE_LINK_SCANNING ||
+       badge_link_status == BADGE_LINK_BRING_IT_CLOSER)) {
     badge_link_status = BADGE_LINK_NOT_FOUND;
     vTaskSuspend(badge_link_screens_module_scan_task_handle);
     badge_connect_deinit();
     return;
   }
 
-  // if (send_data_timeout > 0 && (send_data_timeout % 10) == 0 &&
-  //     badge_link_status == BADGE_LINK_SCANNING) {
-  //   ESP_LOGI(TAG, "Timeout: %ds", send_data_timeout / 10);
-  // }
-
-  if (badge_link_status == BADGE_LINK_SCANNING || badge_link_send_data) {
+  if (badge_link_status == BADGE_LINK_SCANNING ||
+      badge_link_status == BADGE_LINK_BRING_IT_CLOSER || badge_link_send_data) {
     char* data = "Hello world";
     uint8_t* addr = ESPNOW_ADDR_BROADCAST;  // Send to all badges
-    // ESP_LOGI(TAG, "Sending data: %s", data);
     badge_connect_send(addr, data, strlen(data));
   }
 
