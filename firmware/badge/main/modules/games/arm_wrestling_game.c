@@ -24,7 +24,7 @@ static uint8_t game_players_mac[MAX_ARM_WRESTLING_PLAYERS][MAC_SIZE];
 static bool host_mode;
 static bool swap;
 static bool is_game_running = false;
-// static esp_timer_handle_t timer_handle;
+static esp_timer_handle_t timer_handle;
 static TaskHandle_t arm_wrestling_task_handler = NULL;
 
 uint8_t arm_wrestling_player_id;
@@ -45,10 +45,10 @@ static void game_data_init() {
 
 static void arm_wrestling_print_game_data() {
   for (int8_t i = 0; i < MAX_ARM_WRESTLING_PLAYERS; i++) {
-    ESP_LOGI(TAG, "P%d: %d%s", i + 1, game_instance.players_data[i].strength,
-             i == arm_wrestling_player_id ? "<-------" : "");
+    printf("P%d: %d%s", i + 1, game_instance.players_data[i].strength,
+           i == arm_wrestling_player_id ? "<-------" : "");
   }
-  ESP_LOGI(TAG, "ARM POSITION: %d", game_instance.arm_position);
+  printf("ARM POSITION: %d\n", game_instance.arm_position);
 }
 
 static int8_t get_player_id(uint8_t* mac) {
@@ -59,6 +59,8 @@ static int8_t get_player_id(uint8_t* mac) {
   }
   return -1;
 }
+
+// ///////////////////////////////////////////////////////////////////////////////
 
 static void arm_wrestling_send_player_data() {
   player_data_cmd_t player_data_msg = {.cmd = UPDATE_PLAYER_DATA_CMD,
@@ -80,9 +82,11 @@ static void send_update_data() {
     arm_wrestling_send_player_data();
 }
 
+// ///////////////////////////////////////////////////////////////////////////////
+
 static void arm_wrestling_handle_player_update(badge_connect_recv_msg_t* msg) {
   uint8_t id = get_player_id(msg->src_addr);
-  if (!host_mode || id < 0 || id >= MAX_ARM_WRESTLING_PLAYERS) {
+  if (!host_mode || id < 1 || id >= MAX_ARM_WRESTLING_PLAYERS) {
     return;
   }
   player_data_cmd_t* data = (player_data_cmd_t*) msg->data;
@@ -97,6 +101,8 @@ static void arm_wrestling_handle_game_update(badge_connect_recv_msg_t* msg) {
   memcpy(&game_instance, &game_data_msg->game_data, sizeof(game_data_t));
 }
 
+// ///////////////////////////////////////////////////////////////////////////////
+
 static void send_stop_game_cmd() {
   stop_game_cmd_t cmd = {.cmd = STOP_ARM_WRESTLING_CMD};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd, sizeof(stop_game_cmd_t));
@@ -107,6 +113,8 @@ static void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
     return;
   arm_wrestling_exit();
 }
+
+// ///////////////////////////////////////////////////////////////////////////////
 
 static void send_game_over_cmd() {
   game_over_cmd_t cmd = {.cmd = GAME_OVER_CMD};
@@ -120,6 +128,8 @@ static void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
     return;
   arm_wrestling_game_over();
 }
+
+// ///////////////////////////////////////////////////////////////////////////////
 
 static void arm_wrestling_game_over() {
   send_game_over_cmd();
