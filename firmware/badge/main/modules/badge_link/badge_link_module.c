@@ -7,6 +7,7 @@
 #include "badge_link_screens_module.h"
 #include "bitmaps.h"
 #include "menu_screens_modules.h"
+#include "preferences.h"
 
 #define SEND_DATA_DELAY_MS 100
 #define SEND_DATA_TIMEOUT  SEND_DATA_DELAY_MS * 15 / 10  // 15 Seconds
@@ -94,6 +95,7 @@ void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
       vTaskSuspend(badge_link_screens_module_scan_task_handle);
       stop_badge_connect_after_delay();
       badge_link_update_found_badge_logo(msg);
+      preferences_put_bool("badge_found", true);
     }
   }
 }
@@ -188,10 +190,10 @@ void badge_link_module_begin() {
   badge_connect_register_recv_cb(badge_link_receive_data_cb);
   // Set the badge type to BSides, DragonJAR, Ekoparty, or BugCon
   // See README.md or badge_connect.h for more information
-  // badge_connect_set_bsides_badge();
+  badge_connect_set_bsides_badge();
   // badge_connect_set_dragonjar_badge();
   // badge_connect_set_ekoparty_badge();
-  badge_connect_set_bugcon_badge();
+  // badge_connect_set_bugcon_badge();
   xTaskCreate(badge_link_state_machine_task, "badge_link_state_machine_task",
               4096, NULL, 4, &badge_link_state_machine_task_handle);
 }

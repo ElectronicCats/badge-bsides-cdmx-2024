@@ -369,6 +369,14 @@ void display_question_items(char** items) {
   }
 }
 
+void verify_badge_found() {
+  if (preferences_get_bool("badge_found", false)) {
+    wifi_items[2] = "DoS";
+  } else {
+    wifi_items[2] = NULL;
+  }
+}
+
 /**
  * @brief Display the menu items
  *
@@ -392,6 +400,7 @@ void menu_screens_display_menu() {
     char** new_items = remove_items_flag(items, num_items);
     display_question_items(new_items);
   } else {
+    verify_badge_found();
     display_menu_items(items);
   }
 }
