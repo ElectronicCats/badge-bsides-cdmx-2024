@@ -215,8 +215,6 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_ZIGBEE_APPS
     MENU_APPLICATIONS,               // MENU_THREAD_APPS
     MENU_APPLICATIONS,               // MENU_GAMES
-    MENU_APPLICATIONS,               // MENU_MATTER_APPS
-    MENU_APPLICATIONS,               // MENU_GPS
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
     MENU_WIFI_APPS,                  // MENU_WIFI_DEAUTH
     MENU_WIFI_APPS,                  // MENU_WIFI_DOS
