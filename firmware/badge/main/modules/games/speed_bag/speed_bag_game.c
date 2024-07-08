@@ -125,11 +125,11 @@ static void send_stop_game_cmd() {
                      sizeof(speed_bag_stop_game_cmd_t));
 }
 
-static void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
+static void speed_handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
   }
-  ESP_LOGE(TAG, "STOP GAME handle_stop_game_cmd");
+  ESP_LOGE(TAG, "STOP GAME speed_handle_stop_game_cmd");
   speed_bag_game_exit();
 }
 
@@ -145,16 +145,17 @@ static void send_game_over_cmd() {
                      sizeof(speed_bag_game_over_cmd_t));
 }
 
-void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
+void speed_handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
+  ESP_LOGI(TAG, "GAME OVER speed_handle_game_over_cmd");
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
   }
-  ESP_LOGI(TAG, "GAME OVER handle_game_over_cmd");
   speed_bag_game_over();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
 static void speed_bag_game_over() {
+  ESP_LOGI(TAG, "speed_bag_game_over");
   send_game_over_cmd();
   is_game_running = false;
   games_screen_module_show_game_over_speed(speed_bag_winner);
@@ -200,6 +201,7 @@ void update_speed_bag_value() {
 static void speed_on_receive_data_cb(badge_connect_recv_msg_t* msg) {
   ESP_LOGI(TAG, "speed_on_receive_data_cb");
   uint8_t cmd = *((uint8_t*) msg->data);
+  ESP_LOGI(TAG, "CMD: %d", cmd);
   switch (cmd) {
     case SPEED_BAG_UPDATE_PLAYER_DATA_CMD:
       speed_bag_handle_player_update(msg);
@@ -209,10 +211,10 @@ static void speed_on_receive_data_cb(badge_connect_recv_msg_t* msg) {
       break;
     case SPEED_BAG_STOP_GAME_CMD:
       ESP_LOGI(TAG, "STOP GAME");
-      handle_stop_game_cmd(msg);
+      speed_handle_stop_game_cmd(msg);
     case SPEED_BAG_GAME_OVER_CMD:
       ESP_LOGI(TAG, "GAME OVER");
-      handle_game_over_cmd(msg);
+      speed_handle_game_over_cmd(msg);
       break;
     default:
       break;
