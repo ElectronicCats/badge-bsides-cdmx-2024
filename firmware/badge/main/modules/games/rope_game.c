@@ -174,6 +174,7 @@ void update_rope_bar_value() {
 }
 
 static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
+  ESP_LOGI(TAG, "RECIVED DATA FROM OTHER GAME");
   uint8_t cmd = *((uint8_t*) msg->data);
   switch (cmd) {
     case UPDATE_PLAYER_DATA_CMD:

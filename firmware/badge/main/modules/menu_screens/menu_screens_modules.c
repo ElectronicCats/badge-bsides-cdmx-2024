@@ -1,4 +1,5 @@
 #include "menu_screens_modules.h"
+#include "badge_link_module.h"
 #include "bitmaps.h"
 #include "ble_module.h"
 #include "catdos_module.h"
@@ -108,7 +109,14 @@ void screen_module_set_screen(int screen_layer) {
   menu_screens_display_menu();
 }
 
+void show_hsbc_logo() {
+  oled_screen_display_bitmap(epd_bitmap_hsbc_logo, 0, 0, 128, 32,
+                             OLED_DISPLAY_NORMAL);
+}
+
 void show_logo() {
+  show_hsbc_logo();
+  vTaskDelay(pdMS_TO_TICKS(500));
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }
@@ -121,13 +129,9 @@ void menu_screens_begin() {
   bluetooth_devices_count = 0;
   nmea_hdl = NULL;
 
-  // menu_screens_run_tests();
+  menu_screens_run_tests();
   oled_screen_begin();
-
-  // Show logo
   oled_screen_clear();
-  // show_logo();
-  //  display_gps_init();
 }
 
 /**
@@ -365,6 +369,14 @@ void display_question_items(char** items) {
   }
 }
 
+void verify_badge_found() {
+  if (preferences_get_bool("badge_found", false)) {
+    wifi_items[2] = "DoS";
+  } else {
+    wifi_items[2] = NULL;
+  }
+}
+
 /**
  * @brief Display the menu items
  *
@@ -388,6 +400,7 @@ void menu_screens_display_menu() {
     char** new_items = remove_items_flag(items, num_items);
     display_question_items(new_items);
   } else {
+    verify_badge_found();
     display_menu_items(items);
   }
 }
@@ -412,103 +425,6 @@ void menu_screens_update_options(char* options[], uint8_t selected_option) {
     // ESP_LOGI(TAG, "New item: %s", options[i]);
   }
   options[i] = NULL;
-}
-
-void display_gps_init() {
-  /* NMEA parser configuration */
-  nmea_parser_config_t config = NMEA_PARSER_CONFIG_DEFAULT();
-  /* init NMEA parser library */
-  nmea_hdl = gps_init(&config);
-  /* register event handler for NMEA parser library */
-  gps_add_handler(nmea_hdl, gps_event_handler, NULL);
-}
-
-void display_gps_deinit() {
-  /* unregister event handler */
-  gps_remove_handler(nmea_hdl, gps_event_handler);
-  /* deinit NMEA parser library */
-  gps_deinit(nmea_hdl);
-}
-
-/**
- * @brief GPS Event Handler
- *
- * @param event_handler_arg handler specific arguments
- * @param event_base event base, here is fixed to ESP_NMEA_EVENT
- * @param event_id event id
- * @param event_data event specific arguments
- */
-static void gps_event_handler(void* event_handler_arg,
-                              esp_event_base_t event_base,
-                              int32_t event_id,
-                              void* event_data) {
-  if (current_menu != MENU_GPS_DATE_TIME && current_menu != MENU_GPS_LOCATION) {
-    return;
-  }
-
-  gps_t* gps = NULL;
-  switch (event_id) {
-    case GPS_UPDATE:
-      gps = (gps_t*) event_data;
-      /* print information parsed from GPS statements */
-      ESP_LOGI(TAG,
-               "%d/%d/%d %d:%d:%d => \r\n"
-               "\t\t\t\t\t\tlatitude   = %.05f°N\r\n"
-               "\t\t\t\t\t\tlongitude = %.05f°E\r\n"
-               "\t\t\t\t\t\taltitude   = %.02fm\r\n"
-               "\t\t\t\t\t\tspeed      = %fm/s",
-               gps->date.year + YEAR_BASE, gps->date.month, gps->date.day,
-               gps->tim.hour + TIME_ZONE, gps->tim.minute, gps->tim.second,
-               gps->latitude, gps->longitude, gps->altitude, gps->speed);
-
-      if (current_menu == MENU_GPS_DATE_TIME) {
-        char* date_str = (char*) malloc(20);
-        char* time_str = (char*) malloc(20);
-
-        sprintf(date_str, "Date: %d/%d/%d", gps->date.year + YEAR_BASE,
-                gps->date.month, gps->date.day);
-        // TODO: fix time +24
-        sprintf(time_str, "Time: %d:%d:%d", gps->tim.hour + TIME_ZONE,
-                gps->tim.minute, gps->tim.second);
-
-        oled_screen_clear();
-        oled_screen_display_text("GPS Date/Time", 0, 0, OLED_DISPLAY_INVERT);
-        // TODO: refresh only the date and time
-        oled_screen_display_text(date_str, 0, 2, OLED_DISPLAY_NORMAL);
-        oled_screen_display_text(time_str, 0, 3, OLED_DISPLAY_NORMAL);
-        free(date_str);
-        free(time_str);
-      } else if (current_menu == MENU_GPS_LOCATION) {
-        char* latitude_str = (char*) malloc(22);
-        char* longitude_str = (char*) malloc(22);
-        char* altitude_str = (char*) malloc(22);
-        char* speed_str = (char*) malloc(22);
-
-        sprintf(latitude_str, "Latitude: %.05f°N", gps->latitude);
-        sprintf(longitude_str, "Longitude: %.05f°E", gps->longitude);
-        sprintf(altitude_str, "Altitude: %.02fm", gps->altitude);
-        sprintf(speed_str, "Speed: %fm/s", gps->speed);
-
-        oled_screen_clear();
-        oled_screen_display_text("GPS Location", 0, 0, OLED_DISPLAY_INVERT);
-        oled_screen_display_text(latitude_str, 0, 2, OLED_DISPLAY_NORMAL);
-        oled_screen_display_text(longitude_str, 0, 3, OLED_DISPLAY_NORMAL);
-        oled_screen_display_text(altitude_str, 0, 4, OLED_DISPLAY_NORMAL);
-        oled_screen_display_text(speed_str, 0, 5, OLED_DISPLAY_NORMAL);
-
-        free(latitude_str);
-        free(longitude_str);
-        free(altitude_str);
-        free(speed_str);
-      }
-      break;
-    case GPS_UNKNOWN:
-      /* print unknown statements */
-      ESP_LOGW(TAG, "Unknown statement:%s", (char*) event_data);
-      break;
-    default:
-      break;
-  }
 }
 
 app_state_t menu_screens_get_app_state() {
@@ -542,6 +458,10 @@ void menu_screens_exit_submenu() {
            menu_list[current_menu]);
 
   switch (current_menu) {
+    case MENU_WIFI_DOS:
+      preferences_put_int("MENUNUMBER", MENU_WIFI_APPS);
+      esp_restart();
+      break;
     case MENU_WIFI_ANALIZER_RUN:
       wifi_sniffer_stop();
       break;
@@ -601,7 +521,13 @@ void menu_screens_enter_submenu() {
       wifi_module_deauth_begin();
       break;
     case MENU_WIFI_DOS:
-      catdos_module_begin();
+      // catdos_module_begin();
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
+      preferences_put_bool("ajounlock", false);
+      oled_screen_display_text_center("Restored", 1, OLED_DISPLAY_NORMAL);
+      vTaskDelay(2000 / portTICK_PERIOD_MS);
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
+      menu_screens_display_menu();
       break;
     case MENU_WIFI_ANALIZER_RUN:
       oled_screen_clear();
@@ -645,7 +571,9 @@ void menu_screens_enter_submenu() {
     case MENU_GAMES:
       games_module_begin();
       break;
-    case MENU_MATTER_APPS:
+    case MENU_BADGE_FINDER_SCAN:
+      badge_link_module_begin();
+      break;
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:
     case MENU_SETTINGS_SOUND:

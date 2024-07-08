@@ -41,8 +41,7 @@ typedef enum {
   MENU_ZIGBEE_APPS,
   MENU_THREAD_APPS,
   MENU_GAMES,
-  MENU_MATTER_APPS,
-  MENU_GPS,
+  MENU_BADGE_FINDER,
   /* WiFi applications */
   MENU_WIFI_ANALIZER,
   MENU_WIFI_DEAUTH,
@@ -66,9 +65,9 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
-  /* GPS applications */
-  MENU_GPS_DATE_TIME,
-  MENU_GPS_LOCATION,
+  /* Badge finder */
+  MENU_BADGE_FINDER_SCAN,
+  MENU_BADGE_FINDER_HELP,
   /* About items */
   MENU_ABOUT_VERSION,
   MENU_ABOUT_LICENSE,
@@ -96,35 +95,45 @@ const char* menu_list[] = {
     "MENU_APPLICATIONS",
     "MENU_SETTINGS",
     "MENU_ABOUT",
+    /* Applications */
     "MENU_WIFI_APPS",
     "MENU_BLUETOOTH_APPS",
     "MENU_ZIGBEE_APPS",
     "MENU_THREAD_APPS",
     "MENU_GAMES",
-    "MENU_MATTER_APPS",
-    "MENU_GPS",
+    "MENU_BADGE_FINDER",
+    /* WiFi applications */
     "MENU_WIFI_ANALIZER",
     "MENU_WIFI_DEAUTH",
     "MENU_WIFI_DOS",
+    /* WiFi analizer items */
     "MENU_WIFI_ANALIZER_RUN",
     "MENU_WIFI_ANALIZER_SETTINGS",
+    /* WiFi analizer start items */
     "MENU_WIFI_ANALIZER_ASK_SUMMARY",
     "MENU_WIFI_ANALIZER_SUMMARY",
+    /* WiFi analizer settings */
     "MENU_WIFI_ANALIZER_CHANNEL",
     "MENU_WIFI_ANALIZER_DESTINATION",
+    /* Bluetooth applications */
     "MENU_BLUETOOTH_TRAKERS_SCAN",
     "MENU_BLUETOOTH_SPAM",
+    /* Zigbee applications */
     "MENU_ZIGBEE_SPOOFING",
     "MENU_ZIGBEE_SWITCH",
     "MENU_ZIGBEE_LIGHT",
     "MENU_ZIGBEE_SNIFFER",
+    /* Thread applications */
     "MENU_THREAD_BROADCAST",
-    "MENU_GPS_DATE_TIME",
-    "MENU_GPS_LOCATION",
+    /* Badge finder */
+    "MENU_BADGE_FINDER_SCAN",
+    "MENU_BADGE_FINDER_HELP",
+    /* About items */
     "MENU_ABOUT_VERSION",
     "MENU_ABOUT_LICENSE",
     "MENU_ABOUT_CREDITS",
     "MENU_ABOUT_LEGAL",
+    /* Settings items */
     "MENU_SETTINGS_DISPLAY",
     "MENU_SETTINGS_SOUND",
     "MENU_SETTINGS_SYSTEM",
@@ -143,7 +152,7 @@ const int next_menu_table[][8] = {
     {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
-     MENU_GAMES, MENU_MATTER_APPS, MENU_GPS},
+     MENU_GAMES, MENU_BADGE_FINDER},
     // MENU_SETTINGS
     {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
@@ -159,14 +168,14 @@ const int next_menu_table[][8] = {
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
     {MENU_GAMES},
-    // MENU_MATTER_APPS
-    {MENU_MATTER_APPS},
-    // MENU_GPS
-    {MENU_GPS_DATE_TIME, MENU_GPS_LOCATION},
+    // MENU_BADGE_FINDER
+    {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
     // MENU_WIFI_ANALIZER
     {MENU_WIFI_ANALIZER_RUN, MENU_WIFI_ANALIZER_SETTINGS},
     // MENU_WIFI_DEAUTH
     {MENU_WIFI_DEAUTH},
+    // MENU_WIFI_DOS
+    {MENU_WIFI_DOS},
     // MENU_WIFI_ANALIZER_RUN
     {MENU_WIFI_ANALIZER_RUN},
     // MENU_WIFI_ANALIZER_SETTINGS
@@ -193,10 +202,10 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
-    // MENU_GPS_DATE_TIME
-    {MENU_GPS_DATE_TIME},
-    // MENU_GPS_LOCATION
-    {MENU_GPS_LOCATION},
+    // MENU_BADGE_FINDER_SCAN
+    {MENU_BADGE_FINDER_SCAN},
+    // MENU_BADGE_FINDER_HELP
+    {MENU_BADGE_FINDER_HELP},
     // MENU_ABOUT_VERSION
     {MENU_ABOUT_VERSION},
     // MENU_ABOUT_LICENSE
@@ -232,10 +241,10 @@ const int prev_menu_table[] = {
     MENU_APPLICATIONS,               // MENU_ZIGBEE_APPS
     MENU_APPLICATIONS,               // MENU_THREAD_APPS
     MENU_APPLICATIONS,               // MENU_GAMES
-    MENU_APPLICATIONS,               // MENU_MATTER_APPS
-    MENU_APPLICATIONS,               // MENU_GPS
+    MENU_APPLICATIONS,               // MENU_BADGE_FINDER
     MENU_WIFI_APPS,                  // MENU_WIFI_ANALIZER
     MENU_WIFI_APPS,                  // MENU_WIFI_DEAUTH
+    MENU_WIFI_APPS,                  // MENU_WIFI_DOS
     MENU_WIFI_ANALIZER_ASK_SUMMARY,  // MENU_WIFI_ANALIZER_RUN
     MENU_WIFI_ANALIZER,              // MENU_WIFI_ANALIZER_SETTINGS
     MENU_WIFI_ANALIZER_RUN,          // MENU_WIFI_ANALIZER_ASK_SUMMARY
@@ -249,8 +258,8 @@ const int prev_menu_table[] = {
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
-    MENU_GPS,                        // MENU_GPS_DATE_TIME
-    MENU_GPS,                        // MENU_GPS_LOCATION
+    MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
+    MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
     MENU_ABOUT,                      // MENU_ABOUT_LICENSE
     MENU_ABOUT,                      // MENU_ABOUT_CREDITS
@@ -277,7 +286,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "GAMES", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Games", "Badge finder", NULL,
 };
 
 char* settings_items[] = {
@@ -315,12 +324,40 @@ char* license_text[] = {
 char* credits_text[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "Developed by",
-    "Electronic Cats",
+    "BSides Badge",
     "",
-    "This product is",
-    "in a BETA stage",
-    "use at your own",
+    "Special thanks",
+    "to all the",
+    "contributors",
+    "and the",
+    "community",
+    "",
+    "This badge is",
+    "Sponsored by",
+    "- HSBC",
+    "- Electronic",
+    "  Cats",
+    "",
+    "Hardware",
+    "designed by",
+    "- Edgar",
+    "  Capuchino",
+    "- Lizeth",
+    "  Gallegos",
+    "- Andres",
+    "  Sabas",
+    "@Sabasacustico",
+    "",
+    "Firmware",
+    "developed by",
+    "- Francisco",
+    "  @deimoshall",
+    "- Kevin Leon",
+    "  @kevlem97",
+    "- Raul Vargas",
+    "  @RegioDelta",
+    "- Roberto",
+    "  Arellano",
     NULL,
 };
 
@@ -331,7 +368,7 @@ char* legal_text[] = {
     "assumes all",
     "responsibility",
     "for the use of",
-    "MININO and",
+    "this badge and",
     "agrees to use",
     "it legally and",
     "ethically,",
@@ -423,9 +460,25 @@ char* thread_items[] = {
     NULL,
 };
 
-char* gps_items[] = {
-    "Date & Time",
-    "Location",
+char* badge_link_item[] = {
+    "Scan",
+    "Help",
+    NULL,
+};
+
+char* badge_link_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "Have you gone",
+    "to BSides?",
+    "DragonJar?",
+    "Ekoparty?",
+    "BugCon?",
+    "...",
+    "",
+    "Your badges",
+    "have secrets",
+    "to unluck...",
     NULL,
 };
 
@@ -445,9 +498,8 @@ char** menu_items[] = {
     main_items, applications_items, settings_items, about_items,
     /* Applications */
     wifi_items, bluetooth_items, zigbee_items, thread_items,
-    empty_items,  // Matter
-    gps_items,
-    empty_items,  // GAMES
+    empty_items,      // GAMES
+    badge_link_item,  // Badge Finder
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
     empty_items,                      // WiFi Deauth
@@ -468,9 +520,9 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
-    /* GPS applications */
-    empty_items,  // Date & Time
-    empty_items,  // Location
+    /* Badge finder */
+    empty_items,      // MENU_BADGE_FINDER_SCAN
+    badge_link_help,  // MENU_BADGE_FINDER_HELP
     /* About */
     version_text, license_text, credits_text, legal_text,
     /* Settings items */

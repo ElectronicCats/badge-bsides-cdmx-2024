@@ -17,6 +17,7 @@ set(EXTRA_COMPONENT_DIRS components/openthread)
 set(EXTRA_COMPONENT_DIRS components/wifi_captive)
 set(EXTRA_COMPONENT_DIRS components/radio_selector)
 set(EXTRA_COMPONENT_DIRS components/cmd_wifi)
+set(EXTRA_COMPONENT_DIRS $ENV{BADGE_CONNECT_SRC_PATH}) # Set this path when you want to use badge_connect_src, see firmware/badge/README.md for details
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(badge)
