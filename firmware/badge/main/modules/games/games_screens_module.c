@@ -21,17 +21,11 @@ void show_scanning_dots(uint8_t x, uint8_t page, uint8_t dots_num) {
   }
 }
 
-void show_client_state() {
-  oled_screen_clear();
-  char* str = (char*) malloc(20);
-  sprintf(str, " Client Mode: P%d", my_client_id + 1);
-  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
-  free(str);
-}
 bool show_game_text(uint8_t players_count) {
   bool waiting = false;
   static uint8_t frame = 0;
   frame = ++frame > 3 ? 0 : frame;
+  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   switch (players_count) {
     case 2:
       oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
@@ -48,6 +42,7 @@ bool show_game_text(uint8_t players_count) {
       show_scanning_dots(95, 3, 3);
       return true;
     default:
+      oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
       oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
                                  16, OLED_DISPLAY_NORMAL);
       oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
@@ -56,6 +51,20 @@ bool show_game_text(uint8_t players_count) {
       break;
   }
   return false;
+}
+void show_client_state() {
+  char* str = (char*) malloc(20);
+  sprintf(str, " Client Mode ");
+  oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+  sprintf(str, " YOU ARE-->P%d", my_client_id + 1);
+  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
+  oled_screen_display_bitmap(figther_face_bmp, 104, 16, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  free(str);
+  show_game_text(get_clients_count());
 }
 
 void show_available_game() {
@@ -66,6 +75,11 @@ void show_available_game() {
 }
 
 void show_clients() {
+  if (!get_clients_count()) {
+    return;
+  }
+  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online) {
@@ -96,10 +110,10 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       show_client_state();
       break;
     case SHOW_CLIENTS:
-      oled_screen_clear();
+      oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
       oled_screen_display_text_center("Connect Badges", 0, OLED_DISPLAY_NORMAL);
-      show_available_game();
       show_clients();
+      show_available_game();
       break;
     case SHOW_UNCONNECTED:
       show_badge_unconnected();
