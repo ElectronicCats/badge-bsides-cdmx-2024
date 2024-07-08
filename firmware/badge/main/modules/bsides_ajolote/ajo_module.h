@@ -4,7 +4,7 @@
 
   #include "iot_button.h"
 
-  #define GPIO_IN_SHITTY      11
+  #define GPIO_IN_SHITTY      2
   #define GPIO_IN_SHITTY_MASK 0b0000 << 4
 
   #define GPIO_SHITTY_ACTIVE_LEVEL 1

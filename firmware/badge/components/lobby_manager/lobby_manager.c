@@ -72,7 +72,6 @@ uint8_t ping_status = 0;
 uint8_t ping_attempt = 0;
 uint8_t ping_id = 1;
 
-TaskHandle_t advertiser_task_handler;
 bool advertiser_state = false;
 
 display_status_cb_t display_event_cb = NULL;
@@ -245,7 +244,7 @@ void clear_client(uint8_t player_id) {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 void send_advertise() {
-  if (BADGE_UNCONNECTED) {
+  if (!BADGE_UNCONNECTED) {
     clear_players_table();
     return;
   }
@@ -307,6 +306,7 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   host_level = join_response_msg->host_level;
   my_client_id = join_response_msg->idx;
   printf("Joined to lobby-> Player%d\n", my_client_id);
+  ESP_LOGE("JOIN", "Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
 
@@ -347,7 +347,7 @@ void ping(uint8_t* mac) {
     ping_status = PING_WAITING;
     send_ping_request(mac);
     esp_timer_start_once(ping_timer, PING_TIMEOUT_MS * 1000);
-    ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
+    // ESP_LOGI("LOBBY MANAGER", "ATTEMPT: %d\n", ping_attempt);
   }
   if (ping_status == PING_WAITING)
     return;
@@ -426,13 +426,13 @@ void receive_data_cb(badge_connect_recv_msg_t* msg) {
   // printf("CMD: %d\n", cmd);
   // printf("RSSI: %d\n", msg->rx_ctrl->rssi);
   if (cmd < 10) {
-    if (msg->rx_ctrl->rssi < RSSI_FILTER || BADGE_UNCONNECTED) {
+    if (msg->rx_ctrl->rssi < RSSI_FILTER || !BADGE_UNCONNECTED) {
       // display_state(SHOW_UNCONNECTED);
       ESP_LOGE("UNCONNECTED", "CMD: %d SKIPPED\n", cmd);
       return;
     }
   }
-  ESP_LOGI("CONNECTED", "CMD: %d\n", cmd);
+  // ESP_LOGI("CONNECTED", "CMD: %d\n", cmd);
   switch (cmd) {
     case ADVERTISE_CMD:
       handle_advertise(msg);

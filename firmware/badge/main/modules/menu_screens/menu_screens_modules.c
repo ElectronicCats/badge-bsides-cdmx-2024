@@ -458,6 +458,10 @@ void menu_screens_exit_submenu() {
            menu_list[current_menu]);
 
   switch (current_menu) {
+    case MENU_WIFI_DOS:
+      preferences_put_int("MENUNUMBER", MENU_WIFI_APPS);
+      esp_restart();
+      break;
     case MENU_WIFI_ANALIZER_RUN:
       wifi_sniffer_stop();
       break;
@@ -517,7 +521,13 @@ void menu_screens_enter_submenu() {
       wifi_module_deauth_begin();
       break;
     case MENU_WIFI_DOS:
-      catdos_module_begin();
+      // catdos_module_begin();
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
+      preferences_put_bool("ajounlock", false);
+      oled_screen_display_text_center("Restored", 1, OLED_DISPLAY_NORMAL);
+      vTaskDelay(2000 / portTICK_PERIOD_MS);
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
+      menu_screens_display_menu();
       break;
     case MENU_WIFI_ANALIZER_RUN:
       oled_screen_clear();

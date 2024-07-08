@@ -32,6 +32,7 @@ player_inf_t players[MAX_PLAYERS_NUM];
 int8_t my_client_id = 0;
 uint8_t host_mac[MAC_SIZE];
 bool client_mode = false;
+TaskHandle_t advertiser_task_handler;
 
 typedef enum {
   HOST_STATE = 0,

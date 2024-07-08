@@ -77,7 +77,11 @@ static void ajo_module_gpio_event_cb(void* arg, void* data) {
         }
       }
       break;
+    case BUTTON_PRESS_UP:
+      printf("[AJO] Pulse press up\n");
+      break;
     default:
+      printf("[AJO_DEBU] Pulse %d", button_event);
       break;
   }
 }
@@ -96,7 +100,7 @@ static void ajo_module_display_animation_unlocked() {
   oled_screen_display_text_center("UNLOCKED!", 2, OLED_DISPLAY_NORMAL);
   vTaskDelay(2000 / portTICK_PERIOD_MS);
   ajo_module_display_animation();
-  vTaskDelay(2000 / portTICK_PERIOD_MS);
+  vTaskDelay(8000 / portTICK_PERIOD_MS);
   esp_restart();
 }
 
