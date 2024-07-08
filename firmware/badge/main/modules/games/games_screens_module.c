@@ -139,11 +139,11 @@ void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
 
 void rope_game_show_rope() {
   oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
-  uint8_t rope_idx = (abs(game_instance.rope_bar) / 100) % 4;
-  oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 18, 128, 5,
+  uint8_t rope_idx = (abs(game_instance.rope_bar) / 80) % 4;
+  oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 17, 128, 5,
                              OLED_DISPLAY_NORMAL);
   uint8_t badge_x_pos = ((game_instance.rope_bar + 10000) * 120) / (20000);
-  oled_screen_display_bitmap(badge_bmp, badge_x_pos, 17, 8, 8,
+  oled_screen_display_bitmap(badge_bmp, badge_x_pos, 16, 8, 8,
                              OLED_DISPLAY_NORMAL);
 }
 
@@ -200,41 +200,41 @@ void speed_game_show_bag() {
 
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
-  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+  // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
 
   oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%s%d", rope_player_id == 2 ? "-->" : "   ",
+  sprintf(str, "%s%03d", rope_player_id == 2 ? "-->" : "",
           game_instance.players_data[2].strenght);
   oled_screen_display_text(
-      str, 56, 1,
+      str, rope_player_id == 2 ? 56 : 80, 1,
       rope_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d%s", game_instance.players_data[0].strenght,
+  sprintf(str, "%03d%s", game_instance.players_data[0].strenght,
           rope_player_id == 0 ? "<--" : "");
   oled_screen_display_text(
       str, 25, 1,
       rope_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
+  // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
 
   oled_screen_display_bitmap(figther_face_bmp, 8, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%s%d", rope_player_id == 1 ? "-->" : "   ",
+  sprintf(str, "%s%03d", rope_player_id == 3 ? "-->" : "",
           game_instance.players_data[3].strenght);
   oled_screen_display_text(
-      str, 80, 3,
+      str, rope_player_id == 3 ? 56 : 80, 3,
       rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
   oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d%s", game_instance.players_data[1].strenght,
+  sprintf(str, "%03d%s", game_instance.players_data[1].strenght,
           rope_player_id == 1 ? "<--" : "");
   oled_screen_display_text(
       str, 25, 3,
@@ -246,9 +246,22 @@ void rope_game_show_game_data() {
 void games_screens_module_show_game_over(bool winner) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
-  sprintf(str, "Team %d won\n", winner + 1);
-  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
-  printf("Team %d won\n", winner + 1);
+  sprintf(str, "  TEAM %d WIN   ", winner + 1);
+  oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
+  if (winner && rope_player_id >= 2) {
+    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+  } else if (!winner && rope_player_id <= 1) {
+    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+  } else {
+    sprintf(str, "   YOU LOSE   ");
+    oled_screen_display_text_center(str, 1, OLED_DISPLAY_NORMAL);
+    sprintf(str, "Try to be fast");
+    oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
+    sprintf(str, "& coordinated");
+    oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
+  }
+
+  // printf("Team %d won\n", winner + 1);
   free(str);
 }
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {

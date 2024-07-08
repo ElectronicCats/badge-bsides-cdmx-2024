@@ -488,7 +488,7 @@ void lobby_manager_init() {
   badge_connect_set_bsides_badge();
 
   my_host_level = get_random_uint8();
-  // my_host_level = 255;
+  my_host_level = 255;
   esp_wifi_get_mac(WIFI_IF_STA, my_mac);
   clear_players_table();
 
