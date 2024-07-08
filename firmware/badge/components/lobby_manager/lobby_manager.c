@@ -306,6 +306,7 @@ void handle_join_request_response(badge_connect_recv_msg_t* msg) {
   host_level = join_response_msg->host_level;
   my_client_id = join_response_msg->idx;
   printf("Joined to lobby-> Player%d\n", my_client_id);
+  ESP_LOGE("JOIN", "Joined to lobby-> Player%d\n", my_client_id);
   client_mode = true;
 }
 

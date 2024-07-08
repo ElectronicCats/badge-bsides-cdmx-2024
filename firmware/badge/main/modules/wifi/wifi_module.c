@@ -389,7 +389,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = 0;
+          current_option = (current_option == 0) ? 5 : current_option - 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;
@@ -398,7 +398,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = 1;
+          current_option = (current_option == 5) ? 0 : current_option + 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;
@@ -463,7 +463,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          int count_attacks = wifi_attacks_get_attack_count();
+          int count_attacks = 3;  // wifi_attacks_get_attack_count();
           current_option = (current_option == (count_attacks - 1))
                                ? current_option
                                : current_option + 1;

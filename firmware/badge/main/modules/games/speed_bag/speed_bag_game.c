@@ -16,11 +16,7 @@
 #define ANGRY_TIMEOUT   160000
 #define FURIOUS_TIMEOUT 120000
 #define HOST_MAC        game_players_mac[0]
-#define MAX_SCORE       500
-
-#ifdef DESACTIVAR_PRINT
-  #define printf(fmt, ...) ((void) 0)
-#endif
+#define MAX_SCORE       100
 
 static const char* TAG = "Speed_Game";
 
@@ -32,6 +28,7 @@ static bool swap;
 static bool is_game_running = false;
 static esp_timer_handle_t timer_handle;
 static TaskHandle_t speed_bag_game_task_handler = NULL;
+static int speed_bag_winner = -1;
 static void speed_bag_game_over();
 static void speed_bag_game_exit();
 
@@ -86,10 +83,11 @@ static void speed_bag_send_game_data() {
 }
 
 static void send_update_data() {
-  if (host_mode)
+  if (host_mode) {
     speed_bag_send_game_data();
-  else
+  } else {
     speed_bag_send_player_data();
+  }
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
@@ -128,14 +126,17 @@ static void send_stop_game_cmd() {
 }
 
 static void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
-  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0)
+  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
+  }
+  ESP_LOGE(TAG, "STOP GAME handle_stop_game_cmd");
   speed_bag_game_exit();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
 
 static void send_game_over_cmd() {
+  ESP_LOGI(TAG, "send_game_over_cmd");
   speed_bag_game_over_cmd_t cmd = {.cmd = SPEED_BAG_GAME_OVER_CMD};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd,
                      sizeof(speed_bag_game_over_cmd_t));
@@ -145,8 +146,10 @@ static void send_game_over_cmd() {
 }
 
 void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
-  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0)
+  if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
+  }
+  ESP_LOGI(TAG, "GAME OVER handle_game_over_cmd");
   speed_bag_game_over();
 }
 
@@ -154,28 +157,48 @@ void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
 static void speed_bag_game_over() {
   send_game_over_cmd();
   is_game_running = false;
-  games_screens_module_show_game_over(speed_bag_game_instance.bag_bar > 0);
+  games_screen_module_show_game_over_speed(speed_bag_winner);
 }
 
 void update_speed_bag_value() {
-  if (!host_mode)
+  if (!host_mode) {
     return;
+  }
   // speed_bag_game_instance.bag_bar +=
   //     speed_bag_game_instance.players_data[3].strenght +
   //     speed_bag_game_instance.players_data[2].strenght -
   //     speed_bag_game_instance.players_data[1].strenght -
   //     speed_bag_game_instance.players_data[0].strenght;
 
-  if (speed_bag_game_instance.players_data[0].strenght >= MAX_SCORE ||
-      speed_bag_game_instance.players_data[1].strenght >= MAX_SCORE ||
-      speed_bag_game_instance.players_data[2].strenght >= MAX_SCORE ||
-      speed_bag_game_instance.players_data[3].strenght >= MAX_SCORE ||
-      speed_bag_game_instance.players_data[4].strenght >= MAX_SCORE) {
+  ESP_LOGE(TAG, "update_speed_bag_value");
+
+  if ((int) speed_bag_game_instance.players_data[0].strenght >= MAX_SCORE) {
+    speed_bag_winner = 0;
+    ESP_LOGE(TAG, "speed_bag_winner - players_data[0] %d", speed_bag_winner);
+  }
+  if ((int) speed_bag_game_instance.players_data[1].strenght >= MAX_SCORE) {
+    speed_bag_winner = 1;
+    ESP_LOGE(TAG, "speed_bag_winner - players_data[1] %d", speed_bag_winner);
+  }
+  if ((int) speed_bag_game_instance.players_data[2].strenght >= MAX_SCORE) {
+    speed_bag_winner = 2;
+    ESP_LOGE(TAG, "speed_bag_winner - players_data[2] %d", speed_bag_winner);
+  }
+  if ((int) speed_bag_game_instance.players_data[3].strenght >= MAX_SCORE) {
+    speed_bag_winner = 3;
+    ESP_LOGE(TAG, "speed_bag_winner - players_data[3] %d", speed_bag_winner);
+  }
+  if ((int) speed_bag_game_instance.players_data[4].strenght >= MAX_SCORE) {
+    speed_bag_winner = 4;
+    ESP_LOGE(TAG, "speed_bag_winner - players_data[4] %d", speed_bag_winner);
+  }
+  if (speed_bag_winner != -1) {
     speed_bag_game_over();
   }
 }
 
-static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
+static void speed_on_receive_data_cb(badge_connect_recv_msg_t* msg) {
+  ESP_LOGI(TAG, "speed_on_receive_data_cb");
   uint8_t cmd = *((uint8_t*) msg->data);
   switch (cmd) {
     case SPEED_BAG_UPDATE_PLAYER_DATA_CMD:
@@ -185,8 +208,10 @@ static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
       speed_bag_handle_game_update(msg);
       break;
     case SPEED_BAG_STOP_GAME_CMD:
+      ESP_LOGI(TAG, "STOP GAME");
       handle_stop_game_cmd(msg);
     case SPEED_BAG_GAME_OVER_CMD:
+      ESP_LOGI(TAG, "GAME OVER");
       handle_game_over_cmd(msg);
       break;
     default:
@@ -238,7 +263,7 @@ static void speed_bag_task() {
   vTaskDelete(NULL);
 }
 void speed_bag_game_init() {
-  ESP_LOGI(TAG, "speed_bag_game_init");
+  ESP_LOGE(TAG, "speed_bag_game_init");
   game_data_init();
   const esp_timer_create_args_t timer_args = {.callback = &decrement_strenght,
                                               .name = "example_timer"};
@@ -248,7 +273,7 @@ void speed_bag_game_init() {
     ESP_LOGE("Timer", "Failed to create timer: %s", esp_err_to_name(ret));
     return;
   }
-  lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
+  lobby_manager_register_custom_cmd_recv_cb(speed_on_receive_data_cb);
   is_game_running = true;
   menu_screens_set_app_state(true, speed_bag_game_input);
   xTaskCreate(speed_bag_task, "speed_bag_task", 4096, NULL, 15,
@@ -283,19 +308,22 @@ void speed_bag_game_input(button_event_t button_pressed) {
       speed_bag_game_exit();
       break;
     case BUTTON_RIGHT:
-      increment_strenght();
-      // else {
-      //   decrement_strenght();
-      // }
+      if (speed_bag_main_player->strenght == 0 || swap) {
+        increment_strenght();
+        swap = false;
+      } else {
+        decrement_strenght();
+      }
       break;
     case BUTTON_UP:
-      increment_strenght();
-      //  else {
-      //   decrement_strenght();
-      // }
+      if (speed_bag_main_player->strenght == 0 || !swap) {
+        increment_strenght();
+        swap = true;
+      } else {
+        decrement_strenght();
+      }
       break;
     default:
       break;
   }
 }
-#undef DESACTIVAR_PRINT
