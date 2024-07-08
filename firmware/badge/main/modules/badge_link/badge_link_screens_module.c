@@ -1,6 +1,8 @@
 #include "badge_link_screens_module.h"
 #include "oled_screen.h"
 
+epd_bitmap_logo_index_t found_badge_logo_index = LOGO_BSIDES;
+
 void badge_link_screens_module_scan_task(void* pvParameters) {
   oled_screen_clear();
   oled_screen_display_text_center("Looking for", 0, OLED_DISPLAY_NORMAL);
@@ -29,10 +31,15 @@ void badge_link_screens_module_display_status(
       oled_screen_display_text("Bring the badge", 0, 0, OLED_DISPLAY_NORMAL);
       oled_screen_display_text_center("closer", 1, OLED_DISPLAY_NORMAL);
       break;
-    case BADGE_LINK_FOUND:
+    case BADGE_LINK_FOUND_TEXT:
       oled_screen_clear();
       oled_screen_display_text_center("Badge found", 1, OLED_DISPLAY_NORMAL);
       oled_screen_display_text_center("Ok", 3, OLED_DISPLAY_INVERT);
+      break;
+    case BADGE_LINK_FOUND_LOGO:
+      oled_screen_clear();
+      oled_screen_display_bitmap(epd_logo_bitmaps[found_badge_logo_index], 0, 0,
+                                 128, 32, OLED_DISPLAY_NORMAL);
       break;
     case BADGE_LINK_NOT_FOUND:
       oled_screen_clear();
@@ -48,4 +55,9 @@ void badge_link_screens_module_display_status(
     default:
       break;
   }
+}
+
+void badge_link_screens_module_set_found_badge_logo(
+    epd_bitmap_logo_index_t new_found_badge_logo_index) {
+  found_badge_logo_index = new_found_badge_logo_index;
 }

@@ -5,6 +5,7 @@
 #include "badge_connect.h"
 #include "badge_link_module.h"
 #include "badge_link_screens_module.h"
+#include "bitmaps.h"
 #include "menu_screens_modules.h"
 
 #define SEND_DATA_DELAY_MS 100
@@ -63,6 +64,18 @@ void stop_badge_connect_after_delay() {
               &badge_link_stop_badge_connect_task_handle);
 }
 
+void badge_link_update_found_badge_logo(badge_connect_recv_msg_t* msg) {
+  if (msg->badge_type.is_bsides) {
+    badge_link_screens_module_set_found_badge_logo(LOGO_BSIDES);
+  } else if (msg->badge_type.is_dragonjar) {
+    badge_link_screens_module_set_found_badge_logo(LOGO_DRAGONJAR);
+  } else if (msg->badge_type.is_ekoparty) {
+    badge_link_screens_module_set_found_badge_logo(LOGO_EKOPARTY);
+  } else if (msg->badge_type.is_bugcon) {
+    badge_link_screens_module_set_found_badge_logo(LOGO_BUGCON);
+  }
+}
+
 // Check badge_connect_recv_msg_t struct in badge_connect.h to see what you can
 // get from the received message
 void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
@@ -73,13 +86,14 @@ void badge_link_receive_data_cb(badge_connect_recv_msg_t* msg) {
   bool is_hello_world = strcmp(data, "Hello world") == 0;
 
   if (is_hello_world && !msg->badge_type.is_bsides &&
-      badge_link_status != BADGE_LINK_FOUND) {
+      badge_link_status != BADGE_LINK_FOUND_TEXT) {
     if (msg->rx_ctrl->rssi > -100 && msg->rx_ctrl->rssi <= -60) {
       badge_link_status = BADGE_LINK_BRING_IT_CLOSER;
     } else if (msg->rx_ctrl->rssi > -60) {
-      badge_link_status = BADGE_LINK_FOUND;
+      badge_link_status = BADGE_LINK_FOUND_TEXT;
       vTaskSuspend(badge_link_screens_module_scan_task_handle);
       stop_badge_connect_after_delay();
+      badge_link_update_found_badge_logo(msg);
     }
   }
 }
@@ -116,7 +130,8 @@ void badge_link_keyboard_cb(button_event_t button_pressed) {
   switch (button_name) {
     case BUTTON_LEFT:
       if (button_event == BUTTON_SINGLE_CLICK) {
-        if (badge_link_status != BADGE_LINK_FOUND) {
+        if (badge_link_status != BADGE_LINK_FOUND_TEXT &&
+            badge_link_status != BADGE_LINK_FOUND_LOGO) {
           badge_link_module_exit();
         }
       }
@@ -124,7 +139,10 @@ void badge_link_keyboard_cb(button_event_t button_pressed) {
     case BUTTON_RIGHT:
       if (button_event == BUTTON_SINGLE_CLICK) {
         switch (badge_link_status) {
-          case BADGE_LINK_FOUND:
+          case BADGE_LINK_FOUND_TEXT:
+            badge_link_status = BADGE_LINK_FOUND_LOGO;
+            break;
+          case BADGE_LINK_FOUND_LOGO:
             badge_link_status = BADGE_LINK_UNLOCK_FEATURE;
             break;
           case BADGE_LINK_NOT_FOUND:
@@ -170,9 +188,10 @@ void badge_link_module_begin() {
   badge_connect_register_recv_cb(badge_link_receive_data_cb);
   // Set the badge type to BSides, DragonJAR, Ekoparty, or BugCon
   // See README.md or badge_connect.h for more information
-  badge_connect_set_bsides_badge();
+  // badge_connect_set_bsides_badge();
   // badge_connect_set_dragonjar_badge();
-  // badge_connect_set_bugcon_badge();
+  // badge_connect_set_ekoparty_badge();
+  badge_connect_set_bugcon_badge();
   xTaskCreate(badge_link_state_machine_task, "badge_link_state_machine_task",
               4096, NULL, 4, &badge_link_state_machine_task_handle);
 }
