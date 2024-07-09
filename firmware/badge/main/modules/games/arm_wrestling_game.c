@@ -148,6 +148,7 @@ static void update_arm_position() {
 }
 
 static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
+  ESP_LOGI(TAG, "RECIVED DATA FROM OTHER GAME");
   uint8_t cmd = *((uint8_t*) msg->data);
   switch (cmd) {
     case UPDATE_PLAYER_DATA_CMD:
@@ -167,6 +168,8 @@ static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
   }
 }
 
+// ///////////////////////////////////////////////////////////////////////////////
+
 static void arm_wrestling_task() {
   oled_screen_clear();
   while (is_game_running) {
@@ -177,12 +180,17 @@ static void arm_wrestling_task() {
     vTaskDelay(pdMS_TO_TICKS(50));
   }
   arm_wrestling_task_handler = NULL;
-  ESP_LOGI(TAG, "arm_wrestling_task DELETED");
+  printf("arm_wrestling_task DELETED");
   vTaskDelete(NULL);
 }
 
 void arm_wrestling_init() {
   game_data_init();
+
+  game_data_init();
+  oled_screen_clear();
+  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
+
   lobby_manager_register_custom_cmd_recv_cb(on_receive_data_cb);
   is_game_running = true;
   menu_screens_set_app_state(true, arm_wrestling_input);
