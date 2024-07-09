@@ -9,6 +9,7 @@
 #include "keyboard_module.h"
 #include "leds.h"
 #include "menu_screens_modules.h"
+#include "neopixels_module.h"
 #include "open_thread.h"
 #include "preferences.h"
 
@@ -23,6 +24,10 @@ void reboot_counter() {
 
 void app_main(void) {
   // ESP_ERROR_CHECK(esp_event_loop_create_default());
+  neopixels_module_begin();
+
+  neopixels_set_pixels(4, 30, 0, 30);
+  neopixels_refresh();
 
   leds_init();
   preferences_begin();
@@ -44,7 +49,9 @@ void app_main(void) {
     menu_screens_display_menu();
     preferences_put_int("MENUNUMBER", 99);
   }
-  leds_off();
+
+  neopixels_set_pixels(4, 0, 0, 0);
+  neopixels_refresh();
 
   // ctf_ble_module_begin();
 }
