@@ -348,6 +348,23 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   }
 }
 
+void games_screens_module_show_arm_wrestling_game_event(
+    arm_wrestling_events_t event) {
+  switch (event) {
+    case UPDATE_GAME_EVENT:
+      oled_screen_display_text("P1         P2", 0, 0, OLED_DISPLAY_NORMAL);
+      // rope_game_show_rope();
+      bool x_mirror = game_instance.arm_position < 0;
+      update_bar(abs(game_instance.arm_position), 8, x_mirror);
+      oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 16, 64, 8,
+                                 OLED_DISPLAY_NORMAL);
+      rope_game_show_game_data();
+      break;
+    default:
+      break;
+  }
+}
+
 void games_screens_module_show_speed_bag_game_event(
     speed_bag_speed_bag_game_events_t event) {
   switch (event) {

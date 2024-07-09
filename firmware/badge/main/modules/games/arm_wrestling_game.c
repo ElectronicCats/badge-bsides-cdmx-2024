@@ -142,7 +142,7 @@ static void update_arm_position() {
     return;
   game_instance.arm_position += game_instance.players_data[1].strength -
                                 game_instance.players_data[0].strength;
-  if (abs(game_instance.arm_position) > 10000) {
+  if (abs(game_instance.arm_position) > 1000) {
     arm_wrestling_game_over();
   }
 }

@@ -16,12 +16,12 @@ typedef enum {
 typedef enum { UPDATE_GAME_EVENT } arm_wrestling_events_t;
 
 typedef struct {
-  uint8_t strength;
+  uint16_t strength;
 } player_data_t;
 
 typedef struct {
   player_data_t players_data[MAX_ARM_WRESTLING_PLAYERS];
-  int16_t arm_position;  // -10000 to 10000, 0 is center
+  int16_t arm_position;  // -1000 to 1000, 0 is center
 } game_data_t;
 
 typedef struct {
