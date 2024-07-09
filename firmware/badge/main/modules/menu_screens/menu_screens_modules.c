@@ -110,8 +110,10 @@ void show_hsbc_logo() {
 void show_logo() {
   show_hsbc_logo();
   vTaskDelay(pdMS_TO_TICKS(2000));
+  buzzer_play();
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
+  buzzer_stop();
 }
 
 void screen_module_get_screen() {
