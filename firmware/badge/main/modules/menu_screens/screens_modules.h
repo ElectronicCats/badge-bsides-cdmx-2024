@@ -385,7 +385,7 @@ char* legal_text[] = {
 char* wifi_items[] = {
     "Analizer",
     "Deauth",
-    "DoS",
+    NULL,
     NULL,
 };
 

@@ -110,15 +110,19 @@ void show_hsbc_logo() {
 void show_logo() {
   show_hsbc_logo();
   vTaskDelay(pdMS_TO_TICKS(2000));
-  buzzer_play();
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
-  buzzer_stop();
 }
 
 void screen_module_get_screen() {
   current_menu = preferences_get_int("MENUNUMBER", MENU_MAIN);
   if (current_menu == MENU_MAIN) {
+    char** submenu = menu_items[current_menu];
+    if (submenu != NULL) {
+      while (submenu[num_items] != NULL) {
+        num_items++;
+      }
+    }
     show_logo();
   } else {
     preferences_put_int("MENUNUMBER", MENU_MAIN);
@@ -278,7 +282,6 @@ void display_menu_items(char** items) {
   uint8_t page = 1;
   uint8_t page_increment = 1;
 #endif
-
   oled_screen_clear();
   for (int i = 0; i < 3; i++) {
     char* text = (char*) malloc(strlen(items[i + selected_item]) + 2);
