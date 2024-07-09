@@ -200,9 +200,11 @@ void badge_link_module_begin() {
 
 void badge_link_module_exit() {
   ESP_LOGI(TAG, "Badge link module exit");
-  vTaskDelete(badge_link_state_machine_task_handle);
-  vTaskDelete(badge_link_screens_module_scan_task_handle);
-  badge_connect_deinit();
-  menu_screens_set_app_state(false, NULL);
-  menu_screens_exit_submenu();
+  screen_module_set_screen(MENU_GAMES);
+  esp_restart();
+  // vTaskDelete(badge_link_state_machine_task_handle);
+  // vTaskDelete(badge_link_screens_module_scan_task_handle);
+  // badge_connect_deinit();
+  // menu_screens_set_app_state(false, NULL);
+  // menu_screens_exit_submenu();
 }

@@ -462,7 +462,7 @@ void menu_screens_exit_submenu() {
 
   switch (current_menu) {
     case MENU_WIFI_DOS:
-      preferences_put_int("MENUNUMBER", MENU_WIFI_APPS);
+      screen_module_set_screen(MENU_WIFI_DOS);
       esp_restart();
       break;
     case MENU_WIFI_ANALIZER_RUN:
@@ -476,9 +476,8 @@ void menu_screens_exit_submenu() {
       wifi_sniffer_close_file();
       break;
     case MENU_WIFI_ANALIZER:
-      oled_screen_clear();
-      menu_screens_display_text_banner("Exiting...");
-      wifi_sniffer_exit();
+      screen_module_set_screen(MENU_WIFI_ANALIZER);
+      esp_restart();
       break;
     default:
       break;
