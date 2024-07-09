@@ -17,7 +17,9 @@ set(modules "modules/led_events/led_events.c"
             "modules/bsides_ajolote/ajo_module.c"
             "modules/cat_dos/catdos_module.c"
             "modules/cat_dos/cat_console.c"
-            "modules/cat_dos/cmd_catdos.c")
+            "modules/cat_dos/cmd_catdos.c"
+            "modules/badge_link/badge_link_module.c"
+            "modules/badge_link/badge_link_screens_module.c")
 
 set(drivers "drivers/oled_driver/oled_driver.c"
             "drivers/oled_driver/oled_driver_i2c.c"
@@ -42,6 +44,7 @@ idf_component_register(
                     "modules/games/"
                     "modules/bsides_ajolote/"
                     "modules/cat_dos/"
+                    "modules/badge_link/"
                     "modules/games/speed_bag/")
 
 # # Append all directories to INCLUDE_DIRS

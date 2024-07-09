@@ -38,7 +38,6 @@ void app_main(void) {
   ESP_LOGI(TAG, "AJO Module State: %d", is_ajo);
   int last_layer = preferences_get_int("MENUNUMBER", 99);
   if (last_layer == 99) {
-    menu_screens_display_menu();
     show_logo();
   } else {
     screen_module_set_screen(last_layer);

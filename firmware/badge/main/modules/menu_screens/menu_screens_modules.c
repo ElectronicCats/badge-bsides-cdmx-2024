@@ -1,4 +1,5 @@
 #include "menu_screens_modules.h"
+#include "badge_link_module.h"
 #include "bitmaps.h"
 #include "ble_module.h"
 #include "catdos_module.h"
@@ -108,7 +109,14 @@ void screen_module_set_screen(int screen_layer) {
   menu_screens_display_menu();
 }
 
+void show_hsbc_logo() {
+  oled_screen_display_bitmap(epd_bitmap_hsbc_logo, 0, 0, 128, 32,
+                             OLED_DISPLAY_NORMAL);
+}
+
 void show_logo() {
+  show_hsbc_logo();
+  vTaskDelay(pdMS_TO_TICKS(500));
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }
@@ -121,13 +129,9 @@ void menu_screens_begin() {
   bluetooth_devices_count = 0;
   nmea_hdl = NULL;
 
-  // menu_screens_run_tests();
+  menu_screens_run_tests();
   oled_screen_begin();
-
-  // Show logo
   oled_screen_clear();
-  // show_logo();
-  //  display_gps_init();
 }
 
 /**
@@ -365,6 +369,14 @@ void display_question_items(char** items) {
   }
 }
 
+void verify_badge_found() {
+  if (preferences_get_bool("badge_found", false)) {
+    wifi_items[2] = "DoS";
+  } else {
+    wifi_items[2] = NULL;
+  }
+}
+
 /**
  * @brief Display the menu items
  *
@@ -388,6 +400,7 @@ void menu_screens_display_menu() {
     char** new_items = remove_items_flag(items, num_items);
     display_question_items(new_items);
   } else {
+    verify_badge_found();
     display_menu_items(items);
   }
 }
@@ -557,6 +570,9 @@ void menu_screens_enter_submenu() {
       break;
     case MENU_GAMES:
       games_module_begin();
+      break;
+    case MENU_BADGE_FINDER_SCAN:
+      badge_link_module_begin();
       break;
     case MENU_ZIGBEE_LIGHT:
     case MENU_SETTINGS_DISPLAY:

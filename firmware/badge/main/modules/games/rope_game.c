@@ -217,7 +217,6 @@ static void decrement_strenght() {
 // ///////////////////////////////////////////////////////////////////////////////
 
 static void rope_game_task() {
-  oled_screen_clear();
   while (is_game_running) {
     // increment_strenght();
     games_screens_module_show_rope_game_event(UPDATE_GAME_EVENT);
@@ -232,6 +231,8 @@ static void rope_game_task() {
 }
 void rope_game_init() {
   game_data_init();
+  oled_screen_clear();
+  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   const esp_timer_create_args_t timer_args = {.callback = &decrement_strenght,
                                               .name = "example_timer"};
 
