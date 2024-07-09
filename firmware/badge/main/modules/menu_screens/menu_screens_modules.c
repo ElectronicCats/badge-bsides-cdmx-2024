@@ -96,17 +96,10 @@ void menu_screens_run_tests() {
   ESP_ERROR_CHECK(menu_screens_test_menu_items());
 }
 
-void screen_module_set_main_menu() {
-  current_menu = MENU_MAIN;
-  selected_item = 0;
-  preferences_put_int("MENUNUMBER", 99);
-}
-
 void screen_module_set_screen(int screen_layer) {
-  current_menu = screen_layer;
-  selected_item = 0;
-  preferences_put_int("MENUNUMBER", screen_layer);
-  menu_screens_display_menu();
+  preferences_put_int("MENUNUMBER", prev_menu_table[screen_layer]);
+  oled_screen_clear();
+  menu_screens_display_text_banner("Exiting...");
 }
 
 void show_hsbc_logo() {
@@ -116,11 +109,20 @@ void show_hsbc_logo() {
 
 void show_logo() {
   show_hsbc_logo();
-  vTaskDelay(pdMS_TO_TICKS(500));
+  vTaskDelay(pdMS_TO_TICKS(2000));
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }
 
+void screen_module_get_screen() {
+  current_menu = preferences_get_int("MENUNUMBER", MENU_MAIN);
+  if (current_menu == MENU_MAIN) {
+    show_logo();
+  } else {
+    preferences_put_int("MENUNUMBER", MENU_MAIN);
+    menu_screens_display_menu();
+  }
+}
 void menu_screens_begin() {
   selected_item = 0;
   previous_menu = MENU_MAIN;
@@ -132,6 +134,7 @@ void menu_screens_begin() {
   menu_screens_run_tests();
   oled_screen_begin();
   oled_screen_clear();
+  screen_module_get_screen();
 }
 
 /**
