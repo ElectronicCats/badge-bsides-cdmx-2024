@@ -452,7 +452,6 @@ char* zigbee_items[] = {
 
 char* zigbee_spoofing_items[] = {
     "Switch",
-    "Light",
     NULL,
 };
 
