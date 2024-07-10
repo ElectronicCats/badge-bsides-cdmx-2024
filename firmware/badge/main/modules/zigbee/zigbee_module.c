@@ -100,6 +100,7 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
           switch (button_event) {
             case BUTTON_PRESS_DOWN:
               preferences_put_bool("zigbee_deinit", true);
+              screen_module_set_screen(MENU_ZIGBEE_SWITCH);
               zigbee_switch_deinit();
               break;
           }
@@ -114,6 +115,7 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
         case BUTTON_LEFT:
           if (button_event == BUTTON_LONG_PRESS_UP) {
             ESP_LOGI(TAG_ZIGBEE_MODULE, "Button left pressed");
+            led_control_stop();
             ieee_sniffer_stop();
             vTaskDelete(zigbee_task_sniffer);
             menu_screens_set_app_state(false, NULL);

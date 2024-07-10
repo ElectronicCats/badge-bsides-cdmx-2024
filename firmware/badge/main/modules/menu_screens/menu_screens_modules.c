@@ -96,17 +96,10 @@ void menu_screens_run_tests() {
   ESP_ERROR_CHECK(menu_screens_test_menu_items());
 }
 
-void screen_module_set_main_menu() {
-  current_menu = MENU_MAIN;
-  selected_item = 0;
-  preferences_put_int("MENUNUMBER", 99);
-}
-
 void screen_module_set_screen(int screen_layer) {
-  current_menu = screen_layer;
-  selected_item = 0;
-  preferences_put_int("MENUNUMBER", screen_layer);
-  menu_screens_display_menu();
+  preferences_put_int("MENUNUMBER", prev_menu_table[screen_layer]);
+  oled_screen_clear();
+  menu_screens_display_text_banner("Exiting...");
 }
 
 void show_hsbc_logo() {
@@ -116,11 +109,26 @@ void show_hsbc_logo() {
 
 void show_logo() {
   show_hsbc_logo();
-  vTaskDelay(pdMS_TO_TICKS(500));
+  vTaskDelay(pdMS_TO_TICKS(2000));
   oled_screen_display_bitmap(epd_bitmap_bsides_logo, 0, 0, 128, 32,
                              OLED_DISPLAY_NORMAL);
 }
 
+void screen_module_get_screen() {
+  current_menu = preferences_get_int("MENUNUMBER", MENU_MAIN);
+  if (current_menu == MENU_MAIN) {
+    char** submenu = menu_items[current_menu];
+    if (submenu != NULL) {
+      while (submenu[num_items] != NULL) {
+        num_items++;
+      }
+    }
+    show_logo();
+  } else {
+    preferences_put_int("MENUNUMBER", MENU_MAIN);
+    menu_screens_display_menu();
+  }
+}
 void menu_screens_begin() {
   selected_item = 0;
   previous_menu = MENU_MAIN;
@@ -132,6 +140,7 @@ void menu_screens_begin() {
   menu_screens_run_tests();
   oled_screen_begin();
   oled_screen_clear();
+  screen_module_get_screen();
 }
 
 /**
@@ -273,7 +282,6 @@ void display_menu_items(char** items) {
   uint8_t page = 1;
   uint8_t page_increment = 1;
 #endif
-
   oled_screen_clear();
   for (int i = 0; i < 3; i++) {
     char* text = (char*) malloc(strlen(items[i + selected_item]) + 2);
@@ -459,7 +467,7 @@ void menu_screens_exit_submenu() {
 
   switch (current_menu) {
     case MENU_WIFI_DOS:
-      preferences_put_int("MENUNUMBER", MENU_WIFI_APPS);
+      screen_module_set_screen(MENU_WIFI_DOS);
       esp_restart();
       break;
     case MENU_WIFI_ANALIZER_RUN:
@@ -473,9 +481,8 @@ void menu_screens_exit_submenu() {
       wifi_sniffer_close_file();
       break;
     case MENU_WIFI_ANALIZER:
-      oled_screen_clear();
-      menu_screens_display_text_banner("Exiting...");
-      wifi_sniffer_exit();
+      screen_module_set_screen(MENU_WIFI_ANALIZER);
+      esp_restart();
       break;
     default:
       break;
@@ -563,7 +570,7 @@ void menu_screens_enter_submenu() {
     case MENU_THREAD_APPS:
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
-    case MENU_GAMES:
+    case MENU_GAMES_PLAY:
       games_module_begin();
       break;
     case MENU_BADGE_FINDER_SCAN:

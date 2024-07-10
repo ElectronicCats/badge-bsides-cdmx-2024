@@ -34,7 +34,8 @@ static void open_thread_module_app_selector() {
     case MENU_THREAD_APPS:
       led_control_run_effect(led_control_zigbee_scanning);
       open_thread_screens_display_broadcast_mode(channel);
-      set_on_msg_recieve_cb(open_thread_screens_show_new_message);
+      thread_broadcast_set_on_msg_recieve_cb(
+          open_thread_screens_show_new_message);
       thread_broadcast_init();
       break;
     default:
@@ -54,7 +55,7 @@ static void open_thread_module_state_machine(button_event_t button_pressed) {
         case BUTTON_LEFT:
           switch (button_event) {
             case BUTTON_PRESS_DOWN:
-              // menu_screens_set_menu(prev_menu_table[MENU_THREAD_APPS]);
+              screen_module_set_screen(MENU_THREAD_APPS);
               esp_restart();
               break;
           }

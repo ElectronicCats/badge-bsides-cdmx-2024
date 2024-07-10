@@ -9,4 +9,4 @@ typedef void (*on_msg_recieve_cb_t)(otMessage*, const otMessageInfo*);
 
 void thread_broadcast_init();
 void thread_broadcast_deinit();
-void set_on_msg_recieve_cb(on_msg_recieve_cb_t cb);
+void thread_broadcast_set_on_msg_recieve_cb(on_msg_recieve_cb_t cb);

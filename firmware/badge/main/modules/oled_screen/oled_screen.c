@@ -2,12 +2,17 @@
 
 #include "bitmaps.h"
 #include "esp_log.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/semphr.h"
+#include "freertos/task.h"
 #include "oled_screen.h"
 
 static const char* TAG = "OLED_DRIVER";
 oled_driver_t dev;
+SemaphoreHandle_t oled_mutex;
 
 void oled_screen_begin() {
+  oled_mutex = xSemaphoreCreateMutex();
 #if CONFIG_I2C_INTERFACE
   ESP_LOGI(TAG, "INTERFACE is i2c");
   ESP_LOGI(TAG, "CONFIG_SDA_GPIO=%d", CONFIG_SDA_GPIO);
@@ -134,4 +139,16 @@ void oled_screen_display_text_splited(char* p_text,
     oled_screen_display_text(p_text, 0, *p_started_page, invert);
     (*p_started_page)++;
   }
+}
+
+bool oled_screen_mutex_take(bool block_task) {
+  TickType_t wait_time = (block_task) ? portMAX_DELAY : 0;
+  if (xSemaphoreTake(oled_mutex, wait_time) == pdTRUE) {
+    return true;
+  } else {
+    return false;
+  }
+}
+void oled_screen_mutex_give() {
+  xSemaphoreGive(oled_mutex);
 }

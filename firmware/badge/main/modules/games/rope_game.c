@@ -174,7 +174,6 @@ void update_rope_bar_value() {
 }
 
 static void on_receive_data_cb(badge_connect_recv_msg_t* msg) {
-  ESP_LOGI(TAG, "RECIVED DATA FROM OTHER GAME");
   uint8_t cmd = *((uint8_t*) msg->data);
   switch (cmd) {
     case UPDATE_PLAYER_DATA_CMD:
@@ -230,6 +229,7 @@ static void rope_game_task() {
   vTaskDelete(NULL);
 }
 void rope_game_init() {
+  oled_screen_clear();
   game_data_init();
   oled_screen_clear();
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);

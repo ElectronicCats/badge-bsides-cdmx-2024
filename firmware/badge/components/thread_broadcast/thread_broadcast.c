@@ -51,6 +51,6 @@ void thread_broadcast_deinit() {
   openthread_deinit();
 }
 
-void set_on_msg_recieve_cb(on_msg_recieve_cb_t cb) {
+void thread_broadcast_set_on_msg_recieve_cb(on_msg_recieve_cb_t cb) {
   on_msg_recieve_cb = cb;
 }

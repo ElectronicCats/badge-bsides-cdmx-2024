@@ -63,15 +63,17 @@ static void scanning_task(void* pvParameters) {
 }
 
 void wifi_module_exit() {
-  menu_screens_set_app_state(SCREEN_IN_NAVIGATION, NULL);
-  wifi_driver_ap_stop();
-  if (task_display_scanning != NULL) {
-    vTaskDelete(task_display_scanning);
-  }
-  if (task_display_attacking) {
-    vTaskDelete(task_display_attacking);
-  }
-  menu_screens_exit_submenu();
+  screen_module_set_screen(MENU_WIFI_DEAUTH);
+  esp_restart();
+  // menu_screens_set_app_state(SCREEN_IN_NAVIGATION, NULL);
+  // wifi_driver_ap_stop();
+  // if (task_display_scanning != NULL) {
+  //   vTaskDelete(task_display_scanning);
+  // }
+  // if (task_display_attacking) {
+  //   vTaskDelete(task_display_attacking);
+  // }
+  // menu_screens_exit_submenu();
 }
 
 void wifi_module_deauth_begin() {
