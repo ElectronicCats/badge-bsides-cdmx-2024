@@ -129,3 +129,6 @@ void oled_screen_display_selected_item_box();
 void oled_screen_display_text_splited(char* p_text,
                                       int* p_started_page,
                                       int invert);
+
+bool oled_screen_mutex_take(bool block_task);
+void oled_screen_mutex_give();

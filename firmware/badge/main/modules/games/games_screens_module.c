@@ -203,8 +203,8 @@ void speed_game_show_bag() {
 
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
-  // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
 
+  // PLAYER 3
   oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
@@ -214,7 +214,8 @@ void rope_game_show_game_data() {
       str, rope_player_id == 2 ? 56 : 80, 1,
       rope_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
+  // PLAYER 1
+  oled_screen_display_bitmap(figther_face_bmp, 7, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
   sprintf(str, "%03d%s", game_instance.players_data[0].strenght,
@@ -223,9 +224,8 @@ void rope_game_show_game_data() {
       str, 25, 1,
       rope_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
-
-  oled_screen_display_bitmap(figther_face_bmp, 8, 24, 16, 8,
+  // PLAYER 4
+  oled_screen_display_bitmap(figther_face_bmp, 7, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
@@ -236,6 +236,7 @@ void rope_game_show_game_data() {
       str, rope_player_id == 3 ? 56 : 80, 3,
       rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
+  // PLAYER 2
   oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
   sprintf(str, "%03d%s", game_instance.players_data[1].strenght,
           rope_player_id == 1 ? "<--" : "");
@@ -243,13 +244,6 @@ void rope_game_show_game_data() {
       str, 25, 3,
       rope_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[3].strenght);
-  oled_screen_display_text(
-      str, 80, 3,
-      rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
   free(str);
 }
 void speed_bag_game_show_game_data() {
@@ -337,6 +331,10 @@ void games_screen_module_show_game_over_speed(int winner) {
 }
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
+  if (!oled_screen_mutex_take(false)) {
+    printf("Mutex Failed\n");
+    return;
+  }
   switch (event) {
     case UPDATE_GAME_EVENT:
       oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
@@ -346,6 +344,7 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
     default:
       break;
   }
+  oled_screen_mutex_give();
 }
 
 void games_screens_module_show_speed_bag_game_event(
