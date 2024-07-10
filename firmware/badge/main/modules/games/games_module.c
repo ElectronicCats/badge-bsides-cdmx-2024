@@ -111,7 +111,7 @@ void games_module_state_machine(button_event_t button_pressed) {
       switch (button_event) {
         case BUTTON_PRESS_DOWN:
           printf("GAMES DEINIT\n");
-          screen_module_set_screen(MENU_GAMES);
+          screen_module_set_screen(MENU_GAMES_PLAY);
           esp_restart();
           // lobby_manager_deinit();
           // menu_screens_set_app_state(false, NULL);

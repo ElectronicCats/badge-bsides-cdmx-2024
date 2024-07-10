@@ -65,6 +65,14 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
+  /* Games module */
+  MENU_GAMES_PLAY,
+  MENU_GAMES_HELP,
+  /* Games HELP */
+  MENU_GAMES_MAIN_HELP,
+  MENU_RAUL_GAME_HELP,
+  MENU_ROPE_GAME_HELP,
+  MENU_KEVIN_GAME_HELP,
   /* Badge finder */
   MENU_BADGE_FINDER_SCAN,
   MENU_BADGE_FINDER_HELP,
@@ -125,6 +133,14 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_SNIFFER",
     /* Thread applications */
     "MENU_THREAD_BROADCAST",
+    /* Games module */
+    "MENU_GAMES_PLAY",
+    "MENU_GAMES_HELP",
+    /* Games HELP */
+    "MENU_GAMES_MAIN_HELP",
+    "MENU_RAUL_GAME_HELP",
+    "MENU_ROPE_GAME_HELP",
+    "MENU_KEVIN_GAME_HELP",
     /* Badge finder */
     "MENU_BADGE_FINDER_SCAN",
     "MENU_BADGE_FINDER_HELP",
@@ -167,7 +183,7 @@ const int next_menu_table[][8] = {
     // MENU_THREAD_APPS
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
-    {MENU_GAMES},
+    {MENU_GAMES_PLAY, MENU_GAMES_HELP},
     // MENU_BADGE_FINDER
     {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
     // MENU_WIFI_ANALIZER
@@ -202,6 +218,19 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
+    // MENU_GAMES_PLAY
+    {MENU_GAMES_PLAY},
+    // MENU_GAMES_HELP
+    {MENU_GAMES_MAIN_HELP, MENU_RAUL_GAME_HELP, MENU_ROPE_GAME_HELP,
+     MENU_KEVIN_GAME_HELP},
+    // MENU_GAMES_MAIN_HELP
+    {MENU_GAMES_MAIN_HELP},
+    // MENU_RAUL_GAME_HELP
+    {MENU_RAUL_GAME_HELP},
+    // MENU_ROPE_GAME_HELP
+    {MENU_ROPE_GAME_HELP},
+    // MENU_KEVIN_GAME_HELP
+    {MENU_KEVIN_GAME_HELP},
     // MENU_BADGE_FINDER_SCAN
     {MENU_BADGE_FINDER_SCAN},
     // MENU_BADGE_FINDER_HELP
@@ -258,6 +287,12 @@ const int prev_menu_table[] = {
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
+    MENU_GAMES,                      // MENU_GAMES_PLAY
+    MENU_GAMES,                      // MENU_GAMES_HELP
+    MENU_GAMES_HELP,                 // MENU_GAMES_MAIN_HELP
+    MENU_GAMES_HELP,                 // MENU_RAUL_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_ROPE_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_KEVIN_GAMES_HELP
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
@@ -460,12 +495,100 @@ char* thread_items[] = {
     NULL,
 };
 
+char* games_items[] = {
+    "Play",
+    "Help",
+    NULL,
+};
+char* games_help_items[] = {
+    "Play menu", "Raul game", "Rope game", "Kevin gam", NULL,
+};
+
+char* games_main_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "Open the PLAY",
+    "menu, then",
+    "connect Bsides",
+    "badges to",
+    "unlock games",
+    "",
+    "On host mode",
+    "you will see",
+    "the players",
+    "connected",
+    "& the unlocked",
+    "game.",
+    "Press (RIGHT)",
+    "to start the",
+    "game for all",
+    "the players.",
+    "",
+    "On client mode",
+    "the screen will",
+    "show your ",
+    "player ID",
+    "& the unlocked",
+    "game.",
+    "Only host can",
+    "start the game",
+    "so just wait.",
+    NULL,
+};
+
+char* raul_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "--RAUL GAME---",
+    "(Need 2 badges)",
+    "...............",
+    "...............",
+    "...............",
+    NULL,
+};
+
+char* rope_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "---ROPE GAME---",
+    "(Need 4 badges)",
+    "Press (RIGHT) ",
+    "once, then",
+    "(UP) once.",
+    "Repeat as fast",
+    "as you can to",
+    "get stronger ",
+    "than your ",
+    "opponents.",
+    "If you press",
+    "twice or slowly",
+    "your strength",
+    "will decrease.",
+    "Player 1 & 2",
+    "are TEAM 1.",
+    "Player 3 & 4 ",
+    "are TEAM 2.",
+    NULL,
+};
+
+char* kevin_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "--Kevin GAME---",
+    "(Need 5 badges)",
+    "...............",
+    "...............",
+    "...............",
+    NULL,
+};
 char* badge_link_item[] = {
     "Scan",
     "Help",
     NULL,
 };
-
 char* badge_link_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
@@ -498,7 +621,7 @@ char** menu_items[] = {
     main_items, applications_items, settings_items, about_items,
     /* Applications */
     wifi_items, bluetooth_items, zigbee_items, thread_items,
-    empty_items,      // GAMES
+    games_items,      // GAMES
     badge_link_item,  // Badge Finder
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
@@ -520,6 +643,14 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
+    /* Games Module */
+    empty_items,       // MENU_GAMES_PLAY
+    games_help_items,  // MENU_GAMES_HELP
+    /* Games HELP */
+    games_main_help,  // MENU_GAMES_MAIN_HELP
+    raul_game_help,   // MENU_RAUL_GAME_HELP
+    rope_game_help,   // MENU_ROPE_GAME_HELP
+    kevin_game_help,  // MENU_KEVIN_GAME_HELP
     /* Badge finder */
     empty_items,      // MENU_BADGE_FINDER_SCAN
     badge_link_help,  // MENU_BADGE_FINDER_HELP

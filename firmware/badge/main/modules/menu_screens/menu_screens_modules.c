@@ -575,7 +575,7 @@ void menu_screens_enter_submenu() {
     case MENU_THREAD_APPS:
       open_thread_module_begin(MENU_THREAD_APPS);
       break;
-    case MENU_GAMES:
+    case MENU_GAMES_PLAY:
       games_module_begin();
       break;
     case MENU_BADGE_FINDER_SCAN:
