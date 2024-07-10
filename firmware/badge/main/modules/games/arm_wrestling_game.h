@@ -7,43 +7,43 @@
 #define MAX_ARM_WRESTLING_PLAYERS 2
 
 typedef enum {
-  UPDATE_PLAYER_DATA_CMD = 10,
-  UPDATE_GAME_DATA_CMD,
-  GAME_OVER_CMD,
-  STOP_ARM_WRESTLING_CMD
+  WUPDATE_PLAYER_DATA_CMD = 10,
+  WUPDATE_GAME_DATA_CMD,
+  WGAME_OVER_CMD,
+  WSTOP_ARM_WRESTLING_CMD
 } arm_wrestling_commands_t;
 
-typedef enum { UPDATE_GAME_EVENT } arm_wrestling_events_t;
+typedef enum { WUPDATE_GAME_EVENT } arm_wrestling_events_t;
 
 typedef struct {
   uint16_t strength;
-} player_data_t;
+} wplayer_data_t;
 
 typedef struct {
-  player_data_t players_data[MAX_ARM_WRESTLING_PLAYERS];
+  wplayer_data_t players_data[MAX_ARM_WRESTLING_PLAYERS];
   int16_t arm_position;  // -1000 to 1000, 0 is center
-} game_data_t;
+} wgame_data_t;
 
 typedef struct {
   uint8_t cmd;
-  player_data_t player_data;
-} player_data_cmd_t;
+  wplayer_data_t player_data;
+} wplayer_data_cmd_t;
 
 typedef struct {
   uint8_t cmd;
-  game_data_t game_data;
-} game_data_cmd_t;
+  wgame_data_t game_data;
+} wgame_data_cmd_t;
 
 typedef struct {
   uint8_t cmd;
-} stop_game_cmd_t;
+} wstop_game_cmd_t;
 
 typedef struct {
   uint8_t cmd;
-} game_over_cmd_t;
+} wgame_over_cmd_t;
 
-player_data_t* me;
-game_data_t game_instance;
+wplayer_data_t* wme;
+wgame_data_t wgame_instance;
 
 extern uint8_t arm_wrestling_player_id;
 
