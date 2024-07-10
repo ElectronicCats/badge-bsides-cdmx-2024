@@ -332,7 +332,6 @@ void games_screen_module_show_game_over_speed(int winner) {
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   if (!oled_screen_mutex_take(false)) {
-    printf("Mutex Failed\n");
     return;
   }
   switch (event) {

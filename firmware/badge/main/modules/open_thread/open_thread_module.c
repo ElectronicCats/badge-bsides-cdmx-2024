@@ -34,7 +34,8 @@ static void open_thread_module_app_selector() {
     case MENU_THREAD_APPS:
       led_control_run_effect(led_control_zigbee_scanning);
       open_thread_screens_display_broadcast_mode(channel);
-      set_on_msg_recieve_cb(open_thread_screens_show_new_message);
+      thread_broadcast_set_on_msg_recieve_cb(
+          open_thread_screens_show_new_message);
       thread_broadcast_init();
       break;
     default:
