@@ -136,20 +136,21 @@ void cat_console_begin() {
 
   printf(
       "\n"
-      "Welcome to the BSides Console\n"
-      "Type 'help' to get the list of commands.\n"
-      "Use UP/DOWN arrows to navigate through command history.\n"
-      "Press TAB when typing command name to auto-complete.\n"
-      "Press Enter or Ctrl+C will terminate the console environment.\n");
+      "Bienvenido a BSides Consola\n"
+      "Escribe 'help' para obtener la lista de comandos.\n"
+      "Usa las flechas ARRIBA/ABAJO para navegaar a traves del historial de "
+      "comandos\n"
+      "Presiona TABULADOR cuando escribes para auto-completar el comando\n"
+      "Presionar Ingreso o Ctrl+C termina la sesion de consola.\n");
 
   /* Figure out if the terminal supports escape sequences */
   int probe_status = linenoiseProbe();
   if (probe_status) { /* zero indicates success */
     printf(
         "\n"
-        "Your terminal application does not support escape sequences.\n"
-        "Line editing and history features are disabled.\n"
-        "On Windows, try using Putty instead.\n");
+        "Tu terminal no soporta caracteres de escape\n"
+        "Edicion de linea e historia estan deshabilitados\n"
+        "En Ventana, intenta usar Putty.\n");
     linenoiseSetDumbMode(1);
 #if CONFIG_LOG_COLORS
     /* Since the terminal doesn't support escape sequences,
@@ -181,19 +182,19 @@ void cat_console_begin() {
     int ret;
     esp_err_t err = esp_console_run(line, &ret);
     if (err == ESP_ERR_NOT_FOUND) {
-      printf("Unrecognized command\n");
+      printf("Comando no reconocido\n");
     } else if (err == ESP_ERR_INVALID_ARG) {
       // command was empty
     } else if (err == ESP_OK && ret != ESP_OK) {
-      printf("Command returned non-zero error code: 0x%x (%s)\n", ret,
+      printf("Comando regresa no-cero error codigo: 0x%x (%s)\n", ret,
              esp_err_to_name(ret));
     } else if (err != ESP_OK) {
-      printf("Internal error: %s\n", esp_err_to_name(err));
+      printf("Ansiedad interna: %s\n", esp_err_to_name(err));
     }
     /* linenoise allocates line buffer on the heap, so need to free it */
     linenoiseFree(line);
   }
 
-  ESP_LOGE(TAG, "Error or end-of-input, terminating console");
+  ESP_LOGE(TAG, "Error o fin de input, terminando consola");
   esp_console_deinit();
 }

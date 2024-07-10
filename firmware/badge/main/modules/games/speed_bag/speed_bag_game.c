@@ -29,7 +29,7 @@ static bool is_game_running = false;
 static esp_timer_handle_t timer_handle;
 static TaskHandle_t speed_bag_game_task_handler = NULL;
 static int speed_bag_winner = -1;
-static void speed_bag_game_over();
+static void speed_bag_game_over(int winner_id);
 static void speed_bag_game_exit();
 
 uint8_t speed_bag_player_id;
@@ -134,31 +134,33 @@ static void speed_handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
-
+// Host
 static void send_game_over_cmd() {
   ESP_LOGI(TAG, "send_game_over_cmd");
-  speed_bag_game_over_cmd_t cmd = {.cmd = SPEED_BAG_GAME_OVER_CMD};
+  speed_bag_game_over_cmd_t cmd = {.cmd = SPEED_BAG_GAME_OVER_CMD,
+                                   .winner_id = speed_bag_winner};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd,
                      sizeof(speed_bag_game_over_cmd_t));
   vTaskDelay(pdMS_TO_TICKS(100));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd,
                      sizeof(speed_bag_game_over_cmd_t));
 }
-
+// Host/ client
 void speed_handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
   ESP_LOGI(TAG, "GAME OVER speed_handle_game_over_cmd");
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
   }
-  speed_bag_game_over();
+  speed_bag_game_over_cmd_t* cmd = (speed_bag_game_over_cmd_t*) msg->data;
+  speed_bag_game_over(cmd->winner_id);
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
-static void speed_bag_game_over() {
+static void speed_bag_game_over(int winner_id) {
   ESP_LOGI(TAG, "speed_bag_game_over");
   send_game_over_cmd();
   is_game_running = false;
-  games_screen_module_show_game_over_speed(speed_bag_winner);
+  games_screen_module_show_game_over_speed(winner_id);
 }
 
 void update_speed_bag_value() {
@@ -175,26 +177,26 @@ void update_speed_bag_value() {
 
   if ((int) speed_bag_game_instance.players_data[0].strenght >= MAX_SCORE) {
     speed_bag_winner = 0;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[0] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[1].strenght >= MAX_SCORE) {
     speed_bag_winner = 1;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[1] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[2].strenght >= MAX_SCORE) {
     speed_bag_winner = 2;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[2] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[3].strenght >= MAX_SCORE) {
     speed_bag_winner = 3;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[3] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[4].strenght >= MAX_SCORE) {
     speed_bag_winner = 4;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[4] %d", speed_bag_winner);
   }
+  speed_bag_game_instance.players_data[0].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[1].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[2].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[3].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[4].winner_id = speed_bag_winner;
   if (speed_bag_winner != -1) {
-    speed_bag_game_over();
+    speed_bag_game_over(speed_bag_winner);
   }
 }
 
