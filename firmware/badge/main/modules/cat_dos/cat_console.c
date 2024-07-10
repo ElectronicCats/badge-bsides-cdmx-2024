@@ -22,8 +22,10 @@
 #include "linenoise/linenoise.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "oled_screen.h"
 #include "preferences.h"
 #include "soc/soc_caps.h"
+
 static const char* TAG = "cat_console";
 #define PROMPT_STR "bsides"
 
@@ -118,19 +120,6 @@ void cat_console_begin() {
    */
   const char* prompt = LOG_COLOR_I PROMPT_STR "> " LOG_RESET_COLOR;
 
-  char ssid[32];
-  esp_err_t err = preferences_get_string("ssid", ssid, 32);
-  if (err != ESP_OK) {
-    ESP_LOGE(TAG, "Failed to get ssid from preferences");
-    return;
-  }
-  char password[32];
-  err = preferences_get_string("passwd", password, 32);
-  if (err != ESP_OK) {
-    ESP_LOGE(TAG, "Failed to get password from preferences");
-    return;
-  }
-
   printf(
       "\n"
       "Welcome to the BSides Console\n"
@@ -139,7 +128,6 @@ void cat_console_begin() {
       "Press TAB when typing command name to auto-complete.\n"
       "Press Enter or Ctrl+C will terminate the console environment.\n");
 
-  printf("SSID: %s\n", ssid);
   /* Figure out if the terminal supports escape sequences */
   int probe_status = linenoiseProbe();
   if (probe_status) { /* zero indicates success */
