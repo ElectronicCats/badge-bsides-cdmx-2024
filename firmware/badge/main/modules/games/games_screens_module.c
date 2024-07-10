@@ -325,16 +325,22 @@ void games_screens_module_show_game_over(bool winner) {
 
 void games_screen_module_show_game_over_speed(int winner) {
   oled_screen_clear();
-  if (speed_bag_player_id != winner) {
-    oled_screen_display_text_center("You lost", 2, OLED_DISPLAY_INVERT);
-  } else {
-    char* str = (char*) malloc(32);
-    sprintf(str, "Player %d won\n", winner + 1);
-    oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-    printf("Player %d won\n", winner + 1);
-    oled_screen_display_bitmap(game_belt, 0, 8, 128, 32, OLED_DISPLAY_NORMAL);
-    free(str);
-  }
+  char* str = (char*) malloc(32);
+  sprintf(str, "Player %d won\n", winner + 1);
+  oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+  printf("Player %d won\n", winner + 1);
+  oled_screen_display_bitmap(game_belt, 0, 8, 128, 32, OLED_DISPLAY_NORMAL);
+  free(str);
+  // if (speed_bag_player_id != winner) {
+  //   oled_screen_display_text_center("You lost", 2, OLED_DISPLAY_INVERT);
+  // } else {
+  //   char* str = (char*) malloc(32);
+  //   sprintf(str, "Player %d won\n", winner + 1);
+  //   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+  //   printf("Player %d won\n", winner + 1);
+  //   oled_screen_display_bitmap(game_belt, 0, 8, 128, 32,
+  //   OLED_DISPLAY_NORMAL); free(str);
+  // }
 }
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
