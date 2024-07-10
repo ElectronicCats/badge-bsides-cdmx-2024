@@ -321,7 +321,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "Games", "Badge finder", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Badge finder", NULL,
 };
 
 char* settings_items[] = {
@@ -496,43 +496,53 @@ char* thread_items[] = {
 };
 
 char* games_items[] = {
-    "Play",
-    "Help",
+    "Sala",
+    "Ayuda",
     NULL,
 };
 char* games_help_items[] = {
-    "Play menu", "Raul game", "Rope game", "Kevin gam", NULL,
+    "Sala?", "Vencidas?", "Cuerda?", "Peras?", NULL,
 };
 
 char* games_main_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "Open the PLAY",
-    "menu, then",
-    "connect Bsides",
-    "badges to",
-    "unlock games",
+    "Abre el menu",
+    "SALA, luego",
+    "conecta badges",
+    "de bsides como",
+    "se indica para",
+    "poder jugar.",
+    "El juego",
+    "dependera del",
+    "numero de",
+    "badges."
     "",
-    "On host mode",
-    "you will see",
-    "the players",
-    "connected",
-    "& the unlocked",
-    "game.",
-    "Press (RIGHT)",
-    "to start the",
-    "game for all",
-    "the players.",
+    "El modo host",
+    "muestra a",
+    "los jugadores",
+    "conectados",
+    "y el juego",
+    "seleccionado.",
+    "Presiona el ",
+    "boton (DERECHA)",
+    "para comenzar",
+    "el juego.",
     "",
-    "On client mode",
-    "the screen will",
-    "show your ",
-    "player ID",
-    "& the unlocked",
-    "game.",
-    "Only host can",
-    "start the game",
-    "so just wait.",
+    "El modo cliente",
+    "muestra el ID",
+    "de tu jugador",
+    "y el juego",
+    "seleccionado.",
+    "Solo el host",
+    "puede comenzar",
+    "la partida.",
+    "",
+    "Una vez que",
+    "comienza el",
+    "juego, ya pueden",
+    "separar los",
+    "badges y jugar",
     NULL,
 };
 
@@ -551,20 +561,22 @@ char* raul_game_help[] = {
 char* rope_game_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "*  COMO JUGAR *",
-    "Juego de la soga",
-    "(Usa 4 badges)",
+    "** COMO JUGAR **",
+    "---- CUERDA ----",
+    " (Usa 4 badges) ",
     "",
     "Jugadores 1 & 2",
-    "son EQUIPO 1.",
+    "son EQUIPO 1, de",
+    "color amarillo.",
     "Jugadores 3 & 4 ",
-    "son EQUIPO 2.",
+    "son EQUIPO 2, de",
+    "color azul.",
     "",
     "Presiona boton",
     "(Derecha) una",
     "vez, luego",
     "(Arriba) una",
-    "vez."
+    "vez.",
     "Repite tan",
     "rapido como",
     "puedas para",
