@@ -294,14 +294,12 @@ void speed_bag_game_show_game_data() {
   free(str);
 }
 
-void games_screens_module_show_game_over(bool winner) {
+void games_screens_module_show_game_over(bool winner, bool team) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
   sprintf(str, "  TEAM %d WIN   ", winner + 1);
   oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
-  if (winner && rope_player_id >= 2) {
-    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
-  } else if (!winner && rope_player_id <= 1) {
+  if (winner == team) {
     oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   } else {
     sprintf(str, "   YOU LOSE   ");
@@ -312,7 +310,7 @@ void games_screens_module_show_game_over(bool winner) {
     oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
   }
 
-  // printf("Team %d won\n", winner + 1);
+  printf("Team %d won\n", winner + 1);
   free(str);
 }
 
