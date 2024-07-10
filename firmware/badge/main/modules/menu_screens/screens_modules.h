@@ -501,7 +501,7 @@ char* games_items[] = {
     NULL,
 };
 char* games_help_items[] = {
-    "Play menu", "Raul game", "Rope game", "Kevin gam", NULL,
+    "Play menu", "Raul game", "Rope game", "Pera Box", NULL,
 };
 
 char* games_main_help[] = {
@@ -576,12 +576,16 @@ char* rope_game_help[] = {
 char* kevin_game_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "* HOW TO PLAY *",
-    "--Kevin GAME---",
-    "(Need 5 badges)",
-    "...............",
-    "...............",
-    "...............",
+    "* Como jugar *",
+    "--Juego Pera---",
+    " (5 jugadores) ",
+    "Presiona Derecha.",
+    "Y luego Arriba.",
+    "Repite lo mas ",
+    "Rapido que puedas"
+    "para golpear mas",
+    "veces que tus "
+    "oponentes.",
     NULL,
 };
 char* badge_link_item[] = {

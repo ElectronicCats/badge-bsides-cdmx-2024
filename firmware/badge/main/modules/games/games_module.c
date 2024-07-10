@@ -51,13 +51,13 @@ void send_start_game_cmd() {
   uint8_t players_count = get_clients_count();
   uint8_t game_id = 0;
   switch (players_count) {
-    case 3:
+    case 2:
       game_id = RAUL_GAME;
       break;
     case 4:
       game_id = ROPE_GAME;
       break;
-    case 2:
+    case 5:
       game_id = KEVIN_GAME;
       break;
     default:
