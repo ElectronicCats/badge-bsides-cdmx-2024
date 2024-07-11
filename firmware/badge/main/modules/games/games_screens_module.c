@@ -28,24 +28,25 @@ bool show_game_text(uint8_t players_count) {
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   switch (players_count) {
     case 2:
-      oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("VENCIDAS", 4, 3, OLED_DISPLAY_NORMAL);
       break;
     case 3:
-      oled_screen_display_text("Waiting 3/4", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  3/4", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     case 4:
-      oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("CUERDA", 4, 3, OLED_DISPLAY_NORMAL);
       break;
     case 5:
-      oled_screen_display_text("Esperando 5/5", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("PERAS", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     default:
       oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+      oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
       oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
                                  16, OLED_DISPLAY_NORMAL);
-      oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  1/2", 4, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
       break;
@@ -54,15 +55,17 @@ bool show_game_text(uint8_t players_count) {
 }
 void show_client_state() {
   char* str = (char*) malloc(20);
-  sprintf(str, " Client Mode ");
+  sprintf(str, " Modo Cliente ");
   oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-  sprintf(str, " YOU ARE-->P%d", my_client_id + 1);
+  sprintf(str, "Tu eres-->P%d", my_client_id + 1);
   oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_display_bitmap(figther_face_bmp, 104, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  sprintf(str, "JUEGO:");
   oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(figther_face_bmp, 104, 16, 16, 8,
-                             OLED_DISPLAY_NORMAL);
   free(str);
   show_game_text(get_clients_count());
 }
@@ -79,7 +82,6 @@ void show_clients() {
     return;
   }
   oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online) {
@@ -89,6 +91,9 @@ void show_clients() {
                                  OLED_DISPLAY_NORMAL);
     }
   }
+  sprintf(str, "JUEGO:");
+  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
   free(str);
 }
 
@@ -110,8 +115,7 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       show_client_state();
       break;
     case SHOW_CLIENTS:
-      oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
-      oled_screen_display_text_center("Connect Badges", 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text_center("Conecta Badges", 0, OLED_DISPLAY_NORMAL);
       show_clients();
       show_available_game();
       break;
@@ -291,25 +295,25 @@ void speed_bag_game_show_game_data() {
   free(str);
 }
 
-void games_screens_module_show_game_over(bool winner) {
+void games_screens_module_show_game_over(bool winner, bool team) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
-  sprintf(str, "  TEAM %d WIN   ", winner + 1);
-  oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
-  if (winner && rope_player_id >= 2) {
-    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
-  } else if (!winner && rope_player_id <= 1) {
+  if (winner == team) {
+    sprintf(str, "  GANASTE!!!  ");
+    oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
     oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   } else {
-    sprintf(str, "   YOU LOSE   ");
+    sprintf(str, ":( Perdiste ):");
+    oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+    sprintf(str, "Intenta ser");
     oled_screen_display_text_center(str, 1, OLED_DISPLAY_NORMAL);
-    sprintf(str, "Try to be fast");
+    sprintf(str, "mas rapido");
     oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
-    sprintf(str, "& coordinated");
+    sprintf(str, "y coordinado");
     oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
   }
 
-  // printf("Team %d won\n", winner + 1);
+  printf("Team %d won\n", winner + 1);
   free(str);
 }
 
@@ -331,7 +335,7 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
   }
   switch (event) {
     case UPDATE_GAME_EVENT:
-      oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("EQUIPO1  EQUIPO2", 0, 0, OLED_DISPLAY_NORMAL);
       rope_game_show_rope();
       rope_game_show_game_data();
       break;

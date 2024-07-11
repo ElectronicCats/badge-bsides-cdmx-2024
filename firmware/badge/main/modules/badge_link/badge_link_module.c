@@ -200,7 +200,7 @@ void badge_link_module_begin() {
 
 void badge_link_module_exit() {
   ESP_LOGI(TAG, "Badge link module exit");
-  screen_module_set_screen(MENU_GAMES);
+  screen_module_set_screen(MENU_BADGE_FINDER_SCAN);
   esp_restart();
   // vTaskDelete(badge_link_state_machine_task_handle);
   // vTaskDelete(badge_link_screens_module_scan_task_handle);
