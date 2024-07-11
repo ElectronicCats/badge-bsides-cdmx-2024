@@ -311,7 +311,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNING: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_DOUBLE_CLICK) {
+          if (button_event == BUTTON_LONG_PRESS_UP) {
             wifi_module_exit();
             break;
           }
@@ -329,7 +329,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNED: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_DOUBLE_CLICK) {
+          if (button_event == BUTTON_LONG_PRESS_UP) {
             wifi_module_exit();
             break;
           }
@@ -376,7 +376,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_DETAILS: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_DOUBLE_CLICK) {
+          if (button_event == BUTTON_LONG_PRESS_UP) {
             wifi_module_exit();
             break;
           }
@@ -423,7 +423,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK_SELECTOR: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_DOUBLE_CLICK) {
+          if (button_event == BUTTON_LONG_PRESS_UP) {
             wifi_module_exit();
             break;
           }
@@ -491,7 +491,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_DOUBLE_CLICK) {
+          if (button_event == BUTTON_LONG_PRESS_UP) {
             wifi_attacks_module_stop();
             wifi_module_exit();
             vTaskSuspend(task_display_attacking);
