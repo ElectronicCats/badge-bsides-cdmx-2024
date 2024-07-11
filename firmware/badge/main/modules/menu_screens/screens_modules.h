@@ -321,7 +321,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Badge finder", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Encontrar", NULL,
 };
 
 char* settings_items[] = {
@@ -359,22 +359,23 @@ char* license_text[] = {
 char* credits_text[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "BSides Badge",
+    "Insignia de",
+    "BSides",
     "",
-    "Special thanks",
-    "to all the",
-    "contributors",
-    "and the",
-    "community",
+    "Agradecimientos",
+    "a todos los",
+    "colaboradores",
+    "y la comunidad",
     "",
-    "This badge is",
-    "Sponsored by",
+    "Esta insignia",
+    "es patrocinada",
+    "por",
     "- HSBC",
     "- Electronic",
     "  Cats",
     "",
     "Hardware",
-    "designed by",
+    "desarrollado por",
     "- Edgar",
     "  Capuchino",
     "- Lizeth",
@@ -384,7 +385,7 @@ char* credits_text[] = {
     "@Sabasacustico",
     "",
     "Firmware",
-    "developed by",
+    "desarrollado por",
     "- Francisco",
     "  @deimoshall",
     "- Kevin Leon",
@@ -601,8 +602,8 @@ char* kevin_game_help[] = {
     NULL,
 };
 char* badge_link_item[] = {
-    "Scan",
-    "Help",
+    "Escanear",
+    "Ayuda",
     NULL,
 };
 char* badge_link_help[] = {
