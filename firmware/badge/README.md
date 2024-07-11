@@ -10,12 +10,12 @@ This document is intended to help developers get started with the BSides badge f
 
 Using HTTPS:
 ```
-git clone https://github.com/ElectronicCats/Minino.git
+git clone https://github.com/ElectronicCats/badge-bsides-cdmx-2024.git
 ```
 
 Using SSH:
 ```
-git clone git@github.com:ElectronicCats/Minino.git
+git clone git@github.com:ElectronicCats/badge-bsides-cdmx-2024.git
 ```
 
 3. Change to the firmware directory:
