@@ -44,6 +44,7 @@ hardware/**/~*.lck
 # Firmware binaries
 /**/build/
 /**/managed_components/
+/**/build_files.tgz
 
 # IDF sdkconfig
 /**/sdkconfig
