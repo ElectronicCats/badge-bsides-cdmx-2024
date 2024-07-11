@@ -177,8 +177,8 @@ static void speed_bag_game_over(int winner_id) {
   ESP_LOGI(TAG, "speed_bag_game_over");
   send_game_over_cmd();
   is_game_running = false;
-  games_screen_module_show_game_over_speed(winner_id);
   get_team_color(winner_id);
+  games_screen_module_show_game_over_speed(winner_id);
 }
 
 void update_speed_bag_value() {

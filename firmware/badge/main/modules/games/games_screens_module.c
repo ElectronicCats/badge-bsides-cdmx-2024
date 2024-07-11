@@ -325,7 +325,7 @@ void games_screen_module_show_game_over_speed(int winner) {
   oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   free(str);
 
-  vTaskDelay(pdMS_TO_TICKS(3000));
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
   esp_restart();
 }
 
