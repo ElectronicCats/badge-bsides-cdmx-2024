@@ -487,7 +487,6 @@ char* zigbee_items[] = {
 
 char* zigbee_spoofing_items[] = {
     "Switch",
-    "Light",
     NULL,
 };
 
@@ -609,16 +608,18 @@ char* badge_link_item[] = {
 char* badge_link_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "Have you gone",
-    "to BSides?",
+    "Has ido a",
+    "BSides?",
     "DragonJar?",
     "Ekoparty?",
     "BugCon?",
     "...",
     "",
-    "Your badges",
-    "have secrets",
-    "to unluck...",
+    "Estamos unidos",
+    "como LATAM",
+    "Tus insignias",
+    "tienen secretos",
+    "buena suerte...",
     NULL,
 };
 
