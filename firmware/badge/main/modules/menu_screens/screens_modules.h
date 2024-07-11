@@ -427,7 +427,7 @@ char* wifi_items[] = {
 
 const char* wifi_analizer_items[] = {
     "Start",
-    "Settings",
+    // "Settings",
     NULL,
 };
 
