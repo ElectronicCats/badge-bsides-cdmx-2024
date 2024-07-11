@@ -65,6 +65,14 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
+  /* Games module */
+  MENU_GAMES_PLAY,
+  MENU_GAMES_HELP,
+  /* Games HELP */
+  MENU_GAMES_MAIN_HELP,
+  MENU_RAUL_GAME_HELP,
+  MENU_ROPE_GAME_HELP,
+  MENU_KEVIN_GAME_HELP,
   /* Badge finder */
   MENU_BADGE_FINDER_SCAN,
   MENU_BADGE_FINDER_HELP,
@@ -125,6 +133,14 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_SNIFFER",
     /* Thread applications */
     "MENU_THREAD_BROADCAST",
+    /* Games module */
+    "MENU_GAMES_PLAY",
+    "MENU_GAMES_HELP",
+    /* Games HELP */
+    "MENU_GAMES_MAIN_HELP",
+    "MENU_RAUL_GAME_HELP",
+    "MENU_ROPE_GAME_HELP",
+    "MENU_KEVIN_GAME_HELP",
     /* Badge finder */
     "MENU_BADGE_FINDER_SCAN",
     "MENU_BADGE_FINDER_HELP",
@@ -167,7 +183,7 @@ const int next_menu_table[][8] = {
     // MENU_THREAD_APPS
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
-    {MENU_GAMES},
+    {MENU_GAMES_PLAY, MENU_GAMES_HELP},
     // MENU_BADGE_FINDER
     {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
     // MENU_WIFI_ANALIZER
@@ -202,6 +218,19 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
+    // MENU_GAMES_PLAY
+    {MENU_GAMES_PLAY},
+    // MENU_GAMES_HELP
+    {MENU_GAMES_MAIN_HELP, MENU_RAUL_GAME_HELP, MENU_ROPE_GAME_HELP,
+     MENU_KEVIN_GAME_HELP},
+    // MENU_GAMES_MAIN_HELP
+    {MENU_GAMES_MAIN_HELP},
+    // MENU_RAUL_GAME_HELP
+    {MENU_RAUL_GAME_HELP},
+    // MENU_ROPE_GAME_HELP
+    {MENU_ROPE_GAME_HELP},
+    // MENU_KEVIN_GAME_HELP
+    {MENU_KEVIN_GAME_HELP},
     // MENU_BADGE_FINDER_SCAN
     {MENU_BADGE_FINDER_SCAN},
     // MENU_BADGE_FINDER_HELP
@@ -258,6 +287,12 @@ const int prev_menu_table[] = {
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
+    MENU_GAMES,                      // MENU_GAMES_PLAY
+    MENU_GAMES,                      // MENU_GAMES_HELP
+    MENU_GAMES_HELP,                 // MENU_GAMES_MAIN_HELP
+    MENU_GAMES_HELP,                 // MENU_RAUL_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_ROPE_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_KEVIN_GAMES_HELP
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
@@ -286,7 +321,7 @@ char* main_items[] = {
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "Games", "Badge finder", NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Encontrar", NULL,
 };
 
 char* settings_items[] = {
@@ -324,22 +359,23 @@ char* license_text[] = {
 char* credits_text[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "BSides Badge",
+    "Insignia de",
+    "BSides",
     "",
-    "Special thanks",
-    "to all the",
-    "contributors",
-    "and the",
-    "community",
+    "Agradecimientos",
+    "a todos los",
+    "colaboradores",
+    "y la comunidad",
     "",
-    "This badge is",
-    "Sponsored by",
+    "Esta insignia",
+    "es patrocinada",
+    "por",
     "- HSBC",
     "- Electronic",
     "  Cats",
     "",
     "Hardware",
-    "designed by",
+    "desarrollado por",
     "- Edgar",
     "  Capuchino",
     "- Lizeth",
@@ -349,7 +385,7 @@ char* credits_text[] = {
     "@Sabasacustico",
     "",
     "Firmware",
-    "developed by",
+    "desarrollado por",
     "- Francisco",
     "  @deimoshall",
     "- Kevin Leon",
@@ -385,13 +421,13 @@ char* legal_text[] = {
 char* wifi_items[] = {
     "Analizer",
     "Deauth",
-    "DoS",
+    NULL,
     NULL,
 };
 
 const char* wifi_analizer_items[] = {
     "Start",
-    "Settings",
+    // "Settings",
     NULL,
 };
 
@@ -459,12 +495,117 @@ char* thread_items[] = {
     NULL,
 };
 
-char* badge_link_item[] = {
-    "Scan",
-    "Help",
+char* games_items[] = {
+    "Sala",
+    "Ayuda",
+    NULL,
+};
+char* games_help_items[] = {
+    "Sala?", "Vencidas?", "Cuerda?", "Peras?", NULL,
+};
+
+char* games_main_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "Abre el menu",
+    "SALA, luego",
+    "conecta badges",
+    "de bsides como",
+    "se indica para",
+    "poder jugar.",
+    "El juego",
+    "dependera del",
+    "numero de",
+    "badges."
+    "",
+    "El modo host",
+    "muestra a",
+    "los jugadores",
+    "conectados",
+    "y el juego",
+    "seleccionado.",
+    "Presiona el ",
+    "boton (DERECHA)",
+    "para comenzar",
+    "el juego.",
+    "",
+    "El modo cliente",
+    "muestra el ID",
+    "de tu jugador",
+    "y el juego",
+    "seleccionado.",
+    "Solo el host",
+    "puede comenzar",
+    "la partida.",
+    "",
+    "Una vez que",
+    "comienza el",
+    "juego, ya pueden",
+    "separar los",
+    "badges y jugar",
     NULL,
 };
 
+char* raul_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "--RAUL GAME---",
+    "(Need 2 badges)",
+    "...............",
+    "...............",
+    "...............",
+    NULL,
+};
+
+char* rope_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "** COMO JUGAR **",
+    "---- CUERDA ----",
+    " (Usa 4 badges) ",
+    "",
+    "Jugadores 1 & 2",
+    "son EQUIPO 1, de",
+    "color amarillo.",
+    "Jugadores 3 & 4 ",
+    "son EQUIPO 2, de",
+    "color azul.",
+    "",
+    "Presiona boton",
+    "(Derecha) una",
+    "vez, luego",
+    "(Arriba) una",
+    "vez.",
+    "Repite tan",
+    "rapido como",
+    "puedas para",
+    "ser mas fuerte",
+    "que tus",
+    "oponentes.",
+    "Si presionas",
+    "doble o lento,",
+    "tu fuerza",
+    "disminuira.",
+    NULL,
+};
+
+char* kevin_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "--Kevin GAME---",
+    "(Need 5 badges)",
+    "...............",
+    "...............",
+    "...............",
+    NULL,
+};
+char* badge_link_item[] = {
+    "Escanear",
+    "Ayuda",
+    NULL,
+};
 char* badge_link_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
@@ -499,7 +640,7 @@ char** menu_items[] = {
     main_items, applications_items, settings_items, about_items,
     /* Applications */
     wifi_items, bluetooth_items, zigbee_items, thread_items,
-    empty_items,      // GAMES
+    games_items,      // GAMES
     badge_link_item,  // Badge Finder
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
@@ -521,6 +662,14 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
+    /* Games Module */
+    empty_items,       // MENU_GAMES_PLAY
+    games_help_items,  // MENU_GAMES_HELP
+    /* Games HELP */
+    games_main_help,  // MENU_GAMES_MAIN_HELP
+    raul_game_help,   // MENU_RAUL_GAME_HELP
+    rope_game_help,   // MENU_ROPE_GAME_HELP
+    kevin_game_help,  // MENU_KEVIN_GAME_HELP
     /* Badge finder */
     empty_items,      // MENU_BADGE_FINDER_SCAN
     badge_link_help,  // MENU_BADGE_FINDER_HELP

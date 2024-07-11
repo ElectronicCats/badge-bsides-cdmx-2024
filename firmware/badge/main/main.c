@@ -33,7 +33,6 @@ void app_main(void) {
   preferences_begin();
   menu_screens_begin();
   keyboard_module_begin();
-  // menu_screens_display_menu();
   reboot_counter();
 
   ajo_module_init();
@@ -41,14 +40,6 @@ void app_main(void) {
 
   bool is_ajo = ajo_module_get_state();
   ESP_LOGI(TAG, "AJO Module State: %d", is_ajo);
-  int last_layer = preferences_get_int("MENUNUMBER", 99);
-  if (last_layer == 99) {
-    show_logo();
-  } else {
-    screen_module_set_screen(last_layer);
-    menu_screens_display_menu();
-    preferences_put_int("MENUNUMBER", 99);
-  }
 
   neopixels_set_pixels(4, 0, 0, 0);
   neopixels_refresh();

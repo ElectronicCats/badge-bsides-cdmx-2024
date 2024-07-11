@@ -32,6 +32,7 @@ void open_game(uint8_t game_id) {
   lobby_manager_register_custom_cmd_recv_cb(NULL);
   switch (game_id) {
     case RAUL_GAME:
+
       break;
     case ROPE_GAME:
       rope_game_init();
@@ -110,9 +111,11 @@ void games_module_state_machine(button_event_t button_pressed) {
       switch (button_event) {
         case BUTTON_PRESS_DOWN:
           printf("GAMES DEINIT\n");
-          lobby_manager_deinit();
-          menu_screens_set_app_state(false, NULL);
-          menu_screens_exit_submenu();
+          screen_module_set_screen(MENU_GAMES_PLAY);
+          esp_restart();
+          // lobby_manager_deinit();
+          // menu_screens_set_app_state(false, NULL);
+          // menu_screens_exit_submenu();
           break;
       }
       break;

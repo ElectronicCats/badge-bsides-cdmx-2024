@@ -18,8 +18,7 @@ static const char* TAG = "neopixels_module";
 /* Use project configuration menu (idf.py menuconfig) to choose the GPIO to
    blink, or you can edit the following line and set a number here.
 */
-#define BLINK_GPIO     GPIO_NUM_10
-#define MAX_LED_NUMBER 4
+#define BLINK_GPIO GPIO_NUM_10
 
 static led_strip_handle_t led_strip;
 
