@@ -155,42 +155,39 @@ void speed_game_show_bag() {
   // oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   // update_bar(speed_bag_game_instance.bag_bar, BAR_HEIGHT, false);
-  if (speed_bag_game_instance.players_data[0].strenght == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
-                               OLED_DISPLAY_NORMAL);
-  } else if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+  if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[1].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 24, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 24, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 24, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 24, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[2].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 48, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 48, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 48, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 48, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[3].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 72, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 72, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 72, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 72, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[4].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 96, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 96, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 96, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 96, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   // oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
@@ -322,16 +319,14 @@ void games_screens_module_show_game_over(bool winner, bool team) {
 
 void games_screen_module_show_game_over_speed(int winner) {
   oled_screen_clear();
-  if (speed_bag_player_id != winner) {
-    oled_screen_display_text_center("You lost", 2, OLED_DISPLAY_INVERT);
-  } else {
-    char* str = (char*) malloc(32);
-    sprintf(str, "Player %d won\n", winner + 1);
-    oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-    printf("Player %d won\n", winner + 1);
-    oled_screen_display_bitmap(game_belt, 0, 8, 128, 32, OLED_DISPLAY_NORMAL);
-    free(str);
-  }
+  char* str = (char*) malloc(32);
+  sprintf(str, "Ganador: %d \n", winner + 1);
+  oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+  oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+  free(str);
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
@@ -355,7 +350,7 @@ void games_screens_module_show_speed_bag_game_event(
   switch (event) {
     case UPDATE_GAME_EVENT:
       speed_game_show_bag();
-      // speed_bag_game_show_game_data();
+      speed_bag_game_show_game_data();
       break;
     default:
       break;

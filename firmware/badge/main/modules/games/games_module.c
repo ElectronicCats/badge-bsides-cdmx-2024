@@ -38,6 +38,7 @@ void open_game(uint8_t game_id) {
       rope_game_init();
       break;
     case KEVIN_GAME:
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
       speed_bag_game_init();
       break;
     default:
@@ -56,7 +57,7 @@ void send_start_game_cmd() {
     case 4:
       game_id = ROPE_GAME;
       break;
-    case 3:
+    case 5:
       game_id = KEVIN_GAME;
       break;
     default:

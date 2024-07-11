@@ -9,6 +9,7 @@
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
+#include "neopixels_module.h"
 #include "oled_screen.h"
 #include "stdbool.h"
 
@@ -29,10 +30,25 @@ static bool is_game_running = false;
 static esp_timer_handle_t timer_handle;
 static TaskHandle_t speed_bag_game_task_handler = NULL;
 static int speed_bag_winner = -1;
-static void speed_bag_game_over();
+static void speed_bag_game_over(int winner_id);
 static void speed_bag_game_exit();
 
 uint8_t speed_bag_player_id;
+
+static void get_team_color(int player_id) {
+  if (player_id == 0) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 50, 0);  // YELLOW
+  } else if (player_id == 1) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
+  } else if (player_id == 2) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
+  } else if (player_id == 3) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
+  } else if (player_id == 4) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 50);  // PINK
+  }
+  neopixels_refresh();
+}
 
 static void game_data_init() {
   for (uint8_t i = 0; i < MAX_BAG_GAME_PLAYERS; i++) {
@@ -44,6 +60,7 @@ static void game_data_init() {
   memset(&speed_bag_game_instance, 0, sizeof(speed_bag_game_data_t));
   speed_bag_main_player =
       &speed_bag_game_instance.players_data[speed_bag_player_id];
+  get_team_color(speed_bag_player_id);
 }
 
 static void speed_bag_print_game_data() {
@@ -125,39 +142,43 @@ static void send_stop_game_cmd() {
                      sizeof(speed_bag_stop_game_cmd_t));
 }
 
-static void handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
+static void speed_handle_stop_game_cmd(badge_connect_recv_msg_t* msg) {
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
   }
-  ESP_LOGE(TAG, "STOP GAME handle_stop_game_cmd");
+  ESP_LOGE(TAG, "STOP GAME speed_handle_stop_game_cmd");
   speed_bag_game_exit();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
-
+// Host
 static void send_game_over_cmd() {
   ESP_LOGI(TAG, "send_game_over_cmd");
-  speed_bag_game_over_cmd_t cmd = {.cmd = SPEED_BAG_GAME_OVER_CMD};
+  speed_bag_game_over_cmd_t cmd = {.cmd = SPEED_BAG_GAME_OVER_CMD,
+                                   .winner_id = speed_bag_winner};
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd,
                      sizeof(speed_bag_game_over_cmd_t));
   vTaskDelay(pdMS_TO_TICKS(100));
   badge_connect_send(ESPNOW_ADDR_BROADCAST, &cmd,
                      sizeof(speed_bag_game_over_cmd_t));
 }
-
-void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
+// Host/ client
+void speed_handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
+  ESP_LOGI(TAG, "GAME OVER speed_handle_game_over_cmd");
   if (host_mode || memcmp(HOST_MAC, msg->src_addr, MAC_SIZE) != 0) {
     return;
   }
-  ESP_LOGI(TAG, "GAME OVER handle_game_over_cmd");
-  speed_bag_game_over();
+  speed_bag_game_over_cmd_t* cmd = (speed_bag_game_over_cmd_t*) msg->data;
+  speed_bag_game_over(cmd->winner_id);
 }
 
 // ///////////////////////////////////////////////////////////////////////////////
-static void speed_bag_game_over() {
+static void speed_bag_game_over(int winner_id) {
+  ESP_LOGI(TAG, "speed_bag_game_over");
   send_game_over_cmd();
   is_game_running = false;
-  games_screen_module_show_game_over_speed(speed_bag_winner);
+  get_team_color(winner_id);
+  games_screen_module_show_game_over_speed(winner_id);
 }
 
 void update_speed_bag_value() {
@@ -174,32 +195,33 @@ void update_speed_bag_value() {
 
   if ((int) speed_bag_game_instance.players_data[0].strenght >= MAX_SCORE) {
     speed_bag_winner = 0;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[0] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[1].strenght >= MAX_SCORE) {
     speed_bag_winner = 1;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[1] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[2].strenght >= MAX_SCORE) {
     speed_bag_winner = 2;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[2] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[3].strenght >= MAX_SCORE) {
     speed_bag_winner = 3;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[3] %d", speed_bag_winner);
   }
   if ((int) speed_bag_game_instance.players_data[4].strenght >= MAX_SCORE) {
     speed_bag_winner = 4;
-    ESP_LOGE(TAG, "speed_bag_winner - players_data[4] %d", speed_bag_winner);
   }
+  speed_bag_game_instance.players_data[0].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[1].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[2].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[3].winner_id = speed_bag_winner;
+  speed_bag_game_instance.players_data[4].winner_id = speed_bag_winner;
   if (speed_bag_winner != -1) {
-    speed_bag_game_over();
+    speed_bag_game_over(speed_bag_winner);
   }
 }
 
 static void speed_on_receive_data_cb(badge_connect_recv_msg_t* msg) {
   ESP_LOGI(TAG, "speed_on_receive_data_cb");
   uint8_t cmd = *((uint8_t*) msg->data);
+  ESP_LOGI(TAG, "CMD: %d", cmd);
   switch (cmd) {
     case SPEED_BAG_UPDATE_PLAYER_DATA_CMD:
       speed_bag_handle_player_update(msg);
@@ -209,10 +231,10 @@ static void speed_on_receive_data_cb(badge_connect_recv_msg_t* msg) {
       break;
     case SPEED_BAG_STOP_GAME_CMD:
       ESP_LOGI(TAG, "STOP GAME");
-      handle_stop_game_cmd(msg);
+      speed_handle_stop_game_cmd(msg);
     case SPEED_BAG_GAME_OVER_CMD:
       ESP_LOGI(TAG, "GAME OVER");
-      handle_game_over_cmd(msg);
+      speed_handle_game_over_cmd(msg);
       break;
     default:
       break;
@@ -292,6 +314,8 @@ static void speed_bag_game_exit() {
   vTaskDelay(pdMS_TO_TICKS(50));
   send_stop_game_cmd();
   games_module_setup();
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 0);  // OFF
+  neopixels_refresh();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////

@@ -64,7 +64,7 @@ void wifi_screens_module_display_scanned_networks(wifi_ap_record_t* ap_records,
                                                   int scanned_records,
                                                   int current_option) {
   oled_screen_clear();
-  oled_screen_display_text_center("Select network", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("Select Network", 0, OLED_DISPLAY_NORMAL);
 
   for (int i = current_option; i < (max_records_to_display + current_option);
        i++) {
@@ -93,7 +93,7 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
   memset(ssid, 0, 33);
   sprintf(ssid, "%s", (char*) ap_record->ssid);
   int curr_page = (page == 5) ? 1 : page + 1;
-  sprintf(current_page, "Page: %d of %d", curr_page, 5);
+  sprintf(current_page, "%d of %d", curr_page, 5);
   oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
   oled_screen_display_text_center(current_page, 3, OLED_DISPLAY_NORMAL);
 

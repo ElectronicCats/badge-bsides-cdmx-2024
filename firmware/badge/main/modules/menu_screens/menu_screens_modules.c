@@ -408,7 +408,7 @@ void menu_screens_display_menu() {
     char** new_items = remove_items_flag(items, num_items);
     display_question_items(new_items);
   } else {
-    verify_badge_found();
+    // mverify_badge_found();
     display_menu_items(items);
   }
 }
@@ -528,13 +528,8 @@ void menu_screens_enter_submenu() {
       wifi_module_deauth_begin();
       break;
     case MENU_WIFI_DOS:
-      // catdos_module_begin();
-      oled_screen_clear(OLED_DISPLAY_NORMAL);
-      preferences_put_bool("ajounlock", false);
-      oled_screen_display_text_center("Restored", 1, OLED_DISPLAY_NORMAL);
-      vTaskDelay(2000 / portTICK_PERIOD_MS);
-      oled_screen_clear(OLED_DISPLAY_NORMAL);
-      menu_screens_display_menu();
+      oled_screen_clear();
+      catdos_module_begin();
       break;
     case MENU_WIFI_ANALIZER_RUN:
       oled_screen_clear();

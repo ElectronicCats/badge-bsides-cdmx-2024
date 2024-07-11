@@ -1,5 +1,6 @@
 
 #include "modules/wifi/wifi_module.h"
+#include "ajo_module.h"
 #include "captive_portal.h"
 #include "esp_check.h"
 #include "esp_log.h"
@@ -11,7 +12,6 @@
 #include "wifi_attacks.h"
 #include "wifi_controller.h"
 #include "wifi_scanner.h"
-
 static const char* TAG = "wifi_module";
 bool analizer_initialized = false;
 
@@ -56,7 +56,12 @@ static void scanning_task(void* pvParameters) {
     wifi_scanner_module_scan();
     vTaskDelay(5000 / portTICK_PERIOD_MS);
   }
-  vTaskSuspend(task_display_scanning);
+  bool is_ajo = ajo_module_get_state();
+  if (is_ajo) {
+    ajo_module_delete_task();
+  } else {
+    vTaskSuspend(task_display_scanning);
+  }
   wifi_screens_module_display_scanned_networks(
       ap_records->records, ap_records->count, current_option);
   vTaskDelete(NULL);
@@ -83,8 +88,12 @@ void wifi_module_deauth_begin() {
   memset(&current_wifi_state.wifi_config, 0, sizeof(wifi_config_t));
   current_wifi_state.wifi_config = wifi_driver_access_point_begin();
 
-  xTaskCreate(wifi_screens_module_scanning, "wifi_module_scanning", 4096, NULL,
-              5, &task_display_scanning);
+  bool is_ajo = ajo_module_display_animation();
+  if (!is_ajo) {
+    xTaskCreate(wifi_screens_module_scanning, "wifi_module_scanning", 4096,
+                NULL, 5, &task_display_scanning);
+  }
+
   vTaskDelay(1000 / portTICK_PERIOD_MS);
   xTaskCreate(scanning_task, "wifi_module_scan", 4096, NULL, 5, NULL);
   ap_records = wifi_scanner_get_ap_records();
