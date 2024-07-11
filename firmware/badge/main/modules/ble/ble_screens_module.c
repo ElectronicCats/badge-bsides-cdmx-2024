@@ -5,19 +5,17 @@
 
 void ble_screens_display_scanning_animation() {
   oled_screen_clear();
-  oled_screen_display_text_center("    BLE SPAM", 0, OLED_DISPLAY_NORMAL);
-  while (true) {
-    for (int i = 0; i < ble_bitmap_scan_attack_allArray_LEN; i++) {
-      oled_screen_display_bitmap(ble_bitmap_scan_attack_allArray[i], 0, 0, 32,
-                                 32, OLED_DISPLAY_NORMAL);
-      vTaskDelay(100 / portTICK_PERIOD_MS);
-    }
-  }
+  oled_screen_display_text_center("BLE SPAM", 0, OLED_DISPLAY_NORMAL);
 }
 
 void ble_screens_display_scanning_text(char* name) {
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   oled_screen_display_text_center(name, 3, OLED_DISPLAY_INVERT);
+}
+
+void ble_screens_display_scanning_text_ajo(char* name) {
+  oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center(name, 0, OLED_DISPLAY_INVERT);
 }
 
 void ble_screens_display_trackers_profiles(tracker_profile_t* trackers_scanned,

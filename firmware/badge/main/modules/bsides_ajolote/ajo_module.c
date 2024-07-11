@@ -100,7 +100,7 @@ static void ajo_module_display_animation_unlocked() {
   oled_screen_display_text_center("UNLOCKED!", 2, OLED_DISPLAY_NORMAL);
   vTaskDelay(2000 / portTICK_PERIOD_MS);
   ajo_module_display_animation();
-  vTaskDelay(8000 / portTICK_PERIOD_MS);
+  vTaskDelay(6000 / portTICK_PERIOD_MS);
   esp_restart();
 }
 
@@ -108,10 +108,9 @@ static void ajo_module_animation_task() {
   running = true;
   while (running) {
     for (int i = 0; i < ajolote_allArray_LEN; i++) {
-      oled_screen_clear(OLED_DISPLAY_NORMAL);
-      oled_screen_display_bitmap(ajolote_allArray[i], 0, 0, 128, 32,
+      oled_screen_display_bitmap(ajolote_allArray[i], 0, 8, 128, 32,
                                  OLED_DISPLAY_NORMAL);
-      vTaskDelay(500 / portTICK_PERIOD_MS);
+      vTaskDelay(200 / portTICK_PERIOD_MS);
     }
     vTaskDelay(1000 / portTICK_PERIOD_MS);
   }

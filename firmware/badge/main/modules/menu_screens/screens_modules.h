@@ -500,7 +500,7 @@ char* games_items[] = {
     NULL,
 };
 char* games_help_items[] = {
-    "Sala?", "Vencidas?", "Cuerda?", "Peras?", NULL,
+    "Sala?", "Vencidas?", "Cuerda?", "Peras", NULL,
 };
 
 char* games_main_help[] = {

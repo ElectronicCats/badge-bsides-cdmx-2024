@@ -9,6 +9,7 @@
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
+#include "neopixels_module.h"
 #include "oled_screen.h"
 #include "stdbool.h"
 
@@ -34,6 +35,21 @@ static void speed_bag_game_exit();
 
 uint8_t speed_bag_player_id;
 
+static void get_team_color(int player_id) {
+  if (player_id == 0) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 50, 0);  // YELLOW
+  } else if (player_id == 1) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
+  } else if (player_id == 2) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
+  } else if (player_id == 3) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
+  } else if (player_id == 4) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 50);  // PINK
+  }
+  neopixels_refresh();
+}
+
 static void game_data_init() {
   for (uint8_t i = 0; i < MAX_BAG_GAME_PLAYERS; i++) {
     memcpy(game_players_mac[i], players[i].mac, MAC_SIZE);
@@ -44,6 +60,7 @@ static void game_data_init() {
   memset(&speed_bag_game_instance, 0, sizeof(speed_bag_game_data_t));
   speed_bag_main_player =
       &speed_bag_game_instance.players_data[speed_bag_player_id];
+  get_team_color(speed_bag_player_id);
 }
 
 static void speed_bag_print_game_data() {
@@ -161,6 +178,7 @@ static void speed_bag_game_over(int winner_id) {
   send_game_over_cmd();
   is_game_running = false;
   games_screen_module_show_game_over_speed(winner_id);
+  get_team_color(winner_id);
 }
 
 void update_speed_bag_value() {
@@ -296,6 +314,8 @@ static void speed_bag_game_exit() {
   vTaskDelay(pdMS_TO_TICKS(50));
   send_stop_game_cmd();
   games_module_setup();
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 0);  // OFF
+  neopixels_refresh();
 }
 
 // ///////////////////////////////////////////////////////////////////////////////

@@ -153,5 +153,6 @@ static const unsigned char* ajolote_allArray[4] = {
 bool ajo_module_display_animation();
 void ajo_module_init(void);
 bool ajo_module_get_state();
+void ajo_module_delete_task();
 
 #endif  // AJO_MODULE_H

@@ -1,4 +1,5 @@
 #include "ble_module.h"
+#include "ajo_module.h"
 #include "bt_spam.h"
 #include "esp_log.h"
 #include "led_events.h"
@@ -43,9 +44,15 @@ static void ble_module_app_selector() {
       trackers_scanner_start();
       break;
     case MENU_BLUETOOTH_SPAM:
-      xTaskCreate(ble_screens_display_scanning_animation, "ble_module_scanning",
-                  4096, NULL, 5, &ble_task_display_animation);
-      bt_spam_register_cb(ble_screens_display_scanning_text);
+      bool is_ajo = ajo_module_display_animation();
+      if (is_ajo) {
+        bt_spam_register_cb(ble_screens_display_scanning_text_ajo);
+      } else {
+        xTaskCreate(ble_screens_display_scanning_animation,
+                    "ble_module_scanning", 4096, NULL, 5,
+                    &ble_task_display_animation);
+        bt_spam_register_cb(ble_screens_display_scanning_text);
+      }
       bt_spam_app_main();
       break;
     default:
