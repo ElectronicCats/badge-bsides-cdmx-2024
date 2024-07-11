@@ -202,6 +202,31 @@ void speed_game_show_bag() {
   //                            OLED_DISPLAY_NORMAL);
 }
 
+void arm_wrestling_show_game_data() {
+  char* str = (char*) malloc(10);
+  // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("2", 120, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%s%03d", arm_wrestling_player_id == 1 ? "-->" : "",
+          game_instance.players_data[1].strenght);
+  oled_screen_display_text(
+      str, arm_wrestling_player_id == 1 ? 56 : 80, 1,
+      arm_wrestling_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%03d%s", game_instance.players_data[0].strenght,
+          arm_wrestling_player_id == 0 ? "<--" : "");
+  oled_screen_display_text(
+      str, 25, 1,
+      arm_wrestling_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  free(str);
+}
+
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
   // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
@@ -359,13 +384,13 @@ void games_screens_module_show_arm_wrestling_game_event(
     arm_wrestling_events_t event) {
   switch (event) {
     case WUPDATE_GAME_EVENT:
-      oled_screen_display_text("P1         P2", 0, 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("P1        P2", 0, 0, OLED_DISPLAY_NORMAL);
       // rope_game_show_rope();
       bool x_mirror = wgame_instance.arm_position < 0;
       update_bar(abs(wgame_instance.arm_position), 8, x_mirror);
-      oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 16, 64, 8,
+      oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 32, 64, 8,
                                  OLED_DISPLAY_NORMAL);
-      rope_game_show_game_data();
+      arm_wrestling_show_game_data();
       break;
     default:
       break;
