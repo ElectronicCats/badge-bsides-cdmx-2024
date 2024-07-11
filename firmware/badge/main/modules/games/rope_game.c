@@ -58,9 +58,9 @@ uint8_t rope_player_id;
 
 static void set_team_color(bool team) {
   if (team == TEAM2) {
-    neopixels_set_pixels(MAX_LED_NUMBER, 100, 100, 0);  // YELLOW
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 50, 0);  // YELLOW
   } else {
-    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 100);  // BLUE
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
   }
   neopixels_refresh();
 }
@@ -179,9 +179,9 @@ static void rope_game_over() {
   winner = game_instance.rope_bar > 0;
   games_screens_module_show_game_over(winner, team);
   if (team == winner) {
-    neopixels_set_pixels(MAX_LED_NUMBER, 0, 100, 0);  // GREEN
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
   } else {
-    neopixels_set_pixels(MAX_LED_NUMBER, 100, 0, 0);  // RED
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
   }
   neopixels_refresh();
 }
