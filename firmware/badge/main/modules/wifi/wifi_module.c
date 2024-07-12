@@ -8,11 +8,13 @@
 #include "keyboard_module.h"
 #include "menu_screens_modules.h"
 #include "modules/wifi/wifi_screens_module.h"
+#include "neopixels_module.h"
 #include "string.h"
 #include "wifi_attacks.h"
 #include "wifi_controller.h"
 #include "wifi_scanner.h"
 static const char* TAG = "wifi_module";
+
 bool analizer_initialized = false;
 
 /**
@@ -44,12 +46,31 @@ char* wifi_state_names[] = {
 
 static TaskHandle_t task_display_scanning = NULL;
 static TaskHandle_t task_display_attacking = NULL;
+static TaskHandle_t task_leds_attacks = NULL;
 static wifi_scanner_ap_records_t* ap_records;
 static wifi_module_t current_wifi_state;
 static int current_option = 0;
 static bool show_details = false;
 static bool valid_records = false;
 static int index_targeted = 0;
+static bool runing_attack = false;
+
+static void set_leds_wifi() {
+  neopixels_set_pixels(MAX_LED_NUMBER, 50, 50, 0);  // YELLOW
+  neopixels_refresh();
+}
+
+static void set_leds_animation_attack() {
+  while (runing_attack) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
+    neopixels_refresh();
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 0);  // OFF
+    neopixels_refresh();
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+  }
+  vTaskDelay(500 / portTICK_PERIOD_MS);
+}
 
 static void scanning_task(void* pvParameters) {
   while (!valid_records) {
@@ -60,11 +81,19 @@ static void scanning_task(void* pvParameters) {
   if (is_ajo) {
     ajo_module_delete_task();
   } else {
-    vTaskSuspend(task_display_scanning);
+    if (task_display_scanning != NULL) {
+      vTaskSuspend(task_display_scanning);
+    }
   }
   wifi_screens_module_display_scanned_networks(
       ap_records->records, ap_records->count, current_option);
   vTaskDelete(NULL);
+}
+static void stop_ajo_animation() {
+  bool is_ajo = ajo_module_get_state();
+  if (is_ajo) {
+    ajo_module_delete_task();
+  }
 }
 
 void wifi_module_exit() {
@@ -83,12 +112,14 @@ void wifi_module_exit() {
 
 void wifi_module_deauth_begin() {
   ESP_LOGI(TAG, "Initializing WiFi module");
+  set_leds_wifi();
   menu_screens_set_app_state(true, wifi_module_keyboard_cb);
   current_wifi_state.state = WIFI_STATE_SCANNING;
   memset(&current_wifi_state.wifi_config, 0, sizeof(wifi_config_t));
   current_wifi_state.wifi_config = wifi_driver_access_point_begin();
 
   bool is_ajo = ajo_module_display_animation();
+  wifi_screens_module_ajo_scanning();
   if (!is_ajo) {
     xTaskCreate(wifi_screens_module_scanning, "wifi_module_scanning", 4096,
                 NULL, 5, &task_display_scanning);
@@ -311,9 +342,8 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNING: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
+          if (button_event == BUTTON_DOWN) {
             wifi_module_exit();
-            break;
           }
           break;
         }
@@ -329,9 +359,8 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNED: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
+          if (button_event == BUTTON_DOUBLE_CLICK) {
             wifi_module_exit();
-            break;
           }
           break;
         }
@@ -376,10 +405,6 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_DETAILS: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_module_exit();
-            break;
-          }
           current_option = 0;
           show_details = false;
           current_wifi_state.state = WIFI_STATE_SCANNED;
@@ -394,6 +419,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           current_option = 0;
           current_wifi_state.state = WIFI_STATE_ATTACK_SELECTOR;
           int count_attacks = wifi_attacks_get_attack_count();
+          current_option = 0;
           wifi_screens_module_display_attack_selector(
               WIFI_ATTACKS_LIST, count_attacks, current_option);
           break;
@@ -401,7 +427,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = (current_option == 0) ? 5 : current_option - 1;
+          current_option = (current_option == 0) ? 4 : current_option - 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;
@@ -410,7 +436,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = (current_option == 5) ? 0 : current_option + 1;
+          current_option = (current_option == 4) ? 0 : current_option + 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;
@@ -424,10 +450,6 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK_SELECTOR: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_module_exit();
-            break;
-          }
           show_details = false;
           current_option = 0;
           current_wifi_state.state = WIFI_STATE_SCANNED;
@@ -446,6 +468,18 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
               wifi_attack_handle_attacks(WIFI_ATTACK_COMBINE,
                                          &ap_records->records[i]);
             }
+            xTaskCreate(set_leds_animation_attack, "led_attack", 4096, NULL, 5,
+                        &task_leds_attacks);
+            bool is_ajo = ajo_module_display_animation();
+            if (is_ajo) {
+              wifi_screens_module_animate_attacking_ajo(
+                  &ap_records->records[index_targeted]);
+            } else {
+              xTaskCreate(wifi_screens_module_animate_attacking,
+                          "wifi_module_scanning", 4096,
+                          &ap_records->records[index_targeted], 5,
+                          &task_display_attacking);
+            }
           } else if (current_option == WIFI_ATTACK_PASSWORD) {
             current_wifi_state.state = WIFI_STATE_ATTACK_CAPTIVE_PORTAL;
             current_option = 0;
@@ -455,10 +489,16 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
             wifi_attack_handle_attacks(current_option,
                                        &ap_records->records[index_targeted]);
 
-            xTaskCreate(wifi_screens_module_animate_attacking,
-                        "wifi_module_scanning", 4096,
-                        &ap_records->records[index_targeted], 5,
-                        &task_display_attacking);
+            bool is_ajo = ajo_module_display_animation();
+            if (is_ajo) {
+              wifi_screens_module_animate_attacking_ajo(
+                  &ap_records->records[index_targeted]);
+            } else {
+              xTaskCreate(wifi_screens_module_animate_attacking,
+                          "wifi_module_scanning", 4096,
+                          &ap_records->records[index_targeted], 5,
+                          &task_display_attacking);
+            }
           }
           break;
         case BUTTON_UP: {
@@ -492,16 +532,23 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_attacks_module_stop();
-            wifi_module_exit();
-            vTaskSuspend(task_display_attacking);
-            break;
-          }
+          ESP_LOGI(TAG, "Stopping attack");
           show_details = false;
           current_option = 0;
+          ESP_LOGI(TAG, "wifi_attacks_module_stop");
           wifi_attacks_module_stop();
-          vTaskSuspend(task_display_attacking);
+          ESP_LOGI(TAG, "task_display_attacking");
+          if (task_display_attacking != NULL) {
+            vTaskSuspend(task_display_attacking);
+            vTaskDelete(task_display_attacking);
+          }
+          if (task_leds_attacks != NULL) {
+            runing_attack = false;
+            vTaskSuspend(task_leds_attacks);
+            vTaskDelete(task_leds_attacks);
+          }
+          ESP_LOGI(TAG, "stop_ajo_animation");
+          stop_ajo_animation();
 
           current_wifi_state.state = WIFI_STATE_ATTACK_SELECTOR;
           int count_attacks = wifi_attacks_get_attack_count();
@@ -512,6 +559,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
         case BUTTON_RIGHT:
           break;
         case BUTTON_UP: {
+          ESP_LOGI(TAG, "Changing attack");
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }

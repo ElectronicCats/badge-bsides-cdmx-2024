@@ -113,16 +113,11 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
       ESP_LOGI(TAG_ZIGBEE_MODULE, "Zigbee Sniffer Entered");
       switch (button_name) {
         case BUTTON_LEFT:
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            ESP_LOGI(TAG_ZIGBEE_MODULE, "Button left pressed");
-            neopixel_events_stop_event();
-            ieee_sniffer_stop();
-            vTaskDelete(zigbee_task_sniffer);
-            menu_screens_set_app_state(false, NULL);
-            menu_screens_exit_submenu();
-            break;
-          }
-
+          ESP_LOGI(TAG_ZIGBEE_MODULE, "Button left pressed");
+          ieee_sniffer_stop();
+          vTaskDelete(zigbee_task_sniffer);
+          menu_screens_set_app_state(false, NULL);
+          menu_screens_exit_submenu();
           break;
         case BUTTON_RIGHT:
         case BUTTON_UP:
