@@ -111,7 +111,7 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
   char* current_page = (char*) malloc(33);
   memset(ssid, 0, 33);
   sprintf(ssid, "%s", (char*) ap_record->ssid);
-  int curr_page = (page == 5) ? 1 : page + 1;
+  int curr_page = (page == 4) ? 1 : page + 1;
   sprintf(current_page, "%d of %d", curr_page, 5);
   oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
   oled_screen_display_text_center(current_page, 3, OLED_DISPLAY_NORMAL);
@@ -132,13 +132,13 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
     oled_screen_display_text_center("BSSID", 1, OLED_DISPLAY_NORMAL);
     oled_screen_display_text_center(bssid, 2, OLED_DISPLAY_NORMAL);
     free(bssid);
-  } else if (page == 3) {
+  } else if (page == 2) {
     char* auth_mode = (char*) malloc(20);
     sprintf(auth_mode, "%s", wifi_auth_modes[ap_record->authmode]);
     oled_screen_display_text_center("AUTH MODE", 1, OLED_DISPLAY_NORMAL);
     oled_screen_display_text_center(auth_mode, 2, OLED_DISPLAY_NORMAL);
     free(auth_mode);
-  } else if (page == 4) {
+  } else if (page == 3) {
     char* pairwise_cipher = (char*) malloc(20);
 
     sprintf(pairwise_cipher, "%s",
