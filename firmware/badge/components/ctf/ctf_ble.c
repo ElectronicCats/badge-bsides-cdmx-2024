@@ -33,6 +33,7 @@
 #define SCAN_RSP_CONFIG_FLAG (1 << 1)
 
 static uint8_t adv_config_done = 0;
+static uint8_t device_eui64[8] = {0};
 
 uint16_t blectf_handle_table[HRS_IDX_NB];
 
@@ -776,6 +777,7 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event,
                  set_dev_name_ret);
       }
 #ifdef CONFIG_SET_RAW_ADV_DATA
+      esp_read_mac(device_eui64, ESP_MAC_BT);
       uint8_t raw_adv_data[] = {/* flags */
                                 0x02, 0x01, 0x06,
                                 /* tx power*/
@@ -1353,8 +1355,4 @@ void ctf_ble_module_begin() {
     ESP_LOGE(CTF_BLE_TAG, "set local  MTU failed, error code = %x",
              local_mtu_ret);
   }
-  uint8_t eui64[8] = {0};
-  esp_read_mac(eui64, ESP_MAC_BT);
-  ESP_LOGI(CTF_BLE_TAG, "ESP32 EUI64: %02X:%02X:%02X:%02X:%02X:%02X", eui64[0],
-           eui64[1], eui64[2], eui64[3], eui64[4], eui64[5]);
 }

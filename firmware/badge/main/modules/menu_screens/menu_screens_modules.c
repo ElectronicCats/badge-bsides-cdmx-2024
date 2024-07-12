@@ -378,7 +378,7 @@ void display_question_items(char** items) {
 }
 
 void verify_badge_found() {
-  if (!preferences_get_bool("badge_found", false)) {
+  if (preferences_get_bool("badge_found", false)) {
     wifi_items[2] = "DoS";
   } else {
     wifi_items[2] = NULL;
