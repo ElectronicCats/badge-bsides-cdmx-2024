@@ -16,8 +16,12 @@ static app_screen_state_information_t app_screen_state_information = {
 };
 static int trackers_count = 0;
 static int device_selection = 0;
+static int ctf_ble_score = 0;
+static int ctf_ble_page = 0;
+static char ctf_ble_flags[20];
 static bool is_displaying = false;
 static bool is_modal_displaying = false;
+static bool ctf_ble_flag_received = false;
 static tracker_profile_t* scanned_airtags = NULL;
 static TaskHandle_t ble_task_display_records = NULL;
 
@@ -26,10 +30,41 @@ static void ble_module_state_machine(button_event_t button_pressed);
 static void ble_module_display_trackers_cb(tracker_profile_t record);
 static void ble_module_task_start_trackers_display_devices();
 static void ble_module_task_stop_trackers_display_devices();
+static void ble_module_display_ctf_score();
+static void ble_module_display_ctf_cb(int score, char* flags);
 
 static void set_ble_color() {
   neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
   neopixels_refresh();
+}
+
+static void set_ble_color_off() {
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 0);  // OFF
+  neopixels_refresh();
+}
+
+static void set_ble_color_red() {
+  neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
+  neopixels_refresh();
+}
+
+static void set_ble_flag_color() {
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
+  neopixels_refresh();
+}
+
+static void set_waiting_color() {
+  while (true) {
+    if (ctf_ble_flag_received) {
+      continue;
+    }
+    neopixels_set_pixels(0, 0, 0, 50);                                 // BLUE
+    neopixels_set_pixels(1, 0, 0, (ctf_ble_score % 2 == 0) ? 50 : 0);  // BLUE
+    neopixels_set_pixels(2, 0, 0, 50);                                 // BLUE
+    neopixels_set_pixels(3, 0, 0, (ctf_ble_score % 2 == 0) ? 50 : 0);  // BLUE
+    neopixels_refresh();
+    vTaskDelay(500 / portTICK_PERIOD_MS);
+  }
 }
 
 void ble_module_begin(int app_selected) {
@@ -60,6 +95,8 @@ static void ble_module_app_selector() {
       bt_spam_app_main();
       break;
     case MENU_BLUETOOTH_CTF:
+      xTaskCreate(set_waiting_color, "waiting_color", 2048, NULL, 10, NULL);
+      ctf_ble_flag_register_cb(ble_module_display_ctf_cb);
       set_ble_color();
       ctf_ble_module_begin();
       ctf_ble_show_intro();
@@ -86,6 +123,7 @@ static void ble_module_state_machine(button_event_t button_pressed) {
         case BUTTON_LEFT:
           ESP_LOGI(TAG_BLE_MODULE, "Button left pressed");
           screen_module_set_screen(MENU_BLUETOOTH_TRAKERS_SCAN);
+          set_ble_color_off();
           esp_restart();
           break;
         case BUTTON_RIGHT:
@@ -117,6 +155,7 @@ static void ble_module_state_machine(button_event_t button_pressed) {
       switch (button_name) {
         case BUTTON_LEFT:
           screen_module_set_screen(MENU_BLUETOOTH_SPAM);
+          set_ble_color_off();
           esp_restart();
           break;
         case BUTTON_RIGHT:
@@ -131,11 +170,26 @@ static void ble_module_state_machine(button_event_t button_pressed) {
       switch (button_name) {
         case BUTTON_LEFT:
           screen_module_set_screen(MENU_BLUETOOTH_CTF);
+          set_ble_color_off();
           esp_restart();
           break;
         case BUTTON_RIGHT:
         case BUTTON_UP:
+          if (ctf_ble_page == 0) {
+            ctf_ble_page = 1;
+          } else {
+            ctf_ble_page = 0;
+          }
+          ble_module_display_ctf_score();
+          break;
         case BUTTON_DOWN:
+          if (ctf_ble_page == 0) {
+            ctf_ble_page = 1;
+          } else {
+            ctf_ble_page = 0;
+          }
+          ble_module_display_ctf_score();
+          break;
         case BUTTON_BOOT:
         default:
           break;
@@ -144,6 +198,62 @@ static void ble_module_state_machine(button_event_t button_pressed) {
     default:
       break;
   }
+}
+
+static void ble_module_display_ctf_score() {
+  oled_screen_clear();
+  char score_text[20];
+  snprintf(score_text, 20, "BLECTF SCORE: %d", ctf_ble_score);
+  oled_screen_display_text_center(score_text, 0, OLED_DISPLAY_INVERT);
+
+  if (ctf_ble_page == 0) {
+    oled_screen_display_text_center("Showing: 0-10", 1, OLED_DISPLAY_NORMAL);
+    char first_flags[20];
+    char second_flags[20];
+    sprintf(first_flags, "%c|%c|%c|%c|%c|", ctf_ble_flags[0], ctf_ble_flags[1],
+            ctf_ble_flags[2], ctf_ble_flags[3], ctf_ble_flags[4]);
+    sprintf(second_flags, "%c|%c|%c|%c|%c|", ctf_ble_flags[5], ctf_ble_flags[6],
+            ctf_ble_flags[7], ctf_ble_flags[8], ctf_ble_flags[9]);
+    oled_screen_display_text_center(first_flags, 2, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(second_flags, 3, OLED_DISPLAY_NORMAL);
+  } else {
+    oled_screen_display_text_center("Showing: 10-20", 1, OLED_DISPLAY_NORMAL);
+    char third_flags[20];
+    char fourth_flags[20];
+    sprintf(third_flags, "%c|%c|%c|%c|%c|", ctf_ble_flags[10],
+            ctf_ble_flags[11], ctf_ble_flags[12], ctf_ble_flags[13],
+            ctf_ble_flags[14]);
+    sprintf(fourth_flags, "%c|%c|%c|%c|%c|", ctf_ble_flags[15],
+            ctf_ble_flags[16], ctf_ble_flags[17], ctf_ble_flags[18],
+            ctf_ble_flags[19]);
+    oled_screen_display_text_center(third_flags, 2, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(fourth_flags, 3, OLED_DISPLAY_NORMAL);
+  }
+}
+
+static void ble_module_display_ctf_cb(int score, char* flags) {
+  oled_screen_clear();
+  oled_screen_display_text_center("Data Recived", 0, OLED_DISPLAY_INVERT);
+  ctf_ble_flag_received = true;
+
+  if (score == ctf_ble_score) {
+    set_ble_color_red();
+    oled_screen_display_text_center("Wrong Flag", 2, OLED_DISPLAY_INVERT);
+    oled_screen_display_text_center("Try Again", 3, OLED_DISPLAY_NORMAL);
+  } else {
+    set_ble_flag_color();
+    oled_screen_display_text_center("Correct Flag", 2, OLED_DISPLAY_INVERT);
+    oled_screen_display_text_center("Good Job", 3, OLED_DISPLAY_NORMAL);
+  }
+  ctf_ble_score = score;
+  for (int i = 0; i < 20; i++) {
+    ctf_ble_flags[i] = flags[i];
+  }
+  vTaskDelay(2000 / portTICK_PERIOD_MS);
+  oled_screen_clear();
+  ctf_ble_flag_received = false;
+
+  ble_module_display_ctf_score();
 }
 
 static void ble_module_display_trackers_cb(tracker_profile_t record) {

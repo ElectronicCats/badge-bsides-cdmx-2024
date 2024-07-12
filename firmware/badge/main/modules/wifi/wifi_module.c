@@ -13,6 +13,7 @@
 #include "wifi_controller.h"
 #include "wifi_scanner.h"
 static const char* TAG = "wifi_module";
+
 bool analizer_initialized = false;
 
 /**
@@ -89,6 +90,7 @@ void wifi_module_deauth_begin() {
   current_wifi_state.wifi_config = wifi_driver_access_point_begin();
 
   bool is_ajo = ajo_module_display_animation();
+  wifi_screens_module_ajo_scanning();
   if (!is_ajo) {
     xTaskCreate(wifi_screens_module_scanning, "wifi_module_scanning", 4096,
                 NULL, 5, &task_display_scanning);
@@ -311,9 +313,8 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNING: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
+          if (button_event == BUTTON_DOWN) {
             wifi_module_exit();
-            break;
           }
           break;
         }
@@ -329,9 +330,8 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_SCANNED: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
+          if (button_event == BUTTON_DOUBLE_CLICK) {
             wifi_module_exit();
-            break;
           }
           break;
         }
@@ -376,10 +376,6 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_DETAILS: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_module_exit();
-            break;
-          }
           current_option = 0;
           show_details = false;
           current_wifi_state.state = WIFI_STATE_SCANNED;
@@ -423,10 +419,6 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK_SELECTOR: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_module_exit();
-            break;
-          }
           show_details = false;
           current_option = 0;
           current_wifi_state.state = WIFI_STATE_SCANNED;
@@ -454,10 +446,16 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
             wifi_attack_handle_attacks(current_option,
                                        &ap_records->records[index_targeted]);
 
-            xTaskCreate(wifi_screens_module_animate_attacking,
-                        "wifi_module_scanning", 4096,
-                        &ap_records->records[index_targeted], 5,
-                        &task_display_attacking);
+            bool is_ajo = ajo_module_display_animation();
+            if (is_ajo) {
+              wifi_screens_module_animate_attacking_ajo(
+                  &ap_records->records[index_targeted]);
+            } else {
+              xTaskCreate(wifi_screens_module_animate_attacking,
+                          "wifi_module_scanning", 4096,
+                          &ap_records->records[index_targeted], 5,
+                          &task_display_attacking);
+            }
           }
           break;
         case BUTTON_UP: {
@@ -491,12 +489,6 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
     case WIFI_STATE_ATTACK: {
       switch (button_name) {
         case BUTTON_LEFT: {
-          if (button_event == BUTTON_LONG_PRESS_UP) {
-            wifi_attacks_module_stop();
-            wifi_module_exit();
-            vTaskSuspend(task_display_attacking);
-            break;
-          }
           show_details = false;
           current_option = 0;
           wifi_attacks_module_stop();

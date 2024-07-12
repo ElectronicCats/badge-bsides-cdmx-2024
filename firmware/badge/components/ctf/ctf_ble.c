@@ -35,6 +35,8 @@
 static uint8_t adv_config_done = 0;
 static uint8_t device_eui64[8] = {0};
 
+static ctf_ble_flag_cb_t ctf_ble_flag_callback = NULL;
+
 uint16_t blectf_handle_table[HRS_IDX_NB];
 
 typedef struct {
@@ -636,6 +638,8 @@ static void set_score() {
   }
   esp_ble_gatts_set_attr_value(blectf_handle_table[IDX_CHAR_SCORE] + 1,
                                sizeof score_read_value, score_read_value);
+
+  ctf_ble_flag_callback(score, flag_state);
 }
 
 static void gap_event_handler(esp_gap_ble_cb_event_t event,
@@ -1289,6 +1293,10 @@ static void gatts_event_handler(esp_gatts_cb_event_t event,
       }
     }
   } while (0);
+}
+
+void ctf_ble_flag_register_cb(ctf_ble_flag_cb_t callback) {
+  ctf_ble_flag_callback = callback;
 }
 
 void ctf_ble_module_begin() {

@@ -41,6 +41,20 @@ void wifi_screens_module_scanning(void) {
   }
 }
 
+void wifi_screens_module_ajo_scanning() {
+  oled_screen_display_text_center(" Scanning ", 0, OLED_DISPLAY_INVERT);
+}
+
+void wifi_screens_module_animate_attacking_ajo(wifi_ap_record_t* ap_record) {
+  oled_screen_clear();
+  char* ssid = (char*) malloc(33);
+  memset(ssid, 0, 33);
+  sprintf(ssid, "%s", (char*) ap_record->ssid);
+
+  oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
+  free(ssid);
+}
+
 void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
   oled_screen_clear();
   char* ssid = (char*) malloc(33);
@@ -48,14 +62,19 @@ void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
   sprintf(ssid, "%s", (char*) ap_record->ssid);
 
   oled_screen_display_text_center("TARGETING", 0, OLED_DISPLAY_INVERT);
-
+  oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_NORMAL);
+  char barra[13] = "-----------";
   while (true) {
-    for (int i = 0; i < 2; i++) {
-      oled_screen_display_bitmap(wifi_attack_module_allArray[i], 0, 0, 32, 32,
-                                 OLED_DISPLAY_NORMAL);
-      oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_NORMAL);
+    for (int i = 0; i < 8; i++) {
+      char points[10];
+      strncpy(points, barra, i + 1);
+      points[i + 1] = '>';
+      points[i + 2] = '\0';
+      oled_screen_display_text_center(points, 3, OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
+    oled_screen_clear_line(64, 3, OLED_DISPLAY_NORMAL);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
   free(ssid);
 }

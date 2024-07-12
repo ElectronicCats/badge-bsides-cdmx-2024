@@ -84,5 +84,21 @@ enum {
 
   HRS_IDX_NB,
 };
+
+/**
+ * @brief Callback to handle the bluetooth ctf
+ *
+ * @param record The tracker profile record
+ */
+typedef void (*ctf_ble_flag_cb_t)(int score, char* flags);
+
+/**
+ * @brief Register the callback to handle the bluetooth ctf
+ *
+ * @param callback The callback to handle the bluetooth ctf
+ */
+void ctf_ble_flag_register_cb(ctf_ble_flag_cb_t callback);
+
 void ctf_ble_module_begin(void);
+
 #endif  // CTF_BLE_H
