@@ -25,28 +25,25 @@ bool show_game_text(uint8_t players_count) {
   bool waiting = false;
   static uint8_t frame = 0;
   frame = ++frame > 3 ? 0 : frame;
-  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   switch (players_count) {
     case 2:
-      oled_screen_display_text("VENCIDAS", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("VENCIDAS        ", 0, 3, OLED_DISPLAY_NORMAL);
       break;
     case 3:
-      oled_screen_display_text("Badges  3/4", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  3/4     ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     case 4:
-      oled_screen_display_text("CUERDA", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("CUERDA          ", 0, 3, OLED_DISPLAY_NORMAL);
       break;
     case 5:
-      oled_screen_display_text("PERAS", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("PERAS           ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     default:
-      oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-      oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
-      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
+      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 0, 8, 128,
                                  16, OLED_DISPLAY_NORMAL);
-      oled_screen_display_text("Badges  1/2", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  1/2     ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
       break;
@@ -63,8 +60,7 @@ void show_client_state() {
   oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 104, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
-  sprintf(str, "JUEGO:");
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
+  sprintf(str, "JUEGO:          ");
   oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
   free(str);
   show_game_text(get_clients_count());
@@ -78,21 +74,22 @@ void show_available_game() {
 }
 
 void show_clients() {
-  if (!get_clients_count()) {
+  if (get_clients_count() < 2) {
     return;
   }
-  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
   char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online) {
-      sprintf(str, "%d", i + 1);
-      oled_screen_display_text(str, (i - 1) * 32 + 8, 1, OLED_DISPLAY_NORMAL);
+      sprintf(str, " %d", i + 1);
+      oled_screen_display_text(str, (i - 1) * 32, 1, OLED_DISPLAY_NORMAL);
       oled_screen_display_bitmap(figther_face_bmp, (i - 1) * 32 + 16, 8, 16, 8,
                                  OLED_DISPLAY_NORMAL);
+    } else {
+      sprintf(str, "    ");
+      oled_screen_display_text(str, (i - 1) * 32, 1, OLED_DISPLAY_NORMAL);
     }
   }
-  sprintf(str, "JUEGO:");
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
+  sprintf(str, "JUEGO:          ");
   oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
   free(str);
 }
@@ -115,7 +112,7 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       show_client_state();
       break;
     case SHOW_CLIENTS:
-      oled_screen_display_text_center("Conecta Badges", 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text(" Conecta Badges ", 0, 0, OLED_DISPLAY_INVERT);
       show_clients();
       show_available_game();
       break;
