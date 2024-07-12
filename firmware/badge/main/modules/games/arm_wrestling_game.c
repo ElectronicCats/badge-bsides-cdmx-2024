@@ -45,7 +45,7 @@ static void game_data_init() {
 
 static void arm_wrestling_print_game_data() {
   for (int8_t i = 0; i < MAX_ARM_WRESTLING_PLAYERS; i++) {
-    printf("P%d: %d%s", i + 1, wgame_instance.players_data[i].strength,
+    printf("P%d: %d%s\n", i + 1, wgame_instance.players_data[i].strength,
            i == arm_wrestling_player_id ? "<-------" : "");
   }
   printf("ARM POSITION: %d\n", wgame_instance.arm_position);
@@ -134,7 +134,7 @@ static void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
 static void arm_wrestling_game_over() {
   send_game_over_cmd();
   is_game_running = false;
-  games_screens_module_show_game_over(wgame_instance.arm_position > 0);
+  games_screen_module_show_game_over_arm(wgame_instance.arm_position > 0);
 }
 
 static void update_arm_position() {
@@ -142,7 +142,7 @@ static void update_arm_position() {
     return;
   wgame_instance.arm_position += wgame_instance.players_data[1].strength -
                                  wgame_instance.players_data[0].strength;
-  if (abs(wgame_instance.arm_position) > 1000) {
+  if (abs(wgame_instance.arm_position) > 10000) {
     arm_wrestling_game_over();
   }
 }
@@ -185,8 +185,6 @@ static void arm_wrestling_task() {
 }
 
 void arm_wrestling_init() {
-  game_data_init();
-
   game_data_init();
   oled_screen_clear();
   oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);

@@ -210,7 +210,7 @@ void arm_wrestling_show_game_data() {
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("2", 120, 1, OLED_DISPLAY_NORMAL);
   sprintf(str, "%s%03d", arm_wrestling_player_id == 1 ? "-->" : "",
-          game_instance.players_data[1].strenght);
+          wgame_instance.players_data[1].strength);
   oled_screen_display_text(
       str, arm_wrestling_player_id == 1 ? 56 : 80, 1,
       arm_wrestling_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
@@ -218,7 +218,7 @@ void arm_wrestling_show_game_data() {
   oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%03d%s", game_instance.players_data[0].strenght,
+  sprintf(str, "%03d%s", wgame_instance.players_data[0].strength,
           arm_wrestling_player_id == 0 ? "<--" : "");
   oled_screen_display_text(
       str, 25, 1,
@@ -323,6 +323,27 @@ void speed_bag_game_show_game_data() {
   oled_screen_display_text(
       str, 96, 3,
       speed_bag_player_id == 4 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+  free(str);
+}
+
+void games_screen_module_show_game_over_arm(bool winner) {
+  oled_screen_clear();
+  char* str = (char*) malloc(16);
+  sprintf(str, "   YOU WIN    ");
+  oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
+  if (winner && arm_wrestling_player_id) {
+    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+    printf("Team %d won\n", winner + 1);
+  } else if (!winner && !arm_wrestling_player_id) {
+    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+  } else {
+    sprintf(str, "   YOU LOSE   ");
+    oled_screen_display_text_center(str, 1, OLED_DISPLAY_NORMAL);
+    sprintf(str, "   Try to be   ");
+    oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
+    sprintf(str, "    FASTER    ");
+    oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
+  }
   free(str);
 }
 
