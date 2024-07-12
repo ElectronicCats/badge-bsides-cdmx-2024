@@ -2,6 +2,7 @@
 #include "esp_log.h"
 #include "led_events.h"
 #include "menu_screens_modules.h"
+#include "neopixels_events.h"
 #include "oled_screen.h"
 #include "open_thread.h"
 #include "open_thread_screens_module.h"
@@ -32,7 +33,7 @@ void open_thread_module_begin(int app_selected) {
 static void open_thread_module_app_selector() {
   switch (app_screen_state_information.app_selected) {
     case MENU_THREAD_APPS:
-      led_control_run_effect(led_control_zigbee_scanning);
+      neopixel_events_run_event(neopixel_scanning_event);
       open_thread_screens_display_broadcast_mode(channel);
       thread_broadcast_set_on_msg_recieve_cb(
           open_thread_screens_show_new_message);

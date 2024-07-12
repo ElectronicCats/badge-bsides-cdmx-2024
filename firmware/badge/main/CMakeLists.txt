@@ -20,7 +20,8 @@ set(modules "modules/led_events/led_events.c"
             "modules/cat_dos/cmd_catdos.c"
             "modules/badge_link/badge_link_module.c"
             "modules/badge_link/badge_link_screens_module.c"
-            "modules/neopixels/neopixels_module.c")
+            "modules/neopixels/neopixels_module.c"
+            "modules/neopixels/neopixels_events.c")
 
 set(drivers "drivers/oled_driver/oled_driver.c"
             "drivers/oled_driver/oled_driver_i2c.c"
