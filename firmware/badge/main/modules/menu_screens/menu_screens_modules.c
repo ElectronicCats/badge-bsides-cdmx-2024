@@ -6,7 +6,6 @@
 #include "esp_log.h"
 #include "games_module.h"
 #include "gps.h"
-#include "leds.h"
 #include "oled_screen.h"
 #include "preferences.h"
 #include "string.h"

@@ -2,8 +2,8 @@
 #include "ajo_module.h"
 #include "esp_log.h"
 #include "ieee_sniffer.h"
-#include "led_events.h"
 #include "menu_screens_modules.h"
+#include "neopixels_events.h"
 #include "oled_screen.h"
 #include "preferences.h"
 #include "radio_selector.h"
@@ -64,7 +64,7 @@ void zigbee_module_app_selector() {
       if (!ajo_unlock) {
         zigbee_screens_display_scanning_text(0);
       }
-      led_control_run_effect(led_control_zigbee_scanning);
+      neopixel_events_run_event(neopixel_scanning_event);
       break;
     default:
       break;
@@ -115,7 +115,7 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
         case BUTTON_LEFT:
           if (button_event == BUTTON_LONG_PRESS_UP) {
             ESP_LOGI(TAG_ZIGBEE_MODULE, "Button left pressed");
-            led_control_stop();
+            neopixel_events_stop_event();
             ieee_sniffer_stop();
             vTaskDelete(zigbee_task_sniffer);
             menu_screens_set_app_state(false, NULL);

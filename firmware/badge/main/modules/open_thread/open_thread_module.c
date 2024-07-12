@@ -1,6 +1,5 @@
 #include "open_thread_module.h"
 #include "esp_log.h"
-#include "led_events.h"
 #include "menu_screens_modules.h"
 #include "neopixels_events.h"
 #include "oled_screen.h"
