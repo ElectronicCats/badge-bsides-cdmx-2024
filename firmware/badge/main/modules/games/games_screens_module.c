@@ -139,7 +139,6 @@ void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
 }
 
 void rope_game_show_rope() {
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   uint8_t rope_idx = (abs(game_instance.rope_bar) / 80) % 4;
   oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 17, 128, 5,
                              OLED_DISPLAY_NORMAL);

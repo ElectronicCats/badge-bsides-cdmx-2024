@@ -99,8 +99,8 @@ const unsigned char* rope_bmp_arr[4] = {rope_bmp_1, rope_bmp_2, rope_bmp_3,
                                         rope_bmp_4};
 
 // badge_bmp 8x8px
-const unsigned char badge_bmp[] = {0xff, 0xc3, 0xdb, 0xdb,
-                                   0xdb, 0xc3, 0xff, 0x00};
+const unsigned char badge_bmp[] = {0x7e, 0x42, 0x5a, 0x5a,
+                                   0x5a, 0x5a, 0x42, 0x7e};
 
 // 'boxing-pear-icon-outline-style-vector', 8x8px
 const unsigned char speed_bag_frame_0[] = {0xfc, 0x88, 0x94, 0xa2,
