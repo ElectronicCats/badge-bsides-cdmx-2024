@@ -20,7 +20,6 @@ static bool is_displaying = false;
 static bool is_modal_displaying = false;
 static tracker_profile_t* scanned_airtags = NULL;
 static TaskHandle_t ble_task_display_records = NULL;
-static TaskHandle_t ble_task_display_animation = NULL;
 
 static void ble_module_app_selector();
 static void ble_module_state_machine(button_event_t button_pressed);
@@ -55,9 +54,7 @@ static void ble_module_app_selector() {
       if (is_ajo) {
         bt_spam_register_cb(ble_screens_display_scanning_text_ajo);
       } else {
-        xTaskCreate(ble_screens_display_scanning_animation,
-                    "ble_module_scanning", 4096, NULL, 5,
-                    &ble_task_display_animation);
+        ble_screens_display_scanning_animation();
         bt_spam_register_cb(ble_screens_display_scanning_text);
       }
       bt_spam_app_main();
