@@ -1,5 +1,4 @@
-set(modules "modules/led_events/led_events.c"
-            "modules/keyboard/keyboard_module.c"
+set(modules "modules/keyboard/keyboard_module.c"
             "modules/menu_screens/menu_screens_modules.c"
             "modules/oled_screen/oled_screen.c"
             "modules/wifi/wifi_module.c"
@@ -20,7 +19,8 @@ set(modules "modules/led_events/led_events.c"
             "modules/cat_dos/cmd_catdos.c"
             "modules/badge_link/badge_link_module.c"
             "modules/badge_link/badge_link_screens_module.c"
-            "modules/neopixels/neopixels_module.c")
+            "modules/neopixels/neopixels_module.c"
+            "modules/neopixels/neopixels_events.c")
 
 set(drivers "drivers/oled_driver/oled_driver.c"
             "drivers/oled_driver/oled_driver_i2c.c"
@@ -40,7 +40,6 @@ idf_component_register(
                     "modules/wifi/"
                     "modules/ble/"
                     "modules/zigbee/"
-                    "modules/led_events/"
                     "modules/open_thread/"
                     "modules/games/"
                     "modules/bsides_ajolote/"

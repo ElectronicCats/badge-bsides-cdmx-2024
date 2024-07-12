@@ -3,7 +3,6 @@
 #include "esp_log.h"
 #include "espnow.h"
 #include "games_screens_module.h"
-#include "led_events.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
 #include "oled_screen.h"

@@ -2,8 +2,8 @@
 #include "ajo_module.h"
 #include "esp_log.h"
 #include "ieee_sniffer.h"
-#include "led_events.h"
 #include "menu_screens_modules.h"
+#include "neopixels_events.h"
 #include "oled_screen.h"
 #include "preferences.h"
 #include "radio_selector.h"
@@ -64,7 +64,7 @@ void zigbee_module_app_selector() {
       if (!ajo_unlock) {
         zigbee_screens_display_scanning_text(0);
       }
-      led_control_run_effect(led_control_zigbee_scanning);
+      neopixel_events_run_event(neopixel_scanning_event);
       break;
     default:
       break;

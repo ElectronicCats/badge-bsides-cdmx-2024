@@ -3,9 +3,9 @@
 #include "bt_spam.h"
 #include "ctf_ble.h"
 #include "esp_log.h"
-#include "led_events.h"
 #include "menu_screens_modules.h"
 #include "modules/ble/ble_screens_module.h"
+#include "neopixels_events.h"
 #include "neopixels_module.h"
 #include "oled_screen.h"
 #include "trackers_scanner.h"
@@ -77,7 +77,7 @@ void ble_module_begin(int app_selected) {
 };
 
 static void ble_module_app_selector() {
-  led_control_run_effect(led_control_ble_tracking);
+  neopixel_events_run_event(neopixel_scanning_event);
   switch (app_screen_state_information.app_selected) {
     case MENU_BLUETOOTH_TRAKERS_SCAN:
       trackers_scanner_register_cb(ble_module_display_trackers_cb);

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "buzzer.h"
 #include "cmd_sniffer.h"
 #include "keyboard_module.h"
 #include "screens_modules.h"

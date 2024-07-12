@@ -6,7 +6,6 @@
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "keyboard_module.h"
-#include "leds.h"
 #include "menu_screens_modules.h"
 #include "neopixels_module.h"
 #include "open_thread.h"
@@ -28,7 +27,6 @@ void app_main(void) {
   neopixels_set_pixels(4, 30, 0, 30);
   neopixels_refresh();
 
-  leds_init();
   preferences_begin();
   menu_screens_begin();
   keyboard_module_begin();
