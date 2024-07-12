@@ -408,7 +408,7 @@ void menu_screens_display_menu() {
     char** new_items = remove_items_flag(items, num_items);
     display_question_items(new_items);
   } else {
-    // mverify_badge_found();
+    verify_badge_found();
     display_menu_items(items);
   }
 }
@@ -559,6 +559,9 @@ void menu_screens_enter_submenu() {
       break;
     case MENU_BLUETOOTH_SPAM:
       ble_module_begin(MENU_BLUETOOTH_SPAM);
+      break;
+    case MENU_BLUETOOTH_CTF:
+      ble_module_begin(MENU_BLUETOOTH_CTF);
       break;
     case MENU_ZIGBEE_SWITCH:
       zigbee_module_begin(MENU_ZIGBEE_SWITCH);

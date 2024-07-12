@@ -10,4 +10,5 @@ void ble_screens_display_trackers_profiles(tracker_profile_t* trackers_scanned,
                                            int device_selection);
 void ble_screens_display_modal_trackers_profile(tracker_profile_t profile);
 void ble_screens_display_scanning_text_ajo(char* name);
+void ctf_ble_show_intro();
 #endif  // BLE_SCREENS_MODULE_H
