@@ -2,7 +2,6 @@
 #include "ajo_module.h"
 #include "cat_console.h"
 #include "catdos_module.h"
-#include "ctf_ble.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_timer.h"
@@ -43,6 +42,4 @@ void app_main(void) {
 
   neopixels_set_pixels(4, 0, 0, 0);
   neopixels_refresh();
-
-  // ctf_ble_module_begin();
 }

@@ -45,17 +45,6 @@ static prepare_type_env_t prepare_write_env;
 
 #define CONFIG_SET_RAW_ADV_DATA
 #ifdef CONFIG_SET_RAW_ADV_DATA
-static uint8_t raw_adv_data[] = {
-    /* flags */
-    0x02, 0x01, 0x06,
-    /* tx power*/
-    0x02, 0x0a, 0xeb,
-    /* service uuid */
-    0x03, 0x03, 0xFF, 0x00,
-    /* device name (first number is the length) */
-    0x07, 0x09, 'B', 'L', 'E', 'C', 'T', 'F'
-
-};
 static uint8_t raw_scan_rsp_data[] = {
     /* flags */
     0x02, 0x01, 0x06,
@@ -787,6 +776,17 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event,
                  set_dev_name_ret);
       }
 #ifdef CONFIG_SET_RAW_ADV_DATA
+      uint8_t raw_adv_data[] = {/* flags */
+                                0x02, 0x01, 0x06,
+                                /* tx power*/
+                                0x02, 0x0a, 0xeb,
+                                /* service uuid */
+                                0x03, 0x03, 0xFF, 0x00,
+                                /* device name (first number is the length) */
+                                0x9, 0xA, 'B', 'S', 'I', 'D', 'E', 'S',
+                                device_eui64[4], device_eui64[5]
+
+      };
       esp_err_t raw_adv_ret =
           esp_ble_gap_config_adv_data_raw(raw_adv_data, sizeof(raw_adv_data));
       if (raw_adv_ret) {
@@ -827,7 +827,6 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event,
     case ESP_GATTS_READ_EVT:
       ESP_LOGI(CTF_BLE_TAG, "ESP_GATTS_READ_EVT");
       read_counter += 1;
-      // set gpio
       if (read_counter > 1000) {
         esp_ble_gatts_set_attr_value(
             blectf_handle_table[IDX_CHAR_FLAG_READ_ALOT] + 1, 20,

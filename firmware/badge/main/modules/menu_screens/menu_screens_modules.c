@@ -560,6 +560,9 @@ void menu_screens_enter_submenu() {
     case MENU_BLUETOOTH_SPAM:
       ble_module_begin(MENU_BLUETOOTH_SPAM);
       break;
+    case MENU_BLUETOOTH_CTF:
+      ble_module_begin(MENU_BLUETOOTH_CTF);
+      break;
     case MENU_ZIGBEE_SWITCH:
       zigbee_module_begin(MENU_ZIGBEE_SWITCH);
       break;
