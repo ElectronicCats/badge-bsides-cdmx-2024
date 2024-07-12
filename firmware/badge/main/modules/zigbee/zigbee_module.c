@@ -114,7 +114,6 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
       switch (button_name) {
         case BUTTON_LEFT:
           ESP_LOGI(TAG_ZIGBEE_MODULE, "Button left pressed");
-          led_control_stop();
           ieee_sniffer_stop();
           vTaskDelete(zigbee_task_sniffer);
           menu_screens_set_app_state(false, NULL);

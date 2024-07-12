@@ -81,7 +81,9 @@ static void scanning_task(void* pvParameters) {
   if (is_ajo) {
     ajo_module_delete_task();
   } else {
-    vTaskSuspend(task_display_scanning);
+    if (task_display_scanning != NULL) {
+      vTaskSuspend(task_display_scanning);
+    }
   }
   wifi_screens_module_display_scanned_networks(
       ap_records->records, ap_records->count, current_option);
@@ -425,7 +427,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = (current_option == 0) ? 5 : current_option - 1;
+          current_option = (current_option == 0) ? 4 : current_option - 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;
@@ -434,7 +436,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
           if (button_event != BUTTON_SINGLE_CLICK) {
             break;  // Only accept single click
           }
-          current_option = (current_option == 5) ? 0 : current_option + 1;
+          current_option = (current_option == 4) ? 0 : current_option + 1;
           wifi_screens_module_display_details_network(
               &ap_records->records[index_targeted], current_option);
           break;

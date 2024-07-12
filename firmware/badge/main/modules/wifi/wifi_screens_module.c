@@ -32,12 +32,18 @@ static const char* wifi_cipher_types[] = {
 void wifi_screens_module_scanning(void) {
   oled_screen_clear();
   oled_screen_display_text_center("    SCANNING", 0, OLED_DISPLAY_NORMAL);
+  char barra[13] = "-----------";
   while (true) {
-    for (int i = 0; i < wifi_module_allArray_LEN; i++) {
-      oled_screen_display_bitmap(wifi_module_allArray[i], 0, 0, 32, 32,
-                                 OLED_DISPLAY_NORMAL);
+    for (int i = 0; i < 8; i++) {
+      char points[10];
+      strncpy(points, barra, i + 1);
+      points[i + 1] = '>';
+      points[i + 2] = '\0';
+      oled_screen_display_text_center(points, 3, OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
+    oled_screen_clear_line(64, 3, OLED_DISPLAY_NORMAL);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
 }
 
@@ -112,7 +118,7 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
   memset(ssid, 0, 33);
   sprintf(ssid, "%s", (char*) ap_record->ssid);
   int curr_page = page + 1;
-  sprintf(current_page, "%d of %d", curr_page, 6);
+  sprintf(current_page, "%d of %d", curr_page, 5);
   oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
   oled_screen_display_text_center(current_page, 3, OLED_DISPLAY_NORMAL);
 
