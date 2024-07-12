@@ -477,7 +477,7 @@ char* games_items[] = {
     NULL,
 };
 char* games_help_items[] = {
-    "Sala?", "Vencidas?", "Cuerda?", "Peras", NULL,
+    "Sala?", "Vencidas?", "Cuerda?", "Peras?", NULL,
 };
 
 char* games_main_help[] = {
@@ -492,7 +492,7 @@ char* games_main_help[] = {
     "El juego",
     "dependera del",
     "numero de",
-    "badges."
+    "badges.",
     "",
     "El modo host",
     "muestra a",
@@ -518,7 +518,7 @@ char* games_main_help[] = {
     "comienza el",
     "juego, ya pueden",
     "separar los",
-    "badges y jugar",
+    "badges y jugar.",
     NULL,
 };
 
@@ -539,7 +539,7 @@ char* rope_game_help[] = {
     /***************/
     "** COMO JUGAR **",
     "---- CUERDA ----",
-    " (Usa 4 badges) ",
+    " (4 Jugadores) ",
     "",
     "Jugadores 1 & 2",
     "son EQUIPO 1, de",
@@ -559,6 +559,7 @@ char* rope_game_help[] = {
     "ser mas fuerte",
     "que tus",
     "oponentes.",
+    "",
     "Si presionas",
     "doble o lento,",
     "tu fuerza",
@@ -570,13 +571,15 @@ char* kevin_game_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
     "* Como jugar *",
-    "--Juego Pera---",
+    "--Juego Peras--",
     " (5 jugadores) ",
+    "",
     "Presiona Derecha.",
     "Y luego Arriba.",
-    "Repite lo mas ",
-    "Rapido que puedas"
-    "para golpear mas",
+    "Repite lo mas",
+    "rapido que",
+    "puedas para",
+    "golpear mas",
     "veces que tus "
     "oponentes.",
     NULL,
