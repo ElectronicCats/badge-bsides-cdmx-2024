@@ -329,16 +329,13 @@ void speed_bag_game_show_game_data() {
 void games_screen_module_show_game_over_arm(bool winner) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
-  sprintf(str, "   YOU WIN    ");
-  oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
-  if (winner && arm_wrestling_player_id) {
-    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
-    printf("Team %d won\n", winner + 1);
-  } else if (!winner && !arm_wrestling_player_id) {
+  if (winner == arm_wrestling_player_id) {
+    sprintf(str, "   YOU WIN    ");
+    oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
     oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   } else {
     sprintf(str, "   YOU LOSE   ");
-    oled_screen_display_text_center(str, 1, OLED_DISPLAY_NORMAL);
+    oled_screen_display_text_center(str, 0, OLED_DISPLAY_NORMAL);
     sprintf(str, "   Try to be   ");
     oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
     sprintf(str, "    FASTER    ");
