@@ -70,3 +70,11 @@ void ble_screens_display_modal_trackers_profile(tracker_profile_t profile) {
   free(mac_addrs);
   free(str_adv_data);
 }
+
+void ctf_ble_show_intro() {
+  oled_screen_clear();
+  oled_screen_display_text_center("BLE CTF", 0, OLED_DISPLAY_INVERT);
+  oled_screen_display_text_center("Thanks to", 1, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("@hackgnar", 2, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("for the CTF", 3, OLED_DISPLAY_NORMAL);
+}

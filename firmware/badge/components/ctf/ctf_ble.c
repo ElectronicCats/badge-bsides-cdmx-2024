@@ -46,7 +46,6 @@ static prepare_type_env_t prepare_write_env;
 
 #define CONFIG_SET_RAW_ADV_DATA
 #ifdef CONFIG_SET_RAW_ADV_DATA
-// static uint8_t raw_adv_data[] = {};
 static uint8_t raw_scan_rsp_data[] = {
     /* flags */
     0x02, 0x01, 0x06,
@@ -159,11 +158,11 @@ static const uint16_t GATTS_CHAR_UUID_FLAG_NOTIFICATION_MULTI = 0xFF0f;
 static const uint16_t GATTS_CHAR_UUID_FLAG_INDICATE_MULTI_READ = 0xFF10;
 static const uint16_t GATTS_CHAR_UUID_FLAG_INDICATE_MULTI = 0xFF11;
 static const uint16_t GATTS_CHAR_UUID_FLAG_MAC = 0xFF12;
-// static const uint16_t GATTS_CHAR_UUID_FLAG_MTU = 0xFF13;
-// static const uint16_t GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE = 0xFF14;
-// static const uint16_t GATTS_CHAR_UUID_FLAG_HIDDEN_NOTIFY = 0xFF15;
-// static const uint16_t GATTS_CHAR_UUID_FLAG_CRAZY = 0xFF16;
-// static const uint16_t GATTS_CHAR_UUID_FLAG_TWITTER = 0xFF17;
+static const uint16_t GATTS_CHAR_UUID_FLAG_MTU = 0xFF13;
+static const uint16_t GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE = 0xFF14;
+static const uint16_t GATTS_CHAR_UUID_FLAG_HIDDEN_NOTIFY = 0xFF15;
+static const uint16_t GATTS_CHAR_UUID_FLAG_CRAZY = 0xFF16;
+static const uint16_t GATTS_CHAR_UUID_FLAG_TWITTER = 0xFF17;
 
 static const uint16_t primary_service_uuid = ESP_GATT_UUID_PRI_SERVICE;
 static const uint16_t character_declaration_uuid = ESP_GATT_UUID_CHAR_DECLARE;
@@ -179,10 +178,10 @@ static const uint8_t char_prop_read_write_indicate =
     ESP_GATT_CHAR_PROP_BIT_INDICATE;
 static const uint8_t char_prop_read_write =
     ESP_GATT_CHAR_PROP_BIT_WRITE | ESP_GATT_CHAR_PROP_BIT_READ;
-// static const uint8_t char_prop_crazy =
-//     ESP_GATT_CHAR_PROP_BIT_WRITE | ESP_GATT_CHAR_PROP_BIT_READ |
-//     ESP_GATT_CHAR_PROP_BIT_EXT_PROP | ESP_GATT_CHAR_PROP_BIT_BROADCAST |
-//     ESP_GATT_CHAR_PROP_BIT_NOTIFY;
+static const uint8_t char_prop_crazy =
+    ESP_GATT_CHAR_PROP_BIT_WRITE | ESP_GATT_CHAR_PROP_BIT_READ |
+    ESP_GATT_CHAR_PROP_BIT_EXT_PROP | ESP_GATT_CHAR_PROP_BIT_BROADCAST |
+    ESP_GATT_CHAR_PROP_BIT_NOTIFY;
 // static const uint8_t heart_measurement_ccc[2]      = {0x00, 0x00};
 // static const uint8_t char_value[4]                 = {0x11, 0x22, 0x33,
 // 0x44};
@@ -199,7 +198,7 @@ static const char write_hex_flag[] = "Write the hex value 0x07 here";
 static const char read_alot_value[] = "Read me 1000 times";
 static const char read_mac_value[] =
     "Connect with BT MAC address 11:22:33:44:55:66";
-// static const char read_mtu_value[] = "Set your connection MTU to 444";
+static const char read_mtu_value[] = "Set your connection MTU to 444";
 static const char notification_read_value[] =
     "Listen to me for a single notification";
 static const char indicate_read_value[] =
@@ -210,13 +209,16 @@ static const char indicate_multi_read_value[] =
     "Listen to handle 0x004a for multi indications";
 static const char brute_write_flag[] = "Brute force my value 00 to ff";
 static const char hidden_notify_value[] = "No notifications here! really?";
-// static const char crazy_value[] = "So many properties!";
-// static const char twitter_value[] = "md5 of author's twitter handle";
+static const char crazy_value[] = "So many properties!";
+static const char twitter_value[] = "md5 of author's twitter handle";
 static const char write_response_data[20] = "Write+resp 'hello'  ";
 static const uint8_t read_write2_value[23] = {
     'W', 'r', 'i', 't', 'e', ' ', '0', 'x', 'C', '9', ' ', 't',
     'o', ' ', 'h', 'a', 'n', 'd', 'l', 'e', ' ', '5', '8'};
 
+// static const uint8_t brute_write_flag[33] = {'B','r','u','t','e','
+// ','f','o','r','c','e',' ','m','y',' ','v','a','l','u','e', ' ',
+// '0','x','0','0',' ','t','o',' ','0','x','f','f'};
 static const uint8_t flag_read_value[16] = {'W', 'r', 'i', 't', 'e', ' ',
                                             'F', 'l', 'a', 'g', 's', ' ',
                                             'H', 'e', 'r', 'e'};
@@ -535,89 +537,84 @@ static const esp_gatts_attr_db_t gatt_db[HRS_IDX_NB] = {
           ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, GATTS_DEMO_CHAR_VAL_LEN_MAX,
           sizeof(read_mac_value) - 1, (uint8_t*) read_mac_value}},
 
-    // /* FLAG MTU Characteristic Declaration */
-    // [IDX_CHAR_FLAG_MTU] = {{ESP_GATT_AUTO_RSP},
-    //                        {ESP_UUID_LEN_16,
-    //                         (uint8_t*) &character_declaration_uuid,
-    //                         ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE,
-    //                         CHAR_DECLARATION_SIZE, (uint8_t*)
-    //                         &char_prop_read}},
+    /* FLAG MTU Characteristic Declaration */
+    [IDX_CHAR_FLAG_MTU] = {{ESP_GATT_AUTO_RSP},
+                           {ESP_UUID_LEN_16,
+                            (uint8_t*) &character_declaration_uuid,
+                            ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE,
+                            CHAR_DECLARATION_SIZE, (uint8_t*) &char_prop_read}},
 
-    // /* Characteristic Value */
-    // [IDX_CHAR_VAL_FLAG_MTU] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_MTU,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       GATTS_DEMO_CHAR_VAL_LEN_MAX,
-    //       sizeof(read_mtu_value) - 1, (uint8_t*) read_mtu_value}},
+    /* Characteristic Value */
+    [IDX_CHAR_VAL_FLAG_MTU] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_MTU,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, GATTS_DEMO_CHAR_VAL_LEN_MAX,
+          sizeof(read_mtu_value) - 1, (uint8_t*) read_mtu_value}},
 
-    // /* FLAG write response Characteristic Declaration */
-    // [IDX_CHAR_FLAG_WRITE_RESPONSE] =
-    //     {{ESP_GATT_RSP_BY_APP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       //{{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16,
-    //       //(uint8_t *)&character_declaration_uuid,
-    //       // ESP_GATT_PERM_READ|ESP_GATT_PERM_WRITE,
-    //       CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
-    //       (uint8_t*) &char_prop_read_write}},
+    /* FLAG write response Characteristic Declaration */
+    [IDX_CHAR_FLAG_WRITE_RESPONSE] =
+        {{ESP_GATT_RSP_BY_APP},
+         {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+          //{{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16,
+          //(uint8_t *)&character_declaration_uuid,
+          // ESP_GATT_PERM_READ|ESP_GATT_PERM_WRITE,
+          CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
+          (uint8_t*) &char_prop_read_write}},
 
-    // /* Characteristic Value */
-    // [IDX_CHAR_VAL_FLAG_WRITE_RESPONSE] =
-    //     {{ESP_GATT_RSP_BY_APP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       //{{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t
-    //       //*)&GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE, ESP_GATT_PERM_READ |
-    //       // ESP_GATT_PERM_WRITE,
-    //       GATTS_DEMO_CHAR_VAL_LEN_MAX, sizeof(write_response_data) - 1,
-    //       (uint8_t*) write_response_data}},
+    /* Characteristic Value */
+    [IDX_CHAR_VAL_FLAG_WRITE_RESPONSE] =
+        {{ESP_GATT_RSP_BY_APP},
+         {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+          //{{ESP_GATT_AUTO_RSP}, {ESP_UUID_LEN_16, (uint8_t
+          //*)&GATTS_CHAR_UUID_FLAG_WRITE_RESPONSE, ESP_GATT_PERM_READ |
+          // ESP_GATT_PERM_WRITE,
+          GATTS_DEMO_CHAR_VAL_LEN_MAX, sizeof(write_response_data) - 1,
+          (uint8_t*) write_response_data}},
 
-    // /* FLAG hidden notify Characteristic Declaration */
-    // [IDX_CHAR_FLAG_HIDDEN_NOTIFY] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, CHAR_DECLARATION_SIZE,
-    //       CHAR_DECLARATION_SIZE, (uint8_t*) &char_prop_read_write}},
+    /* FLAG hidden notify Characteristic Declaration */
+    [IDX_CHAR_FLAG_HIDDEN_NOTIFY] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, CHAR_DECLARATION_SIZE,
+          CHAR_DECLARATION_SIZE, (uint8_t*) &char_prop_read_write}},
 
-    // /* Characteristic Value */
-    // [IDX_CHAR_VAL_FLAG_HIDDEN_NOTIFY] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_HIDDEN_NOTIFY,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       GATTS_DEMO_CHAR_VAL_LEN_MAX,
-    //       sizeof(hidden_notify_value) - 1, (uint8_t*) hidden_notify_value}},
+    /* Characteristic Value */
+    [IDX_CHAR_VAL_FLAG_HIDDEN_NOTIFY] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_HIDDEN_NOTIFY,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, GATTS_DEMO_CHAR_VAL_LEN_MAX,
+          sizeof(hidden_notify_value) - 1, (uint8_t*) hidden_notify_value}},
 
-    // /* FLAG crazy Characteristic Declaration */
-    // [IDX_CHAR_FLAG_CRAZY] = {{ESP_GATT_AUTO_RSP},
-    //                          {ESP_UUID_LEN_16,
-    //                           (uint8_t*) &character_declaration_uuid,
-    //                           ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //                           CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
-    //                           (uint8_t*) &char_prop_crazy}},
+    /* FLAG crazy Characteristic Declaration */
+    [IDX_CHAR_FLAG_CRAZY] = {{ESP_GATT_AUTO_RSP},
+                             {ESP_UUID_LEN_16,
+                              (uint8_t*) &character_declaration_uuid,
+                              ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
+                              CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
+                              (uint8_t*) &char_prop_crazy}},
 
-    // /* Characteristic Value */
-    // [IDX_CHAR_VAL_FLAG_CRAZY] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_CRAZY,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       GATTS_DEMO_CHAR_VAL_LEN_MAX,
-    //       sizeof(crazy_value) - 1, (uint8_t*) crazy_value}},
+    /* Characteristic Value */
+    [IDX_CHAR_VAL_FLAG_CRAZY] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_CRAZY,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, GATTS_DEMO_CHAR_VAL_LEN_MAX,
+          sizeof(crazy_value) - 1, (uint8_t*) crazy_value}},
 
-    // /* FLAG twitter Characteristic Declaration */
-    // [IDX_CHAR_FLAG_TWITTER] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
-    //       ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
-    //       (uint8_t*) &char_prop_read}},
+    /* FLAG twitter Characteristic Declaration */
+    [IDX_CHAR_FLAG_TWITTER] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &character_declaration_uuid,
+          ESP_GATT_PERM_READ, CHAR_DECLARATION_SIZE, CHAR_DECLARATION_SIZE,
+          (uint8_t*) &char_prop_read}},
 
-    // /* FLAG twitter Characteristic Value */
-    // [IDX_CHAR_VAL_FLAG_TWITTER] =
-    //     {{ESP_GATT_AUTO_RSP},
-    //      {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_TWITTER,
-    //       ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE,
-    //       GATTS_DEMO_CHAR_VAL_LEN_MAX,
-    //       sizeof(twitter_value) - 1, (uint8_t*) twitter_value}},
+    /* FLAG twitter Characteristic Value */
+    [IDX_CHAR_VAL_FLAG_TWITTER] =
+        {{ESP_GATT_AUTO_RSP},
+         {ESP_UUID_LEN_16, (uint8_t*) &GATTS_CHAR_UUID_FLAG_TWITTER,
+          ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE, GATTS_DEMO_CHAR_VAL_LEN_MAX,
+          sizeof(twitter_value) - 1, (uint8_t*) twitter_value}},
 
 };
 
@@ -780,7 +777,6 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event,
                  set_dev_name_ret);
       }
 #ifdef CONFIG_SET_RAW_ADV_DATA
-      esp_read_mac(device_eui64, ESP_MAC_IEEE802154);
       uint8_t raw_adv_data[] = {/* flags */
                                 0x02, 0x01, 0x06,
                                 /* tx power*/
@@ -832,11 +828,6 @@ static void gatts_profile_event_handler(esp_gatts_cb_event_t event,
     case ESP_GATTS_READ_EVT:
       ESP_LOGI(CTF_BLE_TAG, "ESP_GATTS_READ_EVT");
       read_counter += 1;
-      // set gpio
-      //  esp_rom_gpio_pad_select_gpio(BLINK_GPIO);
-      //  /* Set the GPIO as a push/pull output */
-      //  gpio_set_direction(BLINK_GPIO, GPIO_MODE_OUTPUT);
-      //  gpio_set_level(BLINK_GPIO, 1);
       if (read_counter > 1000) {
         esp_ble_gatts_set_attr_value(
             blectf_handle_table[IDX_CHAR_FLAG_READ_ALOT] + 1, 20,

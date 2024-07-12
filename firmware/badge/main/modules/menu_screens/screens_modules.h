@@ -58,6 +58,7 @@ typedef enum {
   /* Bluetooth applications */
   MENU_BLUETOOTH_TRAKERS_SCAN,
   MENU_BLUETOOTH_SPAM,
+  MENU_BLUETOOTH_CTF,
   /* Zigbee applications */
   MENU_ZIGBEE_SPOOFING,
   MENU_ZIGBEE_SWITCH,
@@ -126,6 +127,7 @@ const char* menu_list[] = {
     /* Bluetooth applications */
     "MENU_BLUETOOTH_TRAKERS_SCAN",
     "MENU_BLUETOOTH_SPAM",
+    "MENU_BLUETOOTH_CTF",
     /* Zigbee applications */
     "MENU_ZIGBEE_SPOOFING",
     "MENU_ZIGBEE_SWITCH",
@@ -177,7 +179,7 @@ const int next_menu_table[][8] = {
     // MENU_WIFI_APPS
     {MENU_WIFI_ANALIZER, MENU_WIFI_DEAUTH, MENU_WIFI_DOS},
     // MENU_BLUETOOTH_APPS
-    {MENU_BLUETOOTH_TRAKERS_SCAN, MENU_BLUETOOTH_SPAM},
+    {MENU_BLUETOOTH_TRAKERS_SCAN, MENU_BLUETOOTH_SPAM, MENU_BLUETOOTH_CTF},
     // MENU_ZIGBEE_APPS
     {MENU_ZIGBEE_SPOOFING, MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_APPS
@@ -208,6 +210,8 @@ const int next_menu_table[][8] = {
     {MENU_BLUETOOTH_TRAKERS_SCAN},
     // MENU_BLUETOOTH_SPAM
     {MENU_BLUETOOTH_SPAM},
+    // MENU_BLUETOOTH_CTF
+    {MENU_BLUETOOTH_CTF},
     // MENU_ZIGBEE_SPOOFING
     {MENU_ZIGBEE_SWITCH, MENU_ZIGBEE_LIGHT},
     // MENU_ZIGBEE_SWITCH
@@ -282,6 +286,7 @@ const int prev_menu_table[] = {
     MENU_WIFI_ANALIZER_SETTINGS,     // MENU_WIFI_ANALIZER_DESTINATION
     MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_TRAKERS_SCAN
     MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_SPAM
+    MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_CTF
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SPOOFING
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_SWITCH
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
@@ -477,6 +482,7 @@ char* wifi_analizer_destination_items[] = {
 char* bluetooth_items[] = {
     "Trakers scan",
     "Spam",
+    "CTF",
     NULL,
 };
 
@@ -659,6 +665,7 @@ char** menu_items[] = {
     /* Bluetooth applications */
     empty_items,  // Bluetooth Trakers scan
     empty_items,  // Bluetooth Spam
+    empty_items,  // Bluetooth CTF
     /* Zigbee applications */
     zigbee_spoofing_items,
     empty_items,  // Zigbee Switch

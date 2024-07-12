@@ -1,10 +1,12 @@
 #include "ble_module.h"
 #include "ajo_module.h"
 #include "bt_spam.h"
+#include "ctf_ble.h"
 #include "esp_log.h"
 #include "led_events.h"
 #include "menu_screens_modules.h"
 #include "modules/ble/ble_screens_module.h"
+#include "neopixels_module.h"
 #include "oled_screen.h"
 #include "trackers_scanner.h"
 
@@ -25,6 +27,11 @@ static void ble_module_state_machine(button_event_t button_pressed);
 static void ble_module_display_trackers_cb(tracker_profile_t record);
 static void ble_module_task_start_trackers_display_devices();
 static void ble_module_task_stop_trackers_display_devices();
+
+static void set_ble_color() {
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
+  neopixels_refresh();
+}
 
 void ble_module_begin(int app_selected) {
   ESP_LOGI(TAG_BLE_MODULE, "Initializing ble module screen state machine");
@@ -55,6 +62,11 @@ static void ble_module_app_selector() {
       }
       bt_spam_app_main();
       break;
+    case MENU_BLUETOOTH_CTF:
+      set_ble_color();
+      ctf_ble_module_begin();
+      ctf_ble_show_intro();
+      break;
     default:
       break;
   }
@@ -78,19 +90,6 @@ static void ble_module_state_machine(button_event_t button_pressed) {
           ESP_LOGI(TAG_BLE_MODULE, "Button left pressed");
           screen_module_set_screen(MENU_BLUETOOTH_TRAKERS_SCAN);
           esp_restart();
-          // if (is_modal_displaying) {
-          //   is_modal_displaying = false;
-          //   oled_screen_clear();
-          //   oled_screen_display_text_center("Trackers Scanner", 0,
-          //                                   OLED_DISPLAY_INVERT);
-          //   break;
-          // }
-
-          // ble_module_task_stop_trackers_display_devices();
-          // trackers_scanner_stop();
-          // menu_screens_set_app_state(false, NULL);
-          // menu_screens_exit_submenu();
-          // led_control_stop();
           break;
         case BUTTON_RIGHT:
           ESP_LOGI(TAG_BLE_MODULE, "Button right pressed - Option selected: %d",
@@ -120,14 +119,22 @@ static void ble_module_state_machine(button_event_t button_pressed) {
     case MENU_BLUETOOTH_SPAM:
       switch (button_name) {
         case BUTTON_LEFT:
-          // TODO: Fix this xD
           screen_module_set_screen(MENU_BLUETOOTH_SPAM);
           esp_restart();
-          // ESP_LOGI(TAG_BLE_MODULE, "Button left pressed");
-          // vTaskSuspend(ble_task_display_animation);
-          // module_keyboard_update_state(false, NULL);
-          // ESP_LOGI(TAG_BLE_MODULE, "Exiting bluetooth scanner 2");
-          // screen_module_exit_submenu();
+          break;
+        case BUTTON_RIGHT:
+        case BUTTON_UP:
+        case BUTTON_DOWN:
+        case BUTTON_BOOT:
+        default:
+          break;
+      }
+      break;
+    case MENU_BLUETOOTH_CTF:
+      switch (button_name) {
+        case BUTTON_LEFT:
+          screen_module_set_screen(MENU_BLUETOOTH_CTF);
+          esp_restart();
           break;
         case BUTTON_RIGHT:
         case BUTTON_UP:
