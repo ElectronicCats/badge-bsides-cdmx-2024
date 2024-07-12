@@ -56,7 +56,7 @@ static void game_data_init() {
   memset(&wgame_instance, 0, sizeof(wgame_data_t));
   wme = &wgame_instance.players_data[arm_wrestling_player_id];
 
-  team = arm_wrestling_player_id >= 2;
+  team = arm_wrestling_player_id;
   set_team_color(team);
 }
 
@@ -152,7 +152,7 @@ static void arm_wrestling_game_over() {
   send_game_over_cmd();
   is_game_running = false;
   winner = game_instance.arm_position > 0;
-  games_screen_module_show_game_over_arm(wgame_instance.arm_position > 0);
+  games_screen_module_show_game_over_arm(winner);
   if (team == winner) {
     neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
   } else {
