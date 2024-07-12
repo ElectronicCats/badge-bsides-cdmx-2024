@@ -33,7 +33,6 @@
 typedef enum {
   MENU_MAIN = 0,
   MENU_APPLICATIONS,
-  MENU_SETTINGS,
   MENU_ABOUT,
   /* Applications */
   MENU_WIFI_APPS,
@@ -81,10 +80,6 @@ typedef enum {
   MENU_ABOUT_LICENSE,
   MENU_ABOUT_CREDITS,
   MENU_ABOUT_LEGAL,
-  /* Settings items */
-  MENU_SETTINGS_DISPLAY,
-  MENU_SETTINGS_SOUND,
-  MENU_SETTINGS_SYSTEM,
   /* About submenus */
   /* Menu count */
   MENU_COUNT,
@@ -101,7 +96,6 @@ typedef enum {
 const char* menu_list[] = {
     "MENU_MAIN",
     "MENU_APPLICATIONS",
-    "MENU_SETTINGS",
     "MENU_ABOUT",
     /* Applications */
     "MENU_WIFI_APPS",
@@ -149,10 +143,6 @@ const char* menu_list[] = {
     "MENU_ABOUT_LICENSE",
     "MENU_ABOUT_CREDITS",
     "MENU_ABOUT_LEGAL",
-    /* Settings items */
-    "MENU_SETTINGS_DISPLAY",
-    "MENU_SETTINGS_SOUND",
-    "MENU_SETTINGS_SYSTEM",
 };
 
 /**
@@ -165,12 +155,10 @@ const char* menu_list[] = {
  */
 const int next_menu_table[][8] = {
     // MENU_MAIN
-    {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
+    {MENU_APPLICATIONS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
      MENU_GAMES, MENU_BADGE_FINDER},
-    // MENU_SETTINGS
-    {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
     {MENU_ABOUT_VERSION, MENU_ABOUT_LICENSE, MENU_ABOUT_CREDITS,
      MENU_ABOUT_LEGAL},
@@ -243,12 +231,6 @@ const int next_menu_table[][8] = {
     {MENU_ABOUT_CREDITS},
     // MENU_ABOUT_LEGAL
     {MENU_ABOUT_LEGAL},
-    // MENU_SETTINGS_DISPLAY
-    {MENU_SETTINGS_DISPLAY},
-    // MENU_SETTINGS_SOUND
-    {MENU_SETTINGS_SOUND},
-    // MENU_SETTINGS_SYSTEM
-    {MENU_SETTINGS_SYSTEM},
 };
 
 /**
@@ -263,7 +245,6 @@ const int next_menu_table[][8] = {
 const int prev_menu_table[] = {
     MENU_MAIN,                       // MENU_MAIN
     MENU_MAIN,                       // MENU_APPLICATIONS
-    MENU_MAIN,                       // MENU_SETTINGS
     MENU_MAIN,                       // MENU_ABOUT
     MENU_APPLICATIONS,               // MENU_WIFI_APPS
     MENU_APPLICATIONS,               // MENU_BLUETOOTH_APPS
@@ -299,9 +280,6 @@ const int prev_menu_table[] = {
     MENU_ABOUT,                      // MENU_ABOUT_LICENSE
     MENU_ABOUT,                      // MENU_ABOUT_CREDITS
     MENU_ABOUT,                      // MENU_ABOUT_LEGAL
-    MENU_SETTINGS,                   // MENU_SETTINGS_DISPLAY
-    MENU_SETTINGS,                   // MENU_SETTINGS_SOUND
-    MENU_SETTINGS,                   // MENU_SETTINGS_SYSTEM
 };
 
 /**
@@ -315,20 +293,12 @@ int selected_item_history[MENU_COUNT] = {0};
 
 char* main_items[] = {
     "Applications",
-    "Settings",
     "About",
     NULL,
 };
 
 char* applications_items[] = {
     "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Encontrar", NULL,
-};
-
-char* settings_items[] = {
-    "Display",
-    "Sound",
-    "System",
-    NULL,
 };
 
 char* about_items[] = {
@@ -641,9 +611,14 @@ char* empty_items[] = {
  * Usage: menu_items[screen_module_menu_t]
  */
 char** menu_items[] = {
-    main_items, applications_items, settings_items, about_items,
+    main_items,
+    applications_items,
+    about_items,
     /* Applications */
-    wifi_items, bluetooth_items, zigbee_items, thread_items,
+    wifi_items,
+    bluetooth_items,
+    zigbee_items,
+    thread_items,
     games_items,      // GAMES
     badge_link_item,  // Badge Finder
     /* WiFi applications */
@@ -678,9 +653,8 @@ char** menu_items[] = {
     empty_items,      // MENU_BADGE_FINDER_SCAN
     badge_link_help,  // MENU_BADGE_FINDER_HELP
     /* About */
-    version_text, license_text, credits_text, legal_text,
-    /* Settings items */
-    empty_items,  // Display
-    empty_items,  // Sound
-    empty_items,  // System
+    version_text,
+    license_text,
+    credits_text,
+    legal_text,
 };

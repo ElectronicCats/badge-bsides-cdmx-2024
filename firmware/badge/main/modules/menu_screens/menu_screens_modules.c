@@ -577,11 +577,6 @@ void menu_screens_enter_submenu() {
       badge_link_module_begin();
       break;
     case MENU_ZIGBEE_LIGHT:
-    case MENU_SETTINGS_DISPLAY:
-    case MENU_SETTINGS_SOUND:
-    case MENU_SETTINGS_SYSTEM:
-      oled_screen_clear();
-      menu_screens_display_text_banner("In development");
       break;
     default:
       ESP_LOGI(TAG, "Unhandled menu: %s", menu_list[next_menu]);
