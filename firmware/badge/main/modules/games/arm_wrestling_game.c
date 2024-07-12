@@ -9,10 +9,13 @@
 #include "games_screens_module.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
+#include "neopixels_module.h"
 #include "oled_screen.h"
 #include "stdbool.h"
 
 #define HOST_MAC game_players_mac[0]
+#define TEAM1    0
+#define TEAM2    1
 
 #ifdef DESACTIVAR_PRINT
   #define printf(fmt, ...) ((void) 0)
@@ -23,6 +26,8 @@ static const char* TAG = "Arm_Wrestling_Game";
 static uint8_t game_players_mac[MAX_ARM_WRESTLING_PLAYERS][MAC_SIZE];
 static bool host_mode;
 static bool swap;
+static bool team;
+static bool winner;
 static bool is_game_running = false;
 static esp_timer_handle_t timer_handle;
 static TaskHandle_t arm_wrestling_task_handler = NULL;
@@ -31,6 +36,15 @@ uint8_t arm_wrestling_player_id;
 
 static void arm_wrestling_game_over();
 static void arm_wrestling_exit();
+
+static void set_team_color(bool team) {
+  if (team == TEAM2) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 50, 0);  // YELLOW
+  } else {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 50);  // BLUE
+  }
+  neopixels_refresh();
+}
 
 static void game_data_init() {
   for (uint8_t i = 0; i < MAX_ARM_WRESTLING_PLAYERS; i++) {
@@ -41,6 +55,9 @@ static void game_data_init() {
 
   memset(&wgame_instance, 0, sizeof(wgame_data_t));
   wme = &wgame_instance.players_data[arm_wrestling_player_id];
+
+  team = arm_wrestling_player_id >= 2;
+  set_team_color(team);
 }
 
 static void arm_wrestling_print_game_data() {
@@ -134,7 +151,14 @@ static void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
 static void arm_wrestling_game_over() {
   send_game_over_cmd();
   is_game_running = false;
+  winner = game_instance.arm_position > 0;
   games_screen_module_show_game_over_arm(wgame_instance.arm_position > 0);
+  if (team == winner) {
+    neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
+  } else {
+    neopixels_set_pixels(MAX_LED_NUMBER, 50, 0, 0);  // RED
+  }
+  neopixels_refresh();
 }
 
 static void update_arm_position() {
@@ -203,6 +227,8 @@ static void arm_wrestling_exit() {
   send_stop_game_cmd();
   vTaskDelay(pdMS_TO_TICKS(50));
   send_stop_game_cmd();
+  neopixels_set_pixels(MAX_LED_NUMBER, 0, 0, 0);  // OFF
+  neopixels_refresh();
   games_module_setup();
 }
 
