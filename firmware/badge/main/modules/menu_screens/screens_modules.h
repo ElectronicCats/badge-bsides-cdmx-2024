@@ -538,13 +538,8 @@ char* raul_game_help[] = {
     "rapido como",
     "puedas para",
     "ser mas fuerte",
-    "que tus",
-    "oponentes.",
-    "",
-    "Si presionas",
-    "doble o lento,",
-    "tu fuerza",
-    "disminuira.",
+    "que tu",
+    "oponente.",
     NULL,
 };
 
