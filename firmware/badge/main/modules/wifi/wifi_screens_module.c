@@ -31,7 +31,7 @@ static const char* wifi_cipher_types[] = {
 
 void wifi_screens_module_scanning(void) {
   oled_screen_clear();
-  oled_screen_display_text_center("    SCANNING", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("SCANNING", 0, OLED_DISPLAY_NORMAL);
   char barra[13] = "-----------";
   while (true) {
     for (int i = 0; i < 8; i++) {
