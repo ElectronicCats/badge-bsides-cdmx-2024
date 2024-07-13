@@ -117,7 +117,9 @@ void zigbee_module_state_machine(button_event_t button_pressed) {
           ieee_sniffer_stop();
           vTaskDelete(zigbee_task_sniffer);
           menu_screens_set_app_state(false, NULL);
+          screen_module_set_screen(MENU_ZIGBEE_SNIFFER);
           menu_screens_exit_submenu();
+          esp_restart();
           break;
         case BUTTON_RIGHT:
         case BUTTON_UP:

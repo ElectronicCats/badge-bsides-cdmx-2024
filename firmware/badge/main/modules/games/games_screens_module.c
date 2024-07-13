@@ -333,9 +333,6 @@ void games_screen_module_show_game_over_arm(bool winner) {
     oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
   }
   free(str);
-
-  vTaskDelay(5000 / portTICK_PERIOD_MS);
-  esp_restart();
 }
 
 void games_screens_module_show_game_over(bool winner, bool team) {
@@ -358,9 +355,6 @@ void games_screens_module_show_game_over(bool winner, bool team) {
 
   printf("Team %d won\n", winner + 1);
   free(str);
-
-  vTaskDelay(5000 / portTICK_PERIOD_MS);
-  esp_restart();
 }
 
 void games_screen_module_show_game_over_speed(int winner) {
@@ -370,9 +364,6 @@ void games_screen_module_show_game_over_speed(int winner) {
   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
   oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   free(str);
-
-  vTaskDelay(5000 / portTICK_PERIOD_MS);
-  esp_restart();
 }
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
