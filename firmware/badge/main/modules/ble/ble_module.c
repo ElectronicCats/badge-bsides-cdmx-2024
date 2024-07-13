@@ -3,6 +3,7 @@
 #include "bt_spam.h"
 #include "ctf_ble.h"
 #include "esp_log.h"
+#include "esp_mac.h"
 #include "menu_screens_modules.h"
 #include "modules/ble/ble_screens_module.h"
 #include "neopixels_events.h"
@@ -100,6 +101,8 @@ static void ble_module_app_selector() {
       set_ble_color();
       ctf_ble_module_begin();
       ctf_ble_show_intro();
+      vTaskDelay(2000 / portTICK_PERIOD_MS);
+      ble_module_display_ctf_score();
       break;
     default:
       break;
@@ -175,19 +178,11 @@ static void ble_module_state_machine(button_event_t button_pressed) {
           break;
         case BUTTON_RIGHT:
         case BUTTON_UP:
-          if (ctf_ble_page == 0) {
-            ctf_ble_page = 1;
-          } else {
-            ctf_ble_page = 0;
-          }
+          ctf_ble_page = (ctf_ble_page == 0) ? 2 : ctf_ble_page - 1;
           ble_module_display_ctf_score();
           break;
         case BUTTON_DOWN:
-          if (ctf_ble_page == 0) {
-            ctf_ble_page = 1;
-          } else {
-            ctf_ble_page = 0;
-          }
+          ctf_ble_page = (ctf_ble_page == 2) ? 0 : ctf_ble_page + 1;
           ble_module_display_ctf_score();
           break;
         case BUTTON_BOOT:
@@ -202,11 +197,22 @@ static void ble_module_state_machine(button_event_t button_pressed) {
 
 static void ble_module_display_ctf_score() {
   oled_screen_clear();
+  uint8_t device_eui64[8] = {0};
+  esp_read_mac(device_eui64, ESP_MAC_BT);
   char score_text[20];
   snprintf(score_text, 20, "BLECTF SCORE: %d", ctf_ble_score);
   oled_screen_display_text_center(score_text, 0, OLED_DISPLAY_INVERT);
 
   if (ctf_ble_page == 0) {
+    oled_screen_display_text_center(" MAC: ", 1, OLED_DISPLAY_NORMAL);
+    char mac_address[30];
+    sprintf(mac_address, "%02X:%02X:%02X", device_eui64[0], device_eui64[1],
+            device_eui64[2]);
+    oled_screen_display_text_center(mac_address, 2, OLED_DISPLAY_NORMAL);
+    sprintf(mac_address, "%02X:%02X:%02X", device_eui64[3], device_eui64[4],
+            device_eui64[5]);
+    oled_screen_display_text_center(mac_address, 3, OLED_DISPLAY_NORMAL);
+  } else if (ctf_ble_page == 1) {
     oled_screen_display_text_center("Showing: 0-10", 1, OLED_DISPLAY_NORMAL);
     char first_flags[20];
     char second_flags[20];
