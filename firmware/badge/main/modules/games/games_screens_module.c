@@ -26,27 +26,25 @@ bool show_game_text(uint8_t players_count) {
   bool waiting = false;
   static uint8_t frame = 0;
   frame = ++frame > 3 ? 0 : frame;
-  oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   switch (players_count) {
     case 2:
-      oled_screen_display_text("RAUL GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("VENCIDAS        ", 0, 3, OLED_DISPLAY_NORMAL);
       break;
     case 3:
-      oled_screen_display_text("Waiting 3/4", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  3/4     ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     case 4:
-      oled_screen_display_text("ROPE GAME", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("CUERDA          ", 0, 3, OLED_DISPLAY_NORMAL);
       break;
     case 5:
-      oled_screen_display_text("Waiting 5/5", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("PERAS           ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
     default:
-      oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 32, 8, 64,
+      oled_screen_display_bitmap(badge_connection_bmp_arr[frame / 2], 0, 8, 128,
                                  16, OLED_DISPLAY_NORMAL);
-      oled_screen_display_text("Waiting 1/2", 4, 3, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("Badges  1/2     ", 0, 3, OLED_DISPLAY_NORMAL);
       show_scanning_dots(95, 3, 3);
       return true;
       break;
@@ -55,15 +53,16 @@ bool show_game_text(uint8_t players_count) {
 }
 void show_client_state() {
   char* str = (char*) malloc(20);
-  sprintf(str, " Client Mode ");
+  sprintf(str, " Modo Cliente ");
   oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-  sprintf(str, " YOU ARE-->P%d", my_client_id + 1);
+  sprintf(str, "Tu eres-->P%d", my_client_id + 1);
   oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
-  oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
-  oled_screen_display_bitmap(figther_face_bmp, 104, 16, 16, 8,
+  oled_screen_display_text(str, 0, 1, OLED_DISPLAY_NORMAL);
+  oled_screen_display_bitmap(figther_face_bmp, 104, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
+  sprintf(str, "JUEGO:          ");
+  oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
   free(str);
   show_game_text(get_clients_count());
 }
@@ -76,20 +75,23 @@ void show_available_game() {
 }
 
 void show_clients() {
-  if (!get_clients_count()) {
+  if (get_clients_count() < 2) {
     return;
   }
-  oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   char* str = (char*) malloc(20);
   for (uint8_t i = 1; i < MAX_PLAYERS_NUM; i++) {
     if (players[i].online) {
-      sprintf(str, "%d", i + 1);
-      oled_screen_display_text(str, (i - 1) * 32 + 8, 1, OLED_DISPLAY_NORMAL);
+      sprintf(str, " %d", i + 1);
+      oled_screen_display_text(str, (i - 1) * 32, 1, OLED_DISPLAY_NORMAL);
       oled_screen_display_bitmap(figther_face_bmp, (i - 1) * 32 + 16, 8, 16, 8,
                                  OLED_DISPLAY_NORMAL);
+    } else {
+      sprintf(str, "    ");
+      oled_screen_display_text(str, (i - 1) * 32, 1, OLED_DISPLAY_NORMAL);
     }
   }
+  sprintf(str, "JUEGO:          ");
+  oled_screen_display_text(str, 0, 2, OLED_DISPLAY_NORMAL);
   free(str);
 }
 
@@ -111,8 +113,7 @@ void games_screens_module_show_lobby_state(uint8_t state) {
       show_client_state();
       break;
     case SHOW_CLIENTS:
-      oled_screen_clear_line(0, 0, OLED_DISPLAY_NORMAL);
-      oled_screen_display_text_center("Connect Badges", 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text(" Conecta Badges ", 0, 0, OLED_DISPLAY_INVERT);
       show_clients();
       show_available_game();
       break;
@@ -139,7 +140,6 @@ void update_bar(int16_t value, uint8_t bar_height, bool x_mirror) {
 }
 
 void rope_game_show_rope() {
-  oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   uint8_t rope_idx = (abs(game_instance.rope_bar) / 80) % 4;
   oled_screen_display_bitmap(rope_bmp_arr[rope_idx], 0, 17, 128, 5,
                              OLED_DISPLAY_NORMAL);
@@ -152,42 +152,39 @@ void speed_game_show_bag() {
   // oled_screen_clear_line(0, 2, OLED_DISPLAY_NORMAL);
   // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
   // update_bar(speed_bag_game_instance.bag_bar, BAR_HEIGHT, false);
-  if (speed_bag_game_instance.players_data[0].strenght == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
-                               OLED_DISPLAY_NORMAL);
-  } else if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+  if (speed_bag_game_instance.players_data[0].strenght % 2 == 0) {
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 0, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 0, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[1].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 24, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 24, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 24, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 24, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[2].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 48, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 48, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 48, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 48, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[3].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 72, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 72, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 72, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 72, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   if (speed_bag_game_instance.players_data[4].strenght % 2 == 0) {
-    oled_screen_display_bitmap(speed_bag_frame_2, 96, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_2, 96, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   } else {
-    oled_screen_display_bitmap(speed_bag_frame_1, 96, 16, 8, 8,
+    oled_screen_display_bitmap(speed_bag_frame_1, 96, 12, 8, 8,
                                OLED_DISPLAY_NORMAL);
   }
   // oled_screen_display_bitmap(speed_bag_frame_0, 0, 16, 8, 8,
@@ -229,8 +226,8 @@ void arm_wrestling_show_game_data() {
 
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
-  // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
 
+  // PLAYER 3
   oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("3", 120, 1, OLED_DISPLAY_NORMAL);
@@ -240,7 +237,8 @@ void rope_game_show_game_data() {
       str, rope_player_id == 2 ? 56 : 80, 1,
       rope_player_id == 2 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
+  // PLAYER 1
+  oled_screen_display_bitmap(figther_face_bmp, 7, 8, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
   sprintf(str, "%03d%s", game_instance.players_data[0].strenght,
@@ -249,9 +247,8 @@ void rope_game_show_game_data() {
       str, 25, 1,
       rope_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  // oled_screen_clear_line(0, 3, OLED_DISPLAY_NORMAL);
-
-  oled_screen_display_bitmap(figther_face_bmp, 8, 24, 16, 8,
+  // PLAYER 4
+  oled_screen_display_bitmap(figther_face_bmp, 7, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
   oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
                              OLED_DISPLAY_NORMAL);
@@ -262,6 +259,7 @@ void rope_game_show_game_data() {
       str, rope_player_id == 3 ? 56 : 80, 3,
       rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
+  // PLAYER 2
   oled_screen_display_text("2", 0, 3, OLED_DISPLAY_NORMAL);
   sprintf(str, "%03d%s", game_instance.players_data[1].strenght,
           rope_player_id == 1 ? "<--" : "");
@@ -269,13 +267,6 @@ void rope_game_show_game_data() {
       str, 25, 3,
       rope_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
 
-  oled_screen_display_bitmap(figther_face_bmp, 105, 24, 16, 8,
-                             OLED_DISPLAY_NORMAL);
-  oled_screen_display_text("4", 120, 3, OLED_DISPLAY_NORMAL);
-  sprintf(str, "%d", game_instance.players_data[3].strenght);
-  oled_screen_display_text(
-      str, 80, 3,
-      rope_player_id == 3 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
   free(str);
 }
 void speed_bag_game_show_game_data() {
@@ -330,72 +321,74 @@ void games_screen_module_show_game_over_arm(bool winner) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
   if (winner == arm_wrestling_player_id) {
-    sprintf(str, "   YOU WIN    ");
+    sprintf(str, "  GANASTE!!!  ");
     oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
     oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   } else {
-    sprintf(str, "   YOU LOSE   ");
+    sprintf(str, ":( Perdiste ):");
     oled_screen_display_text_center(str, 0, OLED_DISPLAY_NORMAL);
-    sprintf(str, "   Try to be   ");
+    sprintf(str, "Intenta ser");
     oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
-    sprintf(str, "    FASTER    ");
+    sprintf(str, "mas rapido");
     oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
   }
   free(str);
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
-void games_screens_module_show_game_over(bool winner) {
+void games_screens_module_show_game_over(bool winner, bool team) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
-  sprintf(str, "  TEAM %d WIN   ", winner + 1);
-  oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
-  if (winner && rope_player_id >= 2) {
-    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
-  } else if (!winner && rope_player_id <= 1) {
+  if (winner == team) {
+    sprintf(str, "  GANASTE!!!  ");
+    oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
     oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   } else {
-    sprintf(str, "   YOU LOSE   ");
+    sprintf(str, ":( Perdiste ):");
+    oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
+    sprintf(str, "Intenta ser");
     oled_screen_display_text_center(str, 1, OLED_DISPLAY_NORMAL);
-    sprintf(str, "Try to be fast");
+    sprintf(str, "mas rapido");
     oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
-    sprintf(str, "& coordinated");
+    sprintf(str, "y coordinado");
     oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
   }
 
-  // printf("Team %d won\n", winner + 1);
+  printf("Team %d won\n", winner + 1);
   free(str);
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
 void games_screen_module_show_game_over_speed(int winner) {
   oled_screen_clear();
   char* str = (char*) malloc(32);
-  sprintf(str, "Player %d won\n", winner + 1);
+  sprintf(str, "Ganador: %d \n", winner + 1);
   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-  printf("Player %d won\n", winner + 1);
-  oled_screen_display_bitmap(game_belt, 0, 8, 128, 32, OLED_DISPLAY_NORMAL);
+  oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
   free(str);
-  // if (speed_bag_player_id != winner) {
-  //   oled_screen_display_text_center("You lost", 2, OLED_DISPLAY_INVERT);
-  // } else {
-  //   char* str = (char*) malloc(32);
-  //   sprintf(str, "Player %d won\n", winner + 1);
-  //   oled_screen_display_text_center(str, 0, OLED_DISPLAY_INVERT);
-  //   printf("Player %d won\n", winner + 1);
-  //   oled_screen_display_bitmap(game_belt, 0, 8, 128, 32,
-  //   OLED_DISPLAY_NORMAL); free(str);
-  // }
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
 void games_screens_module_show_rope_game_event(rope_game_events_t event) {
+  if (!oled_screen_mutex_take(false)) {
+    return;
+  }
   switch (event) {
     case UPDATE_GAME_EVENT:
-      oled_screen_display_text("Team1      Team2", 0, 0, OLED_DISPLAY_NORMAL);
+      oled_screen_display_text("EQUIPO1  EQUIPO2", 0, 0, OLED_DISPLAY_NORMAL);
       rope_game_show_rope();
       rope_game_show_game_data();
       break;
     default:
       break;
   }
+  oled_screen_mutex_give();
 }
 
 void games_screens_module_show_arm_wrestling_game_event(
@@ -420,7 +413,7 @@ void games_screens_module_show_speed_bag_game_event(
   switch (event) {
     case UPDATE_GAME_EVENT:
       speed_game_show_bag();
-      // speed_bag_game_show_game_data();
+      speed_bag_game_show_game_data();
       break;
     default:
       break;

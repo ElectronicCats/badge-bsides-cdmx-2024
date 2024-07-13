@@ -1,6 +1,5 @@
 #pragma once
 
-#include "buzzer.h"
 #include "cmd_sniffer.h"
 #include "keyboard_module.h"
 #include "screens_modules.h"
@@ -134,6 +133,5 @@ void display_thread_broadcast();
 void display_gps_init();
 void display_gps_deinit();
 
-void screen_module_set_main_menu();
 void screen_module_set_screen(int screen_layer);
 void show_logo();

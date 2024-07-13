@@ -23,6 +23,7 @@ typedef enum {
 
 typedef struct {
   uint8_t strenght;
+  int winner_id;
 } speed_bag_player_data_t;
 
 typedef struct {
@@ -46,6 +47,7 @@ typedef struct {
 
 typedef struct {
   uint8_t cmd;
+  int winner_id;
 } speed_bag_game_over_cmd_t;
 
 speed_bag_player_data_t* speed_bag_main_player;

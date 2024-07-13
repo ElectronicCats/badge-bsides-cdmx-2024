@@ -2,13 +2,12 @@
 #include "ajo_module.h"
 #include "cat_console.h"
 #include "catdos_module.h"
-#include "ctf_ble.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_timer.h"
 #include "keyboard_module.h"
-#include "leds.h"
 #include "menu_screens_modules.h"
+#include "neopixels_module.h"
 #include "open_thread.h"
 #include "preferences.h"
 
@@ -23,12 +22,14 @@ void reboot_counter() {
 
 void app_main(void) {
   // ESP_ERROR_CHECK(esp_event_loop_create_default());
+  neopixels_module_begin();
 
-  leds_init();
+  neopixels_set_pixels(4, 30, 0, 30);
+  neopixels_refresh();
+
   preferences_begin();
   menu_screens_begin();
   keyboard_module_begin();
-  // menu_screens_display_menu();
   reboot_counter();
 
   ajo_module_init();
@@ -36,15 +37,7 @@ void app_main(void) {
 
   bool is_ajo = ajo_module_get_state();
   ESP_LOGI(TAG, "AJO Module State: %d", is_ajo);
-  int last_layer = preferences_get_int("MENUNUMBER", 99);
-  if (last_layer == 99) {
-    show_logo();
-  } else {
-    screen_module_set_screen(last_layer);
-    menu_screens_display_menu();
-    preferences_put_int("MENUNUMBER", 99);
-  }
-  leds_off();
 
-  // ctf_ble_module_begin();
+  neopixels_set_pixels(4, 0, 0, 0);
+  neopixels_refresh();
 }

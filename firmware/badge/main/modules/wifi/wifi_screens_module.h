@@ -107,3 +107,6 @@ void wifi_screens_sniffer_animation_start();
  * @return void
  */
 void wifi_screens_sniffer_animation_stop();
+
+void wifi_screens_module_ajo_scanning();
+void wifi_screens_module_animate_attacking_ajo(wifi_ap_record_t* ap_record);

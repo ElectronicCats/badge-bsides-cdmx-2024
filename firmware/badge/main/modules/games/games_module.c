@@ -4,7 +4,6 @@
 #include "esp_log.h"
 #include "espnow.h"
 #include "games_screens_module.h"
-#include "led_events.h"
 #include "lobby_manager.h"
 #include "menu_screens_modules.h"
 #include "oled_screen.h"
@@ -39,6 +38,7 @@ void open_game(uint8_t game_id) {
       rope_game_init();
       break;
     case KEVIN_GAME:
+      oled_screen_clear(OLED_DISPLAY_NORMAL);
       speed_bag_game_init();
       break;
     default:
@@ -57,7 +57,7 @@ void send_start_game_cmd() {
     case 4:
       game_id = ROPE_GAME;
       break;
-    case 3:
+    case 5:
       game_id = KEVIN_GAME;
       break;
     default:
@@ -112,9 +112,11 @@ void games_module_state_machine(button_event_t button_pressed) {
       switch (button_event) {
         case BUTTON_PRESS_DOWN:
           printf("GAMES DEINIT\n");
-          lobby_manager_deinit();
-          menu_screens_set_app_state(false, NULL);
-          menu_screens_exit_submenu();
+          screen_module_set_screen(MENU_GAMES_PLAY);
+          esp_restart();
+          // lobby_manager_deinit();
+          // menu_screens_set_app_state(false, NULL);
+          // menu_screens_exit_submenu();
           break;
       }
       break;

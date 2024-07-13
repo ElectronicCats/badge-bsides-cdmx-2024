@@ -31,14 +31,34 @@ static const char* wifi_cipher_types[] = {
 
 void wifi_screens_module_scanning(void) {
   oled_screen_clear();
-  oled_screen_display_text_center("    SCANNING", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("SCANNING", 0, OLED_DISPLAY_NORMAL);
+  char barra[13] = "-----------";
   while (true) {
-    for (int i = 0; i < wifi_module_allArray_LEN; i++) {
-      oled_screen_display_bitmap(wifi_module_allArray[i], 0, 0, 32, 32,
-                                 OLED_DISPLAY_NORMAL);
+    for (int i = 0; i < 8; i++) {
+      char points[10];
+      strncpy(points, barra, i + 1);
+      points[i + 1] = '>';
+      points[i + 2] = '\0';
+      oled_screen_display_text_center(points, 3, OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
+    oled_screen_clear_line(64, 3, OLED_DISPLAY_NORMAL);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
+}
+
+void wifi_screens_module_ajo_scanning() {
+  oled_screen_display_text_center(" Scanning ", 0, OLED_DISPLAY_INVERT);
+}
+
+void wifi_screens_module_animate_attacking_ajo(wifi_ap_record_t* ap_record) {
+  oled_screen_clear();
+  char* ssid = (char*) malloc(33);
+  memset(ssid, 0, 33);
+  sprintf(ssid, "%s", (char*) ap_record->ssid);
+
+  oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
+  free(ssid);
 }
 
 void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
@@ -48,14 +68,19 @@ void wifi_screens_module_animate_attacking(wifi_ap_record_t* ap_record) {
   sprintf(ssid, "%s", (char*) ap_record->ssid);
 
   oled_screen_display_text_center("TARGETING", 0, OLED_DISPLAY_INVERT);
-
+  oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_NORMAL);
+  char barra[13] = "-----------";
   while (true) {
-    for (int i = 0; i < 2; i++) {
-      oled_screen_display_bitmap(wifi_attack_module_allArray[i], 0, 0, 32, 32,
-                                 OLED_DISPLAY_NORMAL);
-      oled_screen_display_text_center(ssid, 1, OLED_DISPLAY_NORMAL);
+    for (int i = 0; i < 8; i++) {
+      char points[10];
+      strncpy(points, barra, i + 1);
+      points[i + 1] = '>';
+      points[i + 2] = '\0';
+      oled_screen_display_text_center(points, 3, OLED_DISPLAY_NORMAL);
       vTaskDelay(100 / portTICK_PERIOD_MS);
     }
+    oled_screen_clear_line(64, 3, OLED_DISPLAY_NORMAL);
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
   }
   free(ssid);
 }
@@ -64,7 +89,7 @@ void wifi_screens_module_display_scanned_networks(wifi_ap_record_t* ap_records,
                                                   int scanned_records,
                                                   int current_option) {
   oled_screen_clear();
-  oled_screen_display_text_center("Select network", 0, OLED_DISPLAY_NORMAL);
+  oled_screen_display_text_center("Select Network", 0, OLED_DISPLAY_NORMAL);
 
   for (int i = current_option; i < (max_records_to_display + current_option);
        i++) {
@@ -92,8 +117,8 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
   char* current_page = (char*) malloc(33);
   memset(ssid, 0, 33);
   sprintf(ssid, "%s", (char*) ap_record->ssid);
-  int curr_page = (page == 5) ? 1 : page + 1;
-  sprintf(current_page, "Page: %d of %d", curr_page, 5);
+  int curr_page = page + 1;
+  sprintf(current_page, "%d of %d", curr_page, 5);
   oled_screen_display_text_center(ssid, 0, OLED_DISPLAY_INVERT);
   oled_screen_display_text_center(current_page, 3, OLED_DISPLAY_NORMAL);
 
@@ -113,13 +138,13 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
     oled_screen_display_text_center("BSSID", 1, OLED_DISPLAY_NORMAL);
     oled_screen_display_text_center(bssid, 2, OLED_DISPLAY_NORMAL);
     free(bssid);
-  } else if (page == 3) {
+  } else if (page == 2) {
     char* auth_mode = (char*) malloc(20);
     sprintf(auth_mode, "%s", wifi_auth_modes[ap_record->authmode]);
     oled_screen_display_text_center("AUTH MODE", 1, OLED_DISPLAY_NORMAL);
     oled_screen_display_text_center(auth_mode, 2, OLED_DISPLAY_NORMAL);
     free(auth_mode);
-  } else if (page == 4) {
+  } else if (page == 3) {
     char* pairwise_cipher = (char*) malloc(20);
 
     sprintf(pairwise_cipher, "%s",
@@ -135,6 +160,7 @@ void wifi_screens_module_display_details_network(wifi_ap_record_t* ap_record,
     oled_screen_display_text_center(group_cipher, 2, OLED_DISPLAY_NORMAL);
     free(group_cipher);
   }
+  free(current_page);
   free(ssid);
 }
 

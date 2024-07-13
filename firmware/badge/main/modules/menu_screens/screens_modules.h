@@ -33,7 +33,6 @@
 typedef enum {
   MENU_MAIN = 0,
   MENU_APPLICATIONS,
-  MENU_SETTINGS,
   MENU_ABOUT,
   /* Applications */
   MENU_WIFI_APPS,
@@ -58,6 +57,7 @@ typedef enum {
   /* Bluetooth applications */
   MENU_BLUETOOTH_TRAKERS_SCAN,
   MENU_BLUETOOTH_SPAM,
+  MENU_BLUETOOTH_CTF,
   /* Zigbee applications */
   MENU_ZIGBEE_SPOOFING,
   MENU_ZIGBEE_SWITCH,
@@ -65,6 +65,14 @@ typedef enum {
   MENU_ZIGBEE_SNIFFER,
   /* Thread applications */
   MENU_THREAD_BROADCAST,
+  /* Games module */
+  MENU_GAMES_PLAY,
+  MENU_GAMES_HELP,
+  /* Games HELP */
+  MENU_GAMES_MAIN_HELP,
+  MENU_RAUL_GAME_HELP,
+  MENU_ROPE_GAME_HELP,
+  MENU_KEVIN_GAME_HELP,
   /* Badge finder */
   MENU_BADGE_FINDER_SCAN,
   MENU_BADGE_FINDER_HELP,
@@ -73,10 +81,6 @@ typedef enum {
   MENU_ABOUT_LICENSE,
   MENU_ABOUT_CREDITS,
   MENU_ABOUT_LEGAL,
-  /* Settings items */
-  MENU_SETTINGS_DISPLAY,
-  MENU_SETTINGS_SOUND,
-  MENU_SETTINGS_SYSTEM,
   /* About submenus */
   /* Menu count */
   MENU_COUNT,
@@ -93,7 +97,6 @@ typedef enum {
 const char* menu_list[] = {
     "MENU_MAIN",
     "MENU_APPLICATIONS",
-    "MENU_SETTINGS",
     "MENU_ABOUT",
     /* Applications */
     "MENU_WIFI_APPS",
@@ -118,6 +121,7 @@ const char* menu_list[] = {
     /* Bluetooth applications */
     "MENU_BLUETOOTH_TRAKERS_SCAN",
     "MENU_BLUETOOTH_SPAM",
+    "MENU_BLUETOOTH_CTF",
     /* Zigbee applications */
     "MENU_ZIGBEE_SPOOFING",
     "MENU_ZIGBEE_SWITCH",
@@ -125,6 +129,14 @@ const char* menu_list[] = {
     "MENU_ZIGBEE_SNIFFER",
     /* Thread applications */
     "MENU_THREAD_BROADCAST",
+    /* Games module */
+    "MENU_GAMES_PLAY",
+    "MENU_GAMES_HELP",
+    /* Games HELP */
+    "MENU_GAMES_MAIN_HELP",
+    "MENU_RAUL_GAME_HELP",
+    "MENU_ROPE_GAME_HELP",
+    "MENU_KEVIN_GAME_HELP",
     /* Badge finder */
     "MENU_BADGE_FINDER_SCAN",
     "MENU_BADGE_FINDER_HELP",
@@ -133,10 +145,6 @@ const char* menu_list[] = {
     "MENU_ABOUT_LICENSE",
     "MENU_ABOUT_CREDITS",
     "MENU_ABOUT_LEGAL",
-    /* Settings items */
-    "MENU_SETTINGS_DISPLAY",
-    "MENU_SETTINGS_SOUND",
-    "MENU_SETTINGS_SYSTEM",
 };
 
 /**
@@ -149,25 +157,23 @@ const char* menu_list[] = {
  */
 const int next_menu_table[][8] = {
     // MENU_MAIN
-    {MENU_APPLICATIONS, MENU_SETTINGS, MENU_ABOUT},
+    {MENU_APPLICATIONS, MENU_ABOUT},
     // MENU_APPLICATIONS
     {MENU_WIFI_APPS, MENU_BLUETOOTH_APPS, MENU_ZIGBEE_APPS, MENU_THREAD_APPS,
      MENU_GAMES, MENU_BADGE_FINDER},
-    // MENU_SETTINGS
-    {MENU_SETTINGS_DISPLAY, MENU_SETTINGS_SOUND, MENU_SETTINGS_SYSTEM},
     // MENU_ABOUT
     {MENU_ABOUT_VERSION, MENU_ABOUT_LICENSE, MENU_ABOUT_CREDITS,
      MENU_ABOUT_LEGAL},
     // MENU_WIFI_APPS
     {MENU_WIFI_ANALIZER, MENU_WIFI_DEAUTH, MENU_WIFI_DOS},
     // MENU_BLUETOOTH_APPS
-    {MENU_BLUETOOTH_TRAKERS_SCAN, MENU_BLUETOOTH_SPAM},
+    {MENU_BLUETOOTH_TRAKERS_SCAN, MENU_BLUETOOTH_SPAM, MENU_BLUETOOTH_CTF},
     // MENU_ZIGBEE_APPS
     {MENU_ZIGBEE_SPOOFING, MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_APPS
     {MENU_THREAD_BROADCAST},
     // MENU_GAMES
-    {MENU_GAMES},
+    {MENU_GAMES_PLAY, MENU_GAMES_HELP},
     // MENU_BADGE_FINDER
     {MENU_BADGE_FINDER_SCAN, MENU_BADGE_FINDER_HELP},
     // MENU_WIFI_ANALIZER
@@ -192,6 +198,8 @@ const int next_menu_table[][8] = {
     {MENU_BLUETOOTH_TRAKERS_SCAN},
     // MENU_BLUETOOTH_SPAM
     {MENU_BLUETOOTH_SPAM},
+    // MENU_BLUETOOTH_CTF
+    {MENU_BLUETOOTH_CTF},
     // MENU_ZIGBEE_SPOOFING
     {MENU_ZIGBEE_SWITCH, MENU_ZIGBEE_LIGHT},
     // MENU_ZIGBEE_SWITCH
@@ -202,6 +210,19 @@ const int next_menu_table[][8] = {
     {MENU_ZIGBEE_SNIFFER},
     // MENU_THREAD_BROADCAST
     {MENU_THREAD_BROADCAST},
+    // MENU_GAMES_PLAY
+    {MENU_GAMES_PLAY},
+    // MENU_GAMES_HELP
+    {MENU_GAMES_MAIN_HELP, MENU_RAUL_GAME_HELP, MENU_ROPE_GAME_HELP,
+     MENU_KEVIN_GAME_HELP},
+    // MENU_GAMES_MAIN_HELP
+    {MENU_GAMES_MAIN_HELP},
+    // MENU_RAUL_GAME_HELP
+    {MENU_RAUL_GAME_HELP},
+    // MENU_ROPE_GAME_HELP
+    {MENU_ROPE_GAME_HELP},
+    // MENU_KEVIN_GAME_HELP
+    {MENU_KEVIN_GAME_HELP},
     // MENU_BADGE_FINDER_SCAN
     {MENU_BADGE_FINDER_SCAN},
     // MENU_BADGE_FINDER_HELP
@@ -214,12 +235,6 @@ const int next_menu_table[][8] = {
     {MENU_ABOUT_CREDITS},
     // MENU_ABOUT_LEGAL
     {MENU_ABOUT_LEGAL},
-    // MENU_SETTINGS_DISPLAY
-    {MENU_SETTINGS_DISPLAY},
-    // MENU_SETTINGS_SOUND
-    {MENU_SETTINGS_SOUND},
-    // MENU_SETTINGS_SYSTEM
-    {MENU_SETTINGS_SYSTEM},
 };
 
 /**
@@ -234,7 +249,6 @@ const int next_menu_table[][8] = {
 const int prev_menu_table[] = {
     MENU_MAIN,                       // MENU_MAIN
     MENU_MAIN,                       // MENU_APPLICATIONS
-    MENU_MAIN,                       // MENU_SETTINGS
     MENU_MAIN,                       // MENU_ABOUT
     MENU_APPLICATIONS,               // MENU_WIFI_APPS
     MENU_APPLICATIONS,               // MENU_BLUETOOTH_APPS
@@ -253,20 +267,24 @@ const int prev_menu_table[] = {
     MENU_WIFI_ANALIZER_SETTINGS,     // MENU_WIFI_ANALIZER_DESTINATION
     MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_TRAKERS_SCAN
     MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_SPAM
+    MENU_BLUETOOTH_APPS,             // MENU_BLUETOOTH_CTF
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SPOOFING
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_SWITCH
     MENU_ZIGBEE_SPOOFING,            // MENU_ZIGBEE_LIGHT
     MENU_ZIGBEE_APPS,                // MENU_ZIGBEE_SNIFFER
     MENU_THREAD_APPS,                // MENU_THREAD_BROADCAST
+    MENU_GAMES,                      // MENU_GAMES_PLAY
+    MENU_GAMES,                      // MENU_GAMES_HELP
+    MENU_GAMES_HELP,                 // MENU_GAMES_MAIN_HELP
+    MENU_GAMES_HELP,                 // MENU_RAUL_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_ROPE_GAME_HELP
+    MENU_GAMES_HELP,                 // MENU_KEVIN_GAMES_HELP
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_SCAN
     MENU_BADGE_FINDER,               // MENU_BADGE_FINDER_HELP
     MENU_ABOUT,                      // MENU_ABOUT_VERSION
     MENU_ABOUT,                      // MENU_ABOUT_LICENSE
     MENU_ABOUT,                      // MENU_ABOUT_CREDITS
     MENU_ABOUT,                      // MENU_ABOUT_LEGAL
-    MENU_SETTINGS,                   // MENU_SETTINGS_DISPLAY
-    MENU_SETTINGS,                   // MENU_SETTINGS_SOUND
-    MENU_SETTINGS,                   // MENU_SETTINGS_SYSTEM
 };
 
 /**
@@ -280,20 +298,12 @@ int selected_item_history[MENU_COUNT] = {0};
 
 char* main_items[] = {
     "Applications",
-    "Settings",
     "About",
     NULL,
 };
 
 char* applications_items[] = {
-    "WiFi", "Bluetooth", "Zigbee", "Thread", "Games", "Badge finder", NULL,
-};
-
-char* settings_items[] = {
-    "Display",
-    "Sound",
-    "System",
-    NULL,
+    "WiFi", "Bluetooth", "Zigbee", "Thread", "Juegos", "Encontrar", NULL,
 };
 
 char* about_items[] = {
@@ -324,22 +334,23 @@ char* license_text[] = {
 char* credits_text[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "BSides Badge",
+    "Insignia de",
+    "BSides",
     "",
-    "Special thanks",
-    "to all the",
-    "contributors",
-    "and the",
-    "community",
+    "Agradecimientos",
+    "a todos los",
+    "colaboradores",
+    "y la comunidad",
     "",
-    "This badge is",
-    "Sponsored by",
+    "Esta insignia",
+    "es patrocinada",
+    "por",
     "- HSBC",
     "- Electronic",
     "  Cats",
     "",
     "Hardware",
-    "designed by",
+    "desarrollado por",
     "- Edgar",
     "  Capuchino",
     "- Lizeth",
@@ -349,7 +360,7 @@ char* credits_text[] = {
     "@Sabasacustico",
     "",
     "Firmware",
-    "developed by",
+    "desarrollado por",
     "- Francisco",
     "  @deimoshall",
     "- Kevin Leon",
@@ -385,13 +396,13 @@ char* legal_text[] = {
 char* wifi_items[] = {
     "Analizer",
     "Deauth",
-    "DoS",
+    NULL,
     NULL,
 };
 
 const char* wifi_analizer_items[] = {
     "Start",
-    "Settings",
+    // "Settings",
     NULL,
 };
 
@@ -441,6 +452,7 @@ char* wifi_analizer_destination_items[] = {
 char* bluetooth_items[] = {
     "Trakers scan",
     "Spam",
+    "CTF",
     NULL,
 };
 
@@ -452,7 +464,6 @@ char* zigbee_items[] = {
 
 char* zigbee_spoofing_items[] = {
     "Switch",
-    "Light",
     NULL,
 };
 
@@ -460,25 +471,139 @@ char* thread_items[] = {
     NULL,
 };
 
-char* badge_link_item[] = {
-    "Scan",
-    "Help",
+char* games_items[] = {
+    "Sala",
+    "Ayuda",
+    NULL,
+};
+char* games_help_items[] = {
+    "Sala?", "Vencidas?", "Cuerda?", "Peras?", NULL,
+};
+
+char* games_main_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "Abre el menu",
+    "SALA, luego",
+    "conecta badges",
+    "de bsides como",
+    "se indica para",
+    "poder jugar.",
+    "El juego",
+    "dependera del",
+    "numero de",
+    "badges.",
+    "",
+    "El modo host",
+    "muestra a",
+    "los jugadores",
+    "conectados",
+    "y el juego",
+    "seleccionado.",
+    "Presiona el ",
+    "boton (DERECHA)",
+    "para comenzar",
+    "el juego.",
+    "",
+    "El modo cliente",
+    "muestra el ID",
+    "de tu jugador",
+    "y el juego",
+    "seleccionado.",
+    "Solo el host",
+    "puede comenzar",
+    "la partida.",
+    "",
+    "Una vez que",
+    "comienza el",
+    "juego, ya pueden",
+    "separar los",
+    "badges y jugar.",
     NULL,
 };
 
+char* raul_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* HOW TO PLAY *",
+    "--RAUL GAME---",
+    "(Need 2 badges)",
+    "...............",
+    "...............",
+    "...............",
+    NULL,
+};
+
+char* rope_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "** COMO JUGAR **",
+    "---- CUERDA ----",
+    " (4 Jugadores) ",
+    "",
+    "Jugadores 1 & 2",
+    "son EQUIPO 1, de",
+    "color amarillo.",
+    "Jugadores 3 & 4 ",
+    "son EQUIPO 2, de",
+    "color azul.",
+    "",
+    "Presiona boton",
+    "(Derecha) una",
+    "vez, luego",
+    "(Arriba) una",
+    "vez.",
+    "Repite tan",
+    "rapido como",
+    "puedas para",
+    "ser mas fuerte",
+    "que tus",
+    "oponentes.",
+    "",
+    "Si presionas",
+    "doble o lento,",
+    "tu fuerza",
+    "disminuira.",
+    NULL,
+};
+
+char* kevin_game_help[] = {
+    VERTICAL_SCROLL_TEXT,
+    /***************/
+    "* Como jugar *",
+    "--Juego Peras--",
+    " (5 jugadores) ",
+    "",
+    "Presiona Derecha.",
+    "Y luego Arriba.",
+    "Repite lo mas",
+    "rapido que",
+    "puedas para",
+    "golpear mas",
+    "veces que tus "
+    "oponentes.",
+    NULL,
+};
+char* badge_link_item[] = {
+    "Escanear",
+    "Ayuda",
+    NULL,
+};
 char* badge_link_help[] = {
     VERTICAL_SCROLL_TEXT,
     /***************/
-    "Have you gone",
-    "to BSides?",
+    "Has ido a",
+    "BSides?",
     "DragonJar?",
     "Ekoparty?",
     "BugCon?",
     "...",
     "",
-    "Your badges",
-    "have secrets",
-    "to unluck...",
+    "Estamos unidos",
+    "como LATAM",
+    "Tus insignias",
+    "tienen secretos",
+    "buena suerte...",
     NULL,
 };
 
@@ -495,10 +620,15 @@ char* empty_items[] = {
  * Usage: menu_items[screen_module_menu_t]
  */
 char** menu_items[] = {
-    main_items, applications_items, settings_items, about_items,
+    main_items,
+    applications_items,
+    about_items,
     /* Applications */
-    wifi_items, bluetooth_items, zigbee_items, thread_items,
-    empty_items,      // GAMES
+    wifi_items,
+    bluetooth_items,
+    zigbee_items,
+    thread_items,
+    games_items,      // GAMES
     badge_link_item,  // Badge Finder
     /* WiFi applications */
     wifi_analizer_items,              // WiFi Analizer
@@ -513,6 +643,7 @@ char** menu_items[] = {
     /* Bluetooth applications */
     empty_items,  // Bluetooth Trakers scan
     empty_items,  // Bluetooth Spam
+    empty_items,  // Bluetooth CTF
     /* Zigbee applications */
     zigbee_spoofing_items,
     empty_items,  // Zigbee Switch
@@ -520,13 +651,20 @@ char** menu_items[] = {
     empty_items,  // Zigbee Sniffer
     /* Thread applications */
     empty_items,  // Thread CLI
+    /* Games Module */
+    empty_items,       // MENU_GAMES_PLAY
+    games_help_items,  // MENU_GAMES_HELP
+    /* Games HELP */
+    games_main_help,  // MENU_GAMES_MAIN_HELP
+    raul_game_help,   // MENU_RAUL_GAME_HELP
+    rope_game_help,   // MENU_ROPE_GAME_HELP
+    kevin_game_help,  // MENU_KEVIN_GAME_HELP
     /* Badge finder */
     empty_items,      // MENU_BADGE_FINDER_SCAN
     badge_link_help,  // MENU_BADGE_FINDER_HELP
     /* About */
-    version_text, license_text, credits_text, legal_text,
-    /* Settings items */
-    empty_items,  // Display
-    empty_items,  // Sound
-    empty_items,  // System
+    version_text,
+    license_text,
+    credits_text,
+    legal_text,
 };

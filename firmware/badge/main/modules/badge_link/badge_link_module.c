@@ -191,18 +191,17 @@ void badge_link_module_begin() {
   // Set the badge type to BSides, DragonJAR, Ekoparty, or BugCon
   // See README.md or badge_connect.h for more information
   badge_connect_set_bsides_badge();
-  // badge_connect_set_dragonjar_badge();
-  // badge_connect_set_ekoparty_badge();
-  // badge_connect_set_bugcon_badge();
   xTaskCreate(badge_link_state_machine_task, "badge_link_state_machine_task",
               4096, NULL, 4, &badge_link_state_machine_task_handle);
 }
 
 void badge_link_module_exit() {
   ESP_LOGI(TAG, "Badge link module exit");
-  vTaskDelete(badge_link_state_machine_task_handle);
-  vTaskDelete(badge_link_screens_module_scan_task_handle);
-  badge_connect_deinit();
-  menu_screens_set_app_state(false, NULL);
-  menu_screens_exit_submenu();
+  screen_module_set_screen(MENU_BADGE_FINDER_SCAN);
+  esp_restart();
+  // vTaskDelete(badge_link_state_machine_task_handle);
+  // vTaskDelete(badge_link_screens_module_scan_task_handle);
+  // badge_connect_deinit();
+  // menu_screens_set_app_state(false, NULL);
+  // menu_screens_exit_submenu();
 }

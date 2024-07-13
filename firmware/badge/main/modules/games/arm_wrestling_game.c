@@ -151,7 +151,7 @@ static void handle_game_over_cmd(badge_connect_recv_msg_t* msg) {
 static void arm_wrestling_game_over() {
   send_game_over_cmd();
   is_game_running = false;
-  winner = game_instance.arm_position > 0;
+  winner = wgame_instance.arm_position > 0;
   games_screen_module_show_game_over_arm(winner);
   if (team == winner) {
     neopixels_set_pixels(MAX_LED_NUMBER, 0, 50, 0);  // GREEN
