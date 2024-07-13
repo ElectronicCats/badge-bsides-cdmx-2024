@@ -1,4 +1,5 @@
 #include "games_module.h"
+#include "arm_wrestling_game.h"
 #include "badge_connect.h"
 #include "esp_log.h"
 #include "espnow.h"
@@ -31,7 +32,7 @@ void open_game(uint8_t game_id) {
   lobby_manager_register_custom_cmd_recv_cb(NULL);
   switch (game_id) {
     case RAUL_GAME:
-
+      arm_wrestling_init();
       break;
     case ROPE_GAME:
       rope_game_init();

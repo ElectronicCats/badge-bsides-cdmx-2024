@@ -468,6 +468,7 @@ void wifi_module_keyboard_cb(button_event_t button_pressed) {
               wifi_attack_handle_attacks(WIFI_ATTACK_COMBINE,
                                          &ap_records->records[i]);
             }
+            runing_attack = true;
             xTaskCreate(set_leds_animation_attack, "led_attack", 4096, NULL, 5,
                         &task_leds_attacks);
             bool is_ajo = ajo_module_display_animation();

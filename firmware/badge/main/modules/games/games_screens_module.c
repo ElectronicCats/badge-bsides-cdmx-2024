@@ -1,5 +1,6 @@
 #include "games_screens_module.h"
 #include <string.h>
+#include "arm_wrestling_game.h"
 #include "games_bitmaps.h"
 #include "lobby_manager.h"
 #include "oled_screen.h"
@@ -198,6 +199,31 @@ void speed_game_show_bag() {
   //                            OLED_DISPLAY_NORMAL);
 }
 
+void arm_wrestling_show_game_data() {
+  char* str = (char*) malloc(10);
+  // oled_screen_clear_line(0, 1, OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face_bmp, 105, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("2", 120, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%s%03d", arm_wrestling_player_id == 1 ? "-->" : "",
+          wgame_instance.players_data[1].strength);
+  oled_screen_display_text(
+      str, arm_wrestling_player_id == 1 ? 56 : 80, 1,
+      arm_wrestling_player_id == 1 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  oled_screen_display_bitmap(figther_face_bmp, 8, 8, 16, 8,
+                             OLED_DISPLAY_NORMAL);
+  oled_screen_display_text("1", 0, 1, OLED_DISPLAY_NORMAL);
+  sprintf(str, "%03d%s", wgame_instance.players_data[0].strength,
+          arm_wrestling_player_id == 0 ? "<--" : "");
+  oled_screen_display_text(
+      str, 25, 1,
+      arm_wrestling_player_id == 0 ? OLED_DISPLAY_INVERT : OLED_DISPLAY_NORMAL);
+
+  free(str);
+}
+
 void rope_game_show_game_data() {
   char* str = (char*) malloc(10);
 
@@ -291,6 +317,27 @@ void speed_bag_game_show_game_data() {
   free(str);
 }
 
+void games_screen_module_show_game_over_arm(bool winner) {
+  oled_screen_clear();
+  char* str = (char*) malloc(16);
+  if (winner == arm_wrestling_player_id) {
+    sprintf(str, "  GANASTE!!!  ");
+    oled_screen_display_text(str, 4, 0, OLED_DISPLAY_INVERT);
+    oled_screen_display_bitmap(winner_belt, 28, 8, 64, 24, OLED_DISPLAY_NORMAL);
+  } else {
+    sprintf(str, ":( Perdiste ):");
+    oled_screen_display_text_center(str, 0, OLED_DISPLAY_NORMAL);
+    sprintf(str, "Intenta ser");
+    oled_screen_display_text_center(str, 2, OLED_DISPLAY_NORMAL);
+    sprintf(str, "mas rapido");
+    oled_screen_display_text_center(str, 3, OLED_DISPLAY_NORMAL);
+  }
+  free(str);
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
+}
+
 void games_screens_module_show_game_over(bool winner, bool team) {
   oled_screen_clear();
   char* str = (char*) malloc(16);
@@ -311,6 +358,9 @@ void games_screens_module_show_game_over(bool winner, bool team) {
 
   printf("Team %d won\n", winner + 1);
   free(str);
+
+  vTaskDelay(5000 / portTICK_PERIOD_MS);
+  esp_restart();
 }
 
 void games_screen_module_show_game_over_speed(int winner) {
@@ -339,6 +389,23 @@ void games_screens_module_show_rope_game_event(rope_game_events_t event) {
       break;
   }
   oled_screen_mutex_give();
+}
+
+void games_screens_module_show_arm_wrestling_game_event(
+    arm_wrestling_events_t event) {
+  switch (event) {
+    case WUPDATE_GAME_EVENT:
+      oled_screen_display_text("P1        P2", 0, 0, OLED_DISPLAY_NORMAL);
+      // rope_game_show_rope();
+      bool x_mirror = wgame_instance.arm_position < 0;
+      update_bar(abs(wgame_instance.arm_position), 8, x_mirror);
+      oled_screen_display_bitmap(bar_bitmap, x_mirror ? 0 : 64, 32, 64, 8,
+                                 OLED_DISPLAY_NORMAL);
+      arm_wrestling_show_game_data();
+      break;
+    default:
+      break;
+  }
 }
 
 void games_screens_module_show_speed_bag_game_event(
