@@ -4,11 +4,13 @@
 #include "zigbee_switch.h"
 
 void zigbee_screens_module_toogle_pressed() {
+  oled_screen_clear();
   oled_screen_display_bitmap(epd_bitmap_toggle_btn_pressed, 0, 0, 32, 32,
                              OLED_DISPLAY_NORMAL);
 }
 
 void zigbee_screens_module_toggle_released() {
+  oled_screen_clear();
   oled_screen_display_bitmap(epd_bitmap_toggle_btn_released, 0, 0, 32, 32,
                              OLED_DISPLAY_NORMAL);
 }
