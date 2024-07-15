@@ -1,0 +1,31 @@
+## IDF Component Manager Manifest File
+dependencies:
+  espressif/esp-now: "^2.5.1"
+  espressif/esp-zboss-lib: "^1.2.3"
+  espressif/esp-zigbee-lib: "^1.2.3"
+  espressif/button: "^3.2.0"
+  espressif/led_strip: "^2.4.1"
+  ## Required IDF version
+  idf:
+    version: ">=4.1.0"
+  ieee802154:
+    path: ../components/ieee802154
+  openthread:
+    path: ../components/openthread
+  espressif/iperf:
+    version: "~0.1.1"
+  badge_connect:
+    git: https://github.com/ElectronicCats/badge_connect_bin
+    version: "1.0.0"
+
+  # # Put list of dependencies here
+  # # For components maintained by Espressif:
+  # component: "~1.0.0"
+  # # For 3rd party components:
+  # username/component: ">=1.0.0,<2.0.0"
+  # username2/component2:
+  #   version: "~1.0.0"
+  #   # For transient dependencies `public` flag can be set.
+  #   # `public` flag doesn't have an effect dependencies of the `main` component.
+  #   # All dependencies of `main` are public by default.
+  #   public: true
