@@ -1,4 +1,4 @@
-# Badge bsides cdmx 2024
+# Badge bsides CDMX 2024
 
 
 ## Getting started
@@ -10,13 +10,18 @@
 ## Tecnologia
 
 - ESP32C6
-- LEDs
-- USB
+- Neopixel LEDs
+- USB C
+- Display OLED
+- 2x AA Battery Holder
+- Shitty Addon Connector
 
 ## Gratitude
 Do you want to say thank you? Tag these companies on social networks and show them your badge, thanks to them it is possible
 
+- [HSBC](https://www.hsbc.com.mx/)
 - [ElectronicCats](https://electroniccats.com/)
+- [Bsides CDMX](https://bsidescdmx.org/)
 
 ## License
 
